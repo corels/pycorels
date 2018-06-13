@@ -5,7 +5,7 @@
 
 #include <numpy/arrayobject.h>
 
-#include <run.hh>
+#include "run.hh"
 
 #include <rule.h>
 

@@ -1,0 +1,3 @@
+[submodule "corels"]
+	path = corels
+	url = https://github.com/fingoldin/corels.git

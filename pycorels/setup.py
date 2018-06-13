@@ -2,8 +2,8 @@ import setuptools
 import numpy as np
 
 pycorels = setuptools.Extension('pycorels',
-                    sources = ['pycorels/pycorels.c'],
-                    libraries = ['corels', 'gmpxx', 'gmp'],
+                    sources = ['pycorels/pycorels.c', 'pycorels/run.cc', 'pycorels/params.c', '../corels/src/pmap.cc', '../corels/src/utils.cc', '../corels/src/corels.cc', '../corels/src/cache.cc', '../corels/src/rulelib.c'],
+                    libraries = ['gmpxx', 'gmp', 'profiler', 'tcmalloc'],
                     include_dirs = ['../corels/src', np.get_include()],
 		            extra_compile_args = ["-DGMP"])
 
@@ -20,7 +20,6 @@ setuptools.setup(name = 'pycorels',
        url="https://github.com/fingoldin/corels",
        packages = setuptools.find_packages(),
        ext_modules = [pycorels],
-       eager_resources = ['../src/libcorels.so'],
        classifiers=(
             "Programming Language :: C++",
             "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",

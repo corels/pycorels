@@ -1,4 +1,8 @@
-# Pycorels
+# Python binding of CORELS
+
+## Installation
+
+Simply run `python setup.py install` or `python3 setup.py install` from the pycorels directory (not this one) depending on what version of python you wish to use pycorels with.
 
 ## Usage
 
