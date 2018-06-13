@@ -1,0 +1,6 @@
+*.o
+*.pyc
+*.swp
+pycorels/build/
+pycorels/dist/
+pycorels/pycorels.egg-info/
