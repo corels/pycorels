@@ -3,7 +3,7 @@ import numpy as np
 
 pycorels = setuptools.Extension('pycorels',
                     sources = ['pycorels/pycorels.c', 'pycorels/run.cc', 'pycorels/params.c', '../corels/src/pmap.cc', '../corels/src/utils.cc', '../corels/src/corels.cc', '../corels/src/cache.cc', '../corels/src/rulelib.c'],
-                    libraries = ['gmpxx', 'gmp', 'profiler', 'tcmalloc'],
+                    libraries = ['gmpxx', 'gmp'],
                     include_dirs = ['../corels/src', np.get_include()],
 		            extra_compile_args = ["-DGMP"])
 
