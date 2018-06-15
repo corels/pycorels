@@ -6,7 +6,7 @@
 
 #include <gmp.h>
 
-#include <rule.h>
+#include "rule.h"
 
 #define BUFSZ  512
 
@@ -19,7 +19,8 @@ PyObject* fill_list(PyObject *obj, rule_t *rules, int start, int nrules, int nsa
         return NULL;
     }
 
-    for(int i = 0; i < nrules; i++)
+    int i;
+    for(i = 0; i < nrules; i++)
     {
 #ifdef GMP
         int leading_zeros = nsamples - mpz_sizeinbase(rules[i].truthtable, 2);
@@ -27,10 +28,11 @@ PyObject* fill_list(PyObject *obj, rule_t *rules, int start, int nrules, int nsa
 
         mpz_get_str(bits + leading_zeros, 2, rules[i].truthtable);
 
-        for(int j = 0; j < leading_zeros; j++)
+        int j;
+        for(j = 0; j < leading_zeros; j++)
             bits[j] = 0;
 
-        for(int j = leading_zeros; j < nsamples; j++)
+        for(j = leading_zeros; j < nsamples; j++)
             bits[j] = bits[j] - '0';
 
         int num_bits = nsamples;
@@ -39,7 +41,7 @@ PyObject* fill_list(PyObject *obj, rule_t *rules, int start, int nrules, int nsa
 
         int nentry = (nsamples + BITS_PER_ENTRY - 1) / BITS_PER_ENTRY;
         v_entry mask;
-        for(int j = 0; j < nentry; j++) {
+        for(j = 0; j < nentry; j++) {
             mask = 1;
 
             for(int k = 0; k < BITS_PER_ENTRY; k++) {
@@ -106,7 +108,8 @@ int load_list(PyObject *list, int *nrules, int *nsamples, rule_t **rules_ret, in
     char* features;
 
     int rule_idx = ntotal_rules - list_len;
-    for(Py_ssize_t i = 0; i < list_len; i++) {
+    Py_ssize_t i;
+    for(i = 0; i < list_len; i++) {
         if(!(tuple = PyList_GetItem(list, i)))
             goto error;
 
@@ -145,7 +148,8 @@ int load_list(PyObject *list, int *nrules, int *nsamples, rule_t **rules_ret, in
         char* data = PyArray_BYTES(clean);
         npy_intp b_len = PyArray_SIZE(clean);
 
-        for(npy_intp j = 0; j < b_len; j++)
+        npy_intp j;
+        for(j = 0; j < b_len; j++)
             data[j] = '0' + !!data[j];
 
         data[b_len] = '\0';
@@ -179,12 +183,13 @@ int load_list(PyObject *list, int *nrules, int *nsamples, rule_t **rules_ret, in
 
 error:
     if(rules != NULL) {
-        for (int i = 1; i < rule_idx; i++) {
-            free(rules[i].features);
+        int k;
+        for (k = 1; k < rule_idx; k++) {
+            free(rules[k].features);
 #ifdef GMP
-            mpz_clear(rules[i].truthtable);
+            mpz_clear(rules[k].truthtable);
 #else
-            free(rules[i].truthtable);
+            free(rules[k].truthtable);
 #endif
         }
         free(rules);

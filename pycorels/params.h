@@ -1,6 +1,6 @@
 #pragma once
 
-#include <rule.h>
+#include "rule.h"
 
 #define D_OPT_FNAME          "corels-opt.txt"
 #define D_LOG_FNAME          "corels.txt"

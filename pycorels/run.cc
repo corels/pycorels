@@ -2,8 +2,8 @@
 #include <iostream>
 #include <set>
 
-#include <queue.hh>
-#include "run.hh"
+#include "queue.hh"
+#include "run.h"
 
 #define BUFSZ 512
 

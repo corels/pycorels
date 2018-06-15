@@ -5,9 +5,9 @@
 
 #include <numpy/arrayobject.h>
 
-#include "run.hh"
+#include "run.h"
 
-#include <rule.h>
+#include "rule.h"
 
 #include "utils.h"
 
@@ -33,7 +33,8 @@ static PyObject *pycorels_tofile(PyObject *self, PyObject *args)
     if(!(fp = fopen(fname, "w")))
         return NULL;
 
-    for(Py_ssize_t i = 0; i < list_len; i++) {
+    Py_ssize_t i;
+    for(i = 0; i < list_len; i++) {
         if(!(tuple = PyList_GetItem(list, i)))
             goto error;
 
@@ -62,7 +63,8 @@ static PyObject *pycorels_tofile(PyObject *self, PyObject *args)
         char *data = PyArray_BYTES(clean);
         npy_intp b_len = PyArray_SIZE(clean);
 
-        for(npy_intp j = 0; j < b_len-1; j++) {
+        npy_intp j;
+        for(j = 0; j < b_len-1; j++) {
             fprintf(fp, "%d ", !!data[j]);
         }
 
