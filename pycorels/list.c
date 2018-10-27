@@ -1,12 +1,4 @@
-#pragma once
-
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
-
-#include <gmp.h>
-
-#include "rule.h"
+#include "list.h"
 
 #define BUFSZ  512
 

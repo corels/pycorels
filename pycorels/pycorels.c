@@ -9,7 +9,9 @@
 
 #include "rule.h"
 
-#include "utils.h"
+#include "list.h"
+
+#define BUFSZ  512
 
 static PyObject *pycorels_tofile(PyObject *self, PyObject *args)
 {
