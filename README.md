@@ -1,6 +1,6 @@
 # Pycorels
 
-Welcome to the python binding of the Certifiably Optimal RulE ListS (CORELS) algorithm! For information on CORELS, please visit our website: corels.eecs.harvard.edu.
+Welcome to the python binding of the Certifiably Optimal RulE ListS (CORELS) algorithm! For information on CORELS, please visit our [website](corels.eecs.harvard.edu).
 
 ## Installation
 
