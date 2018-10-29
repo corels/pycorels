@@ -1,5 +1,7 @@
 # Pycorels
 
+Welcome to the python binding of the Certifiably Optimal RulE ListS (CORELS) algorithm! For information on CORELS, please visit our website: corels.eecs.harvard.edu.
+
 ## Installation
 
 To install, simply run `python setup.py install` from this directory.
