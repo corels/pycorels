@@ -1,3 +1,4 @@
+#include "queue.hh"
 #include "evaluate.hh"
 
 #ifdef GMP

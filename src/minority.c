@@ -30,33 +30,11 @@ int main(int argc, char **argv)
   int *sample_indices = NULL;
   size_t n = 0;
   char *line = NULL, *line_clean = NULL, *minority = NULL;
-  FILE *out_fp = NULL, *label_fp = NULL, *minor_fp = NULL;
   mpz_t *rules_vec = NULL;
   mpz_t label0, label1;
 
   mpz_init(label0);
   mpz_init(label1);
-
-  out_fp = fopen(argv[1], "r");
-  if(!out_fp) {
-    printf("Could not open .out file\n");
-    ret = 1;
-    goto end;
-  }
-  
-  label_fp = fopen(argv[2], "r");
-  if(!label_fp) {
-    printf("Could not open .label file\n");
-    ret = 1;
-    goto end;
-  }
-
-  minor_fp = fopen(argv[3], "w");
-  if(!minor_fp) {
-    printf("Could not open .minor file\n");
-    ret = 1;
-    goto end;
-  }
 
   // Get the number of samples and label data
   int label0_set = 0, label1_set = 0;
