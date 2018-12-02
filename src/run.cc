@@ -33,13 +33,14 @@ double run_corels(int max_num_nodes, double c, char* vstring, int curiosity_poli
         fprintf(stderr, "verbosity 'samples' option must be combined with at least one of (rule|label)\n");
         return -1.0;
     }
+    
+    if (verbosity.count("loud")) {
+        verbosity.insert("progress");
+        verbosity.insert("log");
+    }
 
     if (verbosity.count("log")) {
         print_machine_info();
-    }
-
-    if (verbosity.count("loud")) {
-        verbosity.insert("progress");
     }
 
     if (verbosity.count("rule")) {
@@ -131,7 +132,7 @@ double run_corels(int max_num_nodes, double c, char* vstring, int curiosity_poli
 
     logger->dumpState();
     logger->closeFile();
-
+  
     delete tree;
     delete p;
     delete q;

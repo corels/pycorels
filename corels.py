@@ -19,12 +19,14 @@ class CorelsClassifier:
             self.preds = preds
             self.ids = ids
 
-        def eval(self, X):
-            if X.shape[1] != len(self.features) - 1:
+        def predict(self, X):
+            samples = np.array(np.array(X, dtype=np.bool), dtype=np.uint8, ndmin=2)
+            
+            if samples.shape[1] != len(self.features) - 1:
                 raise ValueError("Feature count mismatch between eval data (" + str(X.shape[1]) + 
                                  ") and feature names (" + str(len(self.features) - 1) + ")")
 
-            return np.empty(X.shape, dtype=np.bool)
+            return libcorels.predict_wrap(samples, self)
 
         def _getfeature(self, i):
             if i < 0:
@@ -45,7 +47,7 @@ class CorelsClassifier:
             return tot
 
     def __init__(self, c=0.01, max_nodes=10000, map_type=MAP_PREFIX, policy=POLICY_LOWER_BOUND,
-                 verbosity=["progress"], ablation=0, calculate_size=False, log="corels-log.txt", log_freq=1000):
+                 verbosity=[], ablation=0, calculate_size=False, log="corels-log.txt", log_freq=1000):
         self.c = c
         self.max_nodes = max_nodes
         self.map_type = map_type
@@ -69,7 +71,7 @@ class CorelsClassifier:
                              ") and label data (" + str(labels.shape[1]) + ")")
         
         mverbose = 0
-        if "silent" not in self.verbosity and "mine" in self.verbosity:
+        if "loud" in self.verbosity or "mine" in self.verbosity:
             mverbose = 1
 
         if not features:
@@ -97,26 +99,21 @@ class CorelsClassifier:
 
         return self.rl
 
-    def eval(self, X):
+    def predict(self, X):
         if not self.rl:
             raise ValueError("Model not trained yet")
 
-        return self.rl.eval(X)
+        return self.rl.predict(X)
+    
+    def eval(self, X, y):
+        p = self.rl.predict(X)
+        
+        labels = np.array(np.array(y, dtype=np.bool), dtype=np.uint8, ndmin=1)
 
-verbosity = ["rule"] #["progress","mine","rule","sample","label"],
-c = CorelsClassifier(verbosity=verbosity, c=0.00001)
+        if p.shape[0] != labels.shape[0]:
+            raise ValueError("Number of samples mismatch between sample data (" +
+                             p.shape[0] + ") and label data (" + labels.shape[0] + ")")
 
-nsamples = 1000
-nfeatures = 6
-x = np.random.randint(2, size=[nsamples, nfeatures], dtype=np.bool)
-y = np.random.randint(2, size=nsamples, dtype=np.bool)
+        acc = np.sum(np.invert(np.logical_xor(p, labels))) / p.shape[0]
 
-#x = np.array([ [1, 0, 1], [0, 1, 0], [1, 1, 1] ])
-#y = np.array([ 1, 0, 1])
-
-rl = c.fit(x, y, max_card=1, features=["s", "sad", "dsa", "asd", "2432", "df"])
-
-print(rl.features)
-print(rl.rules)
-print(rl.ids)
-print(rl)
+        return acc

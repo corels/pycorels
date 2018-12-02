@@ -1,0 +1,14 @@
+Metadata-Version: 1.1
+Name: corels
+Version: 1.0.3
+Summary: Python binding of the CORELS algorithm
+Home-page: https://github.com/fingoldin/pycorels
+Author: Vassilios Kaxiras
+Author-email: vassilioskaxiras@gmail.com
+License: UNKNOWN
+Description-Content-Type: text/markdown
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: C++
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent

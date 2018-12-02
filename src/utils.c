@@ -1,9 +1,120 @@
+#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
-#include "mine.h"
+#include "utils.h"
 
-#define BUFSZ  1024
+static rule_t *sample_array = NULL;
+
+int sample_comp(const void *a, const void *b) {
+  return rule_vector_cmp(sample_array[*(int*)a].truthtable, sample_array[*(int*)b].truthtable);
+}
+
+int minority(rule_t* rules, int nrules, rule_t* labels, int nsamples)
+{
+  int ret = 0, nrules_chk = 0;
+  int *sample_indices = NULL;
+  size_t n = 0;
+  char *line = NULL, *line_clean = NULL, *minority = NULL;
+
+  line_clean = malloc(nrules + 1);
+  sample_array = malloc(sizeof(rule_t) * nsamples);
+  minority = malloc(nsamples + 1);
+  sample_indices = malloc(sizeof(int) * nsamples);
+
+  // Generate the sample bitvectors
+  for(int s = 0; s < nsamples; s++) {
+    for(int i = 0; i < nrules; i++)
+      line_clean[i] = rule_isset(rules[i].truthtable, nsamples - s - 1) + '0';
+
+    line_clean[nrules] = '\0';
+
+    rule_vinit(nrules, sample_array[s].truthtable);
+    if(ascii_to_vector(line_clean, nrules, &nrules_chk, &nones, &sample_array[s].truthtable) == -1) {
+      ret = -1;
+      nsamples = s;
+      goto end;
+    }
+  }
+
+  if(nrules_chk != nrules) {
+    ret = -1;
+    goto end;
+  }
+
+  for(int i = 0; i < nsamples; i++)
+    sample_indices[i] = i;
+  
+  // Sort the samples by value (this groups those samples that are identically featured together)
+  qsort(sample_indices, nsamples, sizeof(int), sample_comp);
+
+  // Loop through the sorted samples, finding identically-featured groups
+  int begin_group = 0;
+  for(int i = 1; i < (nsamples + 1); i++) {
+    if(i == nsamples || !rule_vector_equal(sample_array[sample_indices[i]].truthtable,
+                            sample_array[sample_indices[i-1]].truthtable, nrules, nrules)) {
+      int ones = 0;
+      int zeroes = 0;
+      char c, nc;
+      // Find the number of zero-labelled and one-labelled samples in this group
+      for(int j = begin_group; j < i; j++) {
+        int idx = sample_indices[j];
+        if(rule_isset(labels[0].truthtable, nsamples - idx - 1))
+          zeroes++;
+        else
+          ones++;
+      }
+
+      // What should happen if zeroes = ones??
+      // Right now it just replicates bbcache/processing/minority.py
+      if(zeroes < ones) {
+        c = '1';
+        nc = '0';
+      }
+      else {
+        c = '0';
+        nc = '1';
+      }
+      
+      // Set all the samples in this group to either 0 or 1 in the minority file
+      for(int j = begin_group; j < i; j++) {
+        int idx = sample_indices[j];
+        if(rule_isset(labels[0].truthtable, nsamples - idx - 1)) {
+          minority[idx] = c;
+        }
+        else {
+          minority[idx] = nc;
+        }
+      }
+
+      begin_group = i;
+    }
+  }
+  
+  minority[nsamples] = '\0';
+
+  if (ascii_to_vector())
+
+end:
+  if(line_clean)
+    free(line_clean);
+
+  if(sample_array) {
+    for(int i = 0; i < nsamples; i++)
+      mpz_clear(sample_array[i]);
+
+    free(sample_array);
+    sample_array = NULL;
+  }
+
+  if(minority)
+    free(minority);
+
+  if(sample_indices)
+    free(sample_indices);
+
+  return ret;
+}
 
 // Cycles through all possible permutations of the numbers 1 through n-1 of length r
 int getnextperm(int n, int r, int *arr, int first)
@@ -57,10 +168,9 @@ int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples,
  
   for(int i = 0; i < nrules; i++) {
     if(rule_vinit(nsamples, &rules_vec[i + 1].truthtable) != 0) {
-      for(int j = i - 1; j >= 0; j--)
-          rule_vfree(&rules_vec[j + 1].truthtable);
-
-      return -1;
+      ntotal_rules = i;
+      ret = -1;
+      goto end;
     }
   }
 
@@ -68,13 +178,13 @@ int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples,
   {
     for(int j = 0; j < nsamples; j++)
     {
-      if(rule_isset(samples[j].truthtable, i)) {
-        rule_set(rules_vec[i + 1].truthtable, j, 1);
-        rule_set(rules_vec[nrules / 2 + i + 1].truthtable, j, 0);
+      if(rule_isset(samples[j].truthtable, nfeatures - i - 1)) {
+        rule_set(rules_vec[i + 1].truthtable, nsamples - j - 1, 1);
+        rule_set(rules_vec[nrules / 2 + i + 1].truthtable, nsamples - j - 1, 0);
       }
       else {
-        rule_set(rules_vec[i + 1].truthtable, j, 0);
-        rule_set(rules_vec[nrules / 2 + i + 1].truthtable, j, 1);
+        rule_set(rules_vec[i + 1].truthtable, nsamples - j - 1, 0);
+        rule_set(rules_vec[nrules / 2 + i + 1].truthtable, nsamples - j - 1, 1);
       }
     }
   }
@@ -133,7 +243,7 @@ int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples,
       ntotal_rules++;
       
       if(verbose)
-        printf("(%d) %s generated with support %f\n", i, rules_vec_mine[nrules_mine].features, (double)ones / (double)nsamples);
+        printf("(%d) %s generated with support %f\n", ntotal_rules, rules_vec_mine[nrules_mine].features, (double)ones / (double)nsamples);
     }
     else
       rule_vfree(&rules_vec[i + 1].truthtable);
@@ -176,7 +286,7 @@ int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples,
       if(valid) {
         ntotal_rules++;
 
-        if(ntotal_rules > rule_alloc) {
+        if(ntotal_rules + 1 > rule_alloc) {
           rule_alloc += rule_alloc_block;
           rules_vec = realloc(rules_vec, sizeof(rule_t) * rule_alloc);
         }
@@ -187,7 +297,7 @@ int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples,
         int name_len = 0;
         for(int i = 0; i < card; i++)
           name_len += rule_names_mine_lengths[rule_ids[i]] + 1;
-
+        
         rules_vec[ntotal_rules].features = malloc(name_len);
 
         int ch_id = 0;
@@ -210,7 +320,7 @@ int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples,
         rules_vec[ntotal_rules].support = ones;
 
         if(verbose) {
-          putchar('{');
+          printf("(%d) {", ntotal_rules);
           fputs(rules_vec_mine[rule_ids[0]].features, stdout);
           for(int i = 1; i < card; i++) {
             putchar(',');
@@ -253,7 +363,7 @@ end:
   }
 
   if(verbose)
-    printf("Generated %d rules\n", ntotal_rules);
+    printf("Generated %d rules\n", ntotal_rules - 1);
 
   if (ret == -1) {
     if(rules_vec) {

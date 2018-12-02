@@ -31,6 +31,44 @@ cdef extern from "src/mine.h":
     int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples, 
                 int max_card, double min_support, rule_t **rules_out, int verbose)
 
+def predict_wrap(np.ndarray[np.uint8_t, ndim=2] X, rl):
+    cdef int nsamples = X.shape[0]
+    cdef int nfeatures = X.shape[1]
+    
+    if nfeatures != len(rl.features) - 1:
+        raise ValueError("Feature count mismatch between prediction data (" + str(nfeatures) +
+                         ") and rulelist (" + str(len(rl.features) - 1) + ")")
+
+    cdef int nrules = len(rl.rules)
+    cdef int s, r, next_rule, nidx, a, idx, c
+    cdef np.ndarray out = np.zeros(nsamples, dtype=np.uint8)
+    cdef int default = rl.preds[nrules]
+
+    for s in range(nsamples):
+        for r in range(nrules):
+            next_rule = 0
+            nidx = len(rl.ids[rl.rules[r]])
+            for a in range(nidx):
+                idx = rl.ids[rl.rules[r]][a]
+                c = 1
+                if idx < 0:
+                    idx = -idx
+                    c = 0
+
+                idx = idx - 1
+                if X[s, idx] != c:
+                    next_rule = 1
+                    break
+
+            if next_rule == 0:
+                out[s] = rl.preds[r];
+                break
+
+        if next_rule == 1:
+            out[s] = default
+
+    return out
+
 cdef rule_t* _to_vector(np.ndarray[np.uint8_t, ndim=2] X, int* ncount):
     d0 = X.shape[0]
     d1 = X.shape[1]
@@ -74,6 +112,7 @@ cdef _free_vector(rule_t* vs, int count):
     
     free(vs)
 
+"""
 cdef _to_nparray(rule_t* X, int nrules, int nsamples):
     arr = np.empty([ nrules, nsamples ], dtype=np.uint8)
 
@@ -82,6 +121,7 @@ cdef _to_nparray(rule_t* X, int nrules, int nsamples):
             arr[i][j] = rule_isset(X[i].truthtable, j)
 
     return arr
+"""
 
 def fit_wrap(np.ndarray[np.uint8_t, ndim=2] samples, 
              np.ndarray[np.uint8_t, ndim=2] labels,
@@ -94,9 +134,10 @@ def fit_wrap(np.ndarray[np.uint8_t, ndim=2] samples,
 
     nsamples = samples.shape[0]
 
-    if nfeatures != len(features):
+    if nfeatures > len(features):
         _free_vector(samples_vecs, nsamples)
-        raise ValueError("Number of features mismatch between sample data and feature names")
+        raise ValueError("Feature count mismatch between sample data (" + str(nfeatures) + 
+                         ") and feature names (" + str(len(features)) + ")")
 
     cdef char** features_vec = <char**>malloc(nfeatures * sizeof(char*))
     if not features_vec:
@@ -143,7 +184,8 @@ def fit_wrap(np.ndarray[np.uint8_t, ndim=2] samples,
     if nsamples_chk != nsamples:
         _free_vector(labels_vecs, 2)
         _free_vector(rules, nrules)
-        raise ValueError("Sample count mismatch between label and rule data")
+        raise ValueError("Sample count mismatch between label (" + str(nsamples_chk) +
+                         ") and rule data (" + str(nsamples) + ")")
 
     labels_vecs[0].features = <char*>malloc(8)
     labels_vecs[1].features = <char*>malloc(8)
@@ -156,7 +198,7 @@ def fit_wrap(np.ndarray[np.uint8_t, ndim=2] samples,
 
     cdef double acc = run_corels(max_nodes, c, verbosity, policy, map_type, log_freq, ablation, calculate_size,
                    nrules, 2, nsamples, rules, labels_vecs, NULL, &rulelist, &rulelist_size, &classes)
-
+    
     _free_vector(labels_vecs, 2)
     _free_vector(rules, nrules)
 

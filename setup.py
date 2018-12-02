@@ -12,11 +12,9 @@ pycorels = setuptools.Extension('libcorels',
 		            extra_compile_args = ["-DGMP"])
 
 long_description = ""
-with open("README.md", "r") as fh:
-    long_description = fh.read()
 
 setuptools.setup(name = 'corels',
-       version = '1.0.2',
+       version = '1.0.3',
        author = 'Vassilios Kaxiras',
        author_email = 'vassilioskaxiras@gmail.com',
        description = 'Python binding of the CORELS algorithm',
