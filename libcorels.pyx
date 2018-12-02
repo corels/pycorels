@@ -2,8 +2,9 @@ from libc.string cimport strdup, strcpy
 from libc.stdlib cimport malloc, free
 import numpy as np
 cimport numpy as np
+cimport cython
 
-cdef extern from "corels/src/rule.h":
+cdef extern from "src/corels/src/rule.h":
     ctypedef unsigned long* VECTOR
     cdef struct rule:
         VECTOR truthtable
@@ -21,51 +22,75 @@ cdef extern from "corels/src/rule.h":
     void rule_not(VECTOR, VECTOR, int, int *)
     int rule_isset(VECTOR, int)
 
-cdef extern from "src/run.h":
+cdef extern from "src/corels/src/run.h":
     double run_corels(int max_num_nodes, double c, char* vstring, int curiosity_policy,
                   int map_type, int freq, int ablation, int calculate_size, int nrules, int nlabels,
                   int nsamples, rule_t* rules, rule_t* labels, rule_t* meta, int** rulelist, int* rulelist_size,
                   int** classes)
 
-cdef extern from "src/mine.h":
+cdef extern from "src/utils.h":
     int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples, 
                 int max_card, double min_support, rule_t **rules_out, int verbose)
 
-def predict_wrap(np.ndarray[np.uint8_t, ndim=2] X, rl):
+    int minority(rule_t* rules, int nrules, rule_t* labels, int nsamples, rule_t* minority_out, int verbose)
+
+@cython.boundscheck(False)
+@cython.wraparound(False)
+def predict_wrap(np.ndarray[np.uint8_t, ndim=2] X, features, rules):
     cdef int nsamples = X.shape[0]
     cdef int nfeatures = X.shape[1]
     
-    if nfeatures != len(rl.features) - 1:
+    if nfeatures != len(features) - 1:
         raise ValueError("Feature count mismatch between prediction data (" + str(nfeatures) +
-                         ") and rulelist (" + str(len(rl.features) - 1) + ")")
+                         ") and rulelist (" + str(len(features) - 1) + ")")
 
-    cdef int nrules = len(rl.rules)
-    cdef int s, r, next_rule, nidx, a, idx, c
     cdef np.ndarray out = np.zeros(nsamples, dtype=np.uint8)
-    cdef int default = rl.preds[nrules]
+    cdef int nrules = len(rules) - 1
+    if nrules < 0:
+        return out
+
+    cdef int s, r, next_rule, nidx, a, idx, c
+    cdef int default = rules[nrules]['prediction']
+
+    cdef int* antecedent_lengths = <int*>malloc(sizeof(int) * nrules)
+    cdef int* predictions = <int*>malloc(sizeof(int) * nrules)
+    cdef int** antecedents = <int**>malloc(sizeof(int*) * nrules)
+    
+    for r in range(nrules):
+        antecedent_lengths[r] = len(rules[r]['antecedents'])
+        predictions[r] = rules[r]['prediction']
+        antecedents[r] = <int*>malloc(sizeof(int) * antecedent_lengths[r])
+        for a in range(antecedent_lengths[r]):
+            antecedents[r][a] = rules[r]['antecedents'][a]
 
     for s in range(nsamples):
         for r in range(nrules):
             next_rule = 0
-            nidx = len(rl.ids[rl.rules[r]])
+            nidx = antecedent_lengths[r]
             for a in range(nidx):
-                idx = rl.ids[rl.rules[r]][a]
+                idx = antecedents[r][a]
                 c = 1
                 if idx < 0:
                     idx = -idx
                     c = 0
 
                 idx = idx - 1
-                if X[s, idx] != c:
+                if idx >= nfeatures or X[s, idx] != c:
                     next_rule = 1
                     break
 
             if next_rule == 0:
-                out[s] = rl.preds[r];
+                out[s] = predictions[r];
                 break
 
         if next_rule == 1:
             out[s] = default
+
+    for r in range(nrules):
+        free(antecedents[r])
+    free(antecedents)
+    free(predictions)
+    free(antecedent_lengths)
 
     return out
 
@@ -162,12 +187,6 @@ def fit_wrap(np.ndarray[np.uint8_t, ndim=2] samples,
     if r == -1 or rules == NULL:
         raise MemoryError();
     
-    out_ids = []
-    for i in range(r):
-        out_ids.append([])
-        for j in range(rules[i].cardinality):
-            out_ids[i].append(rules[i].ids[j])
-
     nrules = r
 
     verbosity_ascii = verbosity_str.encode('ascii')
@@ -192,25 +211,38 @@ def fit_wrap(np.ndarray[np.uint8_t, ndim=2] samples,
     strcpy(labels_vecs[0].features, "label=0")
     strcpy(labels_vecs[1].features, "label=1")
 
+    cdef rule_t* minor = <rule_t*>malloc(sizeof(rule_t))
+
+    cdef int mr = minority(rules, nrules, labels_vecs, nsamples, minor, mverbose)
+    if mr != 0:
+        _free_vector(labels_vecs, 2)
+        _free_vector(rules, nrules)
+        raise MemoryError();
+
     cdef int rulelist_size = 0
     cdef int* rulelist = NULL
     cdef int* classes = NULL
 
     cdef double acc = run_corels(max_nodes, c, verbosity, policy, map_type, log_freq, ablation, calculate_size,
-                   nrules, 2, nsamples, rules, labels_vecs, NULL, &rulelist, &rulelist_size, &classes)
+                   nrules, 2, nsamples, rules, labels_vecs, minor, &rulelist, &rulelist_size, &classes)
     
     _free_vector(labels_vecs, 2)
-    _free_vector(rules, nrules)
+    _free_vector(minor, 1)
 
-    rlist = []
-    preds = []
+    r_out = []
     if rulelist:
         for i in range(rulelist_size):
-            rlist.append(rulelist[i])
-            preds.append(classes[i])
+            r_out.append({})
+            r_out[i]['antecedents'] = []
+            for j in range(rules[rulelist[i]].cardinality):
+                r_out[i]['antecedents'].append(rules[rulelist[i]].ids[j])
 
-        preds.append(classes[rulelist_size])
+            r_out[i]['prediction'] = classes[i]
+
+        r_out.append({ 'antecedents': [0], 'prediction': classes[rulelist_size] })
         free(rulelist)
         free(classes)
+    
+    _free_vector(rules, nrules)
 
-    return acc, rlist, preds, out_ids
+    return acc, r_out

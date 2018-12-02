@@ -12,40 +12,6 @@ POLICY_OBJECTIVE   = 3
 POLICY_DFS         = 4
 
 class CorelsClassifier:
-    class RuleList:
-        def __init__(self, features=[], rules=[], preds=[], ids=[]):
-            self.features = features
-            self.rules = rules
-            self.preds = preds
-            self.ids = ids
-
-        def predict(self, X):
-            samples = np.array(np.array(X, dtype=np.bool), dtype=np.uint8, ndmin=2)
-            
-            if samples.shape[1] != len(self.features) - 1:
-                raise ValueError("Feature count mismatch between eval data (" + str(X.shape[1]) + 
-                                 ") and feature names (" + str(len(self.features) - 1) + ")")
-
-            return libcorels.predict_wrap(samples, self)
-
-        def _getfeature(self, i):
-            if i < 0:
-                return "not " + self.features[abs(i)]
-            else:
-                return self.features[i]
-
-        def __str__(self):
-            tot = ""
-            for i in range(len(self.rules)):
-                feat = self._getfeature(self.ids[self.rules[i]][0])
-                for j in range(1, len(self.ids[self.rules[i]])):
-                    feat += " && " + self._getfeature(self.ids[self.rules[i]][j])
-                tot += "if [" + feat + "]:\n  return " + str(self.preds[i]) + "\nelse "
-
-            tot += "\n  return " + str(self.preds[-1])
-
-            return tot
-
     def __init__(self, c=0.01, max_nodes=10000, map_type=MAP_PREFIX, policy=POLICY_LOWER_BOUND,
                  verbosity=[], ablation=0, calculate_size=False, log="corels-log.txt", log_freq=1000):
         self.c = c
@@ -57,8 +23,37 @@ class CorelsClassifier:
         self.ablation = ablation
         self.calculate_size = calculate_size
         self.log = log
-        self.features = []
         self._allowed_verbosities = ["rule", "label", "samples", "progress", "log", "loud"]
+        self.features = []
+        self.rules = []
+    
+    def _getfeature(self, i):
+        if not self.features or abs(i) >= len(self.features):
+            return ""
+
+        if i < 0:
+            return "not " + self.features[-i]
+        else:
+            return self.features[i]
+
+    def __str__(self):
+        if not self.rules:
+            return "Untrained model"
+        
+        if len(self.rules) == 1:
+            return "predict " + self.rules[0]['prediction']
+            
+        tot = ""
+        for i in range(len(self.rules) - 1):
+            feat = self._getfeature(self.rules[i]['antecedents'][0])
+            for j in range(1, len(self.rules[i]['antecedents'])):
+                feat += " && " + self._getfeature(self.rules[i]['antecedents'][j])
+            tot += "if [" + feat + "]:\n  predict " + str(self.rules[i]['prediction']) + "\nelse "
+
+        tot += "\n  predict " + str(self.rules[-1]['prediction'])
+
+        return tot
+
 
     def fit(self, X, y, features=[], max_card=2, min_support=0.01):
         label = np.array(y, dtype=np.bool)
@@ -74,13 +69,15 @@ class CorelsClassifier:
         if "loud" in self.verbosity or "mine" in self.verbosity:
             mverbose = 1
 
-        if not features:
-            features = []
+        dfeatures = list(features)
+
+        if not dfeatures:
+            dfeatures = []
             for i in range(X.shape[1]):
-                features.append("f" + str(i + 1))
-        elif len(features) != samples.shape[1]:
+                dfeatures.append("f" + str(i + 1))
+        elif len(dfeatures) != samples.shape[1]:
             raise ValueError("Feature count mismatch between sample data (" + str(samples.shape[1]) + 
-                             ") and feature names (" + str(len(features)) + ")")
+                             ") and feature names (" + str(len(dfeatures)) + ")")
         if "samples" in self.verbosity \
               and "rule" not in self.verbosity \
               and "label" not in self.verbosity:
@@ -89,24 +86,29 @@ class CorelsClassifier:
 
         verbose = ",".join([v for v in self.verbosity if v in self._allowed_verbosities ])
  
-        acc,rlist,classes,ids = libcorels.fit_wrap(samples, labels, features, max_card, min_support,
+        acc, self.rules = libcorels.fit_wrap(samples, labels, dfeatures, max_card, min_support,
                              verbose, mverbose, self.max_nodes, self.c, self.policy,
                              self.map_type, self.log_freq, self.ablation, self.calculate_size)
         
-        features.insert(0, "default")
-
-        self.rl = self.RuleList(features, rlist, classes, ids)
-
-        return self.rl
+        self.features = dfeatures
+        self.features.insert(0, "default")
+        
+        return acc
 
     def predict(self, X):
-        if not self.rl:
+        if not self.features or not self.rules:
             raise ValueError("Model not trained yet")
 
-        return self.rl.predict(X)
+        samples = np.array(np.array(X, dtype=np.bool), dtype=np.uint8, ndmin=2)
+        
+        if samples.shape[1] != len(self.features) - 1:
+            raise ValueError("Feature count mismatch between eval data (" + str(X.shape[1]) + 
+                             ") and feature names (" + str(len(self.features) - 1) + ")")
+
+        return libcorels.predict_wrap(samples, self.features, self.rules)
     
     def eval(self, X, y):
-        p = self.rl.predict(X)
+        p = self.predict(X)
         
         labels = np.array(np.array(y, dtype=np.bool), dtype=np.uint8, ndmin=1)
 

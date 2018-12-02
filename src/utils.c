@@ -5,23 +5,27 @@
 #include "utils.h"
 
 static rule_t *sample_array = NULL;
+static int samples_nrules = 0;
 
 int sample_comp(const void *a, const void *b) {
-  return rule_vector_cmp(sample_array[*(int*)a].truthtable, sample_array[*(int*)b].truthtable);
+  return rule_vector_cmp(sample_array[*(int*)a].truthtable, sample_array[*(int*)b].truthtable,
+                         samples_nrules, samples_nrules);
 }
 
-int minority(rule_t* rules, int nrules, rule_t* labels, int nsamples)
+int minority(rule_t* rules, int nrules, rule_t* labels, int nsamples, rule_t* minority_out, int verbose)
 {
   int ret = 0, nrules_chk = 0;
   int *sample_indices = NULL;
-  size_t n = 0;
-  char *line = NULL, *line_clean = NULL, *minority = NULL;
+  char *line_clean = NULL, *minority = NULL;
+
+  samples_nrules = nrules;
 
   line_clean = malloc(nrules + 1);
   sample_array = malloc(sizeof(rule_t) * nsamples);
   minority = malloc(nsamples + 1);
   sample_indices = malloc(sizeof(int) * nsamples);
 
+  int nones;
   // Generate the sample bitvectors
   for(int s = 0; s < nsamples; s++) {
     for(int i = 0; i < nrules; i++)
@@ -29,17 +33,12 @@ int minority(rule_t* rules, int nrules, rule_t* labels, int nsamples)
 
     line_clean[nrules] = '\0';
 
-    rule_vinit(nrules, sample_array[s].truthtable);
-    if(ascii_to_vector(line_clean, nrules, &nrules_chk, &nones, &sample_array[s].truthtable) == -1) {
+    rule_vinit(nrules, &sample_array[s].truthtable);
+    if(ascii_to_vector(line_clean, nrules, &nrules_chk, &nones, &sample_array[s].truthtable) != 0) {
       ret = -1;
       nsamples = s;
       goto end;
     }
-  }
-
-  if(nrules_chk != nrules) {
-    ret = -1;
-    goto end;
   }
 
   for(int i = 0; i < nsamples; i++)
@@ -92,8 +91,20 @@ int minority(rule_t* rules, int nrules, rule_t* labels, int nsamples)
   }
   
   minority[nsamples] = '\0';
+ 
+  int nsamples_chk;
+  if (ascii_to_vector(minority, nsamples, &nsamples_chk, &minority_out->support, &minority_out->truthtable) != 0) {
+    ret = -1;
+    goto end;
+  }
 
-  if (ascii_to_vector())
+  minority_out->cardinality = 1;
+  minority_out->features = malloc(9);
+  strcpy(minority_out->features, "minority");
+  minority_out->ids = NULL;
+
+  if(verbose)
+    printf("Generated minority bound with support %f\n", (double)minority_out->support / (double)nsamples);
 
 end:
   if(line_clean)
@@ -101,11 +112,13 @@ end:
 
   if(sample_array) {
     for(int i = 0; i < nsamples; i++)
-      mpz_clear(sample_array[i]);
+      rule_vfree(&sample_array[i].truthtable);
 
     free(sample_array);
     sample_array = NULL;
   }
+
+  samples_nrules = 0;
 
   if(minority)
     free(minority);
