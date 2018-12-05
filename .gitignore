@@ -2,7 +2,6 @@
 *.pyc
 *.swp
 *.so
-bbcache/
 build/
 dist/
 corels.egg-info/

@@ -4,7 +4,7 @@ import numpy as np
 cimport numpy as np
 cimport cython
 
-cdef extern from "src/corels/src/rule.h":
+cdef extern from "src/corels/rule.h":
     ctypedef unsigned long* VECTOR
     cdef struct rule:
         VECTOR truthtable
@@ -22,7 +22,7 @@ cdef extern from "src/corels/src/rule.h":
     void rule_not(VECTOR, VECTOR, int, int *)
     int rule_isset(VECTOR, int)
 
-cdef extern from "src/corels/src/run.h":
+cdef extern from "src/corels/run.h":
     int run_corels_begin(double c, char* vstring, int curiosity_policy,
                       int map_type, int freq, int ablation, int calculate_size, int nrules, int nlabels,
                       int nsamples, rule_t* rules, rule_t* labels, rule_t* meta)
