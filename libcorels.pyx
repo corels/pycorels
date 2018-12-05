@@ -23,10 +23,13 @@ cdef extern from "src/corels/src/rule.h":
     int rule_isset(VECTOR, int)
 
 cdef extern from "src/corels/src/run.h":
-    double run_corels(int max_num_nodes, double c, char* vstring, int curiosity_policy,
-                  int map_type, int freq, int ablation, int calculate_size, int nrules, int nlabels,
-                  int nsamples, rule_t* rules, rule_t* labels, rule_t* meta, int** rulelist, int* rulelist_size,
-                  int** classes)
+    int run_corels_begin(double c, char* vstring, int curiosity_policy,
+                      int map_type, int freq, int ablation, int calculate_size, int nrules, int nlabels,
+                      int nsamples, rule_t* rules, rule_t* labels, rule_t* meta)
+
+    int run_corels_loop(size_t max_num_nodes)
+
+    double run_corels_end(int** rulelist, int* rulelist_size, int** classes)
 
 cdef extern from "src/utils.h":
     int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples, 
@@ -147,13 +150,21 @@ cdef _to_nparray(rule_t* X, int nrules, int nsamples):
 
     return arr
 """
+cdef rule_t* rules = NULL
+cdef rule_t* labels_vecs = NULL
+cdef rule_t* minor = NULL
+cdef int nrules = 0
 
-def fit_wrap(np.ndarray[np.uint8_t, ndim=2] samples, 
+def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples, 
              np.ndarray[np.uint8_t, ndim=2] labels,
              features, int max_card, double min_support, verbosity_str, int mverbose,
-             int max_nodes, double c,
-             int policy, int map_type, int log_freq, int ablation,
+             double c, int policy, int map_type, int log_freq, int ablation,
              int calculate_size):
+    global rules
+    global labels_vecs
+    global minor
+    global nrules
+
     cdef int nfeatures = 0
     cdef rule_t* samples_vecs = _to_vector(samples, &nfeatures)
 
@@ -173,7 +184,10 @@ def fit_wrap(np.ndarray[np.uint8_t, ndim=2] samples,
         bytestr = features[i].encode('ascii')
         features_vec[i] = strdup(bytestr)
 
-    cdef rule_t* rules = NULL
+    if rules != NULL and nrules != 0:
+        _free_vector(rules, nrules)
+        rules = NULL
+        nrules = 0
 
     cdef int r = mine_rules(features_vec, samples_vecs, nfeatures, nsamples,
                 max_card, min_support, &rules, mverbose)
@@ -192,8 +206,11 @@ def fit_wrap(np.ndarray[np.uint8_t, ndim=2] samples,
     verbosity_ascii = verbosity_str.encode('ascii')
     cdef char* verbosity = verbosity_ascii
 
+    if labels_vecs != NULL:
+        _free_vector(labels_vecs, 2)
+        labels_vecs = NULL
+
     cdef int nsamples_chk = 0
-    cdef rule_t* labels_vecs = NULL
     try:
         labels_vecs = _to_vector(labels, &nsamples_chk)
     except:
@@ -210,27 +227,51 @@ def fit_wrap(np.ndarray[np.uint8_t, ndim=2] samples,
     labels_vecs[1].features = <char*>malloc(8)
     strcpy(labels_vecs[0].features, "label=0")
     strcpy(labels_vecs[1].features, "label=1")
+    
+    if minor != NULL:
+        _free_vector(minor, 1)
+        minor = NULL
 
-    cdef rule_t* minor = <rule_t*>malloc(sizeof(rule_t))
+    minor = <rule_t*>malloc(sizeof(rule_t))
 
     cdef int mr = minority(rules, nrules, labels_vecs, nsamples, minor, mverbose)
     if mr != 0:
         _free_vector(labels_vecs, 2)
         _free_vector(rules, nrules)
         raise MemoryError();
+    
+    cdef int rb = run_corels_begin(c, verbosity, policy, map_type, log_freq, ablation, calculate_size,
+                   nrules, 2, nsamples, rules, labels_vecs, minor)
+    if rb == -1:
+        _free_vector(labels_vecs, 2)
+        labels_vecs = NULL
+        _free_vector(minor, 1)
+        minor = NULL
+        _free_vector(rules, nrules)
+        rules = NULL
+        nrules = 0
+
+        return False
+
+    return True
+
+def fit_wrap_loop(size_t max_nodes):
+    cdef size_t max_num_nodes = max_nodes
+    return (run_corels_loop(max_num_nodes) != -1)
+
+def fit_wrap_end():
+    global rules
+    global labels_vecs
+    global minor
+    global nrules
 
     cdef int rulelist_size = 0
     cdef int* rulelist = NULL
     cdef int* classes = NULL
-
-    cdef double acc = run_corels(max_nodes, c, verbosity, policy, map_type, log_freq, ablation, calculate_size,
-                   nrules, 2, nsamples, rules, labels_vecs, minor, &rulelist, &rulelist_size, &classes)
-    
-    _free_vector(labels_vecs, 2)
-    _free_vector(minor, 1)
+    cdef double acc = run_corels_end(&rulelist, &rulelist_size, &classes)
 
     r_out = []
-    if rulelist:
+    if classes != NULL:
         for i in range(rulelist_size):
             r_out.append({})
             r_out[i]['antecedents'] = []
@@ -240,9 +281,16 @@ def fit_wrap(np.ndarray[np.uint8_t, ndim=2] samples,
             r_out[i]['prediction'] = classes[i]
 
         r_out.append({ 'antecedents': [0], 'prediction': classes[rulelist_size] })
-        free(rulelist)
+        if rulelist != NULL:
+            free(rulelist)
         free(classes)
     
+    _free_vector(labels_vecs, 2)
+    labels_vecs = NULL
+    _free_vector(minor, 1)
+    minor = NULL
     _free_vector(rules, nrules)
+    rules = NULL
+    nrules = 0
 
     return acc, r_out

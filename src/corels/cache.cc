@@ -43,8 +43,10 @@ CacheTree::CacheTree(size_t nsamples, size_t nrules, double c, rule_t *rules,
 }
 
 CacheTree::~CacheTree() {
-    if (root_)
+    //if (!root_)
+//    if (root_ && labels_[0].support != 0 && labels_[1].support != 0) {
         delete_subtree(this, root_, true, false);
+//    }
 }
 
 Node* CacheTree::construct_node(unsigned short new_rule, size_t nrules, bool prediction,

@@ -1,7 +1,11 @@
 *.o
 *.pyc
 *.swp
+*.so
 bbcache/
 build/
 dist/
-pycorels.egg-info/
+corels.egg-info/
+__pycache__/
+*.pyd
+libcorels.c

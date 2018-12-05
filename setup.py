@@ -4,9 +4,9 @@ import os
 from Cython.Build import cythonize
 
 pycorels = setuptools.Extension('libcorels',
-                    sources = ['libcorels.pyx', 'src/utils.c', 'src/corels/src/run.cc', 'src/corels/src/pmap.cc', 'src/corels/src/utils.cc', 'src/corels/src/corels.cc', 'src/corels/src/cache.cc', 'src/corels/src/rulelib.c'],
+                    sources = ['libcorels.pyx', 'src/utils.c', 'src/corels/run.cc', 'src/corels/pmap.cc', 'src/corels/utils.cc', 'src/corels/corels.cc', 'src/corels/cache.cc', 'src/corels/rulelib.c'],
                     libraries = ['gmp', 'm'],
-                    include_dirs = ['src/', 'src/corels/src/', np.get_include()],
+                    include_dirs = ['src/', 'src/corels/', np.get_include()],
 		            extra_compile_args = ["-DGMP"])
 
 long_description = ""

@@ -212,7 +212,7 @@ int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples,
     // If the rule satisfies the threshold requirements, add it to the out file.
     // If it exceeds the maximum threshold, it is still kept for later rule mining
     // If it less than the minimum threshold, don't add it
-    if(ones <= min_thresh) {
+    if(ones < min_thresh) {
       rule_vfree(&rules_vec[i + 1].truthtable);
       continue;
     }
@@ -236,7 +236,7 @@ int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples,
 
     rule_names_mine_lengths[nrules_mine] = strlen(rules_vec_mine[nrules_mine].features);
     
-    if(ones < max_thresh) {
+    if(ones <= max_thresh) {
       memcpy(&rules_vec[ntotal_rules + 1], &rules_vec[i + 1], sizeof(rule_t));
       rules_vec[ntotal_rules + 1].cardinality = 1;
       rules_vec[ntotal_rules + 1].support = ones;
@@ -281,16 +281,16 @@ int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples,
       int ones = count_ones_vector(gen_rule.truthtable, nsamples);
 
       // Generate the new rule by successive and operations, and check if it has a valid support
-      if(ones > min_thresh) {
+      if(ones >= min_thresh) {
         for(int i = 1; i < card; i++) {
           rule_vand(gen_rule.truthtable, rules_vec_mine[rule_ids[i]].truthtable, gen_rule.truthtable, nsamples, &ones);
-          if(ones <= min_thresh) {
+          if(ones < min_thresh) {
             valid = 0;
             break;
           }
         }
 
-        if(valid && ones >= max_thresh)
+        if(valid && ones > max_thresh)
           valid = 0;
       }
       else

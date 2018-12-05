@@ -13,7 +13,7 @@ POLICY_DFS         = 4
 
 class CorelsClassifier:
     def __init__(self, c=0.01, max_nodes=10000, map_type=MAP_PREFIX, policy=POLICY_LOWER_BOUND,
-                 verbosity=[], ablation=0, calculate_size=False, log="corels-log.txt", log_freq=1000):
+                 verbosity=["progress"], ablation=0, calculate_size=False, log="corels-log.txt", log_freq=1000):
         self.c = c
         self.max_nodes = max_nodes
         self.map_type = map_type
@@ -39,27 +39,32 @@ class CorelsClassifier:
     def __str__(self):
         if not self.rules:
             return "Untrained model"
+       
+        print("\nRULELIST:")
         
         if len(self.rules) == 1:
-            return "predict " + self.rules[0]['prediction']
+            return self.prediction_name + " = " + str(self.rules[0]['prediction'])
             
         tot = ""
         for i in range(len(self.rules) - 1):
             feat = self._getfeature(self.rules[i]['antecedents'][0])
             for j in range(1, len(self.rules[i]['antecedents'])):
                 feat += " && " + self._getfeature(self.rules[i]['antecedents'][j])
-            tot += "if [" + feat + "]:\n  predict " + str(self.rules[i]['prediction']) + "\nelse "
+            tot += "if [" + feat + "]:\n  " + self.prediction_name + " = " + str(self.rules[i]['prediction']) + "\nelse "
 
-        tot += "\n  predict " + str(self.rules[-1]['prediction'])
+        tot += "\n  " + self.prediction_name + " = " + str(self.rules[-1]['prediction'])
 
         return tot
 
 
-    def fit(self, X, y, features=[], max_card=2, min_support=0.01):
+    def fit(self, X, y, features=[], prediction_name="", max_card=2, min_support=0.01):
         label = np.array(y, dtype=np.bool)
         labels = np.array([ np.invert(label), label ], dtype=np.uint8, ndmin=2)
         
         samples = np.array(np.array(X, dtype=np.bool), dtype=np.uint8, ndmin=2)
+
+        if samples.shape[0] == 0 or samples.shape[1] == 0 or labels.shape[0] == 0:
+            raise ValueError("Empty data provided")
 
         if samples.shape[0] != labels.shape[1]:
             raise ValueError("Sample count mismatch between sample data (" + str(samples.shape[0]) +
@@ -73,7 +78,7 @@ class CorelsClassifier:
 
         if not dfeatures:
             dfeatures = []
-            for i in range(X.shape[1]):
+            for i in range(samples.shape[1]):
                 dfeatures.append("f" + str(i + 1))
         elif len(dfeatures) != samples.shape[1]:
             raise ValueError("Feature count mismatch between sample data (" + str(samples.shape[1]) + 
@@ -84,15 +89,29 @@ class CorelsClassifier:
             raise ValueError("'samples' verbosity option must be combined with at" + 
                              " least one of 'rule' or 'label'")
 
+        if not prediction_name:
+            self.prediction_name = "prediction"
+        else:
+            self.prediction_name = prediction_name
+
         verbose = ",".join([v for v in self.verbosity if v in self._allowed_verbosities ])
  
-        acc, self.rules = libcorels.fit_wrap(samples, labels, dfeatures, max_card, min_support,
-                             verbose, mverbose, self.max_nodes, self.c, self.policy,
+        fr = libcorels.fit_wrap_begin(samples, labels, dfeatures,
+                             max_card, min_support, verbose, mverbose, self.c, self.policy,
                              self.map_type, self.log_freq, self.ablation, self.calculate_size)
+        
+        acc = 0.0
+        self.rules = []
+
+        if fr:
+            while libcorels.fit_wrap_loop(self.max_nodes):
+                pass
+        
+            acc, self.rules = libcorels.fit_wrap_end()
         
         self.features = dfeatures
         self.features.insert(0, "default")
-        
+
         return acc
 
     def predict(self, X):
@@ -116,6 +135,6 @@ class CorelsClassifier:
             raise ValueError("Number of samples mismatch between sample data (" +
                              p.shape[0] + ") and label data (" + labels.shape[0] + ")")
 
-        acc = np.sum(np.invert(np.logical_xor(p, labels))) / p.shape[0]
+        acc = np.sum(np.invert(np.logical_xor(p, labels))) / float(p.shape[0])
 
         return acc

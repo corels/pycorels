@@ -2,7 +2,7 @@ import numpy as np
 import corels
 import csv
 
-c = corels.CorelsClassifier(verbosity=["mine","progress"], max_nodes=100000000, c=0.01, policy = corels.MAP_PREFIX)
+c = corels.CorelsClassifier(verbosity=["label", "loud", "progress"], max_nodes=100000, c=0.01, policy = corels.MAP_PREFIX)
 
 """"
 nsamples = 100000
@@ -28,8 +28,8 @@ data = np.genfromtxt(fname, dtype=np.uint8, skip_header=1, delimiter=",")
 X = data[:, 0:-1]
 y = data[:, -1]
 
-print(features)
-c.fit(X, y, features=features, max_card=1, min_support=0.01)
+c.fit(X, y, features=features, prediction_name=prediction_name, max_card=2, min_support=0.01)
+
 
 print(c)
-print("Accuracy: " + str(c.eval(X, y)))
+#print("Accuracy: " + str(c.eval(X, y)))

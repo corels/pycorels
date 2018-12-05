@@ -16,7 +16,7 @@ class Node {
     Node(unsigned short id, size_t nrules, bool prediction, bool default_prediction,
          double lower_bound, double objective, Node* parent,
          size_t num_captured, double equivalent_minority);
-
+     
     inline unsigned short id() const;
     inline bool prediction() const;
     inline bool default_prediction() const;
@@ -71,8 +71,6 @@ class CuriousNode: public Node {
                  lower_bound, objective, (Node*)parent, num_captured, equivalent_minority) {
             curiosity_ = curiosity;
         }
-
-        ~CuriousNode() { }
 
         inline double get_curiosity() override;
     protected:
