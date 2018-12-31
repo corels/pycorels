@@ -1,0 +1,4 @@
+include corels/*.py
+include corels/*.c
+include corels/src/*
+include corels/src/corels/*

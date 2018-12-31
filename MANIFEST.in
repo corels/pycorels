@@ -1,3 +1,0 @@
-include pycorels/*.h
-include corels/src/*.hh
-include corels/src/*.h

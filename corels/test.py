@@ -2,7 +2,7 @@ import numpy as np
 import corels
 import csv
 
-c = corels.CorelsClassifier(verbosity=["label", "loud", "progress"], max_nodes=100000, c=0.01, policy = corels.MAP_PREFIX)
+c = corels.CorelsClassifier(verbosity=["progress"], max_nodes=100000, c=0.01, policy="bfs", map_type="prefix", ablation=1)
 
 """"
 nsamples = 100000
@@ -30,6 +30,7 @@ y = data[:, -1]
 
 c.fit(X, y, features=features, prediction_name=prediction_name, max_card=2, min_support=0.01)
 
+c.rules[0]["prediction"] = 0
 
 print(c)
-#print("Accuracy: " + str(c.eval(X, y)))
+print("Accuracy: " + str(c.eval(X, y)))

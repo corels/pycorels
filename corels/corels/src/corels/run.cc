@@ -15,7 +15,7 @@ static double g_init = 0.0;
 static std::set<std::string> g_verbosity;
 
 int run_corels_begin(double c, char* vstring, int curiosity_policy,
-                  int map_type, int freq, int ablation, int calculate_size, int nrules, int nlabels,
+                  int map_type, int ablation, int calculate_size, int nrules, int nlabels,
                   int nsamples, rule_t* rules, rule_t* labels, rule_t* meta) 
 {
     g_verbosity.clear();

@@ -24,7 +24,7 @@ cdef extern from "src/corels/rule.h":
 
 cdef extern from "src/corels/run.h":
     int run_corels_begin(double c, char* vstring, int curiosity_policy,
-                      int map_type, int freq, int ablation, int calculate_size, int nrules, int nlabels,
+                      int map_type, int ablation, int calculate_size, int nrules, int nlabels,
                       int nsamples, rule_t* rules, rule_t* labels, rule_t* meta)
 
     int run_corels_loop(size_t max_num_nodes)
@@ -39,35 +39,31 @@ cdef extern from "src/utils.h":
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
-def predict_wrap(np.ndarray[np.uint8_t, ndim=2] X, features, rules):
+def predict_wrap(np.ndarray[np.uint8_t, ndim=2] X, rules):
     cdef int nsamples = X.shape[0]
     cdef int nfeatures = X.shape[1]
     
-    if nfeatures != len(features) - 1:
-        raise ValueError("Feature count mismatch between prediction data (" + str(nfeatures) +
-                         ") and rulelist (" + str(len(features) - 1) + ")")
-
     cdef np.ndarray out = np.zeros(nsamples, dtype=np.uint8)
-    cdef int nrules = len(rules) - 1
-    if nrules < 0:
+    cdef int n_rules = len(rules) - 1
+    if n_rules < 0:
         return out
 
     cdef int s, r, next_rule, nidx, a, idx, c
-    cdef int default = rules[nrules]['prediction']
+    cdef int default = bool(rules[n_rules]["prediction"])
 
-    cdef int* antecedent_lengths = <int*>malloc(sizeof(int) * nrules)
-    cdef int* predictions = <int*>malloc(sizeof(int) * nrules)
-    cdef int** antecedents = <int**>malloc(sizeof(int*) * nrules)
+    cdef int* antecedent_lengths = <int*>malloc(sizeof(int) * n_rules)
+    cdef int* predictions = <int*>malloc(sizeof(int) * n_rules)
+    cdef int** antecedents = <int**>malloc(sizeof(int*) * n_rules)
     
-    for r in range(nrules):
-        antecedent_lengths[r] = len(rules[r]['antecedents'])
-        predictions[r] = rules[r]['prediction']
+    for r in range(n_rules):
+        antecedent_lengths[r] = len(rules[r]["antecedents"])
+        predictions[r] = int(rules[r]["prediction"])
         antecedents[r] = <int*>malloc(sizeof(int) * antecedent_lengths[r])
         for a in range(antecedent_lengths[r]):
-            antecedents[r][a] = rules[r]['antecedents'][a]
+            antecedents[r][a] = rules[r]["antecedents"][a]
 
     for s in range(nsamples):
-        for r in range(nrules):
+        for r in range(n_rules):
             next_rule = 0
             nidx = antecedent_lengths[r]
             for a in range(nidx):
@@ -89,7 +85,7 @@ def predict_wrap(np.ndarray[np.uint8_t, ndim=2] X, features, rules):
         if next_rule == 1:
             out[s] = default
 
-    for r in range(nrules):
+    for r in range(n_rules):
         free(antecedents[r])
     free(antecedents)
     free(predictions)
@@ -109,10 +105,13 @@ cdef rule_t* _to_vector(np.ndarray[np.uint8_t, ndim=2] X, int* ncount):
     for i in range(d0):
         arrstr = ""
         for j in range(d1):
-            arrstr += str(X[i][j])
+            if X[i][j]:
+                arrstr += "1"
+            else:
+                arrstr += "0"
         
-        bytestr = arrstr.encode('ascii')
-        if ascii_to_vector(bytestr, len(arrstr), ncount, &nones, &vectors[i].truthtable) != 0:
+        bytestr = arrstr.encode("ascii")
+        if ascii_to_vector(bytestr, len(bytestr), ncount, &nones, &vectors[i].truthtable) != 0:
             for j in range(i):
                 rule_vfree(&vectors[j].truthtable)
 
@@ -140,30 +139,20 @@ cdef _free_vector(rule_t* vs, int count):
     
     free(vs)
 
-"""
-cdef _to_nparray(rule_t* X, int nrules, int nsamples):
-    arr = np.empty([ nrules, nsamples ], dtype=np.uint8)
-
-    for i in range(nrules):
-        for j in range(nsamples):
-            arr[i][j] = rule_isset(X[i].truthtable, j)
-
-    return arr
-"""
 cdef rule_t* rules = NULL
 cdef rule_t* labels_vecs = NULL
 cdef rule_t* minor = NULL
-cdef int nrules = 0
+cdef int n_rules = 0
 
 def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples, 
              np.ndarray[np.uint8_t, ndim=2] labels,
              features, int max_card, double min_support, verbosity_str, int mverbose,
-             double c, int policy, int map_type, int log_freq, int ablation,
+             double c, int policy, int map_type, int ablation,
              int calculate_size):
     global rules
     global labels_vecs
     global minor
-    global nrules
+    global n_rules
 
     cdef int nfeatures = 0
     cdef rule_t* samples_vecs = _to_vector(samples, &nfeatures)
@@ -181,13 +170,13 @@ def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples,
         raise MemoryError()
 
     for i in range(nfeatures):
-        bytestr = features[i].encode('ascii')
+        bytestr = features[i].encode("ascii")
         features_vec[i] = strdup(bytestr)
 
-    if rules != NULL and nrules != 0:
-        _free_vector(rules, nrules)
+    if rules != NULL and n_rules != 0:
+        _free_vector(rules, n_rules)
         rules = NULL
-        nrules = 0
+        n_rules = 0
 
     cdef int r = mine_rules(features_vec, samples_vecs, nfeatures, nsamples,
                 max_card, min_support, &rules, mverbose)
@@ -201,9 +190,9 @@ def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples,
     if r == -1 or rules == NULL:
         raise MemoryError();
     
-    nrules = r
+    n_rules = r
 
-    verbosity_ascii = verbosity_str.encode('ascii')
+    verbosity_ascii = verbosity_str.encode("ascii")
     cdef char* verbosity = verbosity_ascii
 
     if labels_vecs != NULL:
@@ -214,12 +203,12 @@ def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples,
     try:
         labels_vecs = _to_vector(labels, &nsamples_chk)
     except:
-        _free_vector(rules, nrules)
+        _free_vector(rules, n_rules)
         raise
 
     if nsamples_chk != nsamples:
         _free_vector(labels_vecs, 2)
-        _free_vector(rules, nrules)
+        _free_vector(rules, n_rules)
         raise ValueError("Sample count mismatch between label (" + str(nsamples_chk) +
                          ") and rule data (" + str(nsamples) + ")")
 
@@ -234,22 +223,23 @@ def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples,
 
     minor = <rule_t*>malloc(sizeof(rule_t))
 
-    cdef int mr = minority(rules, nrules, labels_vecs, nsamples, minor, mverbose)
+    cdef int mr = minority(rules, n_rules, labels_vecs, nsamples, minor, mverbose)
     if mr != 0:
         _free_vector(labels_vecs, 2)
-        _free_vector(rules, nrules)
+        _free_vector(rules, n_rules)
         raise MemoryError();
     
-    cdef int rb = run_corels_begin(c, verbosity, policy, map_type, log_freq, ablation, calculate_size,
-                   nrules, 2, nsamples, rules, labels_vecs, minor)
+    cdef int rb = run_corels_begin(c, verbosity, policy, map_type, ablation, calculate_size,
+                   n_rules, 2, nsamples, rules, labels_vecs, minor)
+
     if rb == -1:
         _free_vector(labels_vecs, 2)
         labels_vecs = NULL
         _free_vector(minor, 1)
         minor = NULL
-        _free_vector(rules, nrules)
+        _free_vector(rules, n_rules)
         rules = NULL
-        nrules = 0
+        n_rules = 0
 
         return False
 
@@ -263,24 +253,24 @@ def fit_wrap_end():
     global rules
     global labels_vecs
     global minor
-    global nrules
+    global n_rules
 
     cdef int rulelist_size = 0
     cdef int* rulelist = NULL
     cdef int* classes = NULL
-    cdef double acc = run_corels_end(&rulelist, &rulelist_size, &classes)
+    run_corels_end(&rulelist, &rulelist_size, &classes)
 
     r_out = []
     if classes != NULL:
         for i in range(rulelist_size):
             r_out.append({})
-            r_out[i]['antecedents'] = []
+            r_out[i]["antecedents"] = []
             for j in range(rules[rulelist[i]].cardinality):
-                r_out[i]['antecedents'].append(rules[rulelist[i]].ids[j])
+                r_out[i]["antecedents"].append(rules[rulelist[i]].ids[j])
 
-            r_out[i]['prediction'] = classes[i]
+            r_out[i]["prediction"] = bool(classes[i])
 
-        r_out.append({ 'antecedents': [0], 'prediction': classes[rulelist_size] })
+        r_out.append({ "antecedents": [0], "prediction": bool(classes[rulelist_size]) })
         if rulelist != NULL:
             free(rulelist)
         free(classes)
@@ -289,8 +279,8 @@ def fit_wrap_end():
     labels_vecs = NULL
     _free_vector(minor, 1)
     minor = NULL
-    _free_vector(rules, nrules)
+    _free_vector(rules, n_rules)
     rules = NULL
-    nrules = 0
+    n_rules = 0
 
-    return acc, r_out
+    return r_out

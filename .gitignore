@@ -2,6 +2,7 @@
 *.pyc
 *.swp
 *.so
+*~
 build/
 dist/
 corels.egg-info/
