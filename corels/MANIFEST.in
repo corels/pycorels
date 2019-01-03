@@ -1,4 +1,6 @@
-include corels/*.py
-include corels/*.c
-include corels/src/*
-include corels/src/corels/*
+include LICENSE
+include README.txt
+include _corels.c
+include *.py
+include src/*
+include src/corels/*

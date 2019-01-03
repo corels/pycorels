@@ -1,69 +1,23 @@
 from __future__ import print_function, division
 from . import _corels
-from .utils import check_consistent_length, check_array
+from .utils import check_consistent_length, check_array, check_is_fitted, get_feature, check_in, check_features, check_rulelist
 import numpy as np
 
-def get_feature(features, i):
-    if not features or abs(i) > len(features):
-        return ""
-
-    if i < 0:
-        return "not " + features[-i - 1]
-    else:
-        return features[i - 1]
-    
-def check_in(name, allowed, val):
-    if not val.lower() in allowed:
-        allowed_str = "'" + "' '".join(allowed) + "'"
-        raise ValueError(name + " must be chosen from " + allowed_str +
-                         ", got: " + val)
-
-def check_features(features):
-    if not isinstance(features, list):
-        raise ValueError("Features must be an list of strings, got: " + str(features))
-    
-    for i in range(len(features)):
-        if not isinstance(features[i], str):
-            raise ValueError("Each feature much be a string, got: " + str(features[i]))
-
-def check_rulelist(rules, features, prediction):
-    if not isinstance(rules, list):
-        raise ValueError("Rulelist must be a list, got: " + str(rules))
-    
-    if not isinstance(prediction, str):
-        raise ValueError("Prediction name must be a string, got: " + str(prediction))
-
-    check_features(features)
-    n_features = len(features)
-
-    if len(rules) < 1:
-        raise ValueError("Rulelist must contain at least the default rule")
-
-    for r in range(len(rules)):
-        if not isinstance(rules[r], dict) or \
-           not "prediction" in rules[r] or \
-           not "antecedents" in rules[r] or \
-           not isinstance(rules[r]["prediction"], (bool, int)) or \
-           not isinstance(rules[r]["antecedents"], list): 
-            raise ValueError("Bad rule: " + str(rules[r]))
-       
-        a_len = len(rules[r]["antecedents"])
-        for i in range(a_len):
-            rule = rules[r]["antecedents"][i]
-            if not isinstance(rule, int):
-                raise ValueError("Rule id must be an int, got: " + str(rule))
-            if abs(rule) > n_features:
-                raise ValueError("Rule id out of bounds: " + str(rule))
-
-        if r == (len(rules) - 1) and (a_len != 1 or rules[r]["antecedents"][0] != 0):
-            raise ValueError("Last rule in the rulelist must be the default prediction,"
-                             " with antecedents '[0]', got: " + str(rules[r]["antecedents"]))
 
 class CorelsClassifier:
     """
-    Certifiably Optimal RulE ListS classifier
+    Certifiably Optimal RulE ListS classifier.
 
-    [DOC]
+    This class implements the CORELS algorithm, designed to produce human-interpretable, optimal
+    rulelists for binary feature data and binary classification. As an alternative to other
+    tree based algorithms such as CART, CORELS provides a certificate of optimality for its 
+    rulelist given a training set, leveraging multiple algorithmic bounds to do so.
+
+    In order to use run the algorithm, create an instance of the `CorelsClassifier` class, 
+    providing any necessary parameters in its constructor, and then call `fit` to generate
+    a rulelist. `print_list` prints the generated rulelist, while `predict` provides
+    classification predictions for a separate test dataset with the same features. To determine 
+    the algorithm's accuracy, run `score` on an evaluation dataset with labels.
     
     Parameters
     ----------
@@ -141,32 +95,33 @@ class CorelsClassifier:
         self.max_card = max_card
         self.min_support = min_support
     
-    def print(self):
+    def print_list(self):
         """
         Print the rulelist in a human-friendly format.
         """
 
-        check_rulelist(self.rules_, self.features_, self.prediction_name)
+        check_is_fitted(self, "is_fitted_")
+        check_rulelist(self.rules_, self.features_, self.prediction_name_)
 
         if not self.rules_:
             return "Untrained model"
         
-        print("\nRULELIST:")
+        print("RULELIST:")
         
         if len(self.rules_) == 1:
             check_rule(self.rules_[0])
-            return self.prediction_name + " = " + str(self.rules_[0]["prediction"])
+            return self.prediction_name_ + " = " + str(self.rules_[0]["prediction"])
             
         tot = ""
         for i in range(len(self.rules_) - 1):
             feat = get_feature(self.features_, self.rules_[i]["antecedents"][0])
             for j in range(1, len(self.rules_[i]["antecedents"])):
                 feat += " && " + get_feature(self.features_, self.rules_[i]["antecedents"][j])
-            tot += "if [" + feat + "]:\n  " + self.prediction_name + " = " + str(self.rules_[i]["prediction"]) + "\nelse "
+            tot += "if [" + feat + "]:\n  " + self.prediction_name_ + " = " + str(bool(self.rules_[i]["prediction"])) + "\nelse "
 
-        tot += "\n  " + self.prediction_name + " = " + str(self.rules_[-1]["prediction"])
+        tot += "\n  " + self.prediction_name_ + " = " + str(bool(self.rules_[-1]["prediction"]))
 
-        print(tot)
+        print(tot + "\n")
         return self
 
     def fit(self, X, y, features=[], prediction_name="prediction"):
@@ -198,8 +153,8 @@ class CorelsClassifier:
         if not isinstance(self.c, float) or self.c < 0.0 or self.c > 1.0:
             raise ValueError("Regularization constant (c) must be a float between"
                              " 0.0 and 1.0, got: " + str(self.c))
-        if not isinstance(self.max_nodes, int) or self.max_nodes < 0:
-            raise ValueError("Max nodes must be a positive integer, got: " + str(self.max_nodes))
+        if not isinstance(self.n_iter, int) or self.n_iter < 0:
+            raise ValueError("Max nodes must be a positive integer, got: " + str(self.n_iter))
         if not isinstance(self.ablation, int) or self.ablation > 2 or self.ablation < 0:
             raise ValueError("Ablation must be an integer between 0 and 2"
                              ", inclusive, got: " + str(self.ablation))
@@ -220,10 +175,10 @@ class CorelsClassifier:
             raise ValueError("Prediction name must be a string, got: " + str(prediction_name))
        
         check_consistent_length(X, y)
-        label = check_array(y, ensure_2d=False, accept_sparse=False, dtype=bool, order='C')
+        label = check_array(y, ndim=1, dtype=np.bool, order='C')
         labels = np.array([ np.invert(label), label ], dtype=np.uint8)
         
-        samples = np.array(check_array(X, accept_sparse=False, dtype=bool, order='C'), dtype=np.uint8)
+        samples = np.array(check_array(X, ndim=2, dtype=np.bool, order='C'), dtype=np.uint8)
 
         n_samples = samples.shape[0]
         n_features = samples.shape[1]
@@ -232,8 +187,6 @@ class CorelsClassifier:
         if features:
             check_features(features)
             self.features_ = list(features)
-        elif self.features_:
-            check_features(self.features_)
         else:
             self.features_ = []
             for i in range(n_features):
@@ -309,12 +262,46 @@ class CorelsClassifier:
         """
 
         check_is_fitted(self, "is_fitted_")
-        check_rulelist(self.rules_, self.features_, self.prediction_name)        
+        check_rulelist(self.rules_, self.features_, self.prediction_name_)        
 
-        samples = np.array(check_array(X, accept_sparse=False, dtype=bool, order='C'), dtype=np.uint8)
+        samples = np.array(check_array(X, ndim=2, dtype=np.bool, order='C'), dtype=np.uint8)
         
         if samples.shape[1] != len(self.features_):
             raise ValueError("Feature count mismatch between eval data (" + str(X.shape[1]) + 
                              ") and feature names (" + str(len(self.features_)) + ")")
 
-        return _corels.predict_wrap(samples, self.rules_)
+        return np.array(_corels.predict_wrap(samples, self.rules_), dtype=np.bool)
+
+    def score(self, X, y):
+        """
+        Score the algorithm on the input samples X with the labels y. Alternatively,
+        score the predictions X against the labels y (where X has been generated by 
+        `predict` or something similar).
+
+        Arguments
+        ---------
+        X : array-like, shape = [n_samples, n_features] OR shape = [n_samples]
+            The input samples, or the sample predictions. All features must be binary.
+        
+        y : array-like, shape = [n_samples]
+            The input labels. All labels must be binary.
+
+        Returns
+        -------
+        a : float
+            The accuracy, from 0.0 to 1.0, of the rulelist predictions
+        """
+
+        check_consistent_length(X, y)
+        labels = check_array(y, ndim=1, dtype=np.bool, order='C')
+       
+        p = check_array(X, dtype=np.bool, order='C')
+        if X.ndim == 2:
+            p = self.predict(X)
+        elif X.ndim != 1:
+            raise ValueError("Input samples must have only 1 or 2 dimensions, got " + str(X.ndim) +
+                             " dimensions")
+
+        a = np.sum(np.invert(np.logical_xor(p, labels))) / float(p.shape[0])
+
+        return a

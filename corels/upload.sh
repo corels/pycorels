@@ -1,3 +1,4 @@
-rm -rf dist/*
+cythonize corels/_corels.pyx
+rm -rf dist build
 python setup.py sdist
 twine upload dist/*

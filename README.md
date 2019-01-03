@@ -4,14 +4,14 @@ Welcome to the python binding of the Certifiably Optimal RulE ListS (CORELS) alg
 
 ## Installation
 
-To install, simply run `python setup.py install` from this directory.
+Corels exists on PyPI, and can be downloaded with
+`pip install corels`
+
+To install from this repo, simply run `python setup.py install` from the `corels` directory.
 
 ## Usage
 
-First, you have to include the module:
-`import pycorels`
-
-There are currently only three functions in the module: `pycorels.run`, `pycorels.tolist`, and `pycorels.tofile`
+All functionality is exposed via a class called `CorelsClassifier`.
 
 ### pycorels.run
 

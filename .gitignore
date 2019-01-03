@@ -8,4 +8,4 @@ dist/
 corels.egg-info/
 __pycache__/
 *.pyd
-libcorels.c
+MANIFEST
