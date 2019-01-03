@@ -4,16 +4,16 @@
 {
     "distutils": {
         "depends": [
-            "corels/src/corels/rule.h", 
-            "corels/src/corels/run.h", 
-            "corels/src/utils.h"
+            "/home/vassy/code/pycorels/corels/src/corels/rule.h", 
+            "/home/vassy/code/pycorels/corels/src/corels/run.h", 
+            "/home/vassy/code/pycorels/corels/src/utils.h"
         ], 
         "include_dirs": [
-            "corels"
+            "/home/vassy/code/pycorels/corels"
         ], 
         "name": "corels._corels", 
         "sources": [
-            "/home/vassy/code/pycorels/corels/corels/_corels.pyx"
+            "/home/vassy/code/pycorels/corels/_corels.pyx"
         ]
     }, 
     "module_name": "corels._corels"
@@ -865,7 +865,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "corels/_corels.pyx",
+  "_corels.pyx",
   "__init__.pxd",
   "type.pxd",
 };
@@ -1807,6 +1807,7 @@ static const char __pyx_k_next_rule[] = "next_rule";
 static const char __pyx_k_nfeatures[] = "nfeatures";
 static const char __pyx_k_verbosity[] = "verbosity";
 static const char __pyx_k_ValueError[] = "ValueError";
+static const char __pyx_k_corels_pyx[] = "_corels.pyx";
 static const char __pyx_k_prediction[] = "prediction";
 static const char __pyx_k_ImportError[] = "ImportError";
 static const char __pyx_k_MemoryError[] = "MemoryError";
@@ -1831,7 +1832,6 @@ static const char __pyx_k_verbosity_ascii[] = "verbosity_ascii";
 static const char __pyx_k_and_feature_names[] = ") and feature names (";
 static const char __pyx_k_antecedent_lengths[] = "antecedent_lengths";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
-static const char __pyx_k_corels__corels_pyx[] = "corels/_corels.pyx";
 static const char __pyx_k_Could_not_load_samples[] = "Could not load samples";
 static const char __pyx_k_ndarray_is_not_C_contiguous[] = "ndarray is not C contiguous";
 static const char __pyx_k_numpy_core_multiarray_failed_to[] = "numpy.core.multiarray failed to import";
@@ -1872,7 +1872,7 @@ static PyObject *__pyx_n_s_calculate_size;
 static PyObject *__pyx_n_s_classes;
 static PyObject *__pyx_n_s_cline_in_traceback;
 static PyObject *__pyx_n_s_corels__corels;
-static PyObject *__pyx_kp_s_corels__corels_pyx;
+static PyObject *__pyx_kp_s_corels_pyx;
 static PyObject *__pyx_n_s_default;
 static PyObject *__pyx_n_s_dtype;
 static PyObject *__pyx_n_s_encode;
@@ -7397,7 +7397,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_classes, __pyx_k_classes, sizeof(__pyx_k_classes), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
   {&__pyx_n_s_corels__corels, __pyx_k_corels__corels, sizeof(__pyx_k_corels__corels), 0, 0, 1, 1},
-  {&__pyx_kp_s_corels__corels_pyx, __pyx_k_corels__corels_pyx, sizeof(__pyx_k_corels__corels_pyx), 0, 0, 1, 0},
+  {&__pyx_kp_s_corels_pyx, __pyx_k_corels_pyx, sizeof(__pyx_k_corels_pyx), 0, 0, 1, 0},
   {&__pyx_n_s_default, __pyx_k_default, sizeof(__pyx_k_default), 0, 0, 1, 1},
   {&__pyx_n_s_dtype, __pyx_k_dtype, sizeof(__pyx_k_dtype), 0, 0, 1, 1},
   {&__pyx_n_s_encode, __pyx_k_encode, sizeof(__pyx_k_encode), 0, 0, 1, 1},
@@ -7589,7 +7589,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__11 = PyTuple_Pack(17, __pyx_n_s_X, __pyx_n_s_rules, __pyx_n_s_nsamples, __pyx_n_s_nfeatures, __pyx_n_s_out, __pyx_n_s_n_rules, __pyx_n_s_s, __pyx_n_s_r, __pyx_n_s_next_rule, __pyx_n_s_nidx, __pyx_n_s_a, __pyx_n_s_idx, __pyx_n_s_c, __pyx_n_s_default, __pyx_n_s_antecedent_lengths, __pyx_n_s_predictions, __pyx_n_s_antecedents); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 42, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__11);
   __Pyx_GIVEREF(__pyx_tuple__11);
-  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(2, 0, 17, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_corels__corels_pyx, __pyx_n_s_predict_wrap, 42, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(2, 0, 17, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_corels_pyx, __pyx_n_s_predict_wrap, 42, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(0, 42, __pyx_L1_error)
 
   /* "corels/_corels.pyx":147
  * cdef int n_rules = 0
@@ -7601,7 +7601,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__13 = PyTuple_Pack(24, __pyx_n_s_samples, __pyx_n_s_labels, __pyx_n_s_features, __pyx_n_s_max_card, __pyx_n_s_min_support, __pyx_n_s_verbosity_str, __pyx_n_s_mverbose, __pyx_n_s_c, __pyx_n_s_policy, __pyx_n_s_map_type, __pyx_n_s_ablation, __pyx_n_s_calculate_size, __pyx_n_s_nfeatures, __pyx_n_s_samples_vecs, __pyx_n_s_nsamples, __pyx_n_s_features_vec, __pyx_n_s_i, __pyx_n_s_bytestr, __pyx_n_s_r, __pyx_n_s_verbosity_ascii, __pyx_n_s_verbosity, __pyx_n_s_nsamples_chk, __pyx_n_s_mr, __pyx_n_s_rb); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__13);
   __Pyx_GIVEREF(__pyx_tuple__13);
-  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(12, 0, 24, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_corels__corels_pyx, __pyx_n_s_fit_wrap_begin, 147, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) __PYX_ERR(0, 147, __pyx_L1_error)
+  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(12, 0, 24, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_corels_pyx, __pyx_n_s_fit_wrap_begin, 147, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) __PYX_ERR(0, 147, __pyx_L1_error)
 
   /* "corels/_corels.pyx":248
  *     return True
@@ -7613,7 +7613,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__15 = PyTuple_Pack(3, __pyx_n_s_max_nodes, __pyx_n_s_max_nodes, __pyx_n_s_max_num_nodes); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(0, 248, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__15);
   __Pyx_GIVEREF(__pyx_tuple__15);
-  __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_corels__corels_pyx, __pyx_n_s_fit_wrap_loop, 248, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) __PYX_ERR(0, 248, __pyx_L1_error)
+  __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_corels_pyx, __pyx_n_s_fit_wrap_loop, 248, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) __PYX_ERR(0, 248, __pyx_L1_error)
 
   /* "corels/_corels.pyx":252
  *     return (run_corels_loop(max_num_nodes) != -1)
@@ -7625,7 +7625,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__17 = PyTuple_Pack(6, __pyx_n_s_rulelist_size, __pyx_n_s_rulelist, __pyx_n_s_classes, __pyx_n_s_r_out, __pyx_n_s_i, __pyx_n_s_j); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(0, 252, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__17);
   __Pyx_GIVEREF(__pyx_tuple__17);
-  __pyx_codeobj__18 = (PyObject*)__Pyx_PyCode_New(0, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__17, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_corels__corels_pyx, __pyx_n_s_fit_wrap_end, 252, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__18)) __PYX_ERR(0, 252, __pyx_L1_error)
+  __pyx_codeobj__18 = (PyObject*)__Pyx_PyCode_New(0, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__17, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_corels_pyx, __pyx_n_s_fit_wrap_end, 252, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__18)) __PYX_ERR(0, 252, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
