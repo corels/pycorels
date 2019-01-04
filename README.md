@@ -13,10 +13,13 @@ To install from this repo, simply run `python setup.py install` from the `corels
 
 All functionality is exposed via a class called `CorelsClassifier`. This class has the following methods:
 
-`(constructor)`: Provide data-independent parameters for the classifier
-`fit(X, y)`: Generate a rulelist from the samples `X` and the labels `y`
-`predict(X)`: Predict classifications for the samples `X`
-`score(X, y)`: Score the accuracy of the model on the test samples `X` with labels `y`
+`(constructor)`: Provide data-independent parameters for the classifier   
+`fit(X, y)`: Generate a rulelist from the samples `X` and the labels `y`   
+`predict(X)`: Predict classifications for the samples `X`   
+`score(X, y)`: Score the accuracy of the model on the test samples `X` with labels `y`   
+
+We also provide a helper function called `load_from_csv`, which loads a csv file with binary data
+into sample and label datasets (X and y).
 
 ## Example
 ~~~~
