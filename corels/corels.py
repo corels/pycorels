@@ -1,8 +1,8 @@
-from __future__ import print_function, division
+from __future__ import print_function, division, with_statement
 from . import _corels
-from .utils import check_consistent_length, check_array, check_is_fitted, get_feature, check_in, check_features, check_rulelist
+from .utils import check_consistent_length, check_array, check_is_fitted, get_feature, check_in, check_features, check_rulelist, print_rulelist
 import numpy as np
-
+import pickle
 
 class CorelsClassifier:
     """
@@ -15,10 +15,11 @@ class CorelsClassifier:
 
     In order to use run the algorithm, create an instance of the `CorelsClassifier` class, 
     providing any necessary parameters in its constructor, and then call `fit` to generate
-    a rulelist. `print_list` prints the generated rulelist, while `predict` provides
+    a rulelist. `printrl` prints the generated rulelist, while `predict` provides
     classification predictions for a separate test dataset with the same features. To determine 
     the algorithm's accuracy, run `score` on an evaluation dataset with labels.
-    
+    To save a generated rulelist to a file, call `save`. To load it back from the file, call `load`.
+
     Parameters
     ----------
     c : float, optional (default=0.01)
@@ -75,14 +76,27 @@ class CorelsClassifier:
     Examples
     --------
     >>> import numpy as np
-    >>> from sklearn.tree import CorelsRegressor
+    >>> from corels import CorelsClassifier
     >>> X = np.array([ [1, 0, 1], [0, 1, 0], [1, 1, 1] ])
     >>> y = np.array([ 1, 0, 1])
-    >>> c = CorelsRegressor(verbosity=[])
+    >>> c = CorelsClassifier(verbosity=[])
     >>> c.fit(X, y)
+    ...
     >>> print(c.predict(X))
-    array([ 1, 0, 1 ])
+    [ True False  True ]
     """
+
+
+    """
+    Wrapper class for rulelists. Contains three attributes: the rules, the features, and
+    the prediction name.
+    """
+    class RuleList:
+        def __init__(self):
+            self.features = []
+            self.rules = []
+            self.prediction_name = ""
+
 
     def __init__(self, c=0.01, n_iter=10000, map_type="prefix", policy="lower_bound",
                  verbosity=["progress"], ablation=0, max_card=2, min_support=0.01):
@@ -94,35 +108,61 @@ class CorelsClassifier:
         self.ablation = ablation
         self.max_card = max_card
         self.min_support = min_support
-    
-    def print_list(self):
+   
+    def printrl(self):
         """
         Print the rulelist in a human-friendly format.
         """
+        
+        check_is_fitted(self, "is_fitted_")
+        print_rulelist(self.rl_)
+
+        return self
+
+    def save(self, fname):
+        """
+        Save the rulelist to a file, using python's pickle module.
+        
+        Parameters
+        ----------
+        fname : string
+            File name to store the rulelist in
+        """
 
         check_is_fitted(self, "is_fitted_")
-        check_rulelist(self.rules_, self.features_, self.prediction_name_)
+        check_rulelist(self.rl_)
 
-        if not self.rules_:
-            return "Untrained model"
-        
-        print("RULELIST:")
-        
-        if len(self.rules_) == 1:
-            check_rule(self.rules_[0])
-            return self.prediction_name_ + " = " + str(self.rules_[0]["prediction"])
-            
-        tot = ""
-        for i in range(len(self.rules_) - 1):
-            feat = get_feature(self.features_, self.rules_[i]["antecedents"][0])
-            for j in range(1, len(self.rules_[i]["antecedents"])):
-                feat += " && " + get_feature(self.features_, self.rules_[i]["antecedents"][j])
-            tot += "if [" + feat + "]:\n  " + self.prediction_name_ + " = " + str(bool(self.rules_[i]["prediction"])) + "\nelse "
+        with open(fname, "w") as f:
+            pickle.dump({ "f": self.rl_.features, "r": self.rl_.rules, "p": self.rl_.prediction_name }, f)
 
-        tot += "\n  " + self.prediction_name_ + " = " + str(bool(self.rules_[-1]["prediction"]))
-
-        print(tot + "\n")
         return self
+
+    def load(self, fname):
+        """
+        Load a rulelist from a file, using python's pickle module.
+        
+        Parameters
+        ----------
+        fname : string
+            File name to load the rulelist from
+        """
+        
+        with open(fname, "r") as f:
+            rl_dict = pickle.load(f)
+            if not "r" in rl_dict or not "f" in rl_dict or not "p" in rl_dict:
+                raise ValueError("Invalid rulelist file")
+            
+            rl = self.RuleList()
+            rl.rules = rl_dict["r"]
+            rl.features = rl_dict["f"]
+            rl.prediction_name = rl_dict["p"]
+            check_rulelist(rl)
+
+            self.rl_ = rl
+            self.is_fitted_ = True
+
+        return self
+        
 
     def fit(self, X, y, features=[], prediction_name="prediction"):
         """
@@ -183,20 +223,22 @@ class CorelsClassifier:
         n_samples = samples.shape[0]
         n_features = samples.shape[1]
         n_labels = labels.shape[0]
-
+        
+        rl = self.RuleList()
+        
         if features:
             check_features(features)
-            self.features_ = list(features)
+            rl.features = list(features)
         else:
-            self.features_ = []
+            rl.features_ = []
             for i in range(n_features):
-                self.features_.append("feature" + str(i + 1))
+                rl.features.append("feature" + str(i + 1))
 
-        if self.features_ and len(self.features_) != n_features:
+        if rl.features and len(rl.features) != n_features:
             raise ValueError("Feature count mismatch between sample data (" + str(n_features) + 
-                             ") and feature names (" + str(len(self.features_)) + ")")
+                             ") and feature names (" + str(len(rl.features)) + ")")
         
-        self.prediction_name_ = prediction_name
+        rl.prediction_name = prediction_name
 
         allowed_verbosities = ["rule", "label", "samples", "progress", "log", "loud"]
         for v in self.verbosity:
@@ -227,20 +269,27 @@ class CorelsClassifier:
         map_id = map_types.index(self.map_type)
         policy_id = policies.index(self.policy)
 
-        fr = _corels.fit_wrap_begin(samples, labels, self.features_,
+        fr = _corels.fit_wrap_begin(samples, labels, rl.features,
                              self.max_card, self.min_support, verbose, m_verbose, self.c, policy_id,
                              map_id, self.ablation, False)
         
         acc = 0.0
-        self.rules_ = []
 
         if fr:
-            while _corels.fit_wrap_loop(self.n_iter):
-                pass
-        
-            self.rules_ = _corels.fit_wrap_end()
-
-        self.is_fitted_ = True
+            early = False
+            try:
+                while _corels.fit_wrap_loop(self.n_iter):
+                    pass
+            except KeyboardInterrupt:
+                print("\nExiting early")
+                early = True
+             
+            rl.rules = _corels.fit_wrap_end(early)
+            
+            self.rl_ = rl
+            self.is_fitted_ = True
+        else:
+            print("Error running model! Exiting")
 
         return self
 
@@ -262,15 +311,15 @@ class CorelsClassifier:
         """
 
         check_is_fitted(self, "is_fitted_")
-        check_rulelist(self.rules_, self.features_, self.prediction_name_)        
+        check_rulelist(self.rl_)        
 
         samples = np.array(check_array(X, ndim=2, dtype=np.bool, order='C'), dtype=np.uint8)
         
-        if samples.shape[1] != len(self.features_):
+        if samples.shape[1] != len(self.rl_.features):
             raise ValueError("Feature count mismatch between eval data (" + str(X.shape[1]) + 
-                             ") and feature names (" + str(len(self.features_)) + ")")
+                             ") and feature names (" + str(len(self.rl_.features)) + ")")
 
-        return np.array(_corels.predict_wrap(samples, self.rules_), dtype=np.bool)
+        return np.array(_corels.predict_wrap(samples, self.rl_.rules), dtype=np.bool)
 
     def score(self, X, y):
         """

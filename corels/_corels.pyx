@@ -29,7 +29,7 @@ cdef extern from "src/corels/run.h":
 
     int run_corels_loop(size_t max_num_nodes)
 
-    double run_corels_end(int** rulelist, int* rulelist_size, int** classes)
+    double run_corels_end(int** rulelist, int* rulelist_size, int** classes, int early)
 
 cdef extern from "src/utils.h":
     int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples, 
@@ -249,7 +249,7 @@ def fit_wrap_loop(size_t max_nodes):
     cdef size_t max_num_nodes = max_nodes
     return (run_corels_loop(max_num_nodes) != -1)
 
-def fit_wrap_end():
+def fit_wrap_end(int early):
     global rules
     global labels_vecs
     global minor
@@ -258,7 +258,7 @@ def fit_wrap_end():
     cdef int rulelist_size = 0
     cdef int* rulelist = NULL
     cdef int* classes = NULL
-    run_corels_end(&rulelist, &rulelist_size, &classes)
+    run_corels_end(&rulelist, &rulelist_size, &classes, early)
 
     r_out = []
     if classes != NULL:

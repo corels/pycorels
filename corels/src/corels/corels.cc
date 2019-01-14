@@ -225,19 +225,22 @@ void bbound_loop(CacheTree* tree, Queue* q, PermutationMap* p) {
     }
 }
     
-int bbound_end(CacheTree* tree, Queue* q, PermutationMap* p) {
+int bbound_end(CacheTree* tree, Queue* q, PermutationMap* p, bool early) {
     int verbosity = logger->getVerbosity();
     bool print_queue = 0;
     logger->dumpState(); // second last log record (before queue elements deleted)
     if (verbosity >= 5)
         printf("iter: %zu, tree: %zu, queue: %zu, pmap: %zu, time elapsed: %f\n",
                num_iter, tree->num_nodes(), q->size(), p->size(), time_diff(start));
-    if (q->empty()) {
-        if (verbosity >= 1) 
-            printf("Exited because queue empty\n");
+    
+    if (!early) {
+        if (q->empty()) {
+            if (verbosity >= 1) 
+                printf("Exited because queue empty\n");
+        }
+        else if (verbosity >= 1)
+            printf("Exited because max number of nodes in the tree was reached\n");
     }
-    else if (verbosity >= 1)
-        printf("Exited because max number of nodes in the tree was reached\n");
 
     // Print out queue
     ofstream f;

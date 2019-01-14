@@ -141,9 +141,9 @@ int run_corels_loop(size_t max_num_nodes) {
     return -1;
 }
 
-double run_corels_end(int** rulelist, int* rulelist_size, int** classes)
+double run_corels_end(int** rulelist, int* rulelist_size, int** classes, int early)
 {
-    bbound_end(g_tree, g_queue, g_pmap);
+    bbound_end(g_tree, g_queue, g_pmap, early);
 
     const tracking_vector<unsigned short, DataStruct::Tree>& r_list = g_tree->opt_rulelist();
     const tracking_vector<bool, DataStruct::Tree>& preds = g_tree->opt_predictions();

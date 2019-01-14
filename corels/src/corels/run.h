@@ -13,7 +13,7 @@ int run_corels_begin(double c, char* vstring, int curiosity_policy,
 
 int run_corels_loop(size_t max_num_nodes);
 
-double run_corels_end(int** rulelist, int* rulelist_size, int** classes);
+double run_corels_end(int** rulelist, int* rulelist_size, int** classes, int early);
 
 #ifdef __cplusplus
 }

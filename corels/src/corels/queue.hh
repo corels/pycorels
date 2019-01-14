@@ -108,7 +108,7 @@ class Queue {
 
 extern void bbound_begin(CacheTree* tree, Queue* q);
 extern void bbound_loop(CacheTree* tree, Queue* q, PermutationMap* p);
-extern int bbound_end(CacheTree* tree, Queue* q, PermutationMap* p);
+extern int bbound_end(CacheTree* tree, Queue* q, PermutationMap* p, bool early);
 
 extern void evaluate_children(CacheTree* tree, Node* parent, tracking_vector<unsigned short, DataStruct::Tree> parent_prefix,
         VECTOR parent_not_captured, Queue* q, PermutationMap* p);

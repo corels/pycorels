@@ -1,7 +1,6 @@
 import os
 from numpy.distutils.misc_util import Configuration
 import numpy as np
-from ctypes.util import find_library
 
 def configuration():
     description = 'Python binding of the CORELS algorithm'
@@ -14,9 +13,6 @@ def configuration():
     args = ['-O3', '-DGMP']
     libraries = ['gmp']
     
-    if not find_library('gmp'):
-        raise ValueError("GMP must be installed to use Corels")
-    
     if os.name == 'posix':
         libraries.append('m')
     
@@ -27,13 +23,16 @@ def configuration():
                     'src/corels/cache.cc', 'src/corels/rulelib.c'],
                     libraries = libraries,
                     include_dirs = ['src/', 'src/corels/', np.get_include()],
-		            extra_compile_args = args)
+		            language = "C++",
+                    extra_compile_args = args)
 
     config = config.todict()
-    config['version'] = '1.1'
+    config['version'] = '1.1.3'
     config['author'] = 'Vassilios Kaxiras'
     config['author_email'] = 'vassilioskaxiras@gmail.com'
     config['description'] = description
+    config['setup_requires'] = ['numpy']
+    config['install_requires'] = ['numpy']
     config['long_description'] = long_description
     config['url'] = 'https://github.com/fingoldin/pycorels'
     config['classifiers'] = (
