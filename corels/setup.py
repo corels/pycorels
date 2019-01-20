@@ -10,7 +10,7 @@ def configuration():
 
     config = Configuration('corels')
     
-    args = ['-O3', '-DGMP']
+    args = ['-O3', '-DGMP', '-std=c++11']
     libraries = ['gmp']
     
     if os.name == 'posix':
@@ -27,12 +27,10 @@ def configuration():
                     extra_compile_args = args)
 
     config = config.todict()
-    config['version'] = '1.1.3'
+    config['version'] = '1.1.4'
     config['author'] = 'Vassilios Kaxiras'
     config['author_email'] = 'vassilioskaxiras@gmail.com'
     config['description'] = description
-    config['setup_requires'] = ['numpy']
-    config['install_requires'] = ['numpy']
     config['long_description'] = long_description
     config['url'] = 'https://github.com/fingoldin/pycorels'
     config['classifiers'] = (

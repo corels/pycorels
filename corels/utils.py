@@ -1,13 +1,12 @@
 import numpy as np
 
 def print_rulelist(rl):
-    """
-    Print a rulelist in a human-friendly format.
+    """Print a rulelist in a human-friendly format.
     
     Parameters
     ----------
     rl : object
-        Rulelist. Usually, you would provide CorelsClassifier.rl_, which is of the correct
+        Rulelist. Usually, you would provide `CorelsClassifier.rl_`, which is of the correct
         format
     """
 
@@ -38,7 +37,7 @@ def load_from_csv(fname):
     
     Parameters
     ----------
-    fname : string
+    fname : str
         File name of the csv data file
     """
 

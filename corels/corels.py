@@ -5,8 +5,7 @@ import numpy as np
 import pickle
 
 class CorelsClassifier:
-    """
-    Certifiably Optimal RulE ListS classifier.
+    """Certifiably Optimal RulE ListS classifier.
 
     This class implements the CORELS algorithm, designed to produce human-interpretable, optimal
     rulelists for binary feature data and binary classification. As an alternative to other
@@ -20,20 +19,20 @@ class CorelsClassifier:
     the algorithm's accuracy, run `score` on an evaluation dataset with labels.
     To save a generated rulelist to a file, call `save`. To load it back from the file, call `load`.
 
-    Parameters
+    Attributes
     ----------
     c : float, optional (default=0.01)
         Regularization parameter. Higher values penalize longer rulelists.
 
     n_iter : int, optional (default=1000)
         Maximum number of nodes (rulelists) to search before exiting.
-    
-    map_type : string, optional (default="prefix")
+
+    map_type : str, optional (default="prefix")
         The type of prefix map to use. Supported maps are "none" for no map,
         "prefix" for a map that uses rule prefixes for keys, "captured" for
         a map with a prefix's captured vector as keys.
 
-    policy : string, optional (default="lower_bound")
+    policy : str, optional (default="lower_bound")
         The search policy for traversing the tree (i.e. the criterion with which
         to order nodes in the queue). Supported criteria are "bfs", for breadth-first
         search; "curious", which attempts to find the most promising node; 
@@ -51,7 +50,7 @@ class CorelsClassifier:
         - "progress" prints periodic messages as corels runs.
         - "log" prints machine information.
         - "loud" is the equivalent of ["progress", "log", "label", "rule"]
-    
+
     ablation : int, optional (default=0)
         Specifies addition parameters for the bounds used while searching. Accepted
         values are 0 (all bounds), 1 (no antecedent support bound), and 2 (no
@@ -66,7 +65,7 @@ class CorelsClassifier:
         The fraction of samples that a rule must capture in order to be used. 1 minus
         this value is also the maximum fraction of samples a rule can capture.
         Can be any value between 0.0 and 1.0.
-    
+
     References
     ----------
     Elaine Angelino, Nicholas Larus-Stone, Daniel Alabi, Margo Seltzer, and Cynthia Rudin.
@@ -85,19 +84,7 @@ class CorelsClassifier:
     >>> print(c.predict(X))
     [ True False  True ]
     """
-
-
-    """
-    Wrapper class for rulelists. Contains three attributes: the rules, the features, and
-    the prediction name.
-    """
-    class RuleList:
-        def __init__(self):
-            self.features = []
-            self.rules = []
-            self.prediction_name = ""
-
-
+    
     def __init__(self, c=0.01, n_iter=10000, map_type="prefix", policy="lower_bound",
                  verbosity=["progress"], ablation=0, max_card=2, min_support=0.01):
         self.c = c
@@ -108,61 +95,6 @@ class CorelsClassifier:
         self.ablation = ablation
         self.max_card = max_card
         self.min_support = min_support
-   
-    def printrl(self):
-        """
-        Print the rulelist in a human-friendly format.
-        """
-        
-        check_is_fitted(self, "is_fitted_")
-        print_rulelist(self.rl_)
-
-        return self
-
-    def save(self, fname):
-        """
-        Save the rulelist to a file, using python's pickle module.
-        
-        Parameters
-        ----------
-        fname : string
-            File name to store the rulelist in
-        """
-
-        check_is_fitted(self, "is_fitted_")
-        check_rulelist(self.rl_)
-
-        with open(fname, "w") as f:
-            pickle.dump({ "f": self.rl_.features, "r": self.rl_.rules, "p": self.rl_.prediction_name }, f)
-
-        return self
-
-    def load(self, fname):
-        """
-        Load a rulelist from a file, using python's pickle module.
-        
-        Parameters
-        ----------
-        fname : string
-            File name to load the rulelist from
-        """
-        
-        with open(fname, "r") as f:
-            rl_dict = pickle.load(f)
-            if not "r" in rl_dict or not "f" in rl_dict or not "p" in rl_dict:
-                raise ValueError("Invalid rulelist file")
-            
-            rl = self.RuleList()
-            rl.rules = rl_dict["r"]
-            rl.features = rl_dict["f"]
-            rl.prediction_name = rl_dict["p"]
-            check_rulelist(rl)
-
-            self.rl_ = rl
-            self.is_fitted_ = True
-
-        return self
-        
 
     def fit(self, X, y, features=[], prediction_name="prediction"):
         """
@@ -354,3 +286,81 @@ class CorelsClassifier:
         a = np.sum(np.invert(np.logical_xor(p, labels))) / float(p.shape[0])
 
         return a
+    
+    def save(self, fname):
+        """
+        Save the rulelist to a file, using python's pickle module.
+
+        Parameters
+        ----------
+        fname : string
+            File name to store the rulelist in
+        """
+
+        check_is_fitted(self, "is_fitted_")
+        check_rulelist(self.rl_)
+
+        with open(fname, "w") as f:
+            pickle.dump({ "f": self.rl_.features, "r": self.rl_.rules, "p": self.rl_.prediction_name }, f)
+
+        return self
+
+    def load(self, fname):
+        """
+        Load a rulelist from a file, using python's pickle module.
+        
+        Parameters
+        ----------
+        fname : string
+            File name to load the rulelist from
+        """
+
+        with open(fname, "r") as f:
+            rl_dict = pickle.load(f)
+            if not "r" in rl_dict or not "f" in rl_dict or not "p" in rl_dict:
+                raise ValueError("Invalid rulelist file")
+            
+            rl = self.RuleList()
+            rl.rules = rl_dict["r"]
+            rl.features = rl_dict["f"]
+            rl.prediction_name = rl_dict["p"]
+            check_rulelist(rl)
+
+            self.rl_ = rl
+            self.is_fitted_ = True
+
+        return self
+    
+    def printrl(self):
+        """
+        Print the rulelist in a human-friendly format.
+        """
+
+        check_is_fitted(self, "is_fitted_")
+        print_rulelist(self.rl_)
+
+        return self
+
+    
+    class RuleList:
+        """This class represents a rulelist. It is used to store the model generated by 
+        `CorelsClassifier.fit` in the `CorelsClassifier.rl_` attribute.
+        
+        Attributes
+        ----------
+        rules : list
+            Set of rule indices (into the features array) that comprise the rulelist.
+        
+        features : list
+            Set of all features. An array of strings.
+        
+        prediction_name : str
+            Name of the feature being predicted.
+        """
+
+        def __init__(self):
+            self.features = []
+            self.rules = []
+            self.prediction_name = ""
+
+
