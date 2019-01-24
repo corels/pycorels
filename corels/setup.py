@@ -10,22 +10,30 @@ def configuration():
 
     config = Configuration('corels')
     
-    args = ['-O3', '-DGMP']
+    c_args = ['-O3', '-DGMP']
+    cpp_args = ['-O3', '-DGMP', '-std=c++11']
     libraries = ['gmp']
     
     if os.name == 'posix':
         libraries.append('m')
     
     config.add_extension('_corels',
-                    sources = ['_corels.c', 'src/utils.c',
+                    sources = ['_corels.cpp', 'src/utils.cpp', 'src/corels/rulelib.cpp'],
                     'src/corels/run.cpp', 'src/corels/pmap.cpp', 
-                    'src/corels/utils.cpp', 'src/corels/corels.cpp', 
-                    'src/corels/cache.cpp', 'src/corels/rulelib.c'],
+                    'src/corels/utils.cpp', 'src/corels/corels.cpp', 'src/corels/cache.cpp'],
                     libraries = libraries,
                     include_dirs = ['src/', 'src/corels/', np.get_include()],
 		            language = "C++",
-                    extra_compile_args = args)
-
+                    extra_compile_args = cpp_args)
+    """
+    config.add_extension('_corels_cpp',
+                    sources = ['src/corels/run.cpp', 'src/corels/pmap.cpp', 
+                    'src/corels/utils.cpp', 'src/corels/corels.cpp', 'src/corels/cache.cpp'],
+                    libraries = libraries,
+                    include_dirs = ['src/', 'src/corels/', np.get_include()],
+		            language = "C++",
+                    extra_compile_args = cpp_args)
+"""
     config = config.todict()
     config['version'] = '1.1.6'
     config['author'] = 'Vassilios Kaxiras'
