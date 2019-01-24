@@ -1,5 +1,4 @@
 from __future__ import print_function, division, with_statement
-from . import _corels_cpp
 from . import _corels
 from .utils import check_consistent_length, check_array, check_is_fitted, get_feature, check_in, check_features, check_rulelist, RuleList
 import numpy as np
