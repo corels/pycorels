@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <fstream>
 #include <vector>
-#include <gmpxx.h>
+#include <gmp.h>
 #include <set>
 
 using namespace std;

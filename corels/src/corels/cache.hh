@@ -8,6 +8,7 @@
 #include <vector>
 #include <stdlib.h>
 #include <memory>
+#include <algorithm>
 
 class Node {
   public:

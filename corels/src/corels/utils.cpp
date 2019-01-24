@@ -80,8 +80,10 @@ void Logger::dumpState() {
  * Note: this function may not work on some Linux machines.
  */
 std::string Logger::dumpRemainingSpaceSize() {
-    mpz_class s(_state.remaining_space_size);
-    return s.get_str();
+    char* str = mpz_get_str(NULL, 10, _state.remaining_space_size);
+    std::string ret(str);
+    free(str);
+    return ret;
 }
 
 /*

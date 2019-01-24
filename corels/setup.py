@@ -27,7 +27,7 @@ def configuration():
                     extra_compile_args = args)
 
     config = config.todict()
-    config['version'] = '1.1.5'
+    config['version'] = '1.1.6'
     config['author'] = 'Vassilios Kaxiras'
     config['author_email'] = 'vassilioskaxiras@gmail.com'
     config['description'] = description
