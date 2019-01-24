@@ -18,7 +18,7 @@ def configuration():
         libraries.append('m')
     
     config.add_extension('_corels',
-                    sources = ['_corels.cpp', 'src/utils.cpp', 'src/corels/rulelib.cpp'],
+                    sources = ['_corels.cpp', 'src/utils.cpp', 'src/corels/rulelib.cpp',
                     'src/corels/run.cpp', 'src/corels/pmap.cpp', 
                     'src/corels/utils.cpp', 'src/corels/corels.cpp', 'src/corels/cache.cpp'],
                     libraries = libraries,

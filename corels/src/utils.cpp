@@ -20,10 +20,12 @@ int minority(rule_t* rules, int nrules, rule_t* labels, int nsamples, rule_t* mi
 
   samples_nrules = nrules;
 
-  line_clean = malloc(nrules + 1);
-  sample_array = malloc(sizeof(rule_t) * nsamples);
-  minority = malloc(nsamples + 1);
-  sample_indices = malloc(sizeof(int) * nsamples);
+  line_clean = (char*)malloc(nrules + 1);
+  sample_array = (rule_t*)malloc(sizeof(rule_t) * nsamples);
+  minority = (char*)malloc(nsamples + 1);
+  sample_indices = (int*)malloc(sizeof(int) * nsamples);
+  
+  int begin_group = 0;
 
   int nones;
   // Generate the sample bitvectors
@@ -48,7 +50,6 @@ int minority(rule_t* rules, int nrules, rule_t* labels, int nsamples, rule_t* mi
   qsort(sample_indices, nsamples, sizeof(int), sample_comp);
 
   // Loop through the sorted samples, finding identically-featured groups
-  int begin_group = 0;
   for(int i = 1; i < (nsamples + 1); i++) {
     if(i == nsamples || !rule_vector_equal(sample_array[sample_indices[i]].truthtable,
                             sample_array[sample_indices[i-1]].truthtable, nrules, nrules)) {
@@ -99,7 +100,7 @@ int minority(rule_t* rules, int nrules, rule_t* labels, int nsamples, rule_t* mi
   }
 
   minority_out->cardinality = 1;
-  minority_out->features = malloc(9);
+  minority_out->features = (char*)malloc(9);
   strcpy(minority_out->features, "minority");
   minority_out->ids = NULL;
 
@@ -158,22 +159,25 @@ int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples,
   int ntotal_rules = 0, nrules = 0, rule_alloc = 0, rule_alloc_block = 32, nrules_mine = 0, ret = 0;
   int *rule_ids = NULL, *rule_names_mine_lengths = NULL;
   rule_t *rules_vec = NULL, *rules_vec_mine = NULL;
+  
+  int min_thresh = round(min_support * (double)nsamples);
+  int max_thresh = round((1.0 - min_support) * (double)nsamples);
 
   nrules = nfeatures * 2;
   rule_alloc = nrules + 1;
-  rules_vec = malloc(sizeof(rule_t) * rule_alloc);
+  rules_vec = (rule_t*)malloc(sizeof(rule_t) * rule_alloc);
   if(!rules_vec) {
       ret = -1;
       goto end;
   }
 
-  rules_vec_mine = malloc(sizeof(rule_t) * nrules);
+  rules_vec_mine = (rule_t*)malloc(sizeof(rule_t) * nrules);
   if(!rules_vec_mine) {
       ret = -1;
       goto end;
   }
 
-  rule_names_mine_lengths = malloc(sizeof(int) * nrules);
+  rule_names_mine_lengths = (int*)malloc(sizeof(int) * nrules);
   if(!rule_names_mine_lengths) {
       ret = -1;
       goto end;
@@ -201,9 +205,6 @@ int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples,
       }
     }
   }
-
-  int min_thresh = round(min_support * (double)nsamples);
-  int max_thresh = round((1.0 - min_support) * (double)nsamples);
   
   // File rules_vec, the mpz_t version of the rules array
   for(int i = 0; i < nrules; i++) {
@@ -228,7 +229,7 @@ int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples,
       rules_vec_mine[nrules_mine].cardinality = i + 1;
     }
     else {
-      rules_vec_mine[nrules_mine].features = malloc(strlen(features[i - (nrules / 2)]) + 5);
+      rules_vec_mine[nrules_mine].features = (char*)malloc(strlen(features[i - (nrules / 2)]) + 5);
       strcpy(rules_vec_mine[nrules_mine].features, features[i - (nrules / 2)]);
       strcat(rules_vec_mine[nrules_mine].features, "-not");
       rules_vec_mine[nrules_mine].cardinality = -(i - (nrules / 2)) - 1;
@@ -240,7 +241,7 @@ int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples,
       memcpy(&rules_vec[ntotal_rules + 1], &rules_vec[i + 1], sizeof(rule_t));
       rules_vec[ntotal_rules + 1].cardinality = 1;
       rules_vec[ntotal_rules + 1].support = ones;
-      rules_vec[ntotal_rules + 1].ids = malloc(sizeof(int));
+      rules_vec[ntotal_rules + 1].ids = (int*)malloc(sizeof(int));
       rules_vec[ntotal_rules + 1].ids[0] = rules_vec_mine[nrules_mine].cardinality;
       rules_vec[ntotal_rules + 1].cardinality = 1;
       rules_vec[ntotal_rules + 1].support = ones;
@@ -248,7 +249,7 @@ int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples,
       if(i < (nrules / 2))
         rules_vec[ntotal_rules + 1].features = strdup(features[i]);
       else {
-        rules_vec[ntotal_rules + 1].features = malloc(strlen(features[i - (nrules / 2)]) + 5);
+        rules_vec[ntotal_rules + 1].features = (char*)malloc(strlen(features[i - (nrules / 2)]) + 5);
         strcpy(rules_vec[ntotal_rules + 1].features, features[i - (nrules / 2)]);
         strcat(rules_vec[ntotal_rules + 1].features, "-not");
       }
@@ -267,7 +268,7 @@ int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples,
   rule_t gen_rule;
   rule_vinit(nsamples, &gen_rule.truthtable);
 
-  rule_ids = malloc(sizeof(int) * max_card);
+  rule_ids = (int*)malloc(sizeof(int) * max_card);
 
   // Generate higher-cardinality rules
   for(int card = 2; card <= max_card; card++) {
@@ -301,7 +302,7 @@ int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples,
 
         if(ntotal_rules + 1 > rule_alloc) {
           rule_alloc += rule_alloc_block;
-          rules_vec = realloc(rules_vec, sizeof(rule_t) * rule_alloc);
+          rules_vec = (rule_t*)realloc(rules_vec, sizeof(rule_t) * rule_alloc);
         }
 
         rule_vinit(nsamples, &rules_vec[ntotal_rules].truthtable);
@@ -311,7 +312,7 @@ int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples,
         for(int i = 0; i < card; i++)
           name_len += rule_names_mine_lengths[rule_ids[i]] + 1;
         
-        rules_vec[ntotal_rules].features = malloc(name_len);
+        rules_vec[ntotal_rules].features = (char*)malloc(name_len);
 
         int ch_id = 0;
         for(int i = 0; i < card; i++) {
@@ -326,7 +327,7 @@ int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples,
         rules_vec[ntotal_rules].features[ch_id - 1] = '\0';
       
         rules_vec[ntotal_rules].cardinality = card;
-        rules_vec[ntotal_rules].ids = malloc(sizeof(int) * card);
+        rules_vec[ntotal_rules].ids = (int*)malloc(sizeof(int) * card);
         for(int k = 0; k < card; k++)
           rules_vec[ntotal_rules].ids[k] = rules_vec_mine[rule_ids[k]].cardinality;
 
@@ -349,9 +350,9 @@ int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples,
   
   rules_vec[0].cardinality = 1;
   rules_vec[0].support = nsamples;
-  rules_vec[0].ids = malloc(sizeof(int));
+  rules_vec[0].ids = (int*)malloc(sizeof(int));
   rules_vec[0].ids[0] = 0;
-  rules_vec[0].features = malloc(8);
+  rules_vec[0].features = (char*)malloc(8);
   strcpy(rules_vec[0].features, "default"); 
   make_default(&rules_vec[0].truthtable, nsamples);
 
