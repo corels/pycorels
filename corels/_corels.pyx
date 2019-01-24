@@ -1,3 +1,5 @@
+# distutils: language = c++
+
 from libc.string cimport strdup, strcpy
 from libc.stdlib cimport malloc, free
 import numpy as np
