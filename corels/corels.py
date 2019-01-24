@@ -304,7 +304,7 @@ class CorelsClassifier:
         check_is_fitted(self, "is_fitted_")
         check_rulelist(self.rl_)
 
-        with open(fname, "w") as f:
+        with open(fname, "wb") as f:
             pickle.dump({ "f": self.rl_.features, "r": self.rl_.rules, "p": self.rl_.prediction_name }, f)
 
         return self
@@ -323,7 +323,7 @@ class CorelsClassifier:
         self : obj
         """
 
-        with open(fname, "r") as f:
+        with open(fname, "rb") as f:
             rl_dict = pickle.load(f)
             if not "r" in rl_dict or not "f" in rl_dict or not "p" in rl_dict:
                 raise ValueError("Invalid rulelist file")

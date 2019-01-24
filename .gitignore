@@ -9,3 +9,4 @@ corels.egg-info/
 __pycache__/
 *.pyd
 MANIFEST
+tests/model
