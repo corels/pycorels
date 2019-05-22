@@ -10,3 +10,4 @@ __pycache__/
 *.pyd
 MANIFEST
 tests/model
+valgrind-python.supp
