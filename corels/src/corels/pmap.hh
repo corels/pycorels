@@ -101,6 +101,7 @@ class PermutationMap {
 class PrefixPermutationMap : public PermutationMap {
 	public:
         PrefixPermutationMap ();
+        ~PrefixPermutationMap ();
         size_t size() override {
             return pmap->size();
         }
@@ -116,6 +117,7 @@ class PrefixPermutationMap : public PermutationMap {
 class CapturedPermutationMap : public PermutationMap {
 	public:
         CapturedPermutationMap();
+        ~CapturedPermutationMap();
         size_t size() override {
             return pmap->size();
         }

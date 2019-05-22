@@ -71,11 +71,11 @@ Node* CacheTree::construct_node(unsigned short new_rule, size_t nrules, bool pre
  * Inserts the root of the tree, setting up the default rules.
  */
 void CacheTree::insert_root() {
-    VECTOR tmp_vec;
+    //VECTOR tmp_vec;
     size_t d0, d1;
     bool default_prediction;
     double objective;
-    make_default(&tmp_vec, nsamples_);
+    //make_default(&tmp_vec, nsamples_);
     d0 = labels_[0].support;
     d1 = nsamples_ - d0;
     if (d0 > d1) {

@@ -22,11 +22,11 @@ def configuration():
                     'src/corels/utils.cpp', 'src/corels/corels.cpp', 'src/corels/cache.cpp'],
                     libraries = libraries,
                     include_dirs = ['src/', 'src/corels/', np.get_include()],
-		            language = "c++11",
+		            language = "c++",
                     extra_compile_args = cpp_args)
     
     config = config.todict()
-    config['version'] = '1.1.6'
+    config['version'] = '1.1.9'
     config['author'] = 'Vassilios Kaxiras'
     config['author_email'] = 'vassilioskaxiras@gmail.com'
     config['description'] = description

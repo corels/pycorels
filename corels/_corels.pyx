@@ -99,7 +99,7 @@ cdef rule_t* _to_vector(np.ndarray[np.uint8_t, ndim=2] X, int* ncount):
     d0 = X.shape[0]
     d1 = X.shape[1]
     cdef rule_t* vectors = <rule_t*>malloc(d0 * sizeof(rule_t))
-    if not vectors:
+    if vectors == NULL:
         raise MemoryError()
 
     cdef int nones;
@@ -128,7 +128,7 @@ cdef rule_t* _to_vector(np.ndarray[np.uint8_t, ndim=2] X, int* ncount):
     return vectors
 
 cdef _free_vector(rule_t* vs, int count):
-    if not vs:
+    if vs == NULL:
         return
     
     for i in range(count):
@@ -162,32 +162,50 @@ def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples,
     nsamples = samples.shape[0]
 
     if nfeatures > len(features):
-        _free_vector(samples_vecs, nsamples)
+        if samples_vecs != NULL:
+            _free_vector(samples_vecs, nsamples)
+            samples_vecs = NULL
         raise ValueError("Feature count mismatch between sample data (" + str(nfeatures) + 
                          ") and feature names (" + str(len(features)) + ")")
 
     cdef char** features_vec = <char**>malloc(nfeatures * sizeof(char*))
-    if not features_vec:
-        _free_vector(samples_vecs, nsamples)
+    if features_vec == NULL:
+        if samples_vecs != NULL:
+            _free_vector(samples_vecs, nsamples)
+            samples_vecs = NULL
         raise MemoryError()
 
     for i in range(nfeatures):
         bytestr = features[i].encode("ascii")
         features_vec[i] = strdup(bytestr)
+        if features_vec[i] == NULL:
+            for j in range(i):
+                if features_vec[j] != NULL:
+                    free(features_vec[j])
+            features_vec = NULL
+            if samples_vecs != NULL:
+                _free_vector(samples_vecs, nsamples)
+                samples_vecs = NULL
+            raise MemoryError()
 
-    if rules != NULL and n_rules != 0:
+    if rules != NULL:
         _free_vector(rules, n_rules)
         rules = NULL
-        n_rules = 0
+    n_rules = 0
 
     cdef int r = mine_rules(features_vec, samples_vecs, nfeatures, nsamples,
                 max_card, min_support, &rules, mverbose)
 
-    for i in range(nfeatures):
-        free(features_vec[i])
-    free(features_vec)
-    
-    _free_vector(samples_vecs, nsamples)
+    if features_vec != NULL:
+        for i in range(nfeatures):
+            if features_vec[i] != NULL:
+                free(features_vec[i])
+        free(features_vec)
+        features_vec = NULL
+   
+    if samples_vecs != NULL:
+        _free_vector(samples_vecs, nsamples)
+        samples_vecs = NULL
 
     if r == -1 or rules == NULL:
         raise MemoryError();
@@ -205,17 +223,34 @@ def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples,
     try:
         labels_vecs = _to_vector(labels, &nsamples_chk)
     except:
-        _free_vector(rules, n_rules)
+        if rules != NULL:
+            _free_vector(rules, n_rules)
+            rules = NULL
+        n_rules = 0
         raise
 
     if nsamples_chk != nsamples:
-        _free_vector(labels_vecs, 2)
-        _free_vector(rules, n_rules)
+        if labels_vecs != NULL:
+            _free_vector(labels_vecs, 2)
+            labels_vecs = NULL
+        if rules != NULL:
+            _free_vector(rules, n_rules)
+            rules = NULL
+        n_rules = 0
         raise ValueError("Sample count mismatch between label (" + str(nsamples_chk) +
                          ") and rule data (" + str(nsamples) + ")")
 
     labels_vecs[0].features = <char*>malloc(8)
     labels_vecs[1].features = <char*>malloc(8)
+    if labels_vecs[0].features == NULL or labels_vecs[1].features == NULL:
+        if labels_vecs != NULL:
+            _free_vector(labels_vecs, 2)
+            labels_vecs = NULL
+        if rules != NULL:
+            _free_vector(rules, n_rules)
+            rules = NULL
+        n_rules = 0
+        raise MemoryError();
     strcpy(labels_vecs[0].features, "label=0")
     strcpy(labels_vecs[1].features, "label=1")
     
@@ -224,23 +259,40 @@ def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples,
         minor = NULL
 
     minor = <rule_t*>malloc(sizeof(rule_t))
+    if minor == NULL:
+        if labels_vecs != NULL:
+            _free_vector(labels_vecs, 2)
+            labels_vecs = NULL
+        if rules != NULL:
+            _free_vector(rules, n_rules)
+            rules = NULL
+        n_rules = 0
+        raise MemoryError();
 
     cdef int mr = minority(rules, n_rules, labels_vecs, nsamples, minor, mverbose)
     if mr != 0:
-        _free_vector(labels_vecs, 2)
-        _free_vector(rules, n_rules)
+        if labels_vecs != NULL:
+            _free_vector(labels_vecs, 2)
+            labels_vecs = NULL
+        if rules != NULL:
+            _free_vector(rules, n_rules)
+            rules = NULL
+        n_rules = 0
         raise MemoryError();
     
     cdef int rb = run_corels_begin(c, verbosity, policy, map_type, ablation, calculate_size,
                    n_rules, 2, nsamples, rules, labels_vecs, minor)
 
     if rb == -1:
-        _free_vector(labels_vecs, 2)
-        labels_vecs = NULL
-        _free_vector(minor, 1)
-        minor = NULL
-        _free_vector(rules, n_rules)
-        rules = NULL
+        if labels_vecs != NULL:
+            _free_vector(labels_vecs, 2)
+            labels_vecs = NULL
+        if minor != NULL:
+            _free_vector(minor, 1)
+            minor = NULL
+        if rules != NULL:
+            _free_vector(rules, n_rules)
+            rules = NULL
         n_rules = 0
 
         return False
@@ -263,26 +315,30 @@ def fit_wrap_end(int early):
     run_corels_end(&rulelist, &rulelist_size, &classes, early)
 
     r_out = []
-    if classes != NULL:
+    if classes != NULL and rules != NULL:
         for i in range(rulelist_size):
-            r_out.append({})
-            r_out[i]["antecedents"] = []
-            for j in range(rules[rulelist[i]].cardinality):
-                r_out[i]["antecedents"].append(rules[rulelist[i]].ids[j])
+            if rulelist[i] < n_rules:
+                r_out.append({})
+                r_out[i]["antecedents"] = []
+                for j in range(rules[rulelist[i]].cardinality):
+                    r_out[i]["antecedents"].append(rules[rulelist[i]].ids[j])
 
-            r_out[i]["prediction"] = bool(classes[i])
+                r_out[i]["prediction"] = bool(classes[i])
 
         r_out.append({ "antecedents": [0], "prediction": bool(classes[rulelist_size]) })
         if rulelist != NULL:
             free(rulelist)
         free(classes)
-    
-    _free_vector(labels_vecs, 2)
-    labels_vecs = NULL
-    _free_vector(minor, 1)
-    minor = NULL
-    _free_vector(rules, n_rules)
-    rules = NULL
+   
+    if labels_vecs != NULL: 
+        _free_vector(labels_vecs, 2)
+        labels_vecs = NULL
+    if minor != NULL: 
+        _free_vector(minor, 1)
+        minor = NULL
+    if rules != NULL: 
+        _free_vector(rules, n_rules)
+        rules = NULL
     n_rules = 0
 
     return r_out

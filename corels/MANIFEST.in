@@ -1,6 +1,6 @@
 include LICENSE
 include README.txt
-include _corels.c
+include _corels.cpp
 include *.py
 include src/*
 include src/corels/*

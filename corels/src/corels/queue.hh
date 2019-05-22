@@ -40,6 +40,7 @@ class Queue {
         Queue(std::function<bool(Node*, Node*)> cmp, char const *type);
         // by default, initialize this as a BFS queue
         Queue() : Queue(base_cmp, "BFS") {};
+        ~Queue();
         Node* front() {
             return q_->top();
         }

@@ -277,10 +277,10 @@ class CorelsClassifier:
         labels = check_array(y, ndim=1, dtype=np.bool, order='C')
        
         p = check_array(X, dtype=np.bool, order='C')
-        if X.ndim == 2:
-            p = self.predict(X)
-        elif X.ndim != 1:
-            raise ValueError("Input samples must have only 1 or 2 dimensions, got " + str(X.ndim) +
+        if p.ndim == 2:
+            p = self.predict(p)
+        elif p.ndim != 1:
+            raise ValueError("Input samples must have only 1 or 2 dimensions, got " + str(p.ndim) +
                              " dimensions")
 
         a = np.sum(np.invert(np.logical_xor(p, labels))) / float(p.shape[0])

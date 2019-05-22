@@ -28,6 +28,7 @@ int run_corels_begin(double c, char* vstring, int curiosity_policy,
 
     char *vopt = NULL;
     char *vcopy = strdup(vstring);
+    char *vcopy_begin = vcopy;
     while ((vopt = strsep(&vcopy, ",")) != NULL) {
         if (!strstr(voptions, vopt)) {
             fprintf(stderr, "verbosity options must be one or more of (%s)\n", voptions);
@@ -35,7 +36,7 @@ int run_corels_begin(double c, char* vstring, int curiosity_policy,
         }
         g_verbosity.insert(vopt);
     }
-    free(vcopy);
+    free(vcopy_begin);
 
     if (g_verbosity.count("samples") && !(g_verbosity.count("rule") || g_verbosity.count("label"))) {
         fprintf(stderr, "verbosity 'samples' option must be combined with at least one of (rule|label)\n");
@@ -167,9 +168,12 @@ double run_corels_end(int** rulelist, int* rulelist_size, int** classes, int ear
         printf("final total time: %f\n", time_diff(g_init));
     }
 
-    delete g_tree;
-    delete g_pmap;
-    delete g_queue;
+    if(g_tree)
+        delete g_tree;
+    if(g_pmap)
+        delete g_pmap;
+    if(g_queue)
+        delete g_queue;
    
     return accuracy;
 }

@@ -35,7 +35,6 @@ int minority(rule_t* rules, int nrules, rule_t* labels, int nsamples, rule_t* mi
 
     line_clean[nrules] = '\0';
 
-    rule_vinit(nrules, &sample_array[s].truthtable);
     if(ascii_to_vector(line_clean, nrules, &nrules_chk, &nones, &sample_array[s].truthtable) != 0) {
       ret = -1;
       nsamples = s;
