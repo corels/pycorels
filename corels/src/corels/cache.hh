@@ -18,7 +18,7 @@ class Node {
          double lower_bound, double objective, Node* parent,
          size_t num_captured, double equivalent_minority);
 
-    virtual ~Node() {}
+    virtual ~Node();
      
     inline unsigned short id() const;
     inline bool prediction() const;
@@ -28,7 +28,7 @@ class Node {
     inline bool done() const;
     inline void set_done();
     inline bool deleted() const;
-    inline void set_deleted();
+    inline void set_deleted(); 
 
     // Returns pair of prefixes and predictions for the path from this node to the root
     inline std::pair<tracking_vector<unsigned short, DataStruct::Tree>, tracking_vector<bool, DataStruct::Tree> >

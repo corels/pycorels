@@ -11,6 +11,10 @@ Node::Node(size_t nrules, bool default_prediction, double objective, double equi
           (void) nrules;
 }
 
+Node::~Node() {
+}
+
+
 Node::Node(unsigned short id, size_t nrules, bool prediction,
               bool default_prediction, double lower_bound, double objective,
               Node* parent, size_t num_captured, double equivalent_minority)
@@ -43,10 +47,8 @@ CacheTree::CacheTree(size_t nsamples, size_t nrules, double c, rule_t *rules,
 }
 
 CacheTree::~CacheTree() {
-    //if (!root_)
-//    if (root_ && labels_[0].support != 0 && labels_[1].support != 0) {
+    if(num_nodes())
         delete_subtree(this, root_, true, false);
-//    }
 }
 
 Node* CacheTree::construct_node(unsigned short new_rule, size_t nrules, bool prediction,

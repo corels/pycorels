@@ -14,7 +14,10 @@ int sample_comp(const void *a, const void *b) {
 
 int minority(rule_t* rules, int nrules, rule_t* labels, int nsamples, rule_t* minority_out, int verbose)
 {
-  int ret = 0, nrules_chk = 0;
+  if(!rules || !labels || !minority_out) {
+    return -1;
+  }
+  int ret = 0, nrules_chk = 0, begin_group = 0, nsamples_chk = 0, nones;
   int *sample_indices = NULL;
   char *line_clean = NULL, *minority = NULL;
 
@@ -25,9 +28,6 @@ int minority(rule_t* rules, int nrules, rule_t* labels, int nsamples, rule_t* mi
   minority = (char*)malloc(nsamples + 1);
   sample_indices = (int*)malloc(sizeof(int) * nsamples);
   
-  int begin_group = 0;
-
-  int nones;
   // Generate the sample bitvectors
   for(int s = 0; s < nsamples; s++) {
     for(int i = 0; i < nrules; i++)
@@ -92,7 +92,7 @@ int minority(rule_t* rules, int nrules, rule_t* labels, int nsamples, rule_t* mi
   
   minority[nsamples] = '\0';
  
-  int nsamples_chk;
+  minority_out->support = 0;
   if (ascii_to_vector(minority, nsamples, &nsamples_chk, &minority_out->support, &minority_out->truthtable) != 0) {
     ret = -1;
     goto end;
@@ -155,6 +155,9 @@ int getnextperm(int n, int r, int *arr, int first)
 int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples, 
                 int max_card, double min_support, rule_t **rules_out, int verbose)
 {
+  if(!samples || !features) {
+    return -1;
+  }
   int ntotal_rules = 0, nrules = 0, rule_alloc = 0, rule_alloc_block = 32, nrules_mine = 0, ret = 0;
   int *rule_ids = NULL, *rule_names_mine_lengths = NULL;
   rule_t *rules_vec = NULL, *rules_vec_mine = NULL;
