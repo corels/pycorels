@@ -26,7 +26,7 @@ def configuration():
                     extra_compile_args = cpp_args)
     
     config = config.todict()
-    config['version'] = '1.1.9'
+    config['version'] = '1.1.10'
     config['author'] = 'Vassilios Kaxiras'
     config['author_email'] = 'vassilioskaxiras@gmail.com'
     config['description'] = description

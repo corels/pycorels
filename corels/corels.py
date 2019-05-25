@@ -150,9 +150,6 @@ class CorelsClassifier:
         label = check_array(y, ndim=1, dtype=np.bool, order='C')
         labels = np.array([ np.invert(label), label ], dtype=np.uint8)
 
-        if np.all(labels[0]) or np.all(labels[1]):
-            raise ValueError("Labels cannot be all ones or all zeros")
-        
         samples = np.array(check_array(X, ndim=2, dtype=np.bool, order='C'), dtype=np.uint8)
 
         n_samples = samples.shape[0]
