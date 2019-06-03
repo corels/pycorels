@@ -1,8 +1,0 @@
-action: pypy, msg: getenv
-cwd: /home/vassy/code/pycorels/corels/.tox
-cmd: /usr/bin/python -m virtualenv --no-download --python /usr/bin/pypy pypy
-  No LICENSE.txt / LICENSE found in source
-New pypy executable in /home/vassy/code/pycorels/corels/.tox/pypy/bin/pypy
-Installing setuptools, pip, wheel...
-done.
-Running virtualenv with interpreter /usr/bin/pypy

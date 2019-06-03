@@ -1,7 +1,0 @@
-action: py25, msg: getenv
-cwd: /home/vassy/code/pycorels/corels
-cmd: /home/vassy/code/pycorels/corels/.tox/py25/bin/python -m pip install numpy
-Collecting numpy
-  Using cached https://files.pythonhosted.org/packages/87/2d/e4656149cbadd3a8a0369fcd1a9c7d61cc7b87b3903b85389c70c989a696/numpy-1.16.4-cp36-cp36m-manylinux1_x86_64.whl
-Installing collected packages: numpy
-Successfully installed numpy-1.16.4
