@@ -1,0 +1,5 @@
+action: py36, msg: envreport
+cwd: /home/vassy/code/pycorels/corels
+cmd: /home/vassy/code/pycorels/corels/.tox/py36/bin/python -m pip freeze
+corels==1.1.11
+numpy==1.16.4

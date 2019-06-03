@@ -1,0 +1,9 @@
+action: py26, msg: getenv
+cwd: /home/vassy/code/pycorels/corels/.tox
+cmd: /usr/bin/python3 -m virtualenv --no-download --python /usr/bin/python3 py26
+Already using interpreter /usr/bin/python3
+Using base prefix '/usr'
+New python executable in /home/vassy/code/pycorels/corels/.tox/py26/bin/python3
+Also creating executable in /home/vassy/code/pycorels/corels/.tox/py26/bin/python
+Installing setuptools, pip, wheel...
+done.

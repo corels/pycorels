@@ -1,0 +1,682 @@
+action: py34, msg: getenv
+cwd: /home/vassy/code/pycorels/corels
+cmd: /home/vassy/code/pycorels/corels/.tox/py34/bin/python -m pip install numpy
+DEPRECATION: Python 3.4 support has been deprecated. pip 19.1 will be the last one supporting it. Please upgrade your Python as Python 3.4 won't be maintained after March 2019 (cf PEP 429).
+Collecting numpy
+  Using cached https://files.pythonhosted.org/packages/d3/4b/f9f4b96c0b1ba43d28a5bdc4b64f0b9d3fbcf31313a51bc766942866a7c7/numpy-1.16.4.zip
+Building wheels for collected packages: numpy
+  Building wheel for numpy (setup.py): started
+  Building wheel for numpy (setup.py): finished with status 'error'
+  ERROR: Complete output from command /home/vassy/code/pycorels/corels/.tox/py34/bin/python -u -c 'import setuptools, tokenize;__file__='"'"'/tmp/pip-install-p5et9gu3/numpy/setup.py'"'"';f=getattr(tokenize, '"'"'open'"'"', open)(__file__);code=f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' bdist_wheel -d /tmp/pip-wheel-vlpix91c --python-tag cp34:
+  ERROR: Running from numpy source directory.
+  blas_opt_info:
+  blas_mkl_info:
+  customize UnixCCompiler
+    libraries mkl_rt not found in ['/home/vassy/code/pycorels/corels/.tox/py34/lib', '/usr/local/lib', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+    NOT AVAILABLE
+  
+  blis_info:
+  customize UnixCCompiler
+    libraries blis not found in ['/home/vassy/code/pycorels/corels/.tox/py34/lib', '/usr/local/lib', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+    NOT AVAILABLE
+  
+  openblas_info:
+  customize UnixCCompiler
+  customize UnixCCompiler
+    libraries openblas not found in ['/home/vassy/code/pycorels/corels/.tox/py34/lib', '/usr/local/lib', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+    NOT AVAILABLE
+  
+  atlas_3_10_blas_threads_info:
+  Setting PTATLAS=ATLAS
+  customize UnixCCompiler
+    libraries tatlas not found in ['/home/vassy/code/pycorels/corels/.tox/py34/lib', '/usr/local/lib', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+    NOT AVAILABLE
+  
+  atlas_3_10_blas_info:
+  customize UnixCCompiler
+    libraries satlas not found in ['/home/vassy/code/pycorels/corels/.tox/py34/lib', '/usr/local/lib', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+    NOT AVAILABLE
+  
+  atlas_blas_threads_info:
+  Setting PTATLAS=ATLAS
+  customize UnixCCompiler
+    libraries ptf77blas,ptcblas,atlas not found in ['/home/vassy/code/pycorels/corels/.tox/py34/lib', '/usr/local/lib', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+    NOT AVAILABLE
+  
+  atlas_blas_info:
+  customize UnixCCompiler
+    libraries f77blas,cblas,atlas not found in ['/home/vassy/code/pycorels/corels/.tox/py34/lib', '/usr/local/lib', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+    NOT AVAILABLE
+  
+  accelerate_info:
+    NOT AVAILABLE
+  
+  /tmp/pip-install-p5et9gu3/numpy/numpy/distutils/system_info.py:639: UserWarning:
+      Atlas (http://math-atlas.sourceforge.net/) libraries not found.
+      Directories to search for the libraries can be specified in the
+      numpy/distutils/site.cfg file (section [atlas]) or by setting
+      the ATLAS environment variable.
+    self.calc_info()
+  blas_info:
+  customize UnixCCompiler
+  customize UnixCCompiler
+  C compiler: x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -g -fdebug-prefix-map=/build/python3.4-lYdMBD/python3.4-3.4.10=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+  
+  creating /tmp/tmp0l6ov8fj/tmp
+  creating /tmp/tmp0l6ov8fj/tmp/tmp0l6ov8fj
+  compile options: '-I/usr/local/include -I/usr/include -c'
+  x86_64-linux-gnu-gcc: /tmp/tmp0l6ov8fj/source.c
+  x86_64-linux-gnu-gcc -pthread /tmp/tmp0l6ov8fj/tmp/tmp0l6ov8fj/source.o -L/usr/lib/x86_64-linux-gnu -lcblas -o /tmp/tmp0l6ov8fj/a.out
+  /usr/bin/ld: cannot find -lcblas
+  collect2: error: ld returned 1 exit status
+  x86_64-linux-gnu-gcc -pthread /tmp/tmp0l6ov8fj/tmp/tmp0l6ov8fj/source.o -L/usr/lib/x86_64-linux-gnu -lblas -o /tmp/tmp0l6ov8fj/a.out
+  customize UnixCCompiler
+    FOUND:
+      define_macros = [('HAVE_CBLAS', None)]
+      libraries = ['blas', 'blas']
+      include_dirs = ['/usr/local/include', '/usr/include']
+      language = c
+      library_dirs = ['/usr/lib/x86_64-linux-gnu']
+  
+    FOUND:
+      define_macros = [('NO_ATLAS_INFO', 1), ('HAVE_CBLAS', None)]
+      libraries = ['blas', 'blas']
+      include_dirs = ['/usr/local/include', '/usr/include']
+      language = c
+      library_dirs = ['/usr/lib/x86_64-linux-gnu']
+  
+  non-existing path in 'numpy/distutils': 'site.cfg'
+  lapack_opt_info:
+  lapack_mkl_info:
+  customize UnixCCompiler
+    libraries mkl_rt not found in ['/home/vassy/code/pycorels/corels/.tox/py34/lib', '/usr/local/lib', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+    NOT AVAILABLE
+  
+  openblas_lapack_info:
+  customize UnixCCompiler
+  customize UnixCCompiler
+    libraries openblas not found in ['/home/vassy/code/pycorels/corels/.tox/py34/lib', '/usr/local/lib', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+    NOT AVAILABLE
+  
+  openblas_clapack_info:
+  customize UnixCCompiler
+  customize UnixCCompiler
+    libraries openblas,lapack not found in ['/home/vassy/code/pycorels/corels/.tox/py34/lib', '/usr/local/lib', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+    NOT AVAILABLE
+  
+  atlas_3_10_threads_info:
+  Setting PTATLAS=ATLAS
+  customize UnixCCompiler
+    libraries lapack_atlas not found in /home/vassy/code/pycorels/corels/.tox/py34/lib
+  customize UnixCCompiler
+    libraries tatlas,tatlas not found in /home/vassy/code/pycorels/corels/.tox/py34/lib
+  customize UnixCCompiler
+    libraries lapack_atlas not found in /usr/local/lib
+  customize UnixCCompiler
+    libraries tatlas,tatlas not found in /usr/local/lib
+  customize UnixCCompiler
+    libraries lapack_atlas not found in /usr/lib
+  customize UnixCCompiler
+    libraries tatlas,tatlas not found in /usr/lib
+  customize UnixCCompiler
+    libraries lapack_atlas not found in /usr/lib/x86_64-linux-gnu
+  customize UnixCCompiler
+    libraries tatlas,tatlas not found in /usr/lib/x86_64-linux-gnu
+  <class 'numpy.distutils.system_info.atlas_3_10_threads_info'>
+    NOT AVAILABLE
+  
+  atlas_3_10_info:
+  customize UnixCCompiler
+    libraries lapack_atlas not found in /home/vassy/code/pycorels/corels/.tox/py34/lib
+  customize UnixCCompiler
+    libraries satlas,satlas not found in /home/vassy/code/pycorels/corels/.tox/py34/lib
+  customize UnixCCompiler
+    libraries lapack_atlas not found in /usr/local/lib
+  customize UnixCCompiler
+    libraries satlas,satlas not found in /usr/local/lib
+  customize UnixCCompiler
+    libraries lapack_atlas not found in /usr/lib
+  customize UnixCCompiler
+    libraries satlas,satlas not found in /usr/lib
+  customize UnixCCompiler
+    libraries lapack_atlas not found in /usr/lib/x86_64-linux-gnu
+  customize UnixCCompiler
+    libraries satlas,satlas not found in /usr/lib/x86_64-linux-gnu
+  <class 'numpy.distutils.system_info.atlas_3_10_info'>
+    NOT AVAILABLE
+  
+  atlas_threads_info:
+  Setting PTATLAS=ATLAS
+  customize UnixCCompiler
+    libraries lapack_atlas not found in /home/vassy/code/pycorels/corels/.tox/py34/lib
+  customize UnixCCompiler
+    libraries ptf77blas,ptcblas,atlas not found in /home/vassy/code/pycorels/corels/.tox/py34/lib
+  customize UnixCCompiler
+    libraries lapack_atlas not found in /usr/local/lib
+  customize UnixCCompiler
+    libraries ptf77blas,ptcblas,atlas not found in /usr/local/lib
+  customize UnixCCompiler
+    libraries lapack_atlas not found in /usr/lib
+  customize UnixCCompiler
+    libraries ptf77blas,ptcblas,atlas not found in /usr/lib
+  customize UnixCCompiler
+    libraries lapack_atlas not found in /usr/lib/x86_64-linux-gnu
+  customize UnixCCompiler
+    libraries ptf77blas,ptcblas,atlas not found in /usr/lib/x86_64-linux-gnu
+  <class 'numpy.distutils.system_info.atlas_threads_info'>
+    NOT AVAILABLE
+  
+  atlas_info:
+  customize UnixCCompiler
+    libraries lapack_atlas not found in /home/vassy/code/pycorels/corels/.tox/py34/lib
+  customize UnixCCompiler
+    libraries f77blas,cblas,atlas not found in /home/vassy/code/pycorels/corels/.tox/py34/lib
+  customize UnixCCompiler
+    libraries lapack_atlas not found in /usr/local/lib
+  customize UnixCCompiler
+    libraries f77blas,cblas,atlas not found in /usr/local/lib
+  customize UnixCCompiler
+    libraries lapack_atlas not found in /usr/lib
+  customize UnixCCompiler
+    libraries f77blas,cblas,atlas not found in /usr/lib
+  customize UnixCCompiler
+    libraries lapack_atlas not found in /usr/lib/x86_64-linux-gnu
+  customize UnixCCompiler
+    libraries f77blas,cblas,atlas not found in /usr/lib/x86_64-linux-gnu
+  <class 'numpy.distutils.system_info.atlas_info'>
+    NOT AVAILABLE
+  
+  /tmp/pip-install-p5et9gu3/numpy/numpy/distutils/system_info.py:639: UserWarning:
+      Atlas (http://math-atlas.sourceforge.net/) libraries not found.
+      Directories to search for the libraries can be specified in the
+      numpy/distutils/site.cfg file (section [atlas]) or by setting
+      the ATLAS environment variable.
+    self.calc_info()
+  lapack_info:
+  customize UnixCCompiler
+  customize UnixCCompiler
+    FOUND:
+      libraries = ['lapack', 'lapack']
+      language = f77
+      library_dirs = ['/usr/lib/x86_64-linux-gnu']
+  
+    FOUND:
+      define_macros = [('NO_ATLAS_INFO', 1), ('HAVE_CBLAS', None)]
+      libraries = ['lapack', 'lapack', 'blas', 'blas']
+      include_dirs = ['/usr/local/include', '/usr/include']
+      language = c
+      library_dirs = ['/usr/lib/x86_64-linux-gnu']
+  
+  /usr/lib/python3.4/distutils/dist.py:260: UserWarning: Unknown distribution option: 'define_macros'
+    warnings.warn(msg)
+  running bdist_wheel
+  running build
+  running config_cc
+  unifing config_cc, config, build_clib, build_ext, build commands --compiler options
+  running config_fc
+  unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
+  running build_src
+  build_src
+  building py_modules sources
+  creating build
+  creating build/src.linux-x86_64-3.4
+  creating build/src.linux-x86_64-3.4/numpy
+  creating build/src.linux-x86_64-3.4/numpy/distutils
+  building library "npymath" sources
+  get_default_fcompiler: matching types: '['gnu95', 'intel', 'lahey', 'pg', 'absoft', 'nag', 'vast', 'compaq', 'intele', 'intelem', 'gnu', 'g95', 'pathf95', 'nagfor']'
+  customize Gnu95FCompiler
+  Found executable /usr/bin/gfortran
+  customize Gnu95FCompiler
+  customize Gnu95FCompiler using config
+  C compiler: x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -g -fdebug-prefix-map=/build/python3.4-lYdMBD/python3.4-3.4.10=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+  
+  compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.4m -I/home/vassy/code/pycorels/corels/.tox/py34/include/python3.4m -c'
+  x86_64-linux-gnu-gcc: _configtest.c
+  x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+  success!
+  removing: _configtest.c _configtest.o _configtest.o.d _configtest
+  C compiler: x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -g -fdebug-prefix-map=/build/python3.4-lYdMBD/python3.4-3.4.10=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+  
+  compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.4m -I/home/vassy/code/pycorels/corels/.tox/py34/include/python3.4m -c'
+  x86_64-linux-gnu-gcc: _configtest.c
+  _configtest.c:1:5: warning: conflicting types for built-in function ‘exp’ [-Wbuiltin-declaration-mismatch]
+   int exp (void);
+       ^~~
+  x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+  _configtest.o: In function `main':
+  /tmp/pip-install-p5et9gu3/numpy/_configtest.c:6: undefined reference to `exp'
+  collect2: error: ld returned 1 exit status
+  failure.
+  removing: _configtest.c _configtest.o _configtest.o.d
+  C compiler: x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -g -fdebug-prefix-map=/build/python3.4-lYdMBD/python3.4-3.4.10=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+  
+  compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.4m -I/home/vassy/code/pycorels/corels/.tox/py34/include/python3.4m -c'
+  x86_64-linux-gnu-gcc: _configtest.c
+  _configtest.c:1:5: warning: conflicting types for built-in function ‘exp’ [-Wbuiltin-declaration-mismatch]
+   int exp (void);
+       ^~~
+  x86_64-linux-gnu-gcc -pthread _configtest.o -lm -o _configtest
+  success!
+  removing: _configtest.c _configtest.o _configtest.o.d _configtest
+  creating build/src.linux-x86_64-3.4/numpy/core
+  creating build/src.linux-x86_64-3.4/numpy/core/src
+  creating build/src.linux-x86_64-3.4/numpy/core/src/npymath
+  conv_template:> build/src.linux-x86_64-3.4/numpy/core/src/npymath/npy_math_internal.h
+    adding 'build/src.linux-x86_64-3.4/numpy/core/src/npymath' to include_dirs.
+  conv_template:> build/src.linux-x86_64-3.4/numpy/core/src/npymath/ieee754.c
+  conv_template:> build/src.linux-x86_64-3.4/numpy/core/src/npymath/npy_math_complex.c
+  None - nothing done with h_files = ['build/src.linux-x86_64-3.4/numpy/core/src/npymath/npy_math_internal.h']
+  building library "npysort" sources
+  creating build/src.linux-x86_64-3.4/numpy/core/src/common
+  conv_template:> build/src.linux-x86_64-3.4/numpy/core/src/common/npy_sort.h
+    adding 'build/src.linux-x86_64-3.4/numpy/core/src/common' to include_dirs.
+  creating build/src.linux-x86_64-3.4/numpy/core/src/npysort
+  conv_template:> build/src.linux-x86_64-3.4/numpy/core/src/npysort/quicksort.c
+  conv_template:> build/src.linux-x86_64-3.4/numpy/core/src/npysort/mergesort.c
+  conv_template:> build/src.linux-x86_64-3.4/numpy/core/src/npysort/heapsort.c
+  conv_template:> build/src.linux-x86_64-3.4/numpy/core/src/common/npy_partition.h
+  conv_template:> build/src.linux-x86_64-3.4/numpy/core/src/npysort/selection.c
+  conv_template:> build/src.linux-x86_64-3.4/numpy/core/src/common/npy_binsearch.h
+  conv_template:> build/src.linux-x86_64-3.4/numpy/core/src/npysort/binsearch.c
+  None - nothing done with h_files = ['build/src.linux-x86_64-3.4/numpy/core/src/common/npy_sort.h', 'build/src.linux-x86_64-3.4/numpy/core/src/common/npy_partition.h', 'build/src.linux-x86_64-3.4/numpy/core/src/common/npy_binsearch.h']
+  building extension "numpy.core._dummy" sources
+  Generating build/src.linux-x86_64-3.4/numpy/core/include/numpy/config.h
+  C compiler: x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -g -fdebug-prefix-map=/build/python3.4-lYdMBD/python3.4-3.4.10=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+  
+  compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.4m -I/home/vassy/code/pycorels/corels/.tox/py34/include/python3.4m -c'
+  x86_64-linux-gnu-gcc: _configtest.c
+  _configtest.c:1:10: fatal error: Python.h: No such file or directory
+   #include <Python.h>
+            ^~~~~~~~~~
+  compilation terminated.
+  failure.
+  removing: _configtest.c _configtest.o
+  Traceback (most recent call last):
+    File "<string>", line 1, in <module>
+    File "/tmp/pip-install-p5et9gu3/numpy/setup.py", line 415, in <module>
+      setup_package()
+    File "/tmp/pip-install-p5et9gu3/numpy/setup.py", line 407, in setup_package
+      setup(**metadata)
+    File "/tmp/pip-install-p5et9gu3/numpy/numpy/distutils/core.py", line 171, in setup
+      return old_setup(**new_attr)
+    File "/home/vassy/code/pycorels/corels/.tox/py34/lib/python3.4/site-packages/setuptools/__init__.py", line 145, in setup
+      return distutils.core.setup(**attrs)
+    File "/usr/lib/python3.4/distutils/core.py", line 148, in setup
+      dist.run_commands()
+    File "/usr/lib/python3.4/distutils/dist.py", line 955, in run_commands
+      self.run_command(cmd)
+    File "/usr/lib/python3.4/distutils/dist.py", line 974, in run_command
+      cmd_obj.run()
+    File "/home/vassy/code/pycorels/corels/.tox/py34/lib/python3.4/site-packages/wheel/bdist_wheel.py", line 192, in run
+      self.run_command('build')
+    File "/usr/lib/python3.4/distutils/cmd.py", line 313, in run_command
+      self.distribution.run_command(command)
+    File "/usr/lib/python3.4/distutils/dist.py", line 974, in run_command
+      cmd_obj.run()
+    File "/tmp/pip-install-p5et9gu3/numpy/numpy/distutils/command/build.py", line 47, in run
+      old_build.run(self)
+    File "/usr/lib/python3.4/distutils/command/build.py", line 126, in run
+      self.run_command(cmd_name)
+    File "/usr/lib/python3.4/distutils/cmd.py", line 313, in run_command
+      self.distribution.run_command(command)
+    File "/usr/lib/python3.4/distutils/dist.py", line 974, in run_command
+      cmd_obj.run()
+    File "/tmp/pip-install-p5et9gu3/numpy/numpy/distutils/command/build_src.py", line 148, in run
+      self.build_sources()
+    File "/tmp/pip-install-p5et9gu3/numpy/numpy/distutils/command/build_src.py", line 165, in build_sources
+      self.build_extension_sources(ext)
+    File "/tmp/pip-install-p5et9gu3/numpy/numpy/distutils/command/build_src.py", line 322, in build_extension_sources
+      sources = self.generate_sources(sources, ext)
+    File "/tmp/pip-install-p5et9gu3/numpy/numpy/distutils/command/build_src.py", line 375, in generate_sources
+      source = func(extension, build_dir)
+    File "numpy/core/setup.py", line 423, in generate_config_h
+      moredefs, ignored = cocache.check_types(config_cmd, ext, build_dir)
+    File "numpy/core/setup.py", line 47, in check_types
+      out = check_types(*a, **kw)
+    File "numpy/core/setup.py", line 281, in check_types
+      "install {0}-dev|{0}-devel.".format(python))
+  SystemError: Cannot compile 'Python.h'. Perhaps you need to install python-dev|python-devel.
+  ----------------------------------------
+  ERROR: Failed building wheel for numpy
+  Running setup.py clean for numpy
+  ERROR: Complete output from command /home/vassy/code/pycorels/corels/.tox/py34/bin/python -u -c 'import setuptools, tokenize;__file__='"'"'/tmp/pip-install-p5et9gu3/numpy/setup.py'"'"';f=getattr(tokenize, '"'"'open'"'"', open)(__file__);code=f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' clean --all:
+  ERROR: Running from numpy source directory.
+  
+  `setup.py clean` is not supported, use one of the following instead:
+  
+    - `git clean -xdf` (cleans all files)
+    - `git clean -Xdf` (cleans all versioned files, doesn't touch
+                        files that aren't checked into the git repo)
+  
+  Add `--force` to your command to use it anyway if you must (unsupported).
+  
+  ----------------------------------------
+  ERROR: Failed cleaning build dir for numpy
+Failed to build numpy
+Installing collected packages: numpy
+  Running setup.py install for numpy: started
+    Running setup.py install for numpy: finished with status 'error'
+    ERROR: Complete output from command /home/vassy/code/pycorels/corels/.tox/py34/bin/python -u -c 'import setuptools, tokenize;__file__='"'"'/tmp/pip-install-p5et9gu3/numpy/setup.py'"'"';f=getattr(tokenize, '"'"'open'"'"', open)(__file__);code=f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' install --record /tmp/pip-record-uv7_cp_i/install-record.txt --single-version-externally-managed --compile --install-headers /home/vassy/code/pycorels/corels/.tox/py34/include/site/python3.4/numpy:
+    ERROR: Running from numpy source directory.
+    
+    Note: if you need reliable uninstall behavior, then install
+    with pip instead of using `setup.py install`:
+    
+      - `pip install .`       (from a git repo or downloaded source
+                               release)
+      - `pip install numpy`   (last NumPy release on PyPi)
+    
+    
+    blas_opt_info:
+    blas_mkl_info:
+    customize UnixCCompiler
+      libraries mkl_rt not found in ['/home/vassy/code/pycorels/corels/.tox/py34/lib', '/usr/local/lib', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+      NOT AVAILABLE
+    
+    blis_info:
+    customize UnixCCompiler
+      libraries blis not found in ['/home/vassy/code/pycorels/corels/.tox/py34/lib', '/usr/local/lib', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+      NOT AVAILABLE
+    
+    openblas_info:
+    customize UnixCCompiler
+    customize UnixCCompiler
+      libraries openblas not found in ['/home/vassy/code/pycorels/corels/.tox/py34/lib', '/usr/local/lib', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+      NOT AVAILABLE
+    
+    atlas_3_10_blas_threads_info:
+    Setting PTATLAS=ATLAS
+    customize UnixCCompiler
+      libraries tatlas not found in ['/home/vassy/code/pycorels/corels/.tox/py34/lib', '/usr/local/lib', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+      NOT AVAILABLE
+    
+    atlas_3_10_blas_info:
+    customize UnixCCompiler
+      libraries satlas not found in ['/home/vassy/code/pycorels/corels/.tox/py34/lib', '/usr/local/lib', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+      NOT AVAILABLE
+    
+    atlas_blas_threads_info:
+    Setting PTATLAS=ATLAS
+    customize UnixCCompiler
+      libraries ptf77blas,ptcblas,atlas not found in ['/home/vassy/code/pycorels/corels/.tox/py34/lib', '/usr/local/lib', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+      NOT AVAILABLE
+    
+    atlas_blas_info:
+    customize UnixCCompiler
+      libraries f77blas,cblas,atlas not found in ['/home/vassy/code/pycorels/corels/.tox/py34/lib', '/usr/local/lib', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+      NOT AVAILABLE
+    
+    accelerate_info:
+      NOT AVAILABLE
+    
+    /tmp/pip-install-p5et9gu3/numpy/numpy/distutils/system_info.py:639: UserWarning:
+        Atlas (http://math-atlas.sourceforge.net/) libraries not found.
+        Directories to search for the libraries can be specified in the
+        numpy/distutils/site.cfg file (section [atlas]) or by setting
+        the ATLAS environment variable.
+      self.calc_info()
+    blas_info:
+    customize UnixCCompiler
+    customize UnixCCompiler
+    C compiler: x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -g -fdebug-prefix-map=/build/python3.4-lYdMBD/python3.4-3.4.10=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+    
+    creating /tmp/tmpl0p2wc0q/tmp
+    creating /tmp/tmpl0p2wc0q/tmp/tmpl0p2wc0q
+    compile options: '-I/usr/local/include -I/usr/include -c'
+    x86_64-linux-gnu-gcc: /tmp/tmpl0p2wc0q/source.c
+    x86_64-linux-gnu-gcc -pthread /tmp/tmpl0p2wc0q/tmp/tmpl0p2wc0q/source.o -L/usr/lib/x86_64-linux-gnu -lcblas -o /tmp/tmpl0p2wc0q/a.out
+    /usr/bin/ld: cannot find -lcblas
+    collect2: error: ld returned 1 exit status
+    x86_64-linux-gnu-gcc -pthread /tmp/tmpl0p2wc0q/tmp/tmpl0p2wc0q/source.o -L/usr/lib/x86_64-linux-gnu -lblas -o /tmp/tmpl0p2wc0q/a.out
+    customize UnixCCompiler
+      FOUND:
+        define_macros = [('HAVE_CBLAS', None)]
+        libraries = ['blas', 'blas']
+        include_dirs = ['/usr/local/include', '/usr/include']
+        language = c
+        library_dirs = ['/usr/lib/x86_64-linux-gnu']
+    
+      FOUND:
+        define_macros = [('NO_ATLAS_INFO', 1), ('HAVE_CBLAS', None)]
+        libraries = ['blas', 'blas']
+        include_dirs = ['/usr/local/include', '/usr/include']
+        language = c
+        library_dirs = ['/usr/lib/x86_64-linux-gnu']
+    
+    non-existing path in 'numpy/distutils': 'site.cfg'
+    lapack_opt_info:
+    lapack_mkl_info:
+    customize UnixCCompiler
+      libraries mkl_rt not found in ['/home/vassy/code/pycorels/corels/.tox/py34/lib', '/usr/local/lib', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+      NOT AVAILABLE
+    
+    openblas_lapack_info:
+    customize UnixCCompiler
+    customize UnixCCompiler
+      libraries openblas not found in ['/home/vassy/code/pycorels/corels/.tox/py34/lib', '/usr/local/lib', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+      NOT AVAILABLE
+    
+    openblas_clapack_info:
+    customize UnixCCompiler
+    customize UnixCCompiler
+      libraries openblas,lapack not found in ['/home/vassy/code/pycorels/corels/.tox/py34/lib', '/usr/local/lib', '/usr/lib', '/usr/lib/x86_64-linux-gnu']
+      NOT AVAILABLE
+    
+    atlas_3_10_threads_info:
+    Setting PTATLAS=ATLAS
+    customize UnixCCompiler
+      libraries lapack_atlas not found in /home/vassy/code/pycorels/corels/.tox/py34/lib
+    customize UnixCCompiler
+      libraries tatlas,tatlas not found in /home/vassy/code/pycorels/corels/.tox/py34/lib
+    customize UnixCCompiler
+      libraries lapack_atlas not found in /usr/local/lib
+    customize UnixCCompiler
+      libraries tatlas,tatlas not found in /usr/local/lib
+    customize UnixCCompiler
+      libraries lapack_atlas not found in /usr/lib
+    customize UnixCCompiler
+      libraries tatlas,tatlas not found in /usr/lib
+    customize UnixCCompiler
+      libraries lapack_atlas not found in /usr/lib/x86_64-linux-gnu
+    customize UnixCCompiler
+      libraries tatlas,tatlas not found in /usr/lib/x86_64-linux-gnu
+    <class 'numpy.distutils.system_info.atlas_3_10_threads_info'>
+      NOT AVAILABLE
+    
+    atlas_3_10_info:
+    customize UnixCCompiler
+      libraries lapack_atlas not found in /home/vassy/code/pycorels/corels/.tox/py34/lib
+    customize UnixCCompiler
+      libraries satlas,satlas not found in /home/vassy/code/pycorels/corels/.tox/py34/lib
+    customize UnixCCompiler
+      libraries lapack_atlas not found in /usr/local/lib
+    customize UnixCCompiler
+      libraries satlas,satlas not found in /usr/local/lib
+    customize UnixCCompiler
+      libraries lapack_atlas not found in /usr/lib
+    customize UnixCCompiler
+      libraries satlas,satlas not found in /usr/lib
+    customize UnixCCompiler
+      libraries lapack_atlas not found in /usr/lib/x86_64-linux-gnu
+    customize UnixCCompiler
+      libraries satlas,satlas not found in /usr/lib/x86_64-linux-gnu
+    <class 'numpy.distutils.system_info.atlas_3_10_info'>
+      NOT AVAILABLE
+    
+    atlas_threads_info:
+    Setting PTATLAS=ATLAS
+    customize UnixCCompiler
+      libraries lapack_atlas not found in /home/vassy/code/pycorels/corels/.tox/py34/lib
+    customize UnixCCompiler
+      libraries ptf77blas,ptcblas,atlas not found in /home/vassy/code/pycorels/corels/.tox/py34/lib
+    customize UnixCCompiler
+      libraries lapack_atlas not found in /usr/local/lib
+    customize UnixCCompiler
+      libraries ptf77blas,ptcblas,atlas not found in /usr/local/lib
+    customize UnixCCompiler
+      libraries lapack_atlas not found in /usr/lib
+    customize UnixCCompiler
+      libraries ptf77blas,ptcblas,atlas not found in /usr/lib
+    customize UnixCCompiler
+      libraries lapack_atlas not found in /usr/lib/x86_64-linux-gnu
+    customize UnixCCompiler
+      libraries ptf77blas,ptcblas,atlas not found in /usr/lib/x86_64-linux-gnu
+    <class 'numpy.distutils.system_info.atlas_threads_info'>
+      NOT AVAILABLE
+    
+    atlas_info:
+    customize UnixCCompiler
+      libraries lapack_atlas not found in /home/vassy/code/pycorels/corels/.tox/py34/lib
+    customize UnixCCompiler
+      libraries f77blas,cblas,atlas not found in /home/vassy/code/pycorels/corels/.tox/py34/lib
+    customize UnixCCompiler
+      libraries lapack_atlas not found in /usr/local/lib
+    customize UnixCCompiler
+      libraries f77blas,cblas,atlas not found in /usr/local/lib
+    customize UnixCCompiler
+      libraries lapack_atlas not found in /usr/lib
+    customize UnixCCompiler
+      libraries f77blas,cblas,atlas not found in /usr/lib
+    customize UnixCCompiler
+      libraries lapack_atlas not found in /usr/lib/x86_64-linux-gnu
+    customize UnixCCompiler
+      libraries f77blas,cblas,atlas not found in /usr/lib/x86_64-linux-gnu
+    <class 'numpy.distutils.system_info.atlas_info'>
+      NOT AVAILABLE
+    
+    /tmp/pip-install-p5et9gu3/numpy/numpy/distutils/system_info.py:639: UserWarning:
+        Atlas (http://math-atlas.sourceforge.net/) libraries not found.
+        Directories to search for the libraries can be specified in the
+        numpy/distutils/site.cfg file (section [atlas]) or by setting
+        the ATLAS environment variable.
+      self.calc_info()
+    lapack_info:
+    customize UnixCCompiler
+    customize UnixCCompiler
+      FOUND:
+        libraries = ['lapack', 'lapack']
+        language = f77
+        library_dirs = ['/usr/lib/x86_64-linux-gnu']
+    
+      FOUND:
+        define_macros = [('NO_ATLAS_INFO', 1), ('HAVE_CBLAS', None)]
+        libraries = ['lapack', 'lapack', 'blas', 'blas']
+        include_dirs = ['/usr/local/include', '/usr/include']
+        language = c
+        library_dirs = ['/usr/lib/x86_64-linux-gnu']
+    
+    /usr/lib/python3.4/distutils/dist.py:260: UserWarning: Unknown distribution option: 'define_macros'
+      warnings.warn(msg)
+    running install
+    running build
+    running config_cc
+    unifing config_cc, config, build_clib, build_ext, build commands --compiler options
+    running config_fc
+    unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
+    running build_src
+    build_src
+    building py_modules sources
+    building library "npymath" sources
+    get_default_fcompiler: matching types: '['gnu95', 'intel', 'lahey', 'pg', 'absoft', 'nag', 'vast', 'compaq', 'intele', 'intelem', 'gnu', 'g95', 'pathf95', 'nagfor']'
+    customize Gnu95FCompiler
+    Found executable /usr/bin/gfortran
+    customize Gnu95FCompiler
+    customize Gnu95FCompiler using config
+    C compiler: x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -g -fdebug-prefix-map=/build/python3.4-lYdMBD/python3.4-3.4.10=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+    
+    compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.4m -I/home/vassy/code/pycorels/corels/.tox/py34/include/python3.4m -c'
+    x86_64-linux-gnu-gcc: _configtest.c
+    x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+    success!
+    removing: _configtest.c _configtest.o _configtest.o.d _configtest
+    C compiler: x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -g -fdebug-prefix-map=/build/python3.4-lYdMBD/python3.4-3.4.10=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+    
+    compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.4m -I/home/vassy/code/pycorels/corels/.tox/py34/include/python3.4m -c'
+    x86_64-linux-gnu-gcc: _configtest.c
+    _configtest.c:1:5: warning: conflicting types for built-in function ‘exp’ [-Wbuiltin-declaration-mismatch]
+     int exp (void);
+         ^~~
+    x86_64-linux-gnu-gcc -pthread _configtest.o -o _configtest
+    _configtest.o: In function `main':
+    /tmp/pip-install-p5et9gu3/numpy/_configtest.c:6: undefined reference to `exp'
+    collect2: error: ld returned 1 exit status
+    failure.
+    removing: _configtest.c _configtest.o _configtest.o.d
+    C compiler: x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -g -fdebug-prefix-map=/build/python3.4-lYdMBD/python3.4-3.4.10=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+    
+    compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.4m -I/home/vassy/code/pycorels/corels/.tox/py34/include/python3.4m -c'
+    x86_64-linux-gnu-gcc: _configtest.c
+    _configtest.c:1:5: warning: conflicting types for built-in function ‘exp’ [-Wbuiltin-declaration-mismatch]
+     int exp (void);
+         ^~~
+    x86_64-linux-gnu-gcc -pthread _configtest.o -lm -o _configtest
+    success!
+    removing: _configtest.c _configtest.o _configtest.o.d _configtest
+      adding 'build/src.linux-x86_64-3.4/numpy/core/src/npymath' to include_dirs.
+    None - nothing done with h_files = ['build/src.linux-x86_64-3.4/numpy/core/src/npymath/npy_math_internal.h']
+    building library "npysort" sources
+      adding 'build/src.linux-x86_64-3.4/numpy/core/src/common' to include_dirs.
+    None - nothing done with h_files = ['build/src.linux-x86_64-3.4/numpy/core/src/common/npy_sort.h', 'build/src.linux-x86_64-3.4/numpy/core/src/common/npy_partition.h', 'build/src.linux-x86_64-3.4/numpy/core/src/common/npy_binsearch.h']
+    building extension "numpy.core._dummy" sources
+    Generating build/src.linux-x86_64-3.4/numpy/core/include/numpy/config.h
+    C compiler: x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -g -fdebug-prefix-map=/build/python3.4-lYdMBD/python3.4-3.4.10=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+    
+    compile options: '-Inumpy/core/src/common -Inumpy/core/src -Inumpy/core -Inumpy/core/src/npymath -Inumpy/core/src/multiarray -Inumpy/core/src/umath -Inumpy/core/src/npysort -I/usr/include/python3.4m -I/home/vassy/code/pycorels/corels/.tox/py34/include/python3.4m -c'
+    x86_64-linux-gnu-gcc: _configtest.c
+    _configtest.c:1:10: fatal error: Python.h: No such file or directory
+     #include <Python.h>
+              ^~~~~~~~~~
+    compilation terminated.
+    failure.
+    removing: _configtest.c _configtest.o
+    Traceback (most recent call last):
+      File "<string>", line 1, in <module>
+      File "/tmp/pip-install-p5et9gu3/numpy/setup.py", line 415, in <module>
+        setup_package()
+      File "/tmp/pip-install-p5et9gu3/numpy/setup.py", line 407, in setup_package
+        setup(**metadata)
+      File "/tmp/pip-install-p5et9gu3/numpy/numpy/distutils/core.py", line 171, in setup
+        return old_setup(**new_attr)
+      File "/home/vassy/code/pycorels/corels/.tox/py34/lib/python3.4/site-packages/setuptools/__init__.py", line 145, in setup
+        return distutils.core.setup(**attrs)
+      File "/usr/lib/python3.4/distutils/core.py", line 148, in setup
+        dist.run_commands()
+      File "/usr/lib/python3.4/distutils/dist.py", line 955, in run_commands
+        self.run_command(cmd)
+      File "/usr/lib/python3.4/distutils/dist.py", line 974, in run_command
+        cmd_obj.run()
+      File "/tmp/pip-install-p5et9gu3/numpy/numpy/distutils/command/install.py", line 62, in run
+        r = self.setuptools_run()
+      File "/tmp/pip-install-p5et9gu3/numpy/numpy/distutils/command/install.py", line 36, in setuptools_run
+        return distutils_install.run(self)
+      File "/usr/lib/python3.4/distutils/command/install.py", line 582, in run
+        self.run_command('build')
+      File "/usr/lib/python3.4/distutils/cmd.py", line 313, in run_command
+        self.distribution.run_command(command)
+      File "/usr/lib/python3.4/distutils/dist.py", line 974, in run_command
+        cmd_obj.run()
+      File "/tmp/pip-install-p5et9gu3/numpy/numpy/distutils/command/build.py", line 47, in run
+        old_build.run(self)
+      File "/usr/lib/python3.4/distutils/command/build.py", line 126, in run
+        self.run_command(cmd_name)
+      File "/usr/lib/python3.4/distutils/cmd.py", line 313, in run_command
+        self.distribution.run_command(command)
+      File "/usr/lib/python3.4/distutils/dist.py", line 974, in run_command
+        cmd_obj.run()
+      File "/tmp/pip-install-p5et9gu3/numpy/numpy/distutils/command/build_src.py", line 148, in run
+        self.build_sources()
+      File "/tmp/pip-install-p5et9gu3/numpy/numpy/distutils/command/build_src.py", line 165, in build_sources
+        self.build_extension_sources(ext)
+      File "/tmp/pip-install-p5et9gu3/numpy/numpy/distutils/command/build_src.py", line 322, in build_extension_sources
+        sources = self.generate_sources(sources, ext)
+      File "/tmp/pip-install-p5et9gu3/numpy/numpy/distutils/command/build_src.py", line 375, in generate_sources
+        source = func(extension, build_dir)
+      File "numpy/core/setup.py", line 423, in generate_config_h
+        moredefs, ignored = cocache.check_types(config_cmd, ext, build_dir)
+      File "numpy/core/setup.py", line 47, in check_types
+        out = check_types(*a, **kw)
+      File "numpy/core/setup.py", line 281, in check_types
+        "install {0}-dev|{0}-devel.".format(python))
+    SystemError: Cannot compile 'Python.h'. Perhaps you need to install python-dev|python-devel.
+    ----------------------------------------
+ERROR: Command "/home/vassy/code/pycorels/corels/.tox/py34/bin/python -u -c 'import setuptools, tokenize;__file__='"'"'/tmp/pip-install-p5et9gu3/numpy/setup.py'"'"';f=getattr(tokenize, '"'"'open'"'"', open)(__file__);code=f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' install --record /tmp/pip-record-uv7_cp_i/install-record.txt --single-version-externally-managed --compile --install-headers /home/vassy/code/pycorels/corels/.tox/py34/include/site/python3.4/numpy" failed with error code 1 in /tmp/pip-install-p5et9gu3/numpy/

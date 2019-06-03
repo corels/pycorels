@@ -1,0 +1,58 @@
+action: GLOB, msg: packaging
+cwd: /home/vassy/code/pycorels/corels
+cmd: /usr/bin/python setup.py sdist --formats=zip --dist-dir .tox/dist
+running sdist
+running check
+reading manifest template 'MANIFEST.in'
+writing manifest file 'MANIFEST'
+creating corels-1.1.11
+creating corels-1.1.11/src
+creating corels-1.1.11/src/corels
+making hard links in corels-1.1.11...
+hard linking LICENSE -> corels-1.1.11
+hard linking README.txt -> corels-1.1.11
+hard linking __init__.py -> corels-1.1.11
+hard linking _corels.cpp -> corels-1.1.11
+hard linking corels.py -> corels-1.1.11
+hard linking setup.py -> corels-1.1.11
+hard linking utils.py -> corels-1.1.11
+hard linking src/utils.cpp -> corels-1.1.11/src
+hard linking src/utils.h -> corels-1.1.11/src
+hard linking src/corels/alloc.hh -> corels-1.1.11/src/corels
+hard linking src/corels/cache.cpp -> corels-1.1.11/src/corels
+hard linking src/corels/cache.hh -> corels-1.1.11/src/corels
+hard linking src/corels/corels.cpp -> corels-1.1.11/src/corels
+hard linking src/corels/pmap.cpp -> corels-1.1.11/src/corels
+hard linking src/corels/pmap.hh -> corels-1.1.11/src/corels
+hard linking src/corels/queue.hh -> corels-1.1.11/src/corels
+hard linking src/corels/rule.h -> corels-1.1.11/src/corels
+hard linking src/corels/rulelib.cpp -> corels-1.1.11/src/corels
+hard linking src/corels/run.cpp -> corels-1.1.11/src/corels
+hard linking src/corels/run.h -> corels-1.1.11/src/corels
+hard linking src/corels/utils.cpp -> corels-1.1.11/src/corels
+hard linking src/corels/utils.hh -> corels-1.1.11/src/corels
+creating '.tox/dist/corels-1.1.11.zip' and adding 'corels-1.1.11' to it
+adding 'corels-1.1.11/LICENSE'
+adding 'corels-1.1.11/README.txt'
+adding 'corels-1.1.11/__init__.py'
+adding 'corels-1.1.11/corels.py'
+adding 'corels-1.1.11/_corels.cpp'
+adding 'corels-1.1.11/setup.py'
+adding 'corels-1.1.11/PKG-INFO'
+adding 'corels-1.1.11/utils.py'
+adding 'corels-1.1.11/src/utils.cpp'
+adding 'corels-1.1.11/src/utils.h'
+adding 'corels-1.1.11/src/corels/utils.cpp'
+adding 'corels-1.1.11/src/corels/run.cpp'
+adding 'corels-1.1.11/src/corels/rule.h'
+adding 'corels-1.1.11/src/corels/queue.hh'
+adding 'corels-1.1.11/src/corels/pmap.cpp'
+adding 'corels-1.1.11/src/corels/run.h'
+adding 'corels-1.1.11/src/corels/cache.cpp'
+adding 'corels-1.1.11/src/corels/corels.cpp'
+adding 'corels-1.1.11/src/corels/pmap.hh'
+adding 'corels-1.1.11/src/corels/rulelib.cpp'
+adding 'corels-1.1.11/src/corels/alloc.hh'
+adding 'corels-1.1.11/src/corels/utils.hh'
+adding 'corels-1.1.11/src/corels/cache.hh'
+removing 'corels-1.1.11' (and everything under it)

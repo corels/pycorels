@@ -1,0 +1,100 @@
+action: py35, msg: installpkg
+cwd: /home/vassy/code/pycorels/corels
+cmd: /home/vassy/code/pycorels/corels/.tox/py35/bin/python -m pip install --no-deps -U .tox/.tmp/package/1/corels-1.1.11.zip
+Processing ./.tox/.tmp/package/1/corels-1.1.11.zip
+Building wheels for collected packages: corels
+  Building wheel for corels (setup.py): started
+  Building wheel for corels (setup.py): finished with status 'error'
+  ERROR: Complete output from command /home/vassy/code/pycorels/corels/.tox/py35/bin/python -u -c 'import setuptools, tokenize;__file__='"'"'/tmp/pip-req-build-a8ocajnp/setup.py'"'"';f=getattr(tokenize, '"'"'open'"'"', open)(__file__);code=f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' bdist_wheel -d /tmp/pip-wheel-em2uc0i4 --python-tag cp35:
+  ERROR: running bdist_wheel
+  running build
+  running config_cc
+  unifing config_cc, config, build_clib, build_ext, build commands --compiler options
+  running config_fc
+  unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
+  running build_src
+  build_src
+  building extension "corels._corels" sources
+  build_src: building npy-pkg config files
+  running build_py
+  creating build
+  creating build/lib.linux-x86_64-3.5
+  creating build/lib.linux-x86_64-3.5/corels
+  copying __init__.py -> build/lib.linux-x86_64-3.5/corels
+  copying corels.py -> build/lib.linux-x86_64-3.5/corels
+  copying setup.py -> build/lib.linux-x86_64-3.5/corels
+  copying utils.py -> build/lib.linux-x86_64-3.5/corels
+  running build_ext
+  customize UnixCCompiler
+  customize UnixCCompiler using build_ext
+  customize UnixCCompiler
+  customize UnixCCompiler using build_ext
+  building 'corels._corels' extension
+  compiling C++ sources
+  C compiler: x86_64-linux-gnu-g++ -pthread -DNDEBUG -g -fwrapv -O2 -Wall -g -fdebug-prefix-map=/build/python3.5-aK5X5j/python3.5-3.5.7=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+  
+  creating build/temp.linux-x86_64-3.5/src
+  creating build/temp.linux-x86_64-3.5/src/corels
+  compile options: '-Isrc/ -Isrc/corels/ -I/home/vassy/code/pycorels/corels/.tox/py35/lib/python3.5/site-packages/numpy/core/include -I/home/vassy/code/pycorels/corels/.tox/py35/lib/python3.5/site-packages/numpy/core/include -I/usr/include/python3.5m -I/home/vassy/code/pycorels/corels/.tox/py35/include/python3.5m -c'
+  extra options: '-O3 -DGMP -std=c++11'
+  x86_64-linux-gnu-g++: _corels.cpp
+  x86_64-linux-gnu-g++: src/corels/rulelib.cpp
+  x86_64-linux-gnu-g++: src/corels/utils.cpp
+  x86_64-linux-gnu-g++: src/corels/cache.cpp
+  _corels.cpp:25:10: fatal error: Python.h: No such file or directory
+   #include "Python.h"
+            ^~~~~~~~~~
+  compilation terminated.
+  x86_64-linux-gnu-g++: src/corels/run.cpp
+  error: Command "x86_64-linux-gnu-g++ -pthread -DNDEBUG -g -fwrapv -O2 -Wall -g -fdebug-prefix-map=/build/python3.5-aK5X5j/python3.5-3.5.7=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC -Isrc/ -Isrc/corels/ -I/home/vassy/code/pycorels/corels/.tox/py35/lib/python3.5/site-packages/numpy/core/include -I/home/vassy/code/pycorels/corels/.tox/py35/lib/python3.5/site-packages/numpy/core/include -I/usr/include/python3.5m -I/home/vassy/code/pycorels/corels/.tox/py35/include/python3.5m -c _corels.cpp -o build/temp.linux-x86_64-3.5/_corels.o -MMD -MF build/temp.linux-x86_64-3.5/_corels.o.d -O3 -DGMP -std=c++11" failed with exit status 1
+  ----------------------------------------
+  ERROR: Failed building wheel for corels
+  Running setup.py clean for corels
+Failed to build corels
+Installing collected packages: corels
+  Running setup.py install for corels: started
+    Running setup.py install for corels: finished with status 'error'
+    ERROR: Complete output from command /home/vassy/code/pycorels/corels/.tox/py35/bin/python -u -c 'import setuptools, tokenize;__file__='"'"'/tmp/pip-req-build-a8ocajnp/setup.py'"'"';f=getattr(tokenize, '"'"'open'"'"', open)(__file__);code=f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' install --record /tmp/pip-record-uw_w6re2/install-record.txt --single-version-externally-managed --compile --install-headers /home/vassy/code/pycorels/corels/.tox/py35/include/site/python3.5/corels:
+    ERROR: running install
+    running build
+    running config_cc
+    unifing config_cc, config, build_clib, build_ext, build commands --compiler options
+    running config_fc
+    unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
+    running build_src
+    build_src
+    building extension "corels._corels" sources
+    build_src: building npy-pkg config files
+    running build_py
+    creating build
+    creating build/lib.linux-x86_64-3.5
+    creating build/lib.linux-x86_64-3.5/corels
+    copying __init__.py -> build/lib.linux-x86_64-3.5/corels
+    copying corels.py -> build/lib.linux-x86_64-3.5/corels
+    copying setup.py -> build/lib.linux-x86_64-3.5/corels
+    copying utils.py -> build/lib.linux-x86_64-3.5/corels
+    running build_ext
+    customize UnixCCompiler
+    customize UnixCCompiler using build_ext
+    customize UnixCCompiler
+    customize UnixCCompiler using build_ext
+    building 'corels._corels' extension
+    compiling C++ sources
+    C compiler: x86_64-linux-gnu-g++ -pthread -DNDEBUG -g -fwrapv -O2 -Wall -g -fdebug-prefix-map=/build/python3.5-aK5X5j/python3.5-3.5.7=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+    
+    creating build/temp.linux-x86_64-3.5/src
+    creating build/temp.linux-x86_64-3.5/src/corels
+    compile options: '-Isrc/ -Isrc/corels/ -I/home/vassy/code/pycorels/corels/.tox/py35/lib/python3.5/site-packages/numpy/core/include -I/home/vassy/code/pycorels/corels/.tox/py35/lib/python3.5/site-packages/numpy/core/include -I/usr/include/python3.5m -I/home/vassy/code/pycorels/corels/.tox/py35/include/python3.5m -c'
+    extra options: '-O3 -DGMP -std=c++11'
+    x86_64-linux-gnu-g++: src/corels/utils.cpp
+    x86_64-linux-gnu-g++: src/corels/rulelib.cpp
+    x86_64-linux-gnu-g++: src/corels/cache.cpp
+    x86_64-linux-gnu-g++: _corels.cpp
+    _corels.cpp:25:10: fatal error: Python.h: No such file or directory
+     #include "Python.h"
+              ^~~~~~~~~~
+    compilation terminated.
+    x86_64-linux-gnu-g++: src/corels/run.cpp
+    error: Command "x86_64-linux-gnu-g++ -pthread -DNDEBUG -g -fwrapv -O2 -Wall -g -fdebug-prefix-map=/build/python3.5-aK5X5j/python3.5-3.5.7=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC -Isrc/ -Isrc/corels/ -I/home/vassy/code/pycorels/corels/.tox/py35/lib/python3.5/site-packages/numpy/core/include -I/home/vassy/code/pycorels/corels/.tox/py35/lib/python3.5/site-packages/numpy/core/include -I/usr/include/python3.5m -I/home/vassy/code/pycorels/corels/.tox/py35/include/python3.5m -c _corels.cpp -o build/temp.linux-x86_64-3.5/_corels.o -MMD -MF build/temp.linux-x86_64-3.5/_corels.o.d -O3 -DGMP -std=c++11" failed with exit status 1
+    ----------------------------------------
+ERROR: Command "/home/vassy/code/pycorels/corels/.tox/py35/bin/python -u -c 'import setuptools, tokenize;__file__='"'"'/tmp/pip-req-build-a8ocajnp/setup.py'"'"';f=getattr(tokenize, '"'"'open'"'"', open)(__file__);code=f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' install --record /tmp/pip-record-uw_w6re2/install-record.txt --single-version-externally-managed --compile --install-headers /home/vassy/code/pycorels/corels/.tox/py35/include/site/python3.5/corels" failed with error code 1 in /tmp/pip-req-build-a8ocajnp/

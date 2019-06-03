@@ -1,0 +1,7 @@
+action: py35, msg: getenv
+cwd: /home/vassy/code/pycorels/corels
+cmd: /home/vassy/code/pycorels/corels/.tox/py35/bin/python -m pip install numpy
+Collecting numpy
+  Downloading https://files.pythonhosted.org/packages/bb/ef/d5a21cbc094d3f4d5b5336494dbcc9550b70c766a8345513c7c24ed18418/numpy-1.16.4-cp35-cp35m-manylinux1_x86_64.whl (17.2MB)
+Installing collected packages: numpy
+Successfully installed numpy-1.16.4
