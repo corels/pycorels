@@ -8,6 +8,10 @@ def configuration():
     with open('README.txt') as f:
         long_description = f.read()
 
+    version = '1.1.12'
+    with open('VERSION.txt') as f:
+        version = f.read()
+
     config = Configuration('corels')
     
     cpp_args = ['-O3', '-DGMP', '-std=c++11']
@@ -26,7 +30,7 @@ def configuration():
                     extra_compile_args = cpp_args)
     
     config = config.todict()
-    config['version'] = '1.1.11'
+    config['version'] = version
     config['author'] = 'Vassilios Kaxiras'
     config['author_email'] = 'vassilioskaxiras@gmail.com'
     config['description'] = description

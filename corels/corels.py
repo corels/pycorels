@@ -4,6 +4,7 @@ from .utils import check_consistent_length, check_array, check_is_fitted, get_fe
 import numpy as np
 import pickle
 
+#TODO: handle 2to3 problems (str)
 class CorelsClassifier:
     """Certifiably Optimal RulE ListS classifier.
 
@@ -64,7 +65,7 @@ class CorelsClassifier:
     min_support : float, optional (default=0.01)
         The fraction of samples that a rule must capture in order to be used. 1 minus
         this value is also the maximum fraction of samples a rule can capture.
-        Can be any value between 0.0 and 1.0.
+        Can be any value between 0.0 and 0.5.
 
     References
     ----------
@@ -122,29 +123,34 @@ class CorelsClassifier:
         self : obj
         """
 
-        if not isinstance(self.c, float) or self.c < 0.0 or self.c > 1.0:
-            raise ValueError("Regularization constant (c) must be a float between"
-                             " 0.0 and 1.0, got: " + str(self.c))
-        if not isinstance(self.n_iter, int) or self.n_iter < 0:
-            raise ValueError("Max nodes must be a positive integer, got: " + str(self.n_iter))
-        if not isinstance(self.ablation, int) or self.ablation > 2 or self.ablation < 0:
-            raise ValueError("Ablation must be an integer between 0 and 2"
-                             ", inclusive, got: " + str(self.ablation))
+        if not isinstance(self.c, float):
+            raise TypeError("Regularization constant (c) must be a float, got: " + str(type(self.c)))
+        if self.c < 0.0 or self.c > 1.0:
+            raise ValueError("Regularization constant (c) must be between 0.0 and 1.0, got: " + str(self.c))
+        if not isinstance(self.n_iter, int):
+            raise TypeError("Max nodes must be an integer, got: " + str(type(self.n_iter)))
+        if self.n_iter < 0:
+            raise ValueError("Max nodes must be positive, got: " + str(self.n_iter))
+        if not isinstance(self.ablation, int):
+            raise TypeError("Ablation must be an integer, got: " + str(type(self.ablation)))
+        if self.ablation > 2 or self.ablation < 0:
+            raise ValueError("Ablation must be between 0 and 2, inclusive, got: " + str(self.ablation))
         if not isinstance(self.map_type, str):
-            raise ValueError("Map type must be a string, got: " + str(self.map_type))
+            raise TypeError("Map type must be a string, got: " + str(type(self.map_type)))
         if not isinstance(self.policy, str):
-            raise ValueError("Policy must be a string, got: " + str(self.policy))
+            raise TypeError("Policy must be a string, got: " + str(type(self.policy)))
         if not isinstance(self.verbosity, list):
-            raise ValueError("Verbosity must be a list of strings, got: " + str(self.verbosity))
-        if not isinstance(self.min_support, float) or self.min_support < 0.0 or self.min_support > 1.0:
-            raise ValueError("Minimum support must be a float between"
-                             " 0.0 and 1.0, got: " + str(self.min_support))
-        if not isinstance(self.max_card, int) or self.max_card < 1:
-            raise ValueError("Max cardinality must be an integer greater than or equal to 1"
-                             ", got: " + str(self.max_card))
-        
+            raise TypeError("Verbosity must be a list of strings, got: " + str(type(self.verbosity)))
+        if not isinstance(self.min_support, float):
+            raise TypeError("Minimum support must be a float, got: " + str(type(self.min_support)))
+        if self.min_support < 0.0 or self.min_support > 0.5:
+            raise ValueError("Minimum support must be between 0.0 and 0.5, got: " + str(self.min_support))
+        if not isinstance(self.max_card, int):
+            raise TypeError("Max cardinality must be an integer, got: " + str(type(self.max_card)))
+        if self.max_card < 1:
+            raise ValueError("Max cardinality must be greater than or equal to 1, got: " + str(self.max_card))
         if not isinstance(prediction_name, str):
-            raise ValueError("Prediction name must be a string, got: " + str(prediction_name))
+            raise TypeError("Prediction name must be a string, got: " + str(type(prediction_name)))
        
         check_consistent_length(X, y)
         label = check_array(y, ndim=1, dtype=np.bool, order='C')
@@ -154,6 +160,10 @@ class CorelsClassifier:
 
         n_samples = samples.shape[0]
         n_features = samples.shape[1]
+        if self.max_card > n_features:
+            raise ValueError("Max cardinality (" + str(self.max_card) + ") cannot be greater"
+                             " than the number of features (" + str(n_features) + ")")
+
         n_labels = labels.shape[0]
         
         rl = RuleList()
@@ -175,7 +185,7 @@ class CorelsClassifier:
         allowed_verbosities = ["rule", "label", "samples", "progress", "log", "loud"]
         for v in self.verbosity:
             if not isinstance(v, str):
-                raise ValueError("Verbosity flags must be strings, got: " + str(v))
+                raise TypeError("Verbosity flags must be strings, got: " + str(v))
 
             check_in("Verbosities", allowed_verbosities, v)
         
@@ -212,11 +222,16 @@ class CorelsClassifier:
             try:
                 while _corels.fit_wrap_loop(self.n_iter):
                     pass
-            except KeyboardInterrupt:
+            except:
                 print("\nExiting early")
-                early = True
+                rl.rules = _corels.fit_wrap_end(True)
+                
+                self.rl_ = rl
+                self.is_fitted_ = True
+
+                raise
              
-            rl.rules = _corels.fit_wrap_end(early)
+            rl.rules = _corels.fit_wrap_end(False)
             
             self.rl_ = rl
             self.is_fitted_ = True
@@ -328,6 +343,7 @@ class CorelsClassifier:
 
         return self
 
+    # TODO: Make human-readable
     def save(self, fname):
         """
         Save the rulelist to a file, using python's pickle module.
@@ -350,6 +366,7 @@ class CorelsClassifier:
 
         return self
 
+    # TODO: Make human-readable
     def load(self, fname):
         """
         Load a rulelist from a file, using python's pickle module.
@@ -380,6 +397,7 @@ class CorelsClassifier:
 
         return self
 
+    # TODO: Reformat
     def printrl(self):
         """
         Print the rulelist in a human-friendly format.
@@ -392,7 +410,9 @@ class CorelsClassifier:
         print(self)
         return self
     
+    # TODO: Make unique
     def __repr__(self):
         check_is_fitted(self, "is_fitted_")
         return self.rl_.__str__()
 
+    #TODO: Make __str__()

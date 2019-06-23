@@ -1971,7 +1971,7 @@ static PyObject *__pyx_codeobj__16;
 static PyObject *__pyx_codeobj__18;
 /* Late includes */
 
-/* "corels/_corels.pyx":44
+/* "corels/_corels.pyx":45
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * def predict_wrap(np.ndarray[np.uint8_t, ndim=2] X, rules):             # <<<<<<<<<<<<<<
@@ -2011,11 +2011,11 @@ static PyObject *__pyx_pw_6corels_7_corels_1predict_wrap(PyObject *__pyx_self, P
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_rules)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("predict_wrap", 1, 2, 2, 1); __PYX_ERR(0, 44, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("predict_wrap", 1, 2, 2, 1); __PYX_ERR(0, 45, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "predict_wrap") < 0)) __PYX_ERR(0, 44, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "predict_wrap") < 0)) __PYX_ERR(0, 45, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -2028,13 +2028,13 @@ static PyObject *__pyx_pw_6corels_7_corels_1predict_wrap(PyObject *__pyx_self, P
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("predict_wrap", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 44, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("predict_wrap", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 45, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("corels._corels.predict_wrap", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_X), __pyx_ptype_5numpy_ndarray, 1, "X", 0))) __PYX_ERR(0, 44, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_X), __pyx_ptype_5numpy_ndarray, 1, "X", 0))) __PYX_ERR(0, 45, __pyx_L1_error)
   __pyx_r = __pyx_pf_6corels_7_corels_predict_wrap(__pyx_self, __pyx_v_X, __pyx_v_rules);
 
   /* function exit code */
@@ -2092,11 +2092,11 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
   __pyx_pybuffernd_X.rcbuffer = &__pyx_pybuffer_X;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_X.rcbuffer->pybuffer, (PyObject*)__pyx_v_X, &__Pyx_TypeInfo_nn___pyx_t_5numpy_uint8_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 44, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_X.rcbuffer->pybuffer, (PyObject*)__pyx_v_X, &__Pyx_TypeInfo_nn___pyx_t_5numpy_uint8_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 45, __pyx_L1_error)
   }
   __pyx_pybuffernd_X.diminfo[0].strides = __pyx_pybuffernd_X.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_X.diminfo[0].shape = __pyx_pybuffernd_X.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_X.diminfo[1].strides = __pyx_pybuffernd_X.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_X.diminfo[1].shape = __pyx_pybuffernd_X.rcbuffer->pybuffer.shape[1];
 
-  /* "corels/_corels.pyx":45
+  /* "corels/_corels.pyx":46
  * @cython.wraparound(False)
  * def predict_wrap(np.ndarray[np.uint8_t, ndim=2] X, rules):
  *     cdef int nsamples = X.shape[0]             # <<<<<<<<<<<<<<
@@ -2105,7 +2105,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
  */
   __pyx_v_nsamples = (__pyx_v_X->dimensions[0]);
 
-  /* "corels/_corels.pyx":46
+  /* "corels/_corels.pyx":47
  * def predict_wrap(np.ndarray[np.uint8_t, ndim=2] X, rules):
  *     cdef int nsamples = X.shape[0]
  *     cdef int nfeatures = X.shape[1]             # <<<<<<<<<<<<<<
@@ -2114,54 +2114,54 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
  */
   __pyx_v_nfeatures = (__pyx_v_X->dimensions[1]);
 
-  /* "corels/_corels.pyx":48
+  /* "corels/_corels.pyx":49
  *     cdef int nfeatures = X.shape[1]
  * 
  *     cdef np.ndarray out = np.zeros(nsamples, dtype=np.uint8)             # <<<<<<<<<<<<<<
  *     cdef int n_rules = len(rules) - 1
  *     if n_rules < 0:
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 48, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 48, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 49, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_nsamples); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 48, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_nsamples); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 48, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 49, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 48, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 48, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 49, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_uint8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 48, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_uint8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 49, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 48, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 49, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 48, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 49, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 48, __pyx_L1_error)
+  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 49, __pyx_L1_error)
   __pyx_v_out = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "corels/_corels.pyx":49
+  /* "corels/_corels.pyx":50
  * 
  *     cdef np.ndarray out = np.zeros(nsamples, dtype=np.uint8)
  *     cdef int n_rules = len(rules) - 1             # <<<<<<<<<<<<<<
  *     if n_rules < 0:
  *         return out
  */
-  __pyx_t_6 = PyObject_Length(__pyx_v_rules); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 49, __pyx_L1_error)
+  __pyx_t_6 = PyObject_Length(__pyx_v_rules); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 50, __pyx_L1_error)
   __pyx_v_n_rules = (__pyx_t_6 - 1);
 
-  /* "corels/_corels.pyx":50
+  /* "corels/_corels.pyx":51
  *     cdef np.ndarray out = np.zeros(nsamples, dtype=np.uint8)
  *     cdef int n_rules = len(rules) - 1
  *     if n_rules < 0:             # <<<<<<<<<<<<<<
@@ -2171,7 +2171,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
   __pyx_t_7 = ((__pyx_v_n_rules < 0) != 0);
   if (__pyx_t_7) {
 
-    /* "corels/_corels.pyx":51
+    /* "corels/_corels.pyx":52
  *     cdef int n_rules = len(rules) - 1
  *     if n_rules < 0:
  *         return out             # <<<<<<<<<<<<<<
@@ -2183,7 +2183,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
     __pyx_r = ((PyObject *)__pyx_v_out);
     goto __pyx_L0;
 
-    /* "corels/_corels.pyx":50
+    /* "corels/_corels.pyx":51
  *     cdef np.ndarray out = np.zeros(nsamples, dtype=np.uint8)
  *     cdef int n_rules = len(rules) - 1
  *     if n_rules < 0:             # <<<<<<<<<<<<<<
@@ -2192,23 +2192,23 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
  */
   }
 
-  /* "corels/_corels.pyx":54
+  /* "corels/_corels.pyx":55
  * 
  *     cdef int s, r, next_rule, nidx, a, idx, c
  *     cdef int default = bool(rules[n_rules]["prediction"])             # <<<<<<<<<<<<<<
  * 
  *     cdef int* antecedent_lengths = <int*>malloc(sizeof(int) * n_rules)
  */
-  __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_rules, __pyx_v_n_rules, int, 1, __Pyx_PyInt_From_int, 0, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 54, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_rules, __pyx_v_n_rules, int, 1, __Pyx_PyInt_From_int, 0, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 55, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_t_5, __pyx_n_s_prediction); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_t_5, __pyx_n_s_prediction); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 55, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 54, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 55, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_default = (!(!__pyx_t_7));
 
-  /* "corels/_corels.pyx":56
+  /* "corels/_corels.pyx":57
  *     cdef int default = bool(rules[n_rules]["prediction"])
  * 
  *     cdef int* antecedent_lengths = <int*>malloc(sizeof(int) * n_rules)             # <<<<<<<<<<<<<<
@@ -2217,7 +2217,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
  */
   __pyx_v_antecedent_lengths = ((int *)malloc(((sizeof(int)) * __pyx_v_n_rules)));
 
-  /* "corels/_corels.pyx":57
+  /* "corels/_corels.pyx":58
  * 
  *     cdef int* antecedent_lengths = <int*>malloc(sizeof(int) * n_rules)
  *     cdef int* predictions = <int*>malloc(sizeof(int) * n_rules)             # <<<<<<<<<<<<<<
@@ -2226,7 +2226,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
  */
   __pyx_v_predictions = ((int *)malloc(((sizeof(int)) * __pyx_v_n_rules)));
 
-  /* "corels/_corels.pyx":58
+  /* "corels/_corels.pyx":59
  *     cdef int* antecedent_lengths = <int*>malloc(sizeof(int) * n_rules)
  *     cdef int* predictions = <int*>malloc(sizeof(int) * n_rules)
  *     cdef int** antecedents = <int**>malloc(sizeof(int*) * n_rules)             # <<<<<<<<<<<<<<
@@ -2235,7 +2235,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
  */
   __pyx_v_antecedents = ((int **)malloc(((sizeof(int *)) * __pyx_v_n_rules)));
 
-  /* "corels/_corels.pyx":60
+  /* "corels/_corels.pyx":61
  *     cdef int** antecedents = <int**>malloc(sizeof(int*) * n_rules)
  * 
  *     for r in range(n_rules):             # <<<<<<<<<<<<<<
@@ -2247,42 +2247,42 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
   for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_9; __pyx_t_10+=1) {
     __pyx_v_r = __pyx_t_10;
 
-    /* "corels/_corels.pyx":61
+    /* "corels/_corels.pyx":62
  * 
  *     for r in range(n_rules):
  *         antecedent_lengths[r] = len(rules[r]["antecedents"])             # <<<<<<<<<<<<<<
  *         predictions[r] = int(rules[r]["prediction"])
  *         antecedents[r] = <int*>malloc(sizeof(int) * antecedent_lengths[r])
  */
-    __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_rules, __pyx_v_r, int, 1, __Pyx_PyInt_From_int, 0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 61, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_rules, __pyx_v_r, int, 1, __Pyx_PyInt_From_int, 0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = __Pyx_PyObject_Dict_GetItem(__pyx_t_1, __pyx_n_s_antecedents); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 61, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_Dict_GetItem(__pyx_t_1, __pyx_n_s_antecedents); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_6 = PyObject_Length(__pyx_t_5); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 61, __pyx_L1_error)
+    __pyx_t_6 = PyObject_Length(__pyx_t_5); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     (__pyx_v_antecedent_lengths[__pyx_v_r]) = __pyx_t_6;
 
-    /* "corels/_corels.pyx":62
+    /* "corels/_corels.pyx":63
  *     for r in range(n_rules):
  *         antecedent_lengths[r] = len(rules[r]["antecedents"])
  *         predictions[r] = int(rules[r]["prediction"])             # <<<<<<<<<<<<<<
  *         antecedents[r] = <int*>malloc(sizeof(int) * antecedent_lengths[r])
  *         for a in range(antecedent_lengths[r]):
  */
-    __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_rules, __pyx_v_r, int, 1, __Pyx_PyInt_From_int, 0, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 62, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_rules, __pyx_v_r, int, 1, __Pyx_PyInt_From_int, 0, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 63, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_t_5, __pyx_n_s_prediction); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 62, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_t_5, __pyx_n_s_prediction); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 63, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyNumber_Int(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 62, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyNumber_Int(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 63, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_11 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_11 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 62, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_11 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 63, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     (__pyx_v_predictions[__pyx_v_r]) = __pyx_t_11;
 
-    /* "corels/_corels.pyx":63
+    /* "corels/_corels.pyx":64
  *         antecedent_lengths[r] = len(rules[r]["antecedents"])
  *         predictions[r] = int(rules[r]["prediction"])
  *         antecedents[r] = <int*>malloc(sizeof(int) * antecedent_lengths[r])             # <<<<<<<<<<<<<<
@@ -2291,7 +2291,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
  */
     (__pyx_v_antecedents[__pyx_v_r]) = ((int *)malloc(((sizeof(int)) * (__pyx_v_antecedent_lengths[__pyx_v_r]))));
 
-    /* "corels/_corels.pyx":64
+    /* "corels/_corels.pyx":65
  *         predictions[r] = int(rules[r]["prediction"])
  *         antecedents[r] = <int*>malloc(sizeof(int) * antecedent_lengths[r])
  *         for a in range(antecedent_lengths[r]):             # <<<<<<<<<<<<<<
@@ -2303,28 +2303,28 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
     for (__pyx_t_13 = 0; __pyx_t_13 < __pyx_t_12; __pyx_t_13+=1) {
       __pyx_v_a = __pyx_t_13;
 
-      /* "corels/_corels.pyx":65
+      /* "corels/_corels.pyx":66
  *         antecedents[r] = <int*>malloc(sizeof(int) * antecedent_lengths[r])
  *         for a in range(antecedent_lengths[r]):
  *             antecedents[r][a] = rules[r]["antecedents"][a]             # <<<<<<<<<<<<<<
  * 
  *     for s in range(nsamples):
  */
-      __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_rules, __pyx_v_r, int, 1, __Pyx_PyInt_From_int, 0, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 65, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_rules, __pyx_v_r, int, 1, __Pyx_PyInt_From_int, 0, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 66, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_t_5, __pyx_n_s_antecedents); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 65, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_t_5, __pyx_n_s_antecedents); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_5 = __Pyx_GetItemInt(__pyx_t_1, __pyx_v_a, int, 1, __Pyx_PyInt_From_int, 0, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 65, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_GetItemInt(__pyx_t_1, __pyx_v_a, int, 1, __Pyx_PyInt_From_int, 0, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 66, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_14 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_14 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 65, __pyx_L1_error)
+      __pyx_t_14 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_14 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 66, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       ((__pyx_v_antecedents[__pyx_v_r])[__pyx_v_a]) = __pyx_t_14;
     }
   }
 
-  /* "corels/_corels.pyx":67
+  /* "corels/_corels.pyx":68
  *             antecedents[r][a] = rules[r]["antecedents"][a]
  * 
  *     for s in range(nsamples):             # <<<<<<<<<<<<<<
@@ -2336,7 +2336,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
   for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_9; __pyx_t_10+=1) {
     __pyx_v_s = __pyx_t_10;
 
-    /* "corels/_corels.pyx":68
+    /* "corels/_corels.pyx":69
  * 
  *     for s in range(nsamples):
  *         for r in range(n_rules):             # <<<<<<<<<<<<<<
@@ -2348,7 +2348,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
     for (__pyx_t_13 = 0; __pyx_t_13 < __pyx_t_12; __pyx_t_13+=1) {
       __pyx_v_r = __pyx_t_13;
 
-      /* "corels/_corels.pyx":69
+      /* "corels/_corels.pyx":70
  *     for s in range(nsamples):
  *         for r in range(n_rules):
  *             next_rule = 0             # <<<<<<<<<<<<<<
@@ -2357,7 +2357,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
  */
       __pyx_v_next_rule = 0;
 
-      /* "corels/_corels.pyx":70
+      /* "corels/_corels.pyx":71
  *         for r in range(n_rules):
  *             next_rule = 0
  *             nidx = antecedent_lengths[r]             # <<<<<<<<<<<<<<
@@ -2366,7 +2366,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
  */
       __pyx_v_nidx = (__pyx_v_antecedent_lengths[__pyx_v_r]);
 
-      /* "corels/_corels.pyx":71
+      /* "corels/_corels.pyx":72
  *             next_rule = 0
  *             nidx = antecedent_lengths[r]
  *             for a in range(nidx):             # <<<<<<<<<<<<<<
@@ -2378,7 +2378,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
       for (__pyx_t_16 = 0; __pyx_t_16 < __pyx_t_15; __pyx_t_16+=1) {
         __pyx_v_a = __pyx_t_16;
 
-        /* "corels/_corels.pyx":72
+        /* "corels/_corels.pyx":73
  *             nidx = antecedent_lengths[r]
  *             for a in range(nidx):
  *                 idx = antecedents[r][a]             # <<<<<<<<<<<<<<
@@ -2387,7 +2387,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
  */
         __pyx_v_idx = ((__pyx_v_antecedents[__pyx_v_r])[__pyx_v_a]);
 
-        /* "corels/_corels.pyx":73
+        /* "corels/_corels.pyx":74
  *             for a in range(nidx):
  *                 idx = antecedents[r][a]
  *                 c = 1             # <<<<<<<<<<<<<<
@@ -2396,7 +2396,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
  */
         __pyx_v_c = 1;
 
-        /* "corels/_corels.pyx":74
+        /* "corels/_corels.pyx":75
  *                 idx = antecedents[r][a]
  *                 c = 1
  *                 if idx < 0:             # <<<<<<<<<<<<<<
@@ -2406,7 +2406,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
         __pyx_t_7 = ((__pyx_v_idx < 0) != 0);
         if (__pyx_t_7) {
 
-          /* "corels/_corels.pyx":75
+          /* "corels/_corels.pyx":76
  *                 c = 1
  *                 if idx < 0:
  *                     idx = -idx             # <<<<<<<<<<<<<<
@@ -2415,7 +2415,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
  */
           __pyx_v_idx = (-__pyx_v_idx);
 
-          /* "corels/_corels.pyx":76
+          /* "corels/_corels.pyx":77
  *                 if idx < 0:
  *                     idx = -idx
  *                     c = 0             # <<<<<<<<<<<<<<
@@ -2424,7 +2424,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
  */
           __pyx_v_c = 0;
 
-          /* "corels/_corels.pyx":74
+          /* "corels/_corels.pyx":75
  *                 idx = antecedents[r][a]
  *                 c = 1
  *                 if idx < 0:             # <<<<<<<<<<<<<<
@@ -2433,7 +2433,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
  */
         }
 
-        /* "corels/_corels.pyx":78
+        /* "corels/_corels.pyx":79
  *                     c = 0
  * 
  *                 idx = idx - 1             # <<<<<<<<<<<<<<
@@ -2442,7 +2442,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
  */
         __pyx_v_idx = (__pyx_v_idx - 1);
 
-        /* "corels/_corels.pyx":79
+        /* "corels/_corels.pyx":80
  * 
  *                 idx = idx - 1
  *                 if idx >= nfeatures or X[s, idx] != c:             # <<<<<<<<<<<<<<
@@ -2462,7 +2462,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
         __pyx_L16_bool_binop_done:;
         if (__pyx_t_7) {
 
-          /* "corels/_corels.pyx":80
+          /* "corels/_corels.pyx":81
  *                 idx = idx - 1
  *                 if idx >= nfeatures or X[s, idx] != c:
  *                     next_rule = 1             # <<<<<<<<<<<<<<
@@ -2471,7 +2471,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
  */
           __pyx_v_next_rule = 1;
 
-          /* "corels/_corels.pyx":81
+          /* "corels/_corels.pyx":82
  *                 if idx >= nfeatures or X[s, idx] != c:
  *                     next_rule = 1
  *                     break             # <<<<<<<<<<<<<<
@@ -2480,7 +2480,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
  */
           goto __pyx_L13_break;
 
-          /* "corels/_corels.pyx":79
+          /* "corels/_corels.pyx":80
  * 
  *                 idx = idx - 1
  *                 if idx >= nfeatures or X[s, idx] != c:             # <<<<<<<<<<<<<<
@@ -2491,7 +2491,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
       }
       __pyx_L13_break:;
 
-      /* "corels/_corels.pyx":83
+      /* "corels/_corels.pyx":84
  *                     break
  * 
  *             if next_rule == 0:             # <<<<<<<<<<<<<<
@@ -2501,19 +2501,19 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
       __pyx_t_7 = ((__pyx_v_next_rule == 0) != 0);
       if (__pyx_t_7) {
 
-        /* "corels/_corels.pyx":84
+        /* "corels/_corels.pyx":85
  * 
  *             if next_rule == 0:
  *                 out[s] = predictions[r];             # <<<<<<<<<<<<<<
  *                 break
  * 
  */
-        __pyx_t_5 = __Pyx_PyInt_From_int((__pyx_v_predictions[__pyx_v_r])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 84, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyInt_From_int((__pyx_v_predictions[__pyx_v_r])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 85, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        if (unlikely(__Pyx_SetItemInt(((PyObject *)__pyx_v_out), __pyx_v_s, __pyx_t_5, int, 1, __Pyx_PyInt_From_int, 0, 0, 0) < 0)) __PYX_ERR(0, 84, __pyx_L1_error)
+        if (unlikely(__Pyx_SetItemInt(((PyObject *)__pyx_v_out), __pyx_v_s, __pyx_t_5, int, 1, __Pyx_PyInt_From_int, 0, 0, 0) < 0)) __PYX_ERR(0, 85, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-        /* "corels/_corels.pyx":85
+        /* "corels/_corels.pyx":86
  *             if next_rule == 0:
  *                 out[s] = predictions[r];
  *                 break             # <<<<<<<<<<<<<<
@@ -2522,7 +2522,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
  */
         goto __pyx_L11_break;
 
-        /* "corels/_corels.pyx":83
+        /* "corels/_corels.pyx":84
  *                     break
  * 
  *             if next_rule == 0:             # <<<<<<<<<<<<<<
@@ -2533,7 +2533,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
     }
     __pyx_L11_break:;
 
-    /* "corels/_corels.pyx":87
+    /* "corels/_corels.pyx":88
  *                 break
  * 
  *         if next_rule == 1:             # <<<<<<<<<<<<<<
@@ -2543,19 +2543,19 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
     __pyx_t_7 = ((__pyx_v_next_rule == 1) != 0);
     if (__pyx_t_7) {
 
-      /* "corels/_corels.pyx":88
+      /* "corels/_corels.pyx":89
  * 
  *         if next_rule == 1:
  *             out[s] = default             # <<<<<<<<<<<<<<
  * 
  *     for r in range(n_rules):
  */
-      __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_default); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 88, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_default); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 89, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      if (unlikely(__Pyx_SetItemInt(((PyObject *)__pyx_v_out), __pyx_v_s, __pyx_t_5, int, 1, __Pyx_PyInt_From_int, 0, 0, 0) < 0)) __PYX_ERR(0, 88, __pyx_L1_error)
+      if (unlikely(__Pyx_SetItemInt(((PyObject *)__pyx_v_out), __pyx_v_s, __pyx_t_5, int, 1, __Pyx_PyInt_From_int, 0, 0, 0) < 0)) __PYX_ERR(0, 89, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-      /* "corels/_corels.pyx":87
+      /* "corels/_corels.pyx":88
  *                 break
  * 
  *         if next_rule == 1:             # <<<<<<<<<<<<<<
@@ -2565,7 +2565,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
     }
   }
 
-  /* "corels/_corels.pyx":90
+  /* "corels/_corels.pyx":91
  *             out[s] = default
  * 
  *     for r in range(n_rules):             # <<<<<<<<<<<<<<
@@ -2577,7 +2577,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
   for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_9; __pyx_t_10+=1) {
     __pyx_v_r = __pyx_t_10;
 
-    /* "corels/_corels.pyx":91
+    /* "corels/_corels.pyx":92
  * 
  *     for r in range(n_rules):
  *         free(antecedents[r])             # <<<<<<<<<<<<<<
@@ -2587,7 +2587,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
     free((__pyx_v_antecedents[__pyx_v_r]));
   }
 
-  /* "corels/_corels.pyx":92
+  /* "corels/_corels.pyx":93
  *     for r in range(n_rules):
  *         free(antecedents[r])
  *     free(antecedents)             # <<<<<<<<<<<<<<
@@ -2596,7 +2596,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
  */
   free(__pyx_v_antecedents);
 
-  /* "corels/_corels.pyx":93
+  /* "corels/_corels.pyx":94
  *         free(antecedents[r])
  *     free(antecedents)
  *     free(predictions)             # <<<<<<<<<<<<<<
@@ -2605,7 +2605,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
  */
   free(__pyx_v_predictions);
 
-  /* "corels/_corels.pyx":94
+  /* "corels/_corels.pyx":95
  *     free(antecedents)
  *     free(predictions)
  *     free(antecedent_lengths)             # <<<<<<<<<<<<<<
@@ -2614,7 +2614,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
  */
   free(__pyx_v_antecedent_lengths);
 
-  /* "corels/_corels.pyx":96
+  /* "corels/_corels.pyx":97
  *     free(antecedent_lengths)
  * 
  *     return out             # <<<<<<<<<<<<<<
@@ -2626,7 +2626,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
   __pyx_r = ((PyObject *)__pyx_v_out);
   goto __pyx_L0;
 
-  /* "corels/_corels.pyx":44
+  /* "corels/_corels.pyx":45
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * def predict_wrap(np.ndarray[np.uint8_t, ndim=2] X, rules):             # <<<<<<<<<<<<<<
@@ -2659,7 +2659,7 @@ static PyObject *__pyx_pf_6corels_7_corels_predict_wrap(CYTHON_UNUSED PyObject *
   return __pyx_r;
 }
 
-/* "corels/_corels.pyx":98
+/* "corels/_corels.pyx":99
  *     return out
  * 
  * cdef rule_t* _to_vector(np.ndarray[np.uint8_t, ndim=2] X, int* ncount):             # <<<<<<<<<<<<<<
@@ -2699,23 +2699,23 @@ static rule_t *__pyx_f_6corels_7_corels__to_vector(PyArrayObject *__pyx_v_X, int
   __pyx_pybuffernd_X.rcbuffer = &__pyx_pybuffer_X;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_X.rcbuffer->pybuffer, (PyObject*)__pyx_v_X, &__Pyx_TypeInfo_nn___pyx_t_5numpy_uint8_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 98, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_X.rcbuffer->pybuffer, (PyObject*)__pyx_v_X, &__Pyx_TypeInfo_nn___pyx_t_5numpy_uint8_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 99, __pyx_L1_error)
   }
   __pyx_pybuffernd_X.diminfo[0].strides = __pyx_pybuffernd_X.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_X.diminfo[0].shape = __pyx_pybuffernd_X.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_X.diminfo[1].strides = __pyx_pybuffernd_X.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_X.diminfo[1].shape = __pyx_pybuffernd_X.rcbuffer->pybuffer.shape[1];
 
-  /* "corels/_corels.pyx":99
+  /* "corels/_corels.pyx":100
  * 
  * cdef rule_t* _to_vector(np.ndarray[np.uint8_t, ndim=2] X, int* ncount):
  *     d0 = X.shape[0]             # <<<<<<<<<<<<<<
  *     d1 = X.shape[1]
  *     cdef rule_t* vectors = <rule_t*>malloc(d0 * sizeof(rule_t))
  */
-  __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t((__pyx_v_X->dimensions[0])); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 99, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t((__pyx_v_X->dimensions[0])); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_d0 = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "corels/_corels.pyx":100
+  /* "corels/_corels.pyx":101
  * cdef rule_t* _to_vector(np.ndarray[np.uint8_t, ndim=2] X, int* ncount):
  *     d0 = X.shape[0]
  *     d1 = X.shape[1]             # <<<<<<<<<<<<<<
@@ -2724,23 +2724,23 @@ static rule_t *__pyx_f_6corels_7_corels__to_vector(PyArrayObject *__pyx_v_X, int
  */
   __pyx_v_d1 = (__pyx_v_X->dimensions[1]);
 
-  /* "corels/_corels.pyx":101
+  /* "corels/_corels.pyx":102
  *     d0 = X.shape[0]
  *     d1 = X.shape[1]
  *     cdef rule_t* vectors = <rule_t*>malloc(d0 * sizeof(rule_t))             # <<<<<<<<<<<<<<
  *     if vectors == NULL:
  *         raise MemoryError()
  */
-  __pyx_t_1 = __Pyx_PyInt_FromSize_t((sizeof(rule_t))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_FromSize_t((sizeof(rule_t))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyNumber_Multiply(__pyx_v_d0, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Multiply(__pyx_v_d0, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = __Pyx_PyInt_As_size_t(__pyx_t_2); if (unlikely((__pyx_t_3 == (size_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 101, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_As_size_t(__pyx_t_2); if (unlikely((__pyx_t_3 == (size_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_vectors = ((rule_t *)malloc(__pyx_t_3));
 
-  /* "corels/_corels.pyx":102
+  /* "corels/_corels.pyx":103
  *     d1 = X.shape[1]
  *     cdef rule_t* vectors = <rule_t*>malloc(d0 * sizeof(rule_t))
  *     if vectors == NULL:             # <<<<<<<<<<<<<<
@@ -2750,16 +2750,16 @@ static rule_t *__pyx_f_6corels_7_corels__to_vector(PyArrayObject *__pyx_v_X, int
   __pyx_t_4 = ((__pyx_v_vectors == NULL) != 0);
   if (unlikely(__pyx_t_4)) {
 
-    /* "corels/_corels.pyx":103
+    /* "corels/_corels.pyx":104
  *     cdef rule_t* vectors = <rule_t*>malloc(d0 * sizeof(rule_t))
  *     if vectors == NULL:
  *         raise MemoryError()             # <<<<<<<<<<<<<<
  * 
  *     cdef int nones;
  */
-    PyErr_NoMemory(); __PYX_ERR(0, 103, __pyx_L1_error)
+    PyErr_NoMemory(); __PYX_ERR(0, 104, __pyx_L1_error)
 
-    /* "corels/_corels.pyx":102
+    /* "corels/_corels.pyx":103
  *     d1 = X.shape[1]
  *     cdef rule_t* vectors = <rule_t*>malloc(d0 * sizeof(rule_t))
  *     if vectors == NULL:             # <<<<<<<<<<<<<<
@@ -2768,22 +2768,22 @@ static rule_t *__pyx_f_6corels_7_corels__to_vector(PyArrayObject *__pyx_v_X, int
  */
   }
 
-  /* "corels/_corels.pyx":107
+  /* "corels/_corels.pyx":108
  *     cdef int nones;
  * 
  *     for i in range(d0):             # <<<<<<<<<<<<<<
  *         arrstr = ""
  *         for j in range(d1):
  */
-  __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_v_d0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 107, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_v_d0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 108, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (likely(PyList_CheckExact(__pyx_t_2)) || PyTuple_CheckExact(__pyx_t_2)) {
     __pyx_t_1 = __pyx_t_2; __Pyx_INCREF(__pyx_t_1); __pyx_t_5 = 0;
     __pyx_t_6 = NULL;
   } else {
-    __pyx_t_5 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 107, __pyx_L1_error)
+    __pyx_t_5 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 108, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_6 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 107, __pyx_L1_error)
+    __pyx_t_6 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 108, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   for (;;) {
@@ -2791,17 +2791,17 @@ static rule_t *__pyx_f_6corels_7_corels__to_vector(PyArrayObject *__pyx_v_X, int
       if (likely(PyList_CheckExact(__pyx_t_1))) {
         if (__pyx_t_5 >= PyList_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_5); __Pyx_INCREF(__pyx_t_2); __pyx_t_5++; if (unlikely(0 < 0)) __PYX_ERR(0, 107, __pyx_L1_error)
+        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_5); __Pyx_INCREF(__pyx_t_2); __pyx_t_5++; if (unlikely(0 < 0)) __PYX_ERR(0, 108, __pyx_L1_error)
         #else
-        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 107, __pyx_L1_error)
+        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 108, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       } else {
         if (__pyx_t_5 >= PyTuple_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_5); __Pyx_INCREF(__pyx_t_2); __pyx_t_5++; if (unlikely(0 < 0)) __PYX_ERR(0, 107, __pyx_L1_error)
+        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_5); __Pyx_INCREF(__pyx_t_2); __pyx_t_5++; if (unlikely(0 < 0)) __PYX_ERR(0, 108, __pyx_L1_error)
         #else
-        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 107, __pyx_L1_error)
+        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 108, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       }
@@ -2811,7 +2811,7 @@ static rule_t *__pyx_f_6corels_7_corels__to_vector(PyArrayObject *__pyx_v_X, int
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 107, __pyx_L1_error)
+          else __PYX_ERR(0, 108, __pyx_L1_error)
         }
         break;
       }
@@ -2820,7 +2820,7 @@ static rule_t *__pyx_f_6corels_7_corels__to_vector(PyArrayObject *__pyx_v_X, int
     __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "corels/_corels.pyx":108
+    /* "corels/_corels.pyx":109
  * 
  *     for i in range(d0):
  *         arrstr = ""             # <<<<<<<<<<<<<<
@@ -2830,25 +2830,25 @@ static rule_t *__pyx_f_6corels_7_corels__to_vector(PyArrayObject *__pyx_v_X, int
     __Pyx_INCREF(__pyx_kp_s_);
     __Pyx_XDECREF_SET(__pyx_v_arrstr, __pyx_kp_s_);
 
-    /* "corels/_corels.pyx":109
+    /* "corels/_corels.pyx":110
  *     for i in range(d0):
  *         arrstr = ""
  *         for j in range(d1):             # <<<<<<<<<<<<<<
  *             if X[i][j]:
  *                 arrstr += "1"
  */
-    __pyx_t_2 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_d1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 109, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_d1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 110, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_7 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 109, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 110, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (likely(PyList_CheckExact(__pyx_t_7)) || PyTuple_CheckExact(__pyx_t_7)) {
       __pyx_t_2 = __pyx_t_7; __Pyx_INCREF(__pyx_t_2); __pyx_t_8 = 0;
       __pyx_t_9 = NULL;
     } else {
-      __pyx_t_8 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 109, __pyx_L1_error)
+      __pyx_t_8 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 110, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_9 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 109, __pyx_L1_error)
+      __pyx_t_9 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 110, __pyx_L1_error)
     }
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     for (;;) {
@@ -2856,17 +2856,17 @@ static rule_t *__pyx_f_6corels_7_corels__to_vector(PyArrayObject *__pyx_v_X, int
         if (likely(PyList_CheckExact(__pyx_t_2))) {
           if (__pyx_t_8 >= PyList_GET_SIZE(__pyx_t_2)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_7 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_8); __Pyx_INCREF(__pyx_t_7); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 109, __pyx_L1_error)
+          __pyx_t_7 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_8); __Pyx_INCREF(__pyx_t_7); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 110, __pyx_L1_error)
           #else
-          __pyx_t_7 = PySequence_ITEM(__pyx_t_2, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 109, __pyx_L1_error)
+          __pyx_t_7 = PySequence_ITEM(__pyx_t_2, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 110, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_7);
           #endif
         } else {
           if (__pyx_t_8 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_7 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_8); __Pyx_INCREF(__pyx_t_7); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 109, __pyx_L1_error)
+          __pyx_t_7 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_8); __Pyx_INCREF(__pyx_t_7); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 110, __pyx_L1_error)
           #else
-          __pyx_t_7 = PySequence_ITEM(__pyx_t_2, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 109, __pyx_L1_error)
+          __pyx_t_7 = PySequence_ITEM(__pyx_t_2, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 110, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_7);
           #endif
         }
@@ -2876,7 +2876,7 @@ static rule_t *__pyx_f_6corels_7_corels__to_vector(PyArrayObject *__pyx_v_X, int
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else __PYX_ERR(0, 109, __pyx_L1_error)
+            else __PYX_ERR(0, 110, __pyx_L1_error)
           }
           break;
         }
@@ -2885,35 +2885,35 @@ static rule_t *__pyx_f_6corels_7_corels__to_vector(PyArrayObject *__pyx_v_X, int
       __Pyx_XDECREF_SET(__pyx_v_j, __pyx_t_7);
       __pyx_t_7 = 0;
 
-      /* "corels/_corels.pyx":110
+      /* "corels/_corels.pyx":111
  *         arrstr = ""
  *         for j in range(d1):
  *             if X[i][j]:             # <<<<<<<<<<<<<<
  *                 arrstr += "1"
  *             else:
  */
-      __pyx_t_7 = __Pyx_PyObject_GetItem(((PyObject *)__pyx_v_X), __pyx_v_i); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 110, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyObject_GetItem(((PyObject *)__pyx_v_X), __pyx_v_i); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 111, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_10 = __Pyx_PyObject_GetItem(__pyx_t_7, __pyx_v_j); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 110, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_GetItem(__pyx_t_7, __pyx_v_j); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 111, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_10); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 110, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_10); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 111, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       if (__pyx_t_4) {
 
-        /* "corels/_corels.pyx":111
+        /* "corels/_corels.pyx":112
  *         for j in range(d1):
  *             if X[i][j]:
  *                 arrstr += "1"             # <<<<<<<<<<<<<<
  *             else:
  *                 arrstr += "0"
  */
-        __pyx_t_10 = PyNumber_InPlaceAdd(__pyx_v_arrstr, __pyx_kp_s_1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 111, __pyx_L1_error)
+        __pyx_t_10 = PyNumber_InPlaceAdd(__pyx_v_arrstr, __pyx_kp_s_1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 112, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF_SET(__pyx_v_arrstr, __pyx_t_10);
         __pyx_t_10 = 0;
 
-        /* "corels/_corels.pyx":110
+        /* "corels/_corels.pyx":111
  *         arrstr = ""
  *         for j in range(d1):
  *             if X[i][j]:             # <<<<<<<<<<<<<<
@@ -2923,7 +2923,7 @@ static rule_t *__pyx_f_6corels_7_corels__to_vector(PyArrayObject *__pyx_v_X, int
         goto __pyx_L8;
       }
 
-      /* "corels/_corels.pyx":113
+      /* "corels/_corels.pyx":114
  *                 arrstr += "1"
  *             else:
  *                 arrstr += "0"             # <<<<<<<<<<<<<<
@@ -2931,14 +2931,14 @@ static rule_t *__pyx_f_6corels_7_corels__to_vector(PyArrayObject *__pyx_v_X, int
  *         bytestr = arrstr.encode("ascii")
  */
       /*else*/ {
-        __pyx_t_10 = PyNumber_InPlaceAdd(__pyx_v_arrstr, __pyx_kp_s_0); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 113, __pyx_L1_error)
+        __pyx_t_10 = PyNumber_InPlaceAdd(__pyx_v_arrstr, __pyx_kp_s_0); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 114, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF_SET(__pyx_v_arrstr, __pyx_t_10);
         __pyx_t_10 = 0;
       }
       __pyx_L8:;
 
-      /* "corels/_corels.pyx":109
+      /* "corels/_corels.pyx":110
  *     for i in range(d0):
  *         arrstr = ""
  *         for j in range(d1):             # <<<<<<<<<<<<<<
@@ -2948,14 +2948,14 @@ static rule_t *__pyx_f_6corels_7_corels__to_vector(PyArrayObject *__pyx_v_X, int
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "corels/_corels.pyx":115
+    /* "corels/_corels.pyx":116
  *                 arrstr += "0"
  * 
  *         bytestr = arrstr.encode("ascii")             # <<<<<<<<<<<<<<
  *         if ascii_to_vector(bytestr, len(bytestr), ncount, &nones, &vectors[i].truthtable) != 0:
  *             for j in range(i):
  */
-    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_arrstr, __pyx_n_s_encode); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 115, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_arrstr, __pyx_n_s_encode); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 116, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __pyx_t_7 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_10))) {
@@ -2969,41 +2969,41 @@ static rule_t *__pyx_f_6corels_7_corels__to_vector(PyArrayObject *__pyx_v_X, int
     }
     __pyx_t_2 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_10, __pyx_t_7, __pyx_n_s_ascii) : __Pyx_PyObject_CallOneArg(__pyx_t_10, __pyx_n_s_ascii);
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 115, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 116, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     __Pyx_XDECREF_SET(__pyx_v_bytestr, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "corels/_corels.pyx":116
+    /* "corels/_corels.pyx":117
  * 
  *         bytestr = arrstr.encode("ascii")
  *         if ascii_to_vector(bytestr, len(bytestr), ncount, &nones, &vectors[i].truthtable) != 0:             # <<<<<<<<<<<<<<
  *             for j in range(i):
  *                 rule_vfree(&vectors[j].truthtable)
  */
-    __pyx_t_11 = __Pyx_PyObject_AsWritableString(__pyx_v_bytestr); if (unlikely((!__pyx_t_11) && PyErr_Occurred())) __PYX_ERR(0, 116, __pyx_L1_error)
-    __pyx_t_8 = PyObject_Length(__pyx_v_bytestr); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 116, __pyx_L1_error)
-    __pyx_t_12 = __Pyx_PyIndex_AsSsize_t(__pyx_v_i); if (unlikely((__pyx_t_12 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 116, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_PyObject_AsWritableString(__pyx_v_bytestr); if (unlikely((!__pyx_t_11) && PyErr_Occurred())) __PYX_ERR(0, 117, __pyx_L1_error)
+    __pyx_t_8 = PyObject_Length(__pyx_v_bytestr); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 117, __pyx_L1_error)
+    __pyx_t_12 = __Pyx_PyIndex_AsSsize_t(__pyx_v_i); if (unlikely((__pyx_t_12 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 117, __pyx_L1_error)
     __pyx_t_4 = ((ascii_to_vector(__pyx_t_11, __pyx_t_8, __pyx_v_ncount, (&__pyx_v_nones), (&(__pyx_v_vectors[__pyx_t_12]).truthtable)) != 0) != 0);
     if (__pyx_t_4) {
 
-      /* "corels/_corels.pyx":117
+      /* "corels/_corels.pyx":118
  *         bytestr = arrstr.encode("ascii")
  *         if ascii_to_vector(bytestr, len(bytestr), ncount, &nones, &vectors[i].truthtable) != 0:
  *             for j in range(i):             # <<<<<<<<<<<<<<
  *                 rule_vfree(&vectors[j].truthtable)
  * 
  */
-      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_v_i); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 117, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_v_i); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 118, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       if (likely(PyList_CheckExact(__pyx_t_2)) || PyTuple_CheckExact(__pyx_t_2)) {
         __pyx_t_10 = __pyx_t_2; __Pyx_INCREF(__pyx_t_10); __pyx_t_12 = 0;
         __pyx_t_9 = NULL;
       } else {
-        __pyx_t_12 = -1; __pyx_t_10 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 117, __pyx_L1_error)
+        __pyx_t_12 = -1; __pyx_t_10 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 118, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
-        __pyx_t_9 = Py_TYPE(__pyx_t_10)->tp_iternext; if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 117, __pyx_L1_error)
+        __pyx_t_9 = Py_TYPE(__pyx_t_10)->tp_iternext; if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 118, __pyx_L1_error)
       }
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       for (;;) {
@@ -3011,17 +3011,17 @@ static rule_t *__pyx_f_6corels_7_corels__to_vector(PyArrayObject *__pyx_v_X, int
           if (likely(PyList_CheckExact(__pyx_t_10))) {
             if (__pyx_t_12 >= PyList_GET_SIZE(__pyx_t_10)) break;
             #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-            __pyx_t_2 = PyList_GET_ITEM(__pyx_t_10, __pyx_t_12); __Pyx_INCREF(__pyx_t_2); __pyx_t_12++; if (unlikely(0 < 0)) __PYX_ERR(0, 117, __pyx_L1_error)
+            __pyx_t_2 = PyList_GET_ITEM(__pyx_t_10, __pyx_t_12); __Pyx_INCREF(__pyx_t_2); __pyx_t_12++; if (unlikely(0 < 0)) __PYX_ERR(0, 118, __pyx_L1_error)
             #else
-            __pyx_t_2 = PySequence_ITEM(__pyx_t_10, __pyx_t_12); __pyx_t_12++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 117, __pyx_L1_error)
+            __pyx_t_2 = PySequence_ITEM(__pyx_t_10, __pyx_t_12); __pyx_t_12++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 118, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_2);
             #endif
           } else {
             if (__pyx_t_12 >= PyTuple_GET_SIZE(__pyx_t_10)) break;
             #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-            __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_10, __pyx_t_12); __Pyx_INCREF(__pyx_t_2); __pyx_t_12++; if (unlikely(0 < 0)) __PYX_ERR(0, 117, __pyx_L1_error)
+            __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_10, __pyx_t_12); __Pyx_INCREF(__pyx_t_2); __pyx_t_12++; if (unlikely(0 < 0)) __PYX_ERR(0, 118, __pyx_L1_error)
             #else
-            __pyx_t_2 = PySequence_ITEM(__pyx_t_10, __pyx_t_12); __pyx_t_12++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 117, __pyx_L1_error)
+            __pyx_t_2 = PySequence_ITEM(__pyx_t_10, __pyx_t_12); __pyx_t_12++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 118, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_2);
             #endif
           }
@@ -3031,7 +3031,7 @@ static rule_t *__pyx_f_6corels_7_corels__to_vector(PyArrayObject *__pyx_v_X, int
             PyObject* exc_type = PyErr_Occurred();
             if (exc_type) {
               if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-              else __PYX_ERR(0, 117, __pyx_L1_error)
+              else __PYX_ERR(0, 118, __pyx_L1_error)
             }
             break;
           }
@@ -3040,17 +3040,17 @@ static rule_t *__pyx_f_6corels_7_corels__to_vector(PyArrayObject *__pyx_v_X, int
         __Pyx_XDECREF_SET(__pyx_v_j, __pyx_t_2);
         __pyx_t_2 = 0;
 
-        /* "corels/_corels.pyx":118
+        /* "corels/_corels.pyx":119
  *         if ascii_to_vector(bytestr, len(bytestr), ncount, &nones, &vectors[i].truthtable) != 0:
  *             for j in range(i):
  *                 rule_vfree(&vectors[j].truthtable)             # <<<<<<<<<<<<<<
  * 
  *             free(vectors)
  */
-        __pyx_t_8 = __Pyx_PyIndex_AsSsize_t(__pyx_v_j); if (unlikely((__pyx_t_8 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 118, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_PyIndex_AsSsize_t(__pyx_v_j); if (unlikely((__pyx_t_8 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 119, __pyx_L1_error)
         (void)(rule_vfree((&(__pyx_v_vectors[__pyx_t_8]).truthtable)));
 
-        /* "corels/_corels.pyx":117
+        /* "corels/_corels.pyx":118
  *         bytestr = arrstr.encode("ascii")
  *         if ascii_to_vector(bytestr, len(bytestr), ncount, &nones, &vectors[i].truthtable) != 0:
  *             for j in range(i):             # <<<<<<<<<<<<<<
@@ -3060,7 +3060,7 @@ static rule_t *__pyx_f_6corels_7_corels__to_vector(PyArrayObject *__pyx_v_X, int
       }
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-      /* "corels/_corels.pyx":120
+      /* "corels/_corels.pyx":121
  *                 rule_vfree(&vectors[j].truthtable)
  * 
  *             free(vectors)             # <<<<<<<<<<<<<<
@@ -3069,20 +3069,20 @@ static rule_t *__pyx_f_6corels_7_corels__to_vector(PyArrayObject *__pyx_v_X, int
  */
       free(__pyx_v_vectors);
 
-      /* "corels/_corels.pyx":121
+      /* "corels/_corels.pyx":122
  * 
  *             free(vectors)
  *             raise ValueError("Could not load samples")             # <<<<<<<<<<<<<<
  * 
  *         vectors[i].ids = NULL
  */
-      __pyx_t_10 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 121, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 122, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_Raise(__pyx_t_10, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-      __PYX_ERR(0, 121, __pyx_L1_error)
+      __PYX_ERR(0, 122, __pyx_L1_error)
 
-      /* "corels/_corels.pyx":116
+      /* "corels/_corels.pyx":117
  * 
  *         bytestr = arrstr.encode("ascii")
  *         if ascii_to_vector(bytestr, len(bytestr), ncount, &nones, &vectors[i].truthtable) != 0:             # <<<<<<<<<<<<<<
@@ -3091,47 +3091,47 @@ static rule_t *__pyx_f_6corels_7_corels__to_vector(PyArrayObject *__pyx_v_X, int
  */
     }
 
-    /* "corels/_corels.pyx":123
+    /* "corels/_corels.pyx":124
  *             raise ValueError("Could not load samples")
  * 
  *         vectors[i].ids = NULL             # <<<<<<<<<<<<<<
  *         vectors[i].features = NULL
  *         vectors[i].cardinality = 1
  */
-    __pyx_t_12 = __Pyx_PyIndex_AsSsize_t(__pyx_v_i); if (unlikely((__pyx_t_12 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 123, __pyx_L1_error)
+    __pyx_t_12 = __Pyx_PyIndex_AsSsize_t(__pyx_v_i); if (unlikely((__pyx_t_12 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 124, __pyx_L1_error)
     (__pyx_v_vectors[__pyx_t_12]).ids = NULL;
 
-    /* "corels/_corels.pyx":124
+    /* "corels/_corels.pyx":125
  * 
  *         vectors[i].ids = NULL
  *         vectors[i].features = NULL             # <<<<<<<<<<<<<<
  *         vectors[i].cardinality = 1
  *         vectors[i].support = nones
  */
-    __pyx_t_12 = __Pyx_PyIndex_AsSsize_t(__pyx_v_i); if (unlikely((__pyx_t_12 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 124, __pyx_L1_error)
+    __pyx_t_12 = __Pyx_PyIndex_AsSsize_t(__pyx_v_i); if (unlikely((__pyx_t_12 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 125, __pyx_L1_error)
     (__pyx_v_vectors[__pyx_t_12]).features = NULL;
 
-    /* "corels/_corels.pyx":125
+    /* "corels/_corels.pyx":126
  *         vectors[i].ids = NULL
  *         vectors[i].features = NULL
  *         vectors[i].cardinality = 1             # <<<<<<<<<<<<<<
  *         vectors[i].support = nones
  * 
  */
-    __pyx_t_12 = __Pyx_PyIndex_AsSsize_t(__pyx_v_i); if (unlikely((__pyx_t_12 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 125, __pyx_L1_error)
+    __pyx_t_12 = __Pyx_PyIndex_AsSsize_t(__pyx_v_i); if (unlikely((__pyx_t_12 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 126, __pyx_L1_error)
     (__pyx_v_vectors[__pyx_t_12]).cardinality = 1;
 
-    /* "corels/_corels.pyx":126
+    /* "corels/_corels.pyx":127
  *         vectors[i].features = NULL
  *         vectors[i].cardinality = 1
  *         vectors[i].support = nones             # <<<<<<<<<<<<<<
  * 
  *     return vectors
  */
-    __pyx_t_12 = __Pyx_PyIndex_AsSsize_t(__pyx_v_i); if (unlikely((__pyx_t_12 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 126, __pyx_L1_error)
+    __pyx_t_12 = __Pyx_PyIndex_AsSsize_t(__pyx_v_i); if (unlikely((__pyx_t_12 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 127, __pyx_L1_error)
     (__pyx_v_vectors[__pyx_t_12]).support = __pyx_v_nones;
 
-    /* "corels/_corels.pyx":107
+    /* "corels/_corels.pyx":108
  *     cdef int nones;
  * 
  *     for i in range(d0):             # <<<<<<<<<<<<<<
@@ -3141,7 +3141,7 @@ static rule_t *__pyx_f_6corels_7_corels__to_vector(PyArrayObject *__pyx_v_X, int
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "corels/_corels.pyx":128
+  /* "corels/_corels.pyx":129
  *         vectors[i].support = nones
  * 
  *     return vectors             # <<<<<<<<<<<<<<
@@ -3151,7 +3151,7 @@ static rule_t *__pyx_f_6corels_7_corels__to_vector(PyArrayObject *__pyx_v_X, int
   __pyx_r = __pyx_v_vectors;
   goto __pyx_L0;
 
-  /* "corels/_corels.pyx":98
+  /* "corels/_corels.pyx":99
  *     return out
  * 
  * cdef rule_t* _to_vector(np.ndarray[np.uint8_t, ndim=2] X, int* ncount):             # <<<<<<<<<<<<<<
@@ -3186,7 +3186,7 @@ static rule_t *__pyx_f_6corels_7_corels__to_vector(PyArrayObject *__pyx_v_X, int
   return __pyx_r;
 }
 
-/* "corels/_corels.pyx":130
+/* "corels/_corels.pyx":131
  *     return vectors
  * 
  * cdef _free_vector(rule_t* vs, int count):             # <<<<<<<<<<<<<<
@@ -3204,7 +3204,7 @@ static PyObject *__pyx_f_6corels_7_corels__free_vector(rule_t *__pyx_v_vs, int _
   int __pyx_t_4;
   __Pyx_RefNannySetupContext("_free_vector", 0);
 
-  /* "corels/_corels.pyx":131
+  /* "corels/_corels.pyx":132
  * 
  * cdef _free_vector(rule_t* vs, int count):
  *     if vs == NULL:             # <<<<<<<<<<<<<<
@@ -3214,7 +3214,7 @@ static PyObject *__pyx_f_6corels_7_corels__free_vector(rule_t *__pyx_v_vs, int _
   __pyx_t_1 = ((__pyx_v_vs == NULL) != 0);
   if (__pyx_t_1) {
 
-    /* "corels/_corels.pyx":132
+    /* "corels/_corels.pyx":133
  * cdef _free_vector(rule_t* vs, int count):
  *     if vs == NULL:
  *         return             # <<<<<<<<<<<<<<
@@ -3225,7 +3225,7 @@ static PyObject *__pyx_f_6corels_7_corels__free_vector(rule_t *__pyx_v_vs, int _
     __pyx_r = Py_None; __Pyx_INCREF(Py_None);
     goto __pyx_L0;
 
-    /* "corels/_corels.pyx":131
+    /* "corels/_corels.pyx":132
  * 
  * cdef _free_vector(rule_t* vs, int count):
  *     if vs == NULL:             # <<<<<<<<<<<<<<
@@ -3234,7 +3234,7 @@ static PyObject *__pyx_f_6corels_7_corels__free_vector(rule_t *__pyx_v_vs, int _
  */
   }
 
-  /* "corels/_corels.pyx":134
+  /* "corels/_corels.pyx":135
  *         return
  * 
  *     for i in range(count):             # <<<<<<<<<<<<<<
@@ -3246,7 +3246,7 @@ static PyObject *__pyx_f_6corels_7_corels__free_vector(rule_t *__pyx_v_vs, int _
   for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
     __pyx_v_i = __pyx_t_4;
 
-    /* "corels/_corels.pyx":135
+    /* "corels/_corels.pyx":136
  * 
  *     for i in range(count):
  *         rule_vfree(&vs[i].truthtable)             # <<<<<<<<<<<<<<
@@ -3255,7 +3255,7 @@ static PyObject *__pyx_f_6corels_7_corels__free_vector(rule_t *__pyx_v_vs, int _
  */
     (void)(rule_vfree((&(__pyx_v_vs[__pyx_v_i]).truthtable)));
 
-    /* "corels/_corels.pyx":136
+    /* "corels/_corels.pyx":137
  *     for i in range(count):
  *         rule_vfree(&vs[i].truthtable)
  *         if vs[i].ids:             # <<<<<<<<<<<<<<
@@ -3265,7 +3265,7 @@ static PyObject *__pyx_f_6corels_7_corels__free_vector(rule_t *__pyx_v_vs, int _
     __pyx_t_1 = ((__pyx_v_vs[__pyx_v_i]).ids != 0);
     if (__pyx_t_1) {
 
-      /* "corels/_corels.pyx":137
+      /* "corels/_corels.pyx":138
  *         rule_vfree(&vs[i].truthtable)
  *         if vs[i].ids:
  *             free(vs[i].ids)             # <<<<<<<<<<<<<<
@@ -3274,7 +3274,7 @@ static PyObject *__pyx_f_6corels_7_corels__free_vector(rule_t *__pyx_v_vs, int _
  */
       free((__pyx_v_vs[__pyx_v_i]).ids);
 
-      /* "corels/_corels.pyx":136
+      /* "corels/_corels.pyx":137
  *     for i in range(count):
  *         rule_vfree(&vs[i].truthtable)
  *         if vs[i].ids:             # <<<<<<<<<<<<<<
@@ -3283,7 +3283,7 @@ static PyObject *__pyx_f_6corels_7_corels__free_vector(rule_t *__pyx_v_vs, int _
  */
     }
 
-    /* "corels/_corels.pyx":139
+    /* "corels/_corels.pyx":140
  *             free(vs[i].ids)
  * 
  *         if vs[i].features:             # <<<<<<<<<<<<<<
@@ -3293,7 +3293,7 @@ static PyObject *__pyx_f_6corels_7_corels__free_vector(rule_t *__pyx_v_vs, int _
     __pyx_t_1 = ((__pyx_v_vs[__pyx_v_i]).features != 0);
     if (__pyx_t_1) {
 
-      /* "corels/_corels.pyx":140
+      /* "corels/_corels.pyx":141
  * 
  *         if vs[i].features:
  *             free(vs[i].features)             # <<<<<<<<<<<<<<
@@ -3302,7 +3302,7 @@ static PyObject *__pyx_f_6corels_7_corels__free_vector(rule_t *__pyx_v_vs, int _
  */
       free((__pyx_v_vs[__pyx_v_i]).features);
 
-      /* "corels/_corels.pyx":139
+      /* "corels/_corels.pyx":140
  *             free(vs[i].ids)
  * 
  *         if vs[i].features:             # <<<<<<<<<<<<<<
@@ -3312,7 +3312,7 @@ static PyObject *__pyx_f_6corels_7_corels__free_vector(rule_t *__pyx_v_vs, int _
     }
   }
 
-  /* "corels/_corels.pyx":142
+  /* "corels/_corels.pyx":143
  *             free(vs[i].features)
  * 
  *     free(vs)             # <<<<<<<<<<<<<<
@@ -3321,7 +3321,7 @@ static PyObject *__pyx_f_6corels_7_corels__free_vector(rule_t *__pyx_v_vs, int _
  */
   free(__pyx_v_vs);
 
-  /* "corels/_corels.pyx":130
+  /* "corels/_corels.pyx":131
  *     return vectors
  * 
  * cdef _free_vector(rule_t* vs, int count):             # <<<<<<<<<<<<<<
@@ -3337,7 +3337,7 @@ static PyObject *__pyx_f_6corels_7_corels__free_vector(rule_t *__pyx_v_vs, int _
   return __pyx_r;
 }
 
-/* "corels/_corels.pyx":149
+/* "corels/_corels.pyx":150
  * cdef int n_rules = 0
  * 
  * def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples,             # <<<<<<<<<<<<<<
@@ -3407,71 +3407,71 @@ static PyObject *__pyx_pw_6corels_7_corels_3fit_wrap_begin(PyObject *__pyx_self,
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_labels)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("fit_wrap_begin", 1, 12, 12, 1); __PYX_ERR(0, 149, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("fit_wrap_begin", 1, 12, 12, 1); __PYX_ERR(0, 150, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_features)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("fit_wrap_begin", 1, 12, 12, 2); __PYX_ERR(0, 149, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("fit_wrap_begin", 1, 12, 12, 2); __PYX_ERR(0, 150, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_max_card)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("fit_wrap_begin", 1, 12, 12, 3); __PYX_ERR(0, 149, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("fit_wrap_begin", 1, 12, 12, 3); __PYX_ERR(0, 150, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_min_support)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("fit_wrap_begin", 1, 12, 12, 4); __PYX_ERR(0, 149, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("fit_wrap_begin", 1, 12, 12, 4); __PYX_ERR(0, 150, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (likely((values[5] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_verbosity_str)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("fit_wrap_begin", 1, 12, 12, 5); __PYX_ERR(0, 149, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("fit_wrap_begin", 1, 12, 12, 5); __PYX_ERR(0, 150, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  6:
         if (likely((values[6] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_mverbose)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("fit_wrap_begin", 1, 12, 12, 6); __PYX_ERR(0, 149, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("fit_wrap_begin", 1, 12, 12, 6); __PYX_ERR(0, 150, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  7:
         if (likely((values[7] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_c)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("fit_wrap_begin", 1, 12, 12, 7); __PYX_ERR(0, 149, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("fit_wrap_begin", 1, 12, 12, 7); __PYX_ERR(0, 150, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  8:
         if (likely((values[8] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_policy)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("fit_wrap_begin", 1, 12, 12, 8); __PYX_ERR(0, 149, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("fit_wrap_begin", 1, 12, 12, 8); __PYX_ERR(0, 150, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  9:
         if (likely((values[9] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_map_type)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("fit_wrap_begin", 1, 12, 12, 9); __PYX_ERR(0, 149, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("fit_wrap_begin", 1, 12, 12, 9); __PYX_ERR(0, 150, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 10:
         if (likely((values[10] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_ablation)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("fit_wrap_begin", 1, 12, 12, 10); __PYX_ERR(0, 149, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("fit_wrap_begin", 1, 12, 12, 10); __PYX_ERR(0, 150, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case 11:
         if (likely((values[11] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_calculate_size)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("fit_wrap_begin", 1, 12, 12, 11); __PYX_ERR(0, 149, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("fit_wrap_begin", 1, 12, 12, 11); __PYX_ERR(0, 150, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "fit_wrap_begin") < 0)) __PYX_ERR(0, 149, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "fit_wrap_begin") < 0)) __PYX_ERR(0, 150, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 12) {
       goto __pyx_L5_argtuple_error;
@@ -3492,26 +3492,26 @@ static PyObject *__pyx_pw_6corels_7_corels_3fit_wrap_begin(PyObject *__pyx_self,
     __pyx_v_samples = ((PyArrayObject *)values[0]);
     __pyx_v_labels = ((PyArrayObject *)values[1]);
     __pyx_v_features = values[2];
-    __pyx_v_max_card = __Pyx_PyInt_As_int(values[3]); if (unlikely((__pyx_v_max_card == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 151, __pyx_L3_error)
-    __pyx_v_min_support = __pyx_PyFloat_AsDouble(values[4]); if (unlikely((__pyx_v_min_support == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 151, __pyx_L3_error)
+    __pyx_v_max_card = __Pyx_PyInt_As_int(values[3]); if (unlikely((__pyx_v_max_card == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 152, __pyx_L3_error)
+    __pyx_v_min_support = __pyx_PyFloat_AsDouble(values[4]); if (unlikely((__pyx_v_min_support == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 152, __pyx_L3_error)
     __pyx_v_verbosity_str = values[5];
-    __pyx_v_mverbose = __Pyx_PyInt_As_int(values[6]); if (unlikely((__pyx_v_mverbose == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 151, __pyx_L3_error)
-    __pyx_v_c = __pyx_PyFloat_AsDouble(values[7]); if (unlikely((__pyx_v_c == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 152, __pyx_L3_error)
-    __pyx_v_policy = __Pyx_PyInt_As_int(values[8]); if (unlikely((__pyx_v_policy == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 152, __pyx_L3_error)
-    __pyx_v_map_type = __Pyx_PyInt_As_int(values[9]); if (unlikely((__pyx_v_map_type == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 152, __pyx_L3_error)
-    __pyx_v_ablation = __Pyx_PyInt_As_int(values[10]); if (unlikely((__pyx_v_ablation == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 152, __pyx_L3_error)
-    __pyx_v_calculate_size = __Pyx_PyInt_As_int(values[11]); if (unlikely((__pyx_v_calculate_size == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 153, __pyx_L3_error)
+    __pyx_v_mverbose = __Pyx_PyInt_As_int(values[6]); if (unlikely((__pyx_v_mverbose == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 152, __pyx_L3_error)
+    __pyx_v_c = __pyx_PyFloat_AsDouble(values[7]); if (unlikely((__pyx_v_c == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 153, __pyx_L3_error)
+    __pyx_v_policy = __Pyx_PyInt_As_int(values[8]); if (unlikely((__pyx_v_policy == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 153, __pyx_L3_error)
+    __pyx_v_map_type = __Pyx_PyInt_As_int(values[9]); if (unlikely((__pyx_v_map_type == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 153, __pyx_L3_error)
+    __pyx_v_ablation = __Pyx_PyInt_As_int(values[10]); if (unlikely((__pyx_v_ablation == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 153, __pyx_L3_error)
+    __pyx_v_calculate_size = __Pyx_PyInt_As_int(values[11]); if (unlikely((__pyx_v_calculate_size == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 154, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("fit_wrap_begin", 1, 12, 12, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 149, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("fit_wrap_begin", 1, 12, 12, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 150, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("corels._corels.fit_wrap_begin", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_samples), __pyx_ptype_5numpy_ndarray, 1, "samples", 0))) __PYX_ERR(0, 149, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_labels), __pyx_ptype_5numpy_ndarray, 1, "labels", 0))) __PYX_ERR(0, 150, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_samples), __pyx_ptype_5numpy_ndarray, 1, "samples", 0))) __PYX_ERR(0, 150, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_labels), __pyx_ptype_5numpy_ndarray, 1, "labels", 0))) __PYX_ERR(0, 151, __pyx_L1_error)
   __pyx_r = __pyx_pf_6corels_7_corels_2fit_wrap_begin(__pyx_self, __pyx_v_samples, __pyx_v_labels, __pyx_v_features, __pyx_v_max_card, __pyx_v_min_support, __pyx_v_verbosity_str, __pyx_v_mverbose, __pyx_v_c, __pyx_v_policy, __pyx_v_map_type, __pyx_v_ablation, __pyx_v_calculate_size);
 
   /* function exit code */
@@ -3571,16 +3571,16 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
   __pyx_pybuffernd_labels.rcbuffer = &__pyx_pybuffer_labels;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_samples.rcbuffer->pybuffer, (PyObject*)__pyx_v_samples, &__Pyx_TypeInfo_nn___pyx_t_5numpy_uint8_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 149, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_samples.rcbuffer->pybuffer, (PyObject*)__pyx_v_samples, &__Pyx_TypeInfo_nn___pyx_t_5numpy_uint8_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 150, __pyx_L1_error)
   }
   __pyx_pybuffernd_samples.diminfo[0].strides = __pyx_pybuffernd_samples.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_samples.diminfo[0].shape = __pyx_pybuffernd_samples.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_samples.diminfo[1].strides = __pyx_pybuffernd_samples.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_samples.diminfo[1].shape = __pyx_pybuffernd_samples.rcbuffer->pybuffer.shape[1];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_labels.rcbuffer->pybuffer, (PyObject*)__pyx_v_labels, &__Pyx_TypeInfo_nn___pyx_t_5numpy_uint8_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 149, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_labels.rcbuffer->pybuffer, (PyObject*)__pyx_v_labels, &__Pyx_TypeInfo_nn___pyx_t_5numpy_uint8_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 150, __pyx_L1_error)
   }
   __pyx_pybuffernd_labels.diminfo[0].strides = __pyx_pybuffernd_labels.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_labels.diminfo[0].shape = __pyx_pybuffernd_labels.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_labels.diminfo[1].strides = __pyx_pybuffernd_labels.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_labels.diminfo[1].shape = __pyx_pybuffernd_labels.rcbuffer->pybuffer.shape[1];
 
-  /* "corels/_corels.pyx":159
+  /* "corels/_corels.pyx":160
  *     global n_rules
  * 
  *     cdef int nfeatures = 0             # <<<<<<<<<<<<<<
@@ -3589,7 +3589,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
   __pyx_v_nfeatures = 0;
 
-  /* "corels/_corels.pyx":160
+  /* "corels/_corels.pyx":161
  * 
  *     cdef int nfeatures = 0
  *     cdef rule_t* samples_vecs = _to_vector(samples, &nfeatures)             # <<<<<<<<<<<<<<
@@ -3598,30 +3598,30 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
   __pyx_v_samples_vecs = __pyx_f_6corels_7_corels__to_vector(((PyArrayObject *)__pyx_v_samples), (&__pyx_v_nfeatures));
 
-  /* "corels/_corels.pyx":162
+  /* "corels/_corels.pyx":163
  *     cdef rule_t* samples_vecs = _to_vector(samples, &nfeatures)
  * 
  *     nsamples = samples.shape[0]             # <<<<<<<<<<<<<<
  * 
  *     if nfeatures > len(features):
  */
-  __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t((__pyx_v_samples->dimensions[0])); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 162, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t((__pyx_v_samples->dimensions[0])); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 163, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_nsamples = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "corels/_corels.pyx":164
+  /* "corels/_corels.pyx":165
  *     nsamples = samples.shape[0]
  * 
  *     if nfeatures > len(features):             # <<<<<<<<<<<<<<
  *         if samples_vecs != NULL:
  *             _free_vector(samples_vecs, nsamples)
  */
-  __pyx_t_2 = PyObject_Length(__pyx_v_features); if (unlikely(__pyx_t_2 == ((Py_ssize_t)-1))) __PYX_ERR(0, 164, __pyx_L1_error)
+  __pyx_t_2 = PyObject_Length(__pyx_v_features); if (unlikely(__pyx_t_2 == ((Py_ssize_t)-1))) __PYX_ERR(0, 165, __pyx_L1_error)
   __pyx_t_3 = ((__pyx_v_nfeatures > __pyx_t_2) != 0);
   if (__pyx_t_3) {
 
-    /* "corels/_corels.pyx":165
+    /* "corels/_corels.pyx":166
  * 
  *     if nfeatures > len(features):
  *         if samples_vecs != NULL:             # <<<<<<<<<<<<<<
@@ -3631,19 +3631,19 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
     __pyx_t_3 = ((__pyx_v_samples_vecs != NULL) != 0);
     if (__pyx_t_3) {
 
-      /* "corels/_corels.pyx":166
+      /* "corels/_corels.pyx":167
  *     if nfeatures > len(features):
  *         if samples_vecs != NULL:
  *             _free_vector(samples_vecs, nsamples)             # <<<<<<<<<<<<<<
  *             samples_vecs = NULL
  *         raise ValueError("Feature count mismatch between sample data (" + str(nfeatures) +
  */
-      __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_v_nsamples); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 166, __pyx_L1_error)
-      __pyx_t_1 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_samples_vecs, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 166, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_v_nsamples); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 167, __pyx_L1_error)
+      __pyx_t_1 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_samples_vecs, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 167, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "corels/_corels.pyx":167
+      /* "corels/_corels.pyx":168
  *         if samples_vecs != NULL:
  *             _free_vector(samples_vecs, nsamples)
  *             samples_vecs = NULL             # <<<<<<<<<<<<<<
@@ -3652,7 +3652,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
       __pyx_v_samples_vecs = NULL;
 
-      /* "corels/_corels.pyx":165
+      /* "corels/_corels.pyx":166
  * 
  *     if nfeatures > len(features):
  *         if samples_vecs != NULL:             # <<<<<<<<<<<<<<
@@ -3661,61 +3661,61 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
     }
 
-    /* "corels/_corels.pyx":168
+    /* "corels/_corels.pyx":169
  *             _free_vector(samples_vecs, nsamples)
  *             samples_vecs = NULL
  *         raise ValueError("Feature count mismatch between sample data (" + str(nfeatures) +             # <<<<<<<<<<<<<<
  *                          ") and feature names (" + str(len(features)) + ")")
  * 
  */
-    __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_nfeatures); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 168, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_nfeatures); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 169, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 168, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 169, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PyNumber_Add(__pyx_kp_s_Feature_count_mismatch_between_s, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 168, __pyx_L1_error)
+    __pyx_t_1 = PyNumber_Add(__pyx_kp_s_Feature_count_mismatch_between_s, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 169, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = PyNumber_Add(__pyx_t_1, __pyx_kp_s_and_feature_names); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 168, __pyx_L1_error)
+    __pyx_t_5 = PyNumber_Add(__pyx_t_1, __pyx_kp_s_and_feature_names); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 169, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "corels/_corels.pyx":169
+    /* "corels/_corels.pyx":170
  *             samples_vecs = NULL
  *         raise ValueError("Feature count mismatch between sample data (" + str(nfeatures) +
  *                          ") and feature names (" + str(len(features)) + ")")             # <<<<<<<<<<<<<<
  * 
  *     cdef char** features_vec = <char**>malloc(nfeatures * sizeof(char*))
  */
-    __pyx_t_2 = PyObject_Length(__pyx_v_features); if (unlikely(__pyx_t_2 == ((Py_ssize_t)-1))) __PYX_ERR(0, 169, __pyx_L1_error)
-    __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 169, __pyx_L1_error)
+    __pyx_t_2 = PyObject_Length(__pyx_v_features); if (unlikely(__pyx_t_2 == ((Py_ssize_t)-1))) __PYX_ERR(0, 170, __pyx_L1_error)
+    __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 170, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_6 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 169, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 170, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PyNumber_Add(__pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 169, __pyx_L1_error)
+    __pyx_t_1 = PyNumber_Add(__pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 170, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_6 = PyNumber_Add(__pyx_t_1, __pyx_kp_s__3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 169, __pyx_L1_error)
+    __pyx_t_6 = PyNumber_Add(__pyx_t_1, __pyx_kp_s__3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 170, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "corels/_corels.pyx":168
+    /* "corels/_corels.pyx":169
  *             _free_vector(samples_vecs, nsamples)
  *             samples_vecs = NULL
  *         raise ValueError("Feature count mismatch between sample data (" + str(nfeatures) +             # <<<<<<<<<<<<<<
  *                          ") and feature names (" + str(len(features)) + ")")
  * 
  */
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_ValueError, __pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 168, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_ValueError, __pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 169, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(0, 168, __pyx_L1_error)
+    __PYX_ERR(0, 169, __pyx_L1_error)
 
-    /* "corels/_corels.pyx":164
+    /* "corels/_corels.pyx":165
  *     nsamples = samples.shape[0]
  * 
  *     if nfeatures > len(features):             # <<<<<<<<<<<<<<
@@ -3724,7 +3724,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
   }
 
-  /* "corels/_corels.pyx":171
+  /* "corels/_corels.pyx":172
  *                          ") and feature names (" + str(len(features)) + ")")
  * 
  *     cdef char** features_vec = <char**>malloc(nfeatures * sizeof(char*))             # <<<<<<<<<<<<<<
@@ -3733,7 +3733,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
   __pyx_v_features_vec = ((char **)malloc((__pyx_v_nfeatures * (sizeof(char *)))));
 
-  /* "corels/_corels.pyx":172
+  /* "corels/_corels.pyx":173
  * 
  *     cdef char** features_vec = <char**>malloc(nfeatures * sizeof(char*))
  *     if features_vec == NULL:             # <<<<<<<<<<<<<<
@@ -3743,7 +3743,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
   __pyx_t_3 = ((__pyx_v_features_vec == NULL) != 0);
   if (__pyx_t_3) {
 
-    /* "corels/_corels.pyx":173
+    /* "corels/_corels.pyx":174
  *     cdef char** features_vec = <char**>malloc(nfeatures * sizeof(char*))
  *     if features_vec == NULL:
  *         if samples_vecs != NULL:             # <<<<<<<<<<<<<<
@@ -3753,19 +3753,19 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
     __pyx_t_3 = ((__pyx_v_samples_vecs != NULL) != 0);
     if (__pyx_t_3) {
 
-      /* "corels/_corels.pyx":174
+      /* "corels/_corels.pyx":175
  *     if features_vec == NULL:
  *         if samples_vecs != NULL:
  *             _free_vector(samples_vecs, nsamples)             # <<<<<<<<<<<<<<
  *             samples_vecs = NULL
  *         raise MemoryError()
  */
-      __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_v_nsamples); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 174, __pyx_L1_error)
-      __pyx_t_1 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_samples_vecs, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 174, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_v_nsamples); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 175, __pyx_L1_error)
+      __pyx_t_1 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_samples_vecs, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 175, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "corels/_corels.pyx":175
+      /* "corels/_corels.pyx":176
  *         if samples_vecs != NULL:
  *             _free_vector(samples_vecs, nsamples)
  *             samples_vecs = NULL             # <<<<<<<<<<<<<<
@@ -3774,7 +3774,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
       __pyx_v_samples_vecs = NULL;
 
-      /* "corels/_corels.pyx":173
+      /* "corels/_corels.pyx":174
  *     cdef char** features_vec = <char**>malloc(nfeatures * sizeof(char*))
  *     if features_vec == NULL:
  *         if samples_vecs != NULL:             # <<<<<<<<<<<<<<
@@ -3783,16 +3783,16 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
     }
 
-    /* "corels/_corels.pyx":176
+    /* "corels/_corels.pyx":177
  *             _free_vector(samples_vecs, nsamples)
  *             samples_vecs = NULL
  *         raise MemoryError()             # <<<<<<<<<<<<<<
  * 
  *     for i in range(nfeatures):
  */
-    PyErr_NoMemory(); __PYX_ERR(0, 176, __pyx_L1_error)
+    PyErr_NoMemory(); __PYX_ERR(0, 177, __pyx_L1_error)
 
-    /* "corels/_corels.pyx":172
+    /* "corels/_corels.pyx":173
  * 
  *     cdef char** features_vec = <char**>malloc(nfeatures * sizeof(char*))
  *     if features_vec == NULL:             # <<<<<<<<<<<<<<
@@ -3801,7 +3801,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
   }
 
-  /* "corels/_corels.pyx":178
+  /* "corels/_corels.pyx":179
  *         raise MemoryError()
  * 
  *     for i in range(nfeatures):             # <<<<<<<<<<<<<<
@@ -3813,16 +3813,16 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
   for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
     __pyx_v_i = __pyx_t_8;
 
-    /* "corels/_corels.pyx":179
+    /* "corels/_corels.pyx":180
  * 
  *     for i in range(nfeatures):
  *         bytestr = features[i].encode("ascii")             # <<<<<<<<<<<<<<
  *         features_vec[i] = strdup(bytestr)
  *         if features_vec[i] == NULL:
  */
-    __pyx_t_6 = __Pyx_GetItemInt(__pyx_v_features, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 179, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_GetItemInt(__pyx_v_features, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 180, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_encode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 179, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_encode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 180, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __pyx_t_6 = NULL;
@@ -3837,23 +3837,23 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
     }
     __pyx_t_1 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_6, __pyx_n_s_ascii) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_n_s_ascii);
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 179, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 180, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_XDECREF_SET(__pyx_v_bytestr, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "corels/_corels.pyx":180
+    /* "corels/_corels.pyx":181
  *     for i in range(nfeatures):
  *         bytestr = features[i].encode("ascii")
  *         features_vec[i] = strdup(bytestr)             # <<<<<<<<<<<<<<
  *         if features_vec[i] == NULL:
  *             for j in range(i):
  */
-    __pyx_t_9 = __Pyx_PyObject_AsString(__pyx_v_bytestr); if (unlikely((!__pyx_t_9) && PyErr_Occurred())) __PYX_ERR(0, 180, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_AsString(__pyx_v_bytestr); if (unlikely((!__pyx_t_9) && PyErr_Occurred())) __PYX_ERR(0, 181, __pyx_L1_error)
     (__pyx_v_features_vec[__pyx_v_i]) = strdup(__pyx_t_9);
 
-    /* "corels/_corels.pyx":181
+    /* "corels/_corels.pyx":182
  *         bytestr = features[i].encode("ascii")
  *         features_vec[i] = strdup(bytestr)
  *         if features_vec[i] == NULL:             # <<<<<<<<<<<<<<
@@ -3863,7 +3863,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
     __pyx_t_3 = (((__pyx_v_features_vec[__pyx_v_i]) == NULL) != 0);
     if (__pyx_t_3) {
 
-      /* "corels/_corels.pyx":182
+      /* "corels/_corels.pyx":183
  *         features_vec[i] = strdup(bytestr)
  *         if features_vec[i] == NULL:
  *             for j in range(i):             # <<<<<<<<<<<<<<
@@ -3875,7 +3875,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
       for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_11; __pyx_t_12+=1) {
         __pyx_v_j = __pyx_t_12;
 
-        /* "corels/_corels.pyx":183
+        /* "corels/_corels.pyx":184
  *         if features_vec[i] == NULL:
  *             for j in range(i):
  *                 if features_vec[j] != NULL:             # <<<<<<<<<<<<<<
@@ -3885,7 +3885,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
         __pyx_t_3 = (((__pyx_v_features_vec[__pyx_v_j]) != NULL) != 0);
         if (__pyx_t_3) {
 
-          /* "corels/_corels.pyx":184
+          /* "corels/_corels.pyx":185
  *             for j in range(i):
  *                 if features_vec[j] != NULL:
  *                     free(features_vec[j])             # <<<<<<<<<<<<<<
@@ -3894,7 +3894,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
           free((__pyx_v_features_vec[__pyx_v_j]));
 
-          /* "corels/_corels.pyx":183
+          /* "corels/_corels.pyx":184
  *         if features_vec[i] == NULL:
  *             for j in range(i):
  *                 if features_vec[j] != NULL:             # <<<<<<<<<<<<<<
@@ -3904,7 +3904,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
         }
       }
 
-      /* "corels/_corels.pyx":185
+      /* "corels/_corels.pyx":186
  *                 if features_vec[j] != NULL:
  *                     free(features_vec[j])
  *             features_vec = NULL             # <<<<<<<<<<<<<<
@@ -3913,7 +3913,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
       __pyx_v_features_vec = NULL;
 
-      /* "corels/_corels.pyx":186
+      /* "corels/_corels.pyx":187
  *                     free(features_vec[j])
  *             features_vec = NULL
  *             if samples_vecs != NULL:             # <<<<<<<<<<<<<<
@@ -3923,19 +3923,19 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
       __pyx_t_3 = ((__pyx_v_samples_vecs != NULL) != 0);
       if (__pyx_t_3) {
 
-        /* "corels/_corels.pyx":187
+        /* "corels/_corels.pyx":188
  *             features_vec = NULL
  *             if samples_vecs != NULL:
  *                 _free_vector(samples_vecs, nsamples)             # <<<<<<<<<<<<<<
  *                 samples_vecs = NULL
  *             raise MemoryError()
  */
-        __pyx_t_10 = __Pyx_PyInt_As_int(__pyx_v_nsamples); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 187, __pyx_L1_error)
-        __pyx_t_1 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_samples_vecs, __pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 187, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyInt_As_int(__pyx_v_nsamples); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 188, __pyx_L1_error)
+        __pyx_t_1 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_samples_vecs, __pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 188, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-        /* "corels/_corels.pyx":188
+        /* "corels/_corels.pyx":189
  *             if samples_vecs != NULL:
  *                 _free_vector(samples_vecs, nsamples)
  *                 samples_vecs = NULL             # <<<<<<<<<<<<<<
@@ -3944,7 +3944,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
         __pyx_v_samples_vecs = NULL;
 
-        /* "corels/_corels.pyx":186
+        /* "corels/_corels.pyx":187
  *                     free(features_vec[j])
  *             features_vec = NULL
  *             if samples_vecs != NULL:             # <<<<<<<<<<<<<<
@@ -3953,16 +3953,16 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
       }
 
-      /* "corels/_corels.pyx":189
+      /* "corels/_corels.pyx":190
  *                 _free_vector(samples_vecs, nsamples)
  *                 samples_vecs = NULL
  *             raise MemoryError()             # <<<<<<<<<<<<<<
  * 
  *     if rules != NULL:
  */
-      PyErr_NoMemory(); __PYX_ERR(0, 189, __pyx_L1_error)
+      PyErr_NoMemory(); __PYX_ERR(0, 190, __pyx_L1_error)
 
-      /* "corels/_corels.pyx":181
+      /* "corels/_corels.pyx":182
  *         bytestr = features[i].encode("ascii")
  *         features_vec[i] = strdup(bytestr)
  *         if features_vec[i] == NULL:             # <<<<<<<<<<<<<<
@@ -3972,7 +3972,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
     }
   }
 
-  /* "corels/_corels.pyx":191
+  /* "corels/_corels.pyx":192
  *             raise MemoryError()
  * 
  *     if rules != NULL:             # <<<<<<<<<<<<<<
@@ -3982,18 +3982,18 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
   __pyx_t_3 = ((__pyx_v_6corels_7_corels_rules != NULL) != 0);
   if (__pyx_t_3) {
 
-    /* "corels/_corels.pyx":192
+    /* "corels/_corels.pyx":193
  * 
  *     if rules != NULL:
  *         _free_vector(rules, n_rules)             # <<<<<<<<<<<<<<
  *         rules = NULL
  *     n_rules = 0
  */
-    __pyx_t_1 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_rules, __pyx_v_6corels_7_corels_n_rules); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 192, __pyx_L1_error)
+    __pyx_t_1 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_rules, __pyx_v_6corels_7_corels_n_rules); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 193, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "corels/_corels.pyx":193
+    /* "corels/_corels.pyx":194
  *     if rules != NULL:
  *         _free_vector(rules, n_rules)
  *         rules = NULL             # <<<<<<<<<<<<<<
@@ -4002,7 +4002,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
     __pyx_v_6corels_7_corels_rules = NULL;
 
-    /* "corels/_corels.pyx":191
+    /* "corels/_corels.pyx":192
  *             raise MemoryError()
  * 
  *     if rules != NULL:             # <<<<<<<<<<<<<<
@@ -4011,7 +4011,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
   }
 
-  /* "corels/_corels.pyx":194
+  /* "corels/_corels.pyx":195
  *         _free_vector(rules, n_rules)
  *         rules = NULL
  *     n_rules = 0             # <<<<<<<<<<<<<<
@@ -4020,16 +4020,16 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
   __pyx_v_6corels_7_corels_n_rules = 0;
 
-  /* "corels/_corels.pyx":196
+  /* "corels/_corels.pyx":197
  *     n_rules = 0
  * 
  *     cdef int r = mine_rules(features_vec, samples_vecs, nfeatures, nsamples,             # <<<<<<<<<<<<<<
  *                 max_card, min_support, &rules, mverbose)
  * 
  */
-  __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_v_nsamples); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_v_nsamples); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 197, __pyx_L1_error)
 
-  /* "corels/_corels.pyx":197
+  /* "corels/_corels.pyx":198
  * 
  *     cdef int r = mine_rules(features_vec, samples_vecs, nfeatures, nsamples,
  *                 max_card, min_support, &rules, mverbose)             # <<<<<<<<<<<<<<
@@ -4038,7 +4038,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
   __pyx_v_r = mine_rules(__pyx_v_features_vec, __pyx_v_samples_vecs, __pyx_v_nfeatures, __pyx_t_4, __pyx_v_max_card, __pyx_v_min_support, (&__pyx_v_6corels_7_corels_rules), __pyx_v_mverbose);
 
-  /* "corels/_corels.pyx":199
+  /* "corels/_corels.pyx":200
  *                 max_card, min_support, &rules, mverbose)
  * 
  *     if features_vec != NULL:             # <<<<<<<<<<<<<<
@@ -4048,7 +4048,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
   __pyx_t_3 = ((__pyx_v_features_vec != NULL) != 0);
   if (__pyx_t_3) {
 
-    /* "corels/_corels.pyx":200
+    /* "corels/_corels.pyx":201
  * 
  *     if features_vec != NULL:
  *         for i in range(nfeatures):             # <<<<<<<<<<<<<<
@@ -4060,7 +4060,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
     for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
       __pyx_v_i = __pyx_t_8;
 
-      /* "corels/_corels.pyx":201
+      /* "corels/_corels.pyx":202
  *     if features_vec != NULL:
  *         for i in range(nfeatures):
  *             if features_vec[i] != NULL:             # <<<<<<<<<<<<<<
@@ -4070,7 +4070,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
       __pyx_t_3 = (((__pyx_v_features_vec[__pyx_v_i]) != NULL) != 0);
       if (__pyx_t_3) {
 
-        /* "corels/_corels.pyx":202
+        /* "corels/_corels.pyx":203
  *         for i in range(nfeatures):
  *             if features_vec[i] != NULL:
  *                 free(features_vec[i])             # <<<<<<<<<<<<<<
@@ -4079,7 +4079,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
         free((__pyx_v_features_vec[__pyx_v_i]));
 
-        /* "corels/_corels.pyx":201
+        /* "corels/_corels.pyx":202
  *     if features_vec != NULL:
  *         for i in range(nfeatures):
  *             if features_vec[i] != NULL:             # <<<<<<<<<<<<<<
@@ -4089,7 +4089,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
       }
     }
 
-    /* "corels/_corels.pyx":203
+    /* "corels/_corels.pyx":204
  *             if features_vec[i] != NULL:
  *                 free(features_vec[i])
  *         free(features_vec)             # <<<<<<<<<<<<<<
@@ -4098,7 +4098,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
     free(__pyx_v_features_vec);
 
-    /* "corels/_corels.pyx":204
+    /* "corels/_corels.pyx":205
  *                 free(features_vec[i])
  *         free(features_vec)
  *         features_vec = NULL             # <<<<<<<<<<<<<<
@@ -4107,7 +4107,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
     __pyx_v_features_vec = NULL;
 
-    /* "corels/_corels.pyx":199
+    /* "corels/_corels.pyx":200
  *                 max_card, min_support, &rules, mverbose)
  * 
  *     if features_vec != NULL:             # <<<<<<<<<<<<<<
@@ -4116,7 +4116,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
   }
 
-  /* "corels/_corels.pyx":206
+  /* "corels/_corels.pyx":207
  *         features_vec = NULL
  * 
  *     if samples_vecs != NULL:             # <<<<<<<<<<<<<<
@@ -4126,19 +4126,19 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
   __pyx_t_3 = ((__pyx_v_samples_vecs != NULL) != 0);
   if (__pyx_t_3) {
 
-    /* "corels/_corels.pyx":207
+    /* "corels/_corels.pyx":208
  * 
  *     if samples_vecs != NULL:
  *         _free_vector(samples_vecs, nsamples)             # <<<<<<<<<<<<<<
  *         samples_vecs = NULL
  * 
  */
-    __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_v_nsamples); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 207, __pyx_L1_error)
-    __pyx_t_1 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_samples_vecs, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 207, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_v_nsamples); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 208, __pyx_L1_error)
+    __pyx_t_1 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_samples_vecs, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 208, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "corels/_corels.pyx":208
+    /* "corels/_corels.pyx":209
  *     if samples_vecs != NULL:
  *         _free_vector(samples_vecs, nsamples)
  *         samples_vecs = NULL             # <<<<<<<<<<<<<<
@@ -4147,7 +4147,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
     __pyx_v_samples_vecs = NULL;
 
-    /* "corels/_corels.pyx":206
+    /* "corels/_corels.pyx":207
  *         features_vec = NULL
  * 
  *     if samples_vecs != NULL:             # <<<<<<<<<<<<<<
@@ -4156,7 +4156,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
   }
 
-  /* "corels/_corels.pyx":210
+  /* "corels/_corels.pyx":211
  *         samples_vecs = NULL
  * 
  *     if r == -1 or rules == NULL:             # <<<<<<<<<<<<<<
@@ -4174,16 +4174,16 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
   __pyx_L21_bool_binop_done:;
   if (unlikely(__pyx_t_3)) {
 
-    /* "corels/_corels.pyx":211
+    /* "corels/_corels.pyx":212
  * 
  *     if r == -1 or rules == NULL:
  *         raise MemoryError();             # <<<<<<<<<<<<<<
  * 
  *     n_rules = r
  */
-    PyErr_NoMemory(); __PYX_ERR(0, 211, __pyx_L1_error)
+    PyErr_NoMemory(); __PYX_ERR(0, 212, __pyx_L1_error)
 
-    /* "corels/_corels.pyx":210
+    /* "corels/_corels.pyx":211
  *         samples_vecs = NULL
  * 
  *     if r == -1 or rules == NULL:             # <<<<<<<<<<<<<<
@@ -4192,7 +4192,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
   }
 
-  /* "corels/_corels.pyx":213
+  /* "corels/_corels.pyx":214
  *         raise MemoryError();
  * 
  *     n_rules = r             # <<<<<<<<<<<<<<
@@ -4201,14 +4201,14 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
   __pyx_v_6corels_7_corels_n_rules = __pyx_v_r;
 
-  /* "corels/_corels.pyx":215
+  /* "corels/_corels.pyx":216
  *     n_rules = r
  * 
  *     verbosity_ascii = verbosity_str.encode("ascii")             # <<<<<<<<<<<<<<
  *     cdef char* verbosity = verbosity_ascii
  * 
  */
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_verbosity_str, __pyx_n_s_encode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 215, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_verbosity_str, __pyx_n_s_encode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 216, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_6 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
@@ -4222,23 +4222,23 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
   }
   __pyx_t_1 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_6, __pyx_n_s_ascii) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_n_s_ascii);
   __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 215, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 216, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_v_verbosity_ascii = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "corels/_corels.pyx":216
+  /* "corels/_corels.pyx":217
  * 
  *     verbosity_ascii = verbosity_str.encode("ascii")
  *     cdef char* verbosity = verbosity_ascii             # <<<<<<<<<<<<<<
  * 
  *     if labels_vecs != NULL:
  */
-  __pyx_t_14 = __Pyx_PyObject_AsWritableString(__pyx_v_verbosity_ascii); if (unlikely((!__pyx_t_14) && PyErr_Occurred())) __PYX_ERR(0, 216, __pyx_L1_error)
+  __pyx_t_14 = __Pyx_PyObject_AsWritableString(__pyx_v_verbosity_ascii); if (unlikely((!__pyx_t_14) && PyErr_Occurred())) __PYX_ERR(0, 217, __pyx_L1_error)
   __pyx_v_verbosity = __pyx_t_14;
 
-  /* "corels/_corels.pyx":218
+  /* "corels/_corels.pyx":219
  *     cdef char* verbosity = verbosity_ascii
  * 
  *     if labels_vecs != NULL:             # <<<<<<<<<<<<<<
@@ -4248,18 +4248,18 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
   __pyx_t_3 = ((__pyx_v_6corels_7_corels_labels_vecs != NULL) != 0);
   if (__pyx_t_3) {
 
-    /* "corels/_corels.pyx":219
+    /* "corels/_corels.pyx":220
  * 
  *     if labels_vecs != NULL:
  *         _free_vector(labels_vecs, 2)             # <<<<<<<<<<<<<<
  *         labels_vecs = NULL
  * 
  */
-    __pyx_t_1 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_labels_vecs, 2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 219, __pyx_L1_error)
+    __pyx_t_1 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_labels_vecs, 2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 220, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "corels/_corels.pyx":220
+    /* "corels/_corels.pyx":221
  *     if labels_vecs != NULL:
  *         _free_vector(labels_vecs, 2)
  *         labels_vecs = NULL             # <<<<<<<<<<<<<<
@@ -4268,7 +4268,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
     __pyx_v_6corels_7_corels_labels_vecs = NULL;
 
-    /* "corels/_corels.pyx":218
+    /* "corels/_corels.pyx":219
  *     cdef char* verbosity = verbosity_ascii
  * 
  *     if labels_vecs != NULL:             # <<<<<<<<<<<<<<
@@ -4277,7 +4277,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
   }
 
-  /* "corels/_corels.pyx":222
+  /* "corels/_corels.pyx":223
  *         labels_vecs = NULL
  * 
  *     cdef int nsamples_chk = 0             # <<<<<<<<<<<<<<
@@ -4286,7 +4286,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
   __pyx_v_nsamples_chk = 0;
 
-  /* "corels/_corels.pyx":223
+  /* "corels/_corels.pyx":224
  * 
  *     cdef int nsamples_chk = 0
  *     try:             # <<<<<<<<<<<<<<
@@ -4297,7 +4297,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
     (void)__pyx_t_15; (void)__pyx_t_16; (void)__pyx_t_17; /* mark used */
     /*try:*/ {
 
-      /* "corels/_corels.pyx":224
+      /* "corels/_corels.pyx":225
  *     cdef int nsamples_chk = 0
  *     try:
  *         labels_vecs = _to_vector(labels, &nsamples_chk)             # <<<<<<<<<<<<<<
@@ -4306,7 +4306,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
       __pyx_v_6corels_7_corels_labels_vecs = __pyx_f_6corels_7_corels__to_vector(((PyArrayObject *)__pyx_v_labels), (&__pyx_v_nsamples_chk));
 
-      /* "corels/_corels.pyx":223
+      /* "corels/_corels.pyx":224
  * 
  *     cdef int nsamples_chk = 0
  *     try:             # <<<<<<<<<<<<<<
@@ -4316,22 +4316,22 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
     }
   }
 
-  /* "corels/_corels.pyx":232
+  /* "corels/_corels.pyx":233
  *         raise
  * 
  *     if nsamples_chk != nsamples:             # <<<<<<<<<<<<<<
  *         if labels_vecs != NULL:
  *             _free_vector(labels_vecs, 2)
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_nsamples_chk); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 232, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_nsamples_chk); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 233, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = PyObject_RichCompare(__pyx_t_1, __pyx_v_nsamples, Py_NE); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 232, __pyx_L1_error)
+  __pyx_t_5 = PyObject_RichCompare(__pyx_t_1, __pyx_v_nsamples, Py_NE); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 233, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 232, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 233, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   if (__pyx_t_3) {
 
-    /* "corels/_corels.pyx":233
+    /* "corels/_corels.pyx":234
  * 
  *     if nsamples_chk != nsamples:
  *         if labels_vecs != NULL:             # <<<<<<<<<<<<<<
@@ -4341,18 +4341,18 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
     __pyx_t_3 = ((__pyx_v_6corels_7_corels_labels_vecs != NULL) != 0);
     if (__pyx_t_3) {
 
-      /* "corels/_corels.pyx":234
+      /* "corels/_corels.pyx":235
  *     if nsamples_chk != nsamples:
  *         if labels_vecs != NULL:
  *             _free_vector(labels_vecs, 2)             # <<<<<<<<<<<<<<
  *             labels_vecs = NULL
  *         if rules != NULL:
  */
-      __pyx_t_5 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_labels_vecs, 2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 234, __pyx_L1_error)
+      __pyx_t_5 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_labels_vecs, 2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 235, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-      /* "corels/_corels.pyx":235
+      /* "corels/_corels.pyx":236
  *         if labels_vecs != NULL:
  *             _free_vector(labels_vecs, 2)
  *             labels_vecs = NULL             # <<<<<<<<<<<<<<
@@ -4361,7 +4361,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
       __pyx_v_6corels_7_corels_labels_vecs = NULL;
 
-      /* "corels/_corels.pyx":233
+      /* "corels/_corels.pyx":234
  * 
  *     if nsamples_chk != nsamples:
  *         if labels_vecs != NULL:             # <<<<<<<<<<<<<<
@@ -4370,7 +4370,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
     }
 
-    /* "corels/_corels.pyx":236
+    /* "corels/_corels.pyx":237
  *             _free_vector(labels_vecs, 2)
  *             labels_vecs = NULL
  *         if rules != NULL:             # <<<<<<<<<<<<<<
@@ -4380,18 +4380,18 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
     __pyx_t_3 = ((__pyx_v_6corels_7_corels_rules != NULL) != 0);
     if (__pyx_t_3) {
 
-      /* "corels/_corels.pyx":237
+      /* "corels/_corels.pyx":238
  *             labels_vecs = NULL
  *         if rules != NULL:
  *             _free_vector(rules, n_rules)             # <<<<<<<<<<<<<<
  *             rules = NULL
  *         n_rules = 0
  */
-      __pyx_t_5 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_rules, __pyx_v_6corels_7_corels_n_rules); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 237, __pyx_L1_error)
+      __pyx_t_5 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_rules, __pyx_v_6corels_7_corels_n_rules); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 238, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-      /* "corels/_corels.pyx":238
+      /* "corels/_corels.pyx":239
  *         if rules != NULL:
  *             _free_vector(rules, n_rules)
  *             rules = NULL             # <<<<<<<<<<<<<<
@@ -4400,7 +4400,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
       __pyx_v_6corels_7_corels_rules = NULL;
 
-      /* "corels/_corels.pyx":236
+      /* "corels/_corels.pyx":237
  *             _free_vector(labels_vecs, 2)
  *             labels_vecs = NULL
  *         if rules != NULL:             # <<<<<<<<<<<<<<
@@ -4409,7 +4409,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
     }
 
-    /* "corels/_corels.pyx":239
+    /* "corels/_corels.pyx":240
  *             _free_vector(rules, n_rules)
  *             rules = NULL
  *         n_rules = 0             # <<<<<<<<<<<<<<
@@ -4418,57 +4418,57 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
     __pyx_v_6corels_7_corels_n_rules = 0;
 
-    /* "corels/_corels.pyx":240
+    /* "corels/_corels.pyx":241
  *             rules = NULL
  *         n_rules = 0
  *         raise ValueError("Sample count mismatch between label (" + str(nsamples_chk) +             # <<<<<<<<<<<<<<
  *                          ") and rule data (" + str(nsamples) + ")")
  * 
  */
-    __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_nsamples_chk); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 240, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_nsamples_chk); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 241, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 240, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 241, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = PyNumber_Add(__pyx_kp_s_Sample_count_mismatch_between_la, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 240, __pyx_L1_error)
+    __pyx_t_5 = PyNumber_Add(__pyx_kp_s_Sample_count_mismatch_between_la, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 241, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PyNumber_Add(__pyx_t_5, __pyx_kp_s_and_rule_data); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 240, __pyx_L1_error)
+    __pyx_t_1 = PyNumber_Add(__pyx_t_5, __pyx_kp_s_and_rule_data); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 241, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-    /* "corels/_corels.pyx":241
+    /* "corels/_corels.pyx":242
  *         n_rules = 0
  *         raise ValueError("Sample count mismatch between label (" + str(nsamples_chk) +
  *                          ") and rule data (" + str(nsamples) + ")")             # <<<<<<<<<<<<<<
  * 
  *     labels_vecs[0].features = <char*>malloc(8)
  */
-    __pyx_t_5 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_v_nsamples); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 241, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_v_nsamples); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 242, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = PyNumber_Add(__pyx_t_1, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 241, __pyx_L1_error)
+    __pyx_t_6 = PyNumber_Add(__pyx_t_1, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 242, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = PyNumber_Add(__pyx_t_6, __pyx_kp_s__3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 241, __pyx_L1_error)
+    __pyx_t_5 = PyNumber_Add(__pyx_t_6, __pyx_kp_s__3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 242, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-    /* "corels/_corels.pyx":240
+    /* "corels/_corels.pyx":241
  *             rules = NULL
  *         n_rules = 0
  *         raise ValueError("Sample count mismatch between label (" + str(nsamples_chk) +             # <<<<<<<<<<<<<<
  *                          ") and rule data (" + str(nsamples) + ")")
  * 
  */
-    __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_ValueError, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 240, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_ValueError, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 241, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_Raise(__pyx_t_6, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __PYX_ERR(0, 240, __pyx_L1_error)
+    __PYX_ERR(0, 241, __pyx_L1_error)
 
-    /* "corels/_corels.pyx":232
+    /* "corels/_corels.pyx":233
  *         raise
  * 
  *     if nsamples_chk != nsamples:             # <<<<<<<<<<<<<<
@@ -4477,7 +4477,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
   }
 
-  /* "corels/_corels.pyx":243
+  /* "corels/_corels.pyx":244
  *                          ") and rule data (" + str(nsamples) + ")")
  * 
  *     labels_vecs[0].features = <char*>malloc(8)             # <<<<<<<<<<<<<<
@@ -4486,7 +4486,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
   (__pyx_v_6corels_7_corels_labels_vecs[0]).features = ((char *)malloc(8));
 
-  /* "corels/_corels.pyx":244
+  /* "corels/_corels.pyx":245
  * 
  *     labels_vecs[0].features = <char*>malloc(8)
  *     labels_vecs[1].features = <char*>malloc(8)             # <<<<<<<<<<<<<<
@@ -4495,7 +4495,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
   (__pyx_v_6corels_7_corels_labels_vecs[1]).features = ((char *)malloc(8));
 
-  /* "corels/_corels.pyx":245
+  /* "corels/_corels.pyx":246
  *     labels_vecs[0].features = <char*>malloc(8)
  *     labels_vecs[1].features = <char*>malloc(8)
  *     if labels_vecs[0].features == NULL or labels_vecs[1].features == NULL:             # <<<<<<<<<<<<<<
@@ -4513,7 +4513,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
   __pyx_L34_bool_binop_done:;
   if (__pyx_t_3) {
 
-    /* "corels/_corels.pyx":246
+    /* "corels/_corels.pyx":247
  *     labels_vecs[1].features = <char*>malloc(8)
  *     if labels_vecs[0].features == NULL or labels_vecs[1].features == NULL:
  *         if labels_vecs != NULL:             # <<<<<<<<<<<<<<
@@ -4523,18 +4523,18 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
     __pyx_t_3 = ((__pyx_v_6corels_7_corels_labels_vecs != NULL) != 0);
     if (__pyx_t_3) {
 
-      /* "corels/_corels.pyx":247
+      /* "corels/_corels.pyx":248
  *     if labels_vecs[0].features == NULL or labels_vecs[1].features == NULL:
  *         if labels_vecs != NULL:
  *             _free_vector(labels_vecs, 2)             # <<<<<<<<<<<<<<
  *             labels_vecs = NULL
  *         if rules != NULL:
  */
-      __pyx_t_6 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_labels_vecs, 2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 247, __pyx_L1_error)
+      __pyx_t_6 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_labels_vecs, 2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 248, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-      /* "corels/_corels.pyx":248
+      /* "corels/_corels.pyx":249
  *         if labels_vecs != NULL:
  *             _free_vector(labels_vecs, 2)
  *             labels_vecs = NULL             # <<<<<<<<<<<<<<
@@ -4543,7 +4543,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
       __pyx_v_6corels_7_corels_labels_vecs = NULL;
 
-      /* "corels/_corels.pyx":246
+      /* "corels/_corels.pyx":247
  *     labels_vecs[1].features = <char*>malloc(8)
  *     if labels_vecs[0].features == NULL or labels_vecs[1].features == NULL:
  *         if labels_vecs != NULL:             # <<<<<<<<<<<<<<
@@ -4552,7 +4552,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
     }
 
-    /* "corels/_corels.pyx":249
+    /* "corels/_corels.pyx":250
  *             _free_vector(labels_vecs, 2)
  *             labels_vecs = NULL
  *         if rules != NULL:             # <<<<<<<<<<<<<<
@@ -4562,18 +4562,18 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
     __pyx_t_3 = ((__pyx_v_6corels_7_corels_rules != NULL) != 0);
     if (__pyx_t_3) {
 
-      /* "corels/_corels.pyx":250
+      /* "corels/_corels.pyx":251
  *             labels_vecs = NULL
  *         if rules != NULL:
  *             _free_vector(rules, n_rules)             # <<<<<<<<<<<<<<
  *             rules = NULL
  *         n_rules = 0
  */
-      __pyx_t_6 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_rules, __pyx_v_6corels_7_corels_n_rules); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 250, __pyx_L1_error)
+      __pyx_t_6 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_rules, __pyx_v_6corels_7_corels_n_rules); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 251, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-      /* "corels/_corels.pyx":251
+      /* "corels/_corels.pyx":252
  *         if rules != NULL:
  *             _free_vector(rules, n_rules)
  *             rules = NULL             # <<<<<<<<<<<<<<
@@ -4582,7 +4582,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
       __pyx_v_6corels_7_corels_rules = NULL;
 
-      /* "corels/_corels.pyx":249
+      /* "corels/_corels.pyx":250
  *             _free_vector(labels_vecs, 2)
  *             labels_vecs = NULL
  *         if rules != NULL:             # <<<<<<<<<<<<<<
@@ -4591,7 +4591,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
     }
 
-    /* "corels/_corels.pyx":252
+    /* "corels/_corels.pyx":253
  *             _free_vector(rules, n_rules)
  *             rules = NULL
  *         n_rules = 0             # <<<<<<<<<<<<<<
@@ -4600,16 +4600,16 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
     __pyx_v_6corels_7_corels_n_rules = 0;
 
-    /* "corels/_corels.pyx":253
+    /* "corels/_corels.pyx":254
  *             rules = NULL
  *         n_rules = 0
  *         raise MemoryError();             # <<<<<<<<<<<<<<
  *     strcpy(labels_vecs[0].features, "label=0")
  *     strcpy(labels_vecs[1].features, "label=1")
  */
-    PyErr_NoMemory(); __PYX_ERR(0, 253, __pyx_L1_error)
+    PyErr_NoMemory(); __PYX_ERR(0, 254, __pyx_L1_error)
 
-    /* "corels/_corels.pyx":245
+    /* "corels/_corels.pyx":246
  *     labels_vecs[0].features = <char*>malloc(8)
  *     labels_vecs[1].features = <char*>malloc(8)
  *     if labels_vecs[0].features == NULL or labels_vecs[1].features == NULL:             # <<<<<<<<<<<<<<
@@ -4618,7 +4618,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
   }
 
-  /* "corels/_corels.pyx":254
+  /* "corels/_corels.pyx":255
  *         n_rules = 0
  *         raise MemoryError();
  *     strcpy(labels_vecs[0].features, "label=0")             # <<<<<<<<<<<<<<
@@ -4627,7 +4627,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
   (void)(strcpy((__pyx_v_6corels_7_corels_labels_vecs[0]).features, ((char const *)"label=0")));
 
-  /* "corels/_corels.pyx":255
+  /* "corels/_corels.pyx":256
  *         raise MemoryError();
  *     strcpy(labels_vecs[0].features, "label=0")
  *     strcpy(labels_vecs[1].features, "label=1")             # <<<<<<<<<<<<<<
@@ -4636,7 +4636,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
   (void)(strcpy((__pyx_v_6corels_7_corels_labels_vecs[1]).features, ((char const *)"label=1")));
 
-  /* "corels/_corels.pyx":257
+  /* "corels/_corels.pyx":258
  *     strcpy(labels_vecs[1].features, "label=1")
  * 
  *     if minor != NULL:             # <<<<<<<<<<<<<<
@@ -4646,18 +4646,18 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
   __pyx_t_3 = ((__pyx_v_6corels_7_corels_minor != NULL) != 0);
   if (__pyx_t_3) {
 
-    /* "corels/_corels.pyx":258
+    /* "corels/_corels.pyx":259
  * 
  *     if minor != NULL:
  *         _free_vector(minor, 1)             # <<<<<<<<<<<<<<
  *         minor = NULL
  * 
  */
-    __pyx_t_6 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_minor, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 258, __pyx_L1_error)
+    __pyx_t_6 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_minor, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 259, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-    /* "corels/_corels.pyx":259
+    /* "corels/_corels.pyx":260
  *     if minor != NULL:
  *         _free_vector(minor, 1)
  *         minor = NULL             # <<<<<<<<<<<<<<
@@ -4666,7 +4666,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
     __pyx_v_6corels_7_corels_minor = NULL;
 
-    /* "corels/_corels.pyx":257
+    /* "corels/_corels.pyx":258
  *     strcpy(labels_vecs[1].features, "label=1")
  * 
  *     if minor != NULL:             # <<<<<<<<<<<<<<
@@ -4675,7 +4675,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
   }
 
-  /* "corels/_corels.pyx":261
+  /* "corels/_corels.pyx":262
  *         minor = NULL
  * 
  *     minor = <rule_t*>malloc(sizeof(rule_t))             # <<<<<<<<<<<<<<
@@ -4684,7 +4684,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
   __pyx_v_6corels_7_corels_minor = ((rule_t *)malloc((sizeof(rule_t))));
 
-  /* "corels/_corels.pyx":262
+  /* "corels/_corels.pyx":263
  * 
  *     minor = <rule_t*>malloc(sizeof(rule_t))
  *     if minor == NULL:             # <<<<<<<<<<<<<<
@@ -4694,7 +4694,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
   __pyx_t_3 = ((__pyx_v_6corels_7_corels_minor == NULL) != 0);
   if (__pyx_t_3) {
 
-    /* "corels/_corels.pyx":263
+    /* "corels/_corels.pyx":264
  *     minor = <rule_t*>malloc(sizeof(rule_t))
  *     if minor == NULL:
  *         if labels_vecs != NULL:             # <<<<<<<<<<<<<<
@@ -4704,18 +4704,18 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
     __pyx_t_3 = ((__pyx_v_6corels_7_corels_labels_vecs != NULL) != 0);
     if (__pyx_t_3) {
 
-      /* "corels/_corels.pyx":264
+      /* "corels/_corels.pyx":265
  *     if minor == NULL:
  *         if labels_vecs != NULL:
  *             _free_vector(labels_vecs, 2)             # <<<<<<<<<<<<<<
  *             labels_vecs = NULL
  *         if rules != NULL:
  */
-      __pyx_t_6 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_labels_vecs, 2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 264, __pyx_L1_error)
+      __pyx_t_6 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_labels_vecs, 2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 265, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-      /* "corels/_corels.pyx":265
+      /* "corels/_corels.pyx":266
  *         if labels_vecs != NULL:
  *             _free_vector(labels_vecs, 2)
  *             labels_vecs = NULL             # <<<<<<<<<<<<<<
@@ -4724,7 +4724,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
       __pyx_v_6corels_7_corels_labels_vecs = NULL;
 
-      /* "corels/_corels.pyx":263
+      /* "corels/_corels.pyx":264
  *     minor = <rule_t*>malloc(sizeof(rule_t))
  *     if minor == NULL:
  *         if labels_vecs != NULL:             # <<<<<<<<<<<<<<
@@ -4733,7 +4733,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
     }
 
-    /* "corels/_corels.pyx":266
+    /* "corels/_corels.pyx":267
  *             _free_vector(labels_vecs, 2)
  *             labels_vecs = NULL
  *         if rules != NULL:             # <<<<<<<<<<<<<<
@@ -4743,18 +4743,18 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
     __pyx_t_3 = ((__pyx_v_6corels_7_corels_rules != NULL) != 0);
     if (__pyx_t_3) {
 
-      /* "corels/_corels.pyx":267
+      /* "corels/_corels.pyx":268
  *             labels_vecs = NULL
  *         if rules != NULL:
  *             _free_vector(rules, n_rules)             # <<<<<<<<<<<<<<
  *             rules = NULL
  *         n_rules = 0
  */
-      __pyx_t_6 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_rules, __pyx_v_6corels_7_corels_n_rules); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 267, __pyx_L1_error)
+      __pyx_t_6 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_rules, __pyx_v_6corels_7_corels_n_rules); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 268, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-      /* "corels/_corels.pyx":268
+      /* "corels/_corels.pyx":269
  *         if rules != NULL:
  *             _free_vector(rules, n_rules)
  *             rules = NULL             # <<<<<<<<<<<<<<
@@ -4763,7 +4763,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
       __pyx_v_6corels_7_corels_rules = NULL;
 
-      /* "corels/_corels.pyx":266
+      /* "corels/_corels.pyx":267
  *             _free_vector(labels_vecs, 2)
  *             labels_vecs = NULL
  *         if rules != NULL:             # <<<<<<<<<<<<<<
@@ -4772,7 +4772,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
     }
 
-    /* "corels/_corels.pyx":269
+    /* "corels/_corels.pyx":270
  *             _free_vector(rules, n_rules)
  *             rules = NULL
  *         n_rules = 0             # <<<<<<<<<<<<<<
@@ -4781,16 +4781,16 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
     __pyx_v_6corels_7_corels_n_rules = 0;
 
-    /* "corels/_corels.pyx":270
+    /* "corels/_corels.pyx":271
  *             rules = NULL
  *         n_rules = 0
  *         raise MemoryError();             # <<<<<<<<<<<<<<
  * 
  *     cdef int mr = minority(rules, n_rules, labels_vecs, nsamples, minor, mverbose)
  */
-    PyErr_NoMemory(); __PYX_ERR(0, 270, __pyx_L1_error)
+    PyErr_NoMemory(); __PYX_ERR(0, 271, __pyx_L1_error)
 
-    /* "corels/_corels.pyx":262
+    /* "corels/_corels.pyx":263
  * 
  *     minor = <rule_t*>malloc(sizeof(rule_t))
  *     if minor == NULL:             # <<<<<<<<<<<<<<
@@ -4799,17 +4799,17 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
   }
 
-  /* "corels/_corels.pyx":272
+  /* "corels/_corels.pyx":273
  *         raise MemoryError();
  * 
  *     cdef int mr = minority(rules, n_rules, labels_vecs, nsamples, minor, mverbose)             # <<<<<<<<<<<<<<
  *     if mr != 0:
  *         if labels_vecs != NULL:
  */
-  __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_v_nsamples); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 272, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_v_nsamples); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 273, __pyx_L1_error)
   __pyx_v_mr = minority(__pyx_v_6corels_7_corels_rules, __pyx_v_6corels_7_corels_n_rules, __pyx_v_6corels_7_corels_labels_vecs, __pyx_t_4, __pyx_v_6corels_7_corels_minor, __pyx_v_mverbose);
 
-  /* "corels/_corels.pyx":273
+  /* "corels/_corels.pyx":274
  * 
  *     cdef int mr = minority(rules, n_rules, labels_vecs, nsamples, minor, mverbose)
  *     if mr != 0:             # <<<<<<<<<<<<<<
@@ -4819,7 +4819,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
   __pyx_t_3 = ((__pyx_v_mr != 0) != 0);
   if (__pyx_t_3) {
 
-    /* "corels/_corels.pyx":274
+    /* "corels/_corels.pyx":275
  *     cdef int mr = minority(rules, n_rules, labels_vecs, nsamples, minor, mverbose)
  *     if mr != 0:
  *         if labels_vecs != NULL:             # <<<<<<<<<<<<<<
@@ -4829,18 +4829,18 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
     __pyx_t_3 = ((__pyx_v_6corels_7_corels_labels_vecs != NULL) != 0);
     if (__pyx_t_3) {
 
-      /* "corels/_corels.pyx":275
+      /* "corels/_corels.pyx":276
  *     if mr != 0:
  *         if labels_vecs != NULL:
  *             _free_vector(labels_vecs, 2)             # <<<<<<<<<<<<<<
  *             labels_vecs = NULL
  *         if rules != NULL:
  */
-      __pyx_t_6 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_labels_vecs, 2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 275, __pyx_L1_error)
+      __pyx_t_6 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_labels_vecs, 2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 276, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-      /* "corels/_corels.pyx":276
+      /* "corels/_corels.pyx":277
  *         if labels_vecs != NULL:
  *             _free_vector(labels_vecs, 2)
  *             labels_vecs = NULL             # <<<<<<<<<<<<<<
@@ -4849,7 +4849,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
       __pyx_v_6corels_7_corels_labels_vecs = NULL;
 
-      /* "corels/_corels.pyx":274
+      /* "corels/_corels.pyx":275
  *     cdef int mr = minority(rules, n_rules, labels_vecs, nsamples, minor, mverbose)
  *     if mr != 0:
  *         if labels_vecs != NULL:             # <<<<<<<<<<<<<<
@@ -4858,7 +4858,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
     }
 
-    /* "corels/_corels.pyx":277
+    /* "corels/_corels.pyx":278
  *             _free_vector(labels_vecs, 2)
  *             labels_vecs = NULL
  *         if rules != NULL:             # <<<<<<<<<<<<<<
@@ -4868,18 +4868,18 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
     __pyx_t_3 = ((__pyx_v_6corels_7_corels_rules != NULL) != 0);
     if (__pyx_t_3) {
 
-      /* "corels/_corels.pyx":278
+      /* "corels/_corels.pyx":279
  *             labels_vecs = NULL
  *         if rules != NULL:
  *             _free_vector(rules, n_rules)             # <<<<<<<<<<<<<<
  *             rules = NULL
  *         n_rules = 0
  */
-      __pyx_t_6 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_rules, __pyx_v_6corels_7_corels_n_rules); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 278, __pyx_L1_error)
+      __pyx_t_6 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_rules, __pyx_v_6corels_7_corels_n_rules); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 279, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-      /* "corels/_corels.pyx":279
+      /* "corels/_corels.pyx":280
  *         if rules != NULL:
  *             _free_vector(rules, n_rules)
  *             rules = NULL             # <<<<<<<<<<<<<<
@@ -4888,7 +4888,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
       __pyx_v_6corels_7_corels_rules = NULL;
 
-      /* "corels/_corels.pyx":277
+      /* "corels/_corels.pyx":278
  *             _free_vector(labels_vecs, 2)
  *             labels_vecs = NULL
  *         if rules != NULL:             # <<<<<<<<<<<<<<
@@ -4897,7 +4897,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
     }
 
-    /* "corels/_corels.pyx":280
+    /* "corels/_corels.pyx":281
  *             _free_vector(rules, n_rules)
  *             rules = NULL
  *         n_rules = 0             # <<<<<<<<<<<<<<
@@ -4906,16 +4906,16 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
     __pyx_v_6corels_7_corels_n_rules = 0;
 
-    /* "corels/_corels.pyx":281
+    /* "corels/_corels.pyx":282
  *             rules = NULL
  *         n_rules = 0
  *         raise MemoryError();             # <<<<<<<<<<<<<<
  * 
- *     cdef int rb = run_corels_begin(c, verbosity, policy, map_type, ablation, calculate_size,
+ *     """
  */
-    PyErr_NoMemory(); __PYX_ERR(0, 281, __pyx_L1_error)
+    PyErr_NoMemory(); __PYX_ERR(0, 282, __pyx_L1_error)
 
-    /* "corels/_corels.pyx":273
+    /* "corels/_corels.pyx":274
  * 
  *     cdef int mr = minority(rules, n_rules, labels_vecs, nsamples, minor, mverbose)
  *     if mr != 0:             # <<<<<<<<<<<<<<
@@ -4924,17 +4924,17 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
   }
 
-  /* "corels/_corels.pyx":284
+  /* "corels/_corels.pyx":292
  * 
  *     cdef int rb = run_corels_begin(c, verbosity, policy, map_type, ablation, calculate_size,
  *                    n_rules, 2, nsamples, rules, labels_vecs, minor)             # <<<<<<<<<<<<<<
  * 
  *     if rb == -1:
  */
-  __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_v_nsamples); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 284, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_v_nsamples); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 292, __pyx_L1_error)
 
-  /* "corels/_corels.pyx":283
- *         raise MemoryError();
+  /* "corels/_corels.pyx":291
+ *     """
  * 
  *     cdef int rb = run_corels_begin(c, verbosity, policy, map_type, ablation, calculate_size,             # <<<<<<<<<<<<<<
  *                    n_rules, 2, nsamples, rules, labels_vecs, minor)
@@ -4942,7 +4942,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
   __pyx_v_rb = run_corels_begin(__pyx_v_c, __pyx_v_verbosity, __pyx_v_policy, __pyx_v_map_type, __pyx_v_ablation, __pyx_v_calculate_size, __pyx_v_6corels_7_corels_n_rules, 2, __pyx_t_4, __pyx_v_6corels_7_corels_rules, __pyx_v_6corels_7_corels_labels_vecs, __pyx_v_6corels_7_corels_minor);
 
-  /* "corels/_corels.pyx":286
+  /* "corels/_corels.pyx":294
  *                    n_rules, 2, nsamples, rules, labels_vecs, minor)
  * 
  *     if rb == -1:             # <<<<<<<<<<<<<<
@@ -4952,7 +4952,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
   __pyx_t_3 = ((__pyx_v_rb == -1L) != 0);
   if (__pyx_t_3) {
 
-    /* "corels/_corels.pyx":287
+    /* "corels/_corels.pyx":295
  * 
  *     if rb == -1:
  *         if labels_vecs != NULL:             # <<<<<<<<<<<<<<
@@ -4962,18 +4962,18 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
     __pyx_t_3 = ((__pyx_v_6corels_7_corels_labels_vecs != NULL) != 0);
     if (__pyx_t_3) {
 
-      /* "corels/_corels.pyx":288
+      /* "corels/_corels.pyx":296
  *     if rb == -1:
  *         if labels_vecs != NULL:
  *             _free_vector(labels_vecs, 2)             # <<<<<<<<<<<<<<
  *             labels_vecs = NULL
  *         if minor != NULL:
  */
-      __pyx_t_6 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_labels_vecs, 2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 288, __pyx_L1_error)
+      __pyx_t_6 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_labels_vecs, 2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 296, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-      /* "corels/_corels.pyx":289
+      /* "corels/_corels.pyx":297
  *         if labels_vecs != NULL:
  *             _free_vector(labels_vecs, 2)
  *             labels_vecs = NULL             # <<<<<<<<<<<<<<
@@ -4982,7 +4982,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
       __pyx_v_6corels_7_corels_labels_vecs = NULL;
 
-      /* "corels/_corels.pyx":287
+      /* "corels/_corels.pyx":295
  * 
  *     if rb == -1:
  *         if labels_vecs != NULL:             # <<<<<<<<<<<<<<
@@ -4991,7 +4991,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
     }
 
-    /* "corels/_corels.pyx":290
+    /* "corels/_corels.pyx":298
  *             _free_vector(labels_vecs, 2)
  *             labels_vecs = NULL
  *         if minor != NULL:             # <<<<<<<<<<<<<<
@@ -5001,18 +5001,18 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
     __pyx_t_3 = ((__pyx_v_6corels_7_corels_minor != NULL) != 0);
     if (__pyx_t_3) {
 
-      /* "corels/_corels.pyx":291
+      /* "corels/_corels.pyx":299
  *             labels_vecs = NULL
  *         if minor != NULL:
  *             _free_vector(minor, 1)             # <<<<<<<<<<<<<<
  *             minor = NULL
  *         if rules != NULL:
  */
-      __pyx_t_6 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_minor, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 291, __pyx_L1_error)
+      __pyx_t_6 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_minor, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 299, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-      /* "corels/_corels.pyx":292
+      /* "corels/_corels.pyx":300
  *         if minor != NULL:
  *             _free_vector(minor, 1)
  *             minor = NULL             # <<<<<<<<<<<<<<
@@ -5021,7 +5021,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
       __pyx_v_6corels_7_corels_minor = NULL;
 
-      /* "corels/_corels.pyx":290
+      /* "corels/_corels.pyx":298
  *             _free_vector(labels_vecs, 2)
  *             labels_vecs = NULL
  *         if minor != NULL:             # <<<<<<<<<<<<<<
@@ -5030,7 +5030,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
     }
 
-    /* "corels/_corels.pyx":293
+    /* "corels/_corels.pyx":301
  *             _free_vector(minor, 1)
  *             minor = NULL
  *         if rules != NULL:             # <<<<<<<<<<<<<<
@@ -5040,18 +5040,18 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
     __pyx_t_3 = ((__pyx_v_6corels_7_corels_rules != NULL) != 0);
     if (__pyx_t_3) {
 
-      /* "corels/_corels.pyx":294
+      /* "corels/_corels.pyx":302
  *             minor = NULL
  *         if rules != NULL:
  *             _free_vector(rules, n_rules)             # <<<<<<<<<<<<<<
  *             rules = NULL
  *         n_rules = 0
  */
-      __pyx_t_6 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_rules, __pyx_v_6corels_7_corels_n_rules); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 294, __pyx_L1_error)
+      __pyx_t_6 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_rules, __pyx_v_6corels_7_corels_n_rules); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 302, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-      /* "corels/_corels.pyx":295
+      /* "corels/_corels.pyx":303
  *         if rules != NULL:
  *             _free_vector(rules, n_rules)
  *             rules = NULL             # <<<<<<<<<<<<<<
@@ -5060,7 +5060,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
       __pyx_v_6corels_7_corels_rules = NULL;
 
-      /* "corels/_corels.pyx":293
+      /* "corels/_corels.pyx":301
  *             _free_vector(minor, 1)
  *             minor = NULL
  *         if rules != NULL:             # <<<<<<<<<<<<<<
@@ -5069,7 +5069,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
     }
 
-    /* "corels/_corels.pyx":296
+    /* "corels/_corels.pyx":304
  *             _free_vector(rules, n_rules)
  *             rules = NULL
  *         n_rules = 0             # <<<<<<<<<<<<<<
@@ -5078,7 +5078,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
     __pyx_v_6corels_7_corels_n_rules = 0;
 
-    /* "corels/_corels.pyx":298
+    /* "corels/_corels.pyx":306
  *         n_rules = 0
  * 
  *         return False             # <<<<<<<<<<<<<<
@@ -5090,7 +5090,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
     __pyx_r = Py_False;
     goto __pyx_L0;
 
-    /* "corels/_corels.pyx":286
+    /* "corels/_corels.pyx":294
  *                    n_rules, 2, nsamples, rules, labels_vecs, minor)
  * 
  *     if rb == -1:             # <<<<<<<<<<<<<<
@@ -5099,7 +5099,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  */
   }
 
-  /* "corels/_corels.pyx":300
+  /* "corels/_corels.pyx":308
  *         return False
  * 
  *     return True             # <<<<<<<<<<<<<<
@@ -5111,7 +5111,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
   __pyx_r = Py_True;
   goto __pyx_L0;
 
-  /* "corels/_corels.pyx":149
+  /* "corels/_corels.pyx":150
  * cdef int n_rules = 0
  * 
  * def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples,             # <<<<<<<<<<<<<<
@@ -5146,7 +5146,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
   return __pyx_r;
 }
 
-/* "corels/_corels.pyx":302
+/* "corels/_corels.pyx":310
  *     return True
  * 
  * def fit_wrap_loop(size_t max_nodes):             # <<<<<<<<<<<<<<
@@ -5163,7 +5163,7 @@ static PyObject *__pyx_pw_6corels_7_corels_5fit_wrap_loop(PyObject *__pyx_self, 
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("fit_wrap_loop (wrapper)", 0);
   assert(__pyx_arg_max_nodes); {
-    __pyx_v_max_nodes = __Pyx_PyInt_As_size_t(__pyx_arg_max_nodes); if (unlikely((__pyx_v_max_nodes == (size_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 302, __pyx_L3_error)
+    __pyx_v_max_nodes = __Pyx_PyInt_As_size_t(__pyx_arg_max_nodes); if (unlikely((__pyx_v_max_nodes == (size_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 310, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -5185,7 +5185,7 @@ static PyObject *__pyx_pf_6corels_7_corels_4fit_wrap_loop(CYTHON_UNUSED PyObject
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("fit_wrap_loop", 0);
 
-  /* "corels/_corels.pyx":303
+  /* "corels/_corels.pyx":311
  * 
  * def fit_wrap_loop(size_t max_nodes):
  *     cdef size_t max_num_nodes = max_nodes             # <<<<<<<<<<<<<<
@@ -5194,7 +5194,7 @@ static PyObject *__pyx_pf_6corels_7_corels_4fit_wrap_loop(CYTHON_UNUSED PyObject
  */
   __pyx_v_max_num_nodes = __pyx_v_max_nodes;
 
-  /* "corels/_corels.pyx":304
+  /* "corels/_corels.pyx":312
  * def fit_wrap_loop(size_t max_nodes):
  *     cdef size_t max_num_nodes = max_nodes
  *     return (run_corels_loop(max_num_nodes) != -1)             # <<<<<<<<<<<<<<
@@ -5202,13 +5202,13 @@ static PyObject *__pyx_pf_6corels_7_corels_4fit_wrap_loop(CYTHON_UNUSED PyObject
  * def fit_wrap_end(int early):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong((run_corels_loop(__pyx_v_max_num_nodes) != -1L)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 304, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong((run_corels_loop(__pyx_v_max_num_nodes) != -1L)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 312, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "corels/_corels.pyx":302
+  /* "corels/_corels.pyx":310
  *     return True
  * 
  * def fit_wrap_loop(size_t max_nodes):             # <<<<<<<<<<<<<<
@@ -5227,7 +5227,7 @@ static PyObject *__pyx_pf_6corels_7_corels_4fit_wrap_loop(CYTHON_UNUSED PyObject
   return __pyx_r;
 }
 
-/* "corels/_corels.pyx":306
+/* "corels/_corels.pyx":314
  *     return (run_corels_loop(max_num_nodes) != -1)
  * 
  * def fit_wrap_end(int early):             # <<<<<<<<<<<<<<
@@ -5244,7 +5244,7 @@ static PyObject *__pyx_pw_6corels_7_corels_7fit_wrap_end(PyObject *__pyx_self, P
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("fit_wrap_end (wrapper)", 0);
   assert(__pyx_arg_early); {
-    __pyx_v_early = __Pyx_PyInt_As_int(__pyx_arg_early); if (unlikely((__pyx_v_early == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 306, __pyx_L3_error)
+    __pyx_v_early = __Pyx_PyInt_As_int(__pyx_arg_early); if (unlikely((__pyx_v_early == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 314, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -5281,7 +5281,7 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
   int __pyx_t_11;
   __Pyx_RefNannySetupContext("fit_wrap_end", 0);
 
-  /* "corels/_corels.pyx":312
+  /* "corels/_corels.pyx":320
  *     global n_rules
  * 
  *     cdef int rulelist_size = 0             # <<<<<<<<<<<<<<
@@ -5290,7 +5290,7 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
  */
   __pyx_v_rulelist_size = 0;
 
-  /* "corels/_corels.pyx":313
+  /* "corels/_corels.pyx":321
  * 
  *     cdef int rulelist_size = 0
  *     cdef int* rulelist = NULL             # <<<<<<<<<<<<<<
@@ -5299,7 +5299,7 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
  */
   __pyx_v_rulelist = NULL;
 
-  /* "corels/_corels.pyx":314
+  /* "corels/_corels.pyx":322
  *     cdef int rulelist_size = 0
  *     cdef int* rulelist = NULL
  *     cdef int* classes = NULL             # <<<<<<<<<<<<<<
@@ -5308,7 +5308,7 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
  */
   __pyx_v_classes = NULL;
 
-  /* "corels/_corels.pyx":315
+  /* "corels/_corels.pyx":323
  *     cdef int* rulelist = NULL
  *     cdef int* classes = NULL
  *     run_corels_end(&rulelist, &rulelist_size, &classes, early)             # <<<<<<<<<<<<<<
@@ -5317,19 +5317,19 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
  */
   (void)(run_corels_end((&__pyx_v_rulelist), (&__pyx_v_rulelist_size), (&__pyx_v_classes), __pyx_v_early));
 
-  /* "corels/_corels.pyx":317
+  /* "corels/_corels.pyx":325
  *     run_corels_end(&rulelist, &rulelist_size, &classes, early)
  * 
  *     r_out = []             # <<<<<<<<<<<<<<
  *     if classes != NULL and rules != NULL:
  *         for i in range(rulelist_size):
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 317, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 325, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_r_out = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "corels/_corels.pyx":318
+  /* "corels/_corels.pyx":326
  * 
  *     r_out = []
  *     if classes != NULL and rules != NULL:             # <<<<<<<<<<<<<<
@@ -5347,7 +5347,7 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_2) {
 
-    /* "corels/_corels.pyx":319
+    /* "corels/_corels.pyx":327
  *     r_out = []
  *     if classes != NULL and rules != NULL:
  *         for i in range(rulelist_size):             # <<<<<<<<<<<<<<
@@ -5359,7 +5359,7 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_i = __pyx_t_6;
 
-      /* "corels/_corels.pyx":320
+      /* "corels/_corels.pyx":328
  *     if classes != NULL and rules != NULL:
  *         for i in range(rulelist_size):
  *             if rulelist[i] < n_rules:             # <<<<<<<<<<<<<<
@@ -5369,34 +5369,34 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
       __pyx_t_2 = (((__pyx_v_rulelist[__pyx_v_i]) < __pyx_v_6corels_7_corels_n_rules) != 0);
       if (__pyx_t_2) {
 
-        /* "corels/_corels.pyx":321
+        /* "corels/_corels.pyx":329
  *         for i in range(rulelist_size):
  *             if rulelist[i] < n_rules:
  *                 r_out.append({})             # <<<<<<<<<<<<<<
  *                 r_out[i]["antecedents"] = []
  *                 for j in range(rules[rulelist[i]].cardinality):
  */
-        __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 321, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 329, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_7 = __Pyx_PyList_Append(__pyx_v_r_out, __pyx_t_1); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 321, __pyx_L1_error)
+        __pyx_t_7 = __Pyx_PyList_Append(__pyx_v_r_out, __pyx_t_1); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 329, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-        /* "corels/_corels.pyx":322
+        /* "corels/_corels.pyx":330
  *             if rulelist[i] < n_rules:
  *                 r_out.append({})
  *                 r_out[i]["antecedents"] = []             # <<<<<<<<<<<<<<
  *                 for j in range(rules[rulelist[i]].cardinality):
  *                     r_out[i]["antecedents"].append(rules[rulelist[i]].ids[j])
  */
-        __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 322, __pyx_L1_error)
+        __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 330, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_8 = __Pyx_GetItemInt_List(__pyx_v_r_out, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 322, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_GetItemInt_List(__pyx_v_r_out, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 330, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
-        if (unlikely(PyObject_SetItem(__pyx_t_8, __pyx_n_s_antecedents, __pyx_t_1) < 0)) __PYX_ERR(0, 322, __pyx_L1_error)
+        if (unlikely(PyObject_SetItem(__pyx_t_8, __pyx_n_s_antecedents, __pyx_t_1) < 0)) __PYX_ERR(0, 330, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-        /* "corels/_corels.pyx":323
+        /* "corels/_corels.pyx":331
  *                 r_out.append({})
  *                 r_out[i]["antecedents"] = []
  *                 for j in range(rules[rulelist[i]].cardinality):             # <<<<<<<<<<<<<<
@@ -5408,45 +5408,45 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
         for (__pyx_t_11 = 0; __pyx_t_11 < __pyx_t_10; __pyx_t_11+=1) {
           __pyx_v_j = __pyx_t_11;
 
-          /* "corels/_corels.pyx":324
+          /* "corels/_corels.pyx":332
  *                 r_out[i]["antecedents"] = []
  *                 for j in range(rules[rulelist[i]].cardinality):
  *                     r_out[i]["antecedents"].append(rules[rulelist[i]].ids[j])             # <<<<<<<<<<<<<<
  * 
  *                 r_out[i]["prediction"] = bool(classes[i])
  */
-          __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_r_out, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 324, __pyx_L1_error)
+          __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_r_out, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 332, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
-          __pyx_t_8 = __Pyx_PyObject_Dict_GetItem(__pyx_t_1, __pyx_n_s_antecedents); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 324, __pyx_L1_error)
+          __pyx_t_8 = __Pyx_PyObject_Dict_GetItem(__pyx_t_1, __pyx_n_s_antecedents); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 332, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-          __pyx_t_1 = __Pyx_PyInt_From_int(((__pyx_v_6corels_7_corels_rules[(__pyx_v_rulelist[__pyx_v_i])]).ids[__pyx_v_j])); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 324, __pyx_L1_error)
+          __pyx_t_1 = __Pyx_PyInt_From_int(((__pyx_v_6corels_7_corels_rules[(__pyx_v_rulelist[__pyx_v_i])]).ids[__pyx_v_j])); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 332, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
-          __pyx_t_7 = __Pyx_PyObject_Append(__pyx_t_8, __pyx_t_1); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 324, __pyx_L1_error)
+          __pyx_t_7 = __Pyx_PyObject_Append(__pyx_t_8, __pyx_t_1); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 332, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         }
 
-        /* "corels/_corels.pyx":326
+        /* "corels/_corels.pyx":334
  *                     r_out[i]["antecedents"].append(rules[rulelist[i]].ids[j])
  * 
  *                 r_out[i]["prediction"] = bool(classes[i])             # <<<<<<<<<<<<<<
  * 
  *         r_out.append({ "antecedents": [0], "prediction": bool(classes[rulelist_size]) })
  */
-        __pyx_t_1 = __Pyx_PyInt_From_int((__pyx_v_classes[__pyx_v_i])); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 326, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyInt_From_int((__pyx_v_classes[__pyx_v_i])); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 334, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 326, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 334, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_1 = __Pyx_PyBool_FromLong((!(!__pyx_t_2))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 326, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyBool_FromLong((!(!__pyx_t_2))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 334, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_8 = __Pyx_GetItemInt_List(__pyx_v_r_out, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 326, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_GetItemInt_List(__pyx_v_r_out, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 334, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
-        if (unlikely(PyObject_SetItem(__pyx_t_8, __pyx_n_s_prediction, __pyx_t_1) < 0)) __PYX_ERR(0, 326, __pyx_L1_error)
+        if (unlikely(PyObject_SetItem(__pyx_t_8, __pyx_n_s_prediction, __pyx_t_1) < 0)) __PYX_ERR(0, 334, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-        /* "corels/_corels.pyx":320
+        /* "corels/_corels.pyx":328
  *     if classes != NULL and rules != NULL:
  *         for i in range(rulelist_size):
  *             if rulelist[i] < n_rules:             # <<<<<<<<<<<<<<
@@ -5456,34 +5456,34 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
       }
     }
 
-    /* "corels/_corels.pyx":328
+    /* "corels/_corels.pyx":336
  *                 r_out[i]["prediction"] = bool(classes[i])
  * 
  *         r_out.append({ "antecedents": [0], "prediction": bool(classes[rulelist_size]) })             # <<<<<<<<<<<<<<
  *         if rulelist != NULL:
  *             free(rulelist)
  */
-    __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 328, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 336, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_8 = PyList_New(1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 328, __pyx_L1_error)
+    __pyx_t_8 = PyList_New(1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 336, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_INCREF(__pyx_int_0);
     __Pyx_GIVEREF(__pyx_int_0);
     PyList_SET_ITEM(__pyx_t_8, 0, __pyx_int_0);
-    if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_antecedents, __pyx_t_8) < 0) __PYX_ERR(0, 328, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_antecedents, __pyx_t_8) < 0) __PYX_ERR(0, 336, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_8 = __Pyx_PyInt_From_int((__pyx_v_classes[__pyx_v_rulelist_size])); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 328, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyInt_From_int((__pyx_v_classes[__pyx_v_rulelist_size])); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 336, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_8); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 328, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_8); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 336, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_8 = __Pyx_PyBool_FromLong((!(!__pyx_t_2))); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 328, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyBool_FromLong((!(!__pyx_t_2))); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 336, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_prediction, __pyx_t_8) < 0) __PYX_ERR(0, 328, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_prediction, __pyx_t_8) < 0) __PYX_ERR(0, 336, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_7 = __Pyx_PyList_Append(__pyx_v_r_out, __pyx_t_1); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 328, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyList_Append(__pyx_v_r_out, __pyx_t_1); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 336, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "corels/_corels.pyx":329
+    /* "corels/_corels.pyx":337
  * 
  *         r_out.append({ "antecedents": [0], "prediction": bool(classes[rulelist_size]) })
  *         if rulelist != NULL:             # <<<<<<<<<<<<<<
@@ -5493,7 +5493,7 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
     __pyx_t_2 = ((__pyx_v_rulelist != NULL) != 0);
     if (__pyx_t_2) {
 
-      /* "corels/_corels.pyx":330
+      /* "corels/_corels.pyx":338
  *         r_out.append({ "antecedents": [0], "prediction": bool(classes[rulelist_size]) })
  *         if rulelist != NULL:
  *             free(rulelist)             # <<<<<<<<<<<<<<
@@ -5502,7 +5502,7 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
  */
       free(__pyx_v_rulelist);
 
-      /* "corels/_corels.pyx":329
+      /* "corels/_corels.pyx":337
  * 
  *         r_out.append({ "antecedents": [0], "prediction": bool(classes[rulelist_size]) })
  *         if rulelist != NULL:             # <<<<<<<<<<<<<<
@@ -5511,7 +5511,7 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
  */
     }
 
-    /* "corels/_corels.pyx":331
+    /* "corels/_corels.pyx":339
  *         if rulelist != NULL:
  *             free(rulelist)
  *         free(classes)             # <<<<<<<<<<<<<<
@@ -5520,7 +5520,7 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
  */
     free(__pyx_v_classes);
 
-    /* "corels/_corels.pyx":318
+    /* "corels/_corels.pyx":326
  * 
  *     r_out = []
  *     if classes != NULL and rules != NULL:             # <<<<<<<<<<<<<<
@@ -5529,7 +5529,7 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
  */
   }
 
-  /* "corels/_corels.pyx":333
+  /* "corels/_corels.pyx":341
  *         free(classes)
  * 
  *     if labels_vecs != NULL:             # <<<<<<<<<<<<<<
@@ -5539,18 +5539,18 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
   __pyx_t_2 = ((__pyx_v_6corels_7_corels_labels_vecs != NULL) != 0);
   if (__pyx_t_2) {
 
-    /* "corels/_corels.pyx":334
+    /* "corels/_corels.pyx":342
  * 
  *     if labels_vecs != NULL:
  *         _free_vector(labels_vecs, 2)             # <<<<<<<<<<<<<<
  *         labels_vecs = NULL
  *     if minor != NULL:
  */
-    __pyx_t_1 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_labels_vecs, 2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 334, __pyx_L1_error)
+    __pyx_t_1 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_labels_vecs, 2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 342, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "corels/_corels.pyx":335
+    /* "corels/_corels.pyx":343
  *     if labels_vecs != NULL:
  *         _free_vector(labels_vecs, 2)
  *         labels_vecs = NULL             # <<<<<<<<<<<<<<
@@ -5559,7 +5559,7 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
  */
     __pyx_v_6corels_7_corels_labels_vecs = NULL;
 
-    /* "corels/_corels.pyx":333
+    /* "corels/_corels.pyx":341
  *         free(classes)
  * 
  *     if labels_vecs != NULL:             # <<<<<<<<<<<<<<
@@ -5568,7 +5568,7 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
  */
   }
 
-  /* "corels/_corels.pyx":336
+  /* "corels/_corels.pyx":344
  *         _free_vector(labels_vecs, 2)
  *         labels_vecs = NULL
  *     if minor != NULL:             # <<<<<<<<<<<<<<
@@ -5578,18 +5578,18 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
   __pyx_t_2 = ((__pyx_v_6corels_7_corels_minor != NULL) != 0);
   if (__pyx_t_2) {
 
-    /* "corels/_corels.pyx":337
+    /* "corels/_corels.pyx":345
  *         labels_vecs = NULL
  *     if minor != NULL:
  *         _free_vector(minor, 1)             # <<<<<<<<<<<<<<
  *         minor = NULL
  *     if rules != NULL:
  */
-    __pyx_t_1 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_minor, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 337, __pyx_L1_error)
+    __pyx_t_1 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_minor, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 345, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "corels/_corels.pyx":338
+    /* "corels/_corels.pyx":346
  *     if minor != NULL:
  *         _free_vector(minor, 1)
  *         minor = NULL             # <<<<<<<<<<<<<<
@@ -5598,7 +5598,7 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
  */
     __pyx_v_6corels_7_corels_minor = NULL;
 
-    /* "corels/_corels.pyx":336
+    /* "corels/_corels.pyx":344
  *         _free_vector(labels_vecs, 2)
  *         labels_vecs = NULL
  *     if minor != NULL:             # <<<<<<<<<<<<<<
@@ -5607,7 +5607,7 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
  */
   }
 
-  /* "corels/_corels.pyx":339
+  /* "corels/_corels.pyx":347
  *         _free_vector(minor, 1)
  *         minor = NULL
  *     if rules != NULL:             # <<<<<<<<<<<<<<
@@ -5617,18 +5617,18 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
   __pyx_t_2 = ((__pyx_v_6corels_7_corels_rules != NULL) != 0);
   if (__pyx_t_2) {
 
-    /* "corels/_corels.pyx":340
+    /* "corels/_corels.pyx":348
  *         minor = NULL
  *     if rules != NULL:
  *         _free_vector(rules, n_rules)             # <<<<<<<<<<<<<<
  *         rules = NULL
  *     n_rules = 0
  */
-    __pyx_t_1 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_rules, __pyx_v_6corels_7_corels_n_rules); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 340, __pyx_L1_error)
+    __pyx_t_1 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_rules, __pyx_v_6corels_7_corels_n_rules); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 348, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "corels/_corels.pyx":341
+    /* "corels/_corels.pyx":349
  *     if rules != NULL:
  *         _free_vector(rules, n_rules)
  *         rules = NULL             # <<<<<<<<<<<<<<
@@ -5637,7 +5637,7 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
  */
     __pyx_v_6corels_7_corels_rules = NULL;
 
-    /* "corels/_corels.pyx":339
+    /* "corels/_corels.pyx":347
  *         _free_vector(minor, 1)
  *         minor = NULL
  *     if rules != NULL:             # <<<<<<<<<<<<<<
@@ -5646,7 +5646,7 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
  */
   }
 
-  /* "corels/_corels.pyx":342
+  /* "corels/_corels.pyx":350
  *         _free_vector(rules, n_rules)
  *         rules = NULL
  *     n_rules = 0             # <<<<<<<<<<<<<<
@@ -5655,7 +5655,7 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
  */
   __pyx_v_6corels_7_corels_n_rules = 0;
 
-  /* "corels/_corels.pyx":344
+  /* "corels/_corels.pyx":352
  *     n_rules = 0
  * 
  *     return r_out             # <<<<<<<<<<<<<<
@@ -5665,7 +5665,7 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
   __pyx_r = __pyx_v_r_out;
   goto __pyx_L0;
 
-  /* "corels/_corels.pyx":306
+  /* "corels/_corels.pyx":314
  *     return (run_corels_loop(max_num_nodes) != -1)
  * 
  * def fit_wrap_end(int early):             # <<<<<<<<<<<<<<
@@ -8240,9 +8240,9 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 60, __pyx_L1_error)
-  __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(0, 103, __pyx_L1_error)
-  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 121, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 61, __pyx_L1_error)
+  __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(0, 104, __pyx_L1_error)
+  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 122, __pyx_L1_error)
   __pyx_builtin_RuntimeError = __Pyx_GetBuiltinName(__pyx_n_s_RuntimeError); if (!__pyx_builtin_RuntimeError) __PYX_ERR(1, 856, __pyx_L1_error)
   __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(1, 1038, __pyx_L1_error)
   return 0;
@@ -8254,14 +8254,14 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "corels/_corels.pyx":121
+  /* "corels/_corels.pyx":122
  * 
  *             free(vectors)
  *             raise ValueError("Could not load samples")             # <<<<<<<<<<<<<<
  * 
  *         vectors[i].ids = NULL
  */
-  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_s_Could_not_load_samples); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 121, __pyx_L1_error)
+  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_s_Could_not_load_samples); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 122, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
@@ -8362,53 +8362,53 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__10);
   __Pyx_GIVEREF(__pyx_tuple__10);
 
-  /* "corels/_corels.pyx":44
+  /* "corels/_corels.pyx":45
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * def predict_wrap(np.ndarray[np.uint8_t, ndim=2] X, rules):             # <<<<<<<<<<<<<<
  *     cdef int nsamples = X.shape[0]
  *     cdef int nfeatures = X.shape[1]
  */
-  __pyx_tuple__11 = PyTuple_Pack(17, __pyx_n_s_X, __pyx_n_s_rules, __pyx_n_s_nsamples, __pyx_n_s_nfeatures, __pyx_n_s_out, __pyx_n_s_n_rules, __pyx_n_s_s, __pyx_n_s_r, __pyx_n_s_next_rule, __pyx_n_s_nidx, __pyx_n_s_a, __pyx_n_s_idx, __pyx_n_s_c, __pyx_n_s_default, __pyx_n_s_antecedent_lengths, __pyx_n_s_predictions, __pyx_n_s_antecedents); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_tuple__11 = PyTuple_Pack(17, __pyx_n_s_X, __pyx_n_s_rules, __pyx_n_s_nsamples, __pyx_n_s_nfeatures, __pyx_n_s_out, __pyx_n_s_n_rules, __pyx_n_s_s, __pyx_n_s_r, __pyx_n_s_next_rule, __pyx_n_s_nidx, __pyx_n_s_a, __pyx_n_s_idx, __pyx_n_s_c, __pyx_n_s_default, __pyx_n_s_antecedent_lengths, __pyx_n_s_predictions, __pyx_n_s_antecedents); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__11);
   __Pyx_GIVEREF(__pyx_tuple__11);
-  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(2, 0, 17, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_corels_pyx, __pyx_n_s_predict_wrap, 44, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(2, 0, 17, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_corels_pyx, __pyx_n_s_predict_wrap, 45, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(0, 45, __pyx_L1_error)
 
-  /* "corels/_corels.pyx":149
+  /* "corels/_corels.pyx":150
  * cdef int n_rules = 0
  * 
  * def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples,             # <<<<<<<<<<<<<<
  *              np.ndarray[np.uint8_t, ndim=2] labels,
  *              features, int max_card, double min_support, verbosity_str, int mverbose,
  */
-  __pyx_tuple__13 = PyTuple_Pack(25, __pyx_n_s_samples, __pyx_n_s_labels, __pyx_n_s_features, __pyx_n_s_max_card, __pyx_n_s_min_support, __pyx_n_s_verbosity_str, __pyx_n_s_mverbose, __pyx_n_s_c, __pyx_n_s_policy, __pyx_n_s_map_type, __pyx_n_s_ablation, __pyx_n_s_calculate_size, __pyx_n_s_nfeatures, __pyx_n_s_samples_vecs, __pyx_n_s_nsamples, __pyx_n_s_features_vec, __pyx_n_s_i, __pyx_n_s_bytestr, __pyx_n_s_j, __pyx_n_s_r, __pyx_n_s_verbosity_ascii, __pyx_n_s_verbosity, __pyx_n_s_nsamples_chk, __pyx_n_s_mr, __pyx_n_s_rb); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 149, __pyx_L1_error)
+  __pyx_tuple__13 = PyTuple_Pack(25, __pyx_n_s_samples, __pyx_n_s_labels, __pyx_n_s_features, __pyx_n_s_max_card, __pyx_n_s_min_support, __pyx_n_s_verbosity_str, __pyx_n_s_mverbose, __pyx_n_s_c, __pyx_n_s_policy, __pyx_n_s_map_type, __pyx_n_s_ablation, __pyx_n_s_calculate_size, __pyx_n_s_nfeatures, __pyx_n_s_samples_vecs, __pyx_n_s_nsamples, __pyx_n_s_features_vec, __pyx_n_s_i, __pyx_n_s_bytestr, __pyx_n_s_j, __pyx_n_s_r, __pyx_n_s_verbosity_ascii, __pyx_n_s_verbosity, __pyx_n_s_nsamples_chk, __pyx_n_s_mr, __pyx_n_s_rb); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 150, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__13);
   __Pyx_GIVEREF(__pyx_tuple__13);
-  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(12, 0, 25, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_corels_pyx, __pyx_n_s_fit_wrap_begin, 149, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) __PYX_ERR(0, 149, __pyx_L1_error)
+  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(12, 0, 25, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_corels_pyx, __pyx_n_s_fit_wrap_begin, 150, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) __PYX_ERR(0, 150, __pyx_L1_error)
 
-  /* "corels/_corels.pyx":302
+  /* "corels/_corels.pyx":310
  *     return True
  * 
  * def fit_wrap_loop(size_t max_nodes):             # <<<<<<<<<<<<<<
  *     cdef size_t max_num_nodes = max_nodes
  *     return (run_corels_loop(max_num_nodes) != -1)
  */
-  __pyx_tuple__15 = PyTuple_Pack(3, __pyx_n_s_max_nodes, __pyx_n_s_max_nodes, __pyx_n_s_max_num_nodes); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(0, 302, __pyx_L1_error)
+  __pyx_tuple__15 = PyTuple_Pack(3, __pyx_n_s_max_nodes, __pyx_n_s_max_nodes, __pyx_n_s_max_num_nodes); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(0, 310, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__15);
   __Pyx_GIVEREF(__pyx_tuple__15);
-  __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_corels_pyx, __pyx_n_s_fit_wrap_loop, 302, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) __PYX_ERR(0, 302, __pyx_L1_error)
+  __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_corels_pyx, __pyx_n_s_fit_wrap_loop, 310, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) __PYX_ERR(0, 310, __pyx_L1_error)
 
-  /* "corels/_corels.pyx":306
+  /* "corels/_corels.pyx":314
  *     return (run_corels_loop(max_num_nodes) != -1)
  * 
  * def fit_wrap_end(int early):             # <<<<<<<<<<<<<<
  *     global rules
  *     global labels_vecs
  */
-  __pyx_tuple__17 = PyTuple_Pack(8, __pyx_n_s_early, __pyx_n_s_early, __pyx_n_s_rulelist_size, __pyx_n_s_rulelist, __pyx_n_s_classes, __pyx_n_s_r_out, __pyx_n_s_i, __pyx_n_s_j); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(0, 306, __pyx_L1_error)
+  __pyx_tuple__17 = PyTuple_Pack(8, __pyx_n_s_early, __pyx_n_s_early, __pyx_n_s_rulelist_size, __pyx_n_s_rulelist, __pyx_n_s_classes, __pyx_n_s_r_out, __pyx_n_s_i, __pyx_n_s_j); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(0, 314, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__17);
   __Pyx_GIVEREF(__pyx_tuple__17);
-  __pyx_codeobj__18 = (PyObject*)__Pyx_PyCode_New(1, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__17, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_corels_pyx, __pyx_n_s_fit_wrap_end, 306, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__18)) __PYX_ERR(0, 306, __pyx_L1_error)
+  __pyx_codeobj__18 = (PyObject*)__Pyx_PyCode_New(1, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__17, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_corels_pyx, __pyx_n_s_fit_wrap_end, 314, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__18)) __PYX_ERR(0, 314, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -8727,19 +8727,19 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "corels/_corels.pyx":44
+  /* "corels/_corels.pyx":45
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * def predict_wrap(np.ndarray[np.uint8_t, ndim=2] X, rules):             # <<<<<<<<<<<<<<
  *     cdef int nsamples = X.shape[0]
  *     cdef int nfeatures = X.shape[1]
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6corels_7_corels_1predict_wrap, NULL, __pyx_n_s_corels__corels); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6corels_7_corels_1predict_wrap, NULL, __pyx_n_s_corels__corels); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_predict_wrap, __pyx_t_1) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_predict_wrap, __pyx_t_1) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "corels/_corels.pyx":144
+  /* "corels/_corels.pyx":145
  *     free(vs)
  * 
  * cdef rule_t* rules = NULL             # <<<<<<<<<<<<<<
@@ -8748,7 +8748,7 @@ if (!__Pyx_RefNanny) {
  */
   __pyx_v_6corels_7_corels_rules = NULL;
 
-  /* "corels/_corels.pyx":145
+  /* "corels/_corels.pyx":146
  * 
  * cdef rule_t* rules = NULL
  * cdef rule_t* labels_vecs = NULL             # <<<<<<<<<<<<<<
@@ -8757,7 +8757,7 @@ if (!__Pyx_RefNanny) {
  */
   __pyx_v_6corels_7_corels_labels_vecs = NULL;
 
-  /* "corels/_corels.pyx":146
+  /* "corels/_corels.pyx":147
  * cdef rule_t* rules = NULL
  * cdef rule_t* labels_vecs = NULL
  * cdef rule_t* minor = NULL             # <<<<<<<<<<<<<<
@@ -8766,7 +8766,7 @@ if (!__Pyx_RefNanny) {
  */
   __pyx_v_6corels_7_corels_minor = NULL;
 
-  /* "corels/_corels.pyx":147
+  /* "corels/_corels.pyx":148
  * cdef rule_t* labels_vecs = NULL
  * cdef rule_t* minor = NULL
  * cdef int n_rules = 0             # <<<<<<<<<<<<<<
@@ -8775,40 +8775,40 @@ if (!__Pyx_RefNanny) {
  */
   __pyx_v_6corels_7_corels_n_rules = 0;
 
-  /* "corels/_corels.pyx":149
+  /* "corels/_corels.pyx":150
  * cdef int n_rules = 0
  * 
  * def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples,             # <<<<<<<<<<<<<<
  *              np.ndarray[np.uint8_t, ndim=2] labels,
  *              features, int max_card, double min_support, verbosity_str, int mverbose,
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6corels_7_corels_3fit_wrap_begin, NULL, __pyx_n_s_corels__corels); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 149, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6corels_7_corels_3fit_wrap_begin, NULL, __pyx_n_s_corels__corels); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 150, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_fit_wrap_begin, __pyx_t_1) < 0) __PYX_ERR(0, 149, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_fit_wrap_begin, __pyx_t_1) < 0) __PYX_ERR(0, 150, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "corels/_corels.pyx":302
+  /* "corels/_corels.pyx":310
  *     return True
  * 
  * def fit_wrap_loop(size_t max_nodes):             # <<<<<<<<<<<<<<
  *     cdef size_t max_num_nodes = max_nodes
  *     return (run_corels_loop(max_num_nodes) != -1)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6corels_7_corels_5fit_wrap_loop, NULL, __pyx_n_s_corels__corels); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 302, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6corels_7_corels_5fit_wrap_loop, NULL, __pyx_n_s_corels__corels); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 310, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_fit_wrap_loop, __pyx_t_1) < 0) __PYX_ERR(0, 302, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_fit_wrap_loop, __pyx_t_1) < 0) __PYX_ERR(0, 310, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "corels/_corels.pyx":306
+  /* "corels/_corels.pyx":314
  *     return (run_corels_loop(max_num_nodes) != -1)
  * 
  * def fit_wrap_end(int early):             # <<<<<<<<<<<<<<
  *     global rules
  *     global labels_vecs
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6corels_7_corels_7fit_wrap_end, NULL, __pyx_n_s_corels__corels); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 306, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6corels_7_corels_7fit_wrap_end, NULL, __pyx_n_s_corels__corels); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 314, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_fit_wrap_end, __pyx_t_1) < 0) __PYX_ERR(0, 306, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_fit_wrap_end, __pyx_t_1) < 0) __PYX_ERR(0, 314, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "corels/_corels.pyx":1

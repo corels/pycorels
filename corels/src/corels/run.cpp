@@ -170,10 +170,15 @@ double run_corels_end(int** rulelist, int* rulelist_size, int** classes, int ear
 
     if(g_tree)
         delete g_tree;
+    g_tree = nullptr;
+
     if(g_pmap)
         delete g_pmap;
+    g_pmap = nullptr;
+    
     if(g_queue)
         delete g_queue;
+    g_queue = nullptr;
    
     return accuracy;
 }

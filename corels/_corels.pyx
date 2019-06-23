@@ -23,6 +23,7 @@ cdef extern from "src/corels/rule.h":
     int rule_vinit(int, VECTOR *)
     void rule_not(VECTOR, VECTOR, int, int *)
     int rule_isset(VECTOR, int)
+    int count_ones_vector(VECTOR, int)
 
 cdef extern from "src/corels/run.h":
     int run_corels_begin(double c, char* vstring, int curiosity_policy,
@@ -280,6 +281,13 @@ def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples,
         n_rules = 0
         raise MemoryError();
     
+    """
+    if count_ones_vector(minor[0].truthtable, nsamples) <= 0:
+        if minor != NULL:
+            _free_vector(minor, 1)
+            minor = NULL
+    """
+
     cdef int rb = run_corels_begin(c, verbosity, policy, map_type, ablation, calculate_size,
                    n_rules, 2, nsamples, rules, labels_vecs, minor)
 

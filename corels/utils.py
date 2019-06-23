@@ -17,7 +17,7 @@ def load_from_csv(fname):
     y : array-line, shape = [n_samples]
         The target values for the sample data
     
-    features : list, optional(default=[])
+    features : list
         A list of strings of length n_features. Specifies the names of each
         of the features.
     """
@@ -42,7 +42,7 @@ def check_array(x, ndim=None, dtype=None, order=None):
     if not hasattr(x, 'shape') and \
        not hasattr(x, '__len__') and \
        not hasattr(x, '__array__'):
-       raise ValueError("Array must be provided, got: " + str(x))
+       raise TypeError("Array must be provided, got: " + str(type(x)))
 
     x = np.array(x)
 
@@ -88,21 +88,21 @@ def check_in(name, allowed, val):
 
 def check_features(features):
     if not isinstance(features, list):
-        raise ValueError("Features must be an list of strings, got: " + str(features))
+        raise TypeError("Features must be a list, got: " + str(type(features)))
     
     for i in range(len(features)):
         if not isinstance(features[i], str):
-            raise ValueError("Each feature much be a string, got: " + str(features[i]))
+            raise TypeError("Each feature much be a string, got: " + str(type(features[i])))
 
 def check_rulelist(rl):
     if not hasattr(rl, "rules") or not hasattr(rl, "features") or not hasattr(rl, "prediction_name"):
         raise ValueError("Rulelist must have the following attributes: 'rules', 'features', 'prediction_name'")
 
     if not isinstance(rl.rules, list):
-        raise ValueError("Rulelist rules must be a list, got: " + str(rl.rules))
+        raise TypeError("Rulelist rules must be a list, got: " + str(type(rl.rules)))
     
     if not isinstance(rl.prediction_name, str):
-        raise ValueError("Prediction name must be a string, got: " + str(rl.prediction_name))
+        raise TypeError("Prediction name must be a string, got: " + str(type(rl.prediction_name)))
 
     check_features(rl.features)
     n_features = len(rl.features)
@@ -111,18 +111,25 @@ def check_rulelist(rl):
         raise ValueError("Rulelist must contain at least the default rule")
 
     for r in range(len(rl.rules)):
-        if not isinstance(rl.rules[r], dict) or \
-           not "prediction" in rl.rules[r] or \
-           not "antecedents" in rl.rules[r] or \
-           not isinstance(rl.rules[r]["prediction"], (bool, int)) or \
-           not isinstance(rl.rules[r]["antecedents"], list): 
-            raise ValueError("Bad rule: " + str(rl.rules[r]))
-       
+        if not isinstance(rl.rules[r], dict):
+            raise TypeError("Each rule must be a dict, got: " + str(type(rl.rules[r])))
+        
+        if not "prediction" in rl.rules[r]:
+            raise ValueError("Rule dicts must contain 'prediction' key")
+        if not "antecedents" in rl.rules[r]:
+            raise ValueError("Rule dicts must contain 'antecedents' key")
+            
+        if not isinstance(rl.rules[r]["prediction"], (bool, int)):
+            raise TypeError("Rule predictions must be bools or ints, got: " + str(type(rl.rules[r]["prediction"])))
+        if not isinstance(rl.rules[r]["antecedents"], list): 
+            raise TypeError("Rule antecedents must be lists, got: " + str(type(rl.rules[r]["antecedents"])))
+        
+
         a_len = len(rl.rules[r]["antecedents"])
         for i in range(a_len):
             rule = rl.rules[r]["antecedents"][i]
             if not isinstance(rule, int):
-                raise ValueError("Rule id must be an int, got: " + str(rule))
+                raise TypeError("Rule id must be an int, got: " + str(type(rule)))
             if abs(rule) > n_features:
                 raise ValueError("Rule id out of bounds: " + str(rule))
 
@@ -169,3 +176,4 @@ class RuleList:
 
         return tot
 
+    #TODO: add __repr__
