@@ -1,6 +1,5 @@
 from __future__ import print_function, division, with_statement
 import os
-import numpy as np
 import sys
 from distutils.core import setup
 from misc_util import Configuration
@@ -11,7 +10,7 @@ def configuration(gmp):
     with open('README.txt') as f:
         long_description = f.read()
 
-    version = '1.1.15'
+    version = '1.1.17'
 
     config = Configuration('corels')
    
@@ -36,7 +35,7 @@ def configuration(gmp):
     config.add_extension('_corels',
                     sources = sources,
                     libraries = libraries,
-                    include_dirs = ['src/', 'src/corels/', np.get_include()],
+                    include_dirs = ['src/', 'src/corels/'],
                     language = "c++",
                     extra_compile_args = cpp_args)
     

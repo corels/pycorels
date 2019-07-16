@@ -1,5 +1,5 @@
 from __future__ import print_function, division, with_statement
-from . import _corels
+from ._corels import fit_wrap_begin, fit_wrap_end, fit_wrap_loop, predict_wrap
 from .utils import check_consistent_length, check_array, check_is_fitted, get_feature, check_in, check_features, check_rulelist, RuleList
 import numpy as np
 import pickle
@@ -221,7 +221,7 @@ class CorelsClassifier:
         map_id = map_types.index(self.map_type)
         policy_id = policies.index(self.policy)
 
-        fr = _corels.fit_wrap_begin(samples.astype(np.uint8, copy=False),
+        fr = fit_wrap_begin(samples.astype(np.uint8, copy=False),
                              labels.astype(np.uint8, copy=False), rl.features,
                              self.max_card, self.min_support, verbose, mine_verbose, minor_verbose,
                              self.c, policy_id, map_id, self.ablation, False)
@@ -229,17 +229,17 @@ class CorelsClassifier:
         if fr:
             early = False
             try:
-                while _corels.fit_wrap_loop(self.n_iter):
+                while fit_wrap_loop(self.n_iter):
                     pass
             except:
                 print("\nExiting early")
-                rl.rules = _corels.fit_wrap_end(True)
+                rl.rules = fit_wrap_end(True)
                 
                 self.rl_ = rl
 
                 raise
              
-            rl.rules = _corels.fit_wrap_end(False)
+            rl.rules = fit_wrap_end(False)
             
             self.rl_ = rl
         else:
@@ -273,7 +273,7 @@ class CorelsClassifier:
             raise ValueError("Feature count mismatch between eval data (" + str(X.shape[1]) + 
                              ") and feature names (" + str(len(self.rl_.features)) + ")")
 
-        return np.array(_corels.predict_wrap(samples.astype(np.uint8, copy=False), self.rl_.rules), dtype=np.bool)
+        return np.array(predict_wrap(samples.astype(np.uint8, copy=False), self.rl_.rules), dtype=np.bool)
 
     def score(self, X, y):
         """
