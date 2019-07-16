@@ -43,7 +43,7 @@ class CorelsClassifier:
 
     verbosity : list, optional (default=["progress"])
         The verbosity levels required. A list of strings, it can contain any
-        subset of ["rule", "label", "samples", "progress", "log", "loud"].
+        subset of ["rule", "label", "minor", "samples", "progress", "mine", "loud"].
         - "rule" prints a summary of each rule generated.
         - "label" prints a summary of the class labels.
         - "minor" prints a summary of the minority bound.
@@ -52,9 +52,8 @@ class CorelsClassifier:
             to specify which data you want to dump, or "loud" for all data. The "samples"
             option often spits out a lot of output.
         - "progress" prints periodic messages as corels runs.
-        - "log" prints machine information.
         - "mine" prints debug information while mining rules, including each rule as it is generated.
-        - "loud" is the equivalent of ["progress", "log", "label", "rule", "mine", "minor"].
+        - "loud" is the equivalent of ["progress", "label", "rule", "mine", "minor"].
 
     ablation : int, optional (default=0)
         Specifies addition parameters for the bounds used while searching. Accepted
@@ -189,7 +188,7 @@ class CorelsClassifier:
         
         rl.prediction_name = prediction_name
 
-        allowed_verbosities = ["rule", "label", "samples", "progress", "log", "loud", "mine", "minor"]
+        allowed_verbosities = ["rule", "label", "samples", "progress", "loud", "mine", "minor"]
         for v in self.verbosity:
             if not isinstance(v, str):
                 raise TypeError("Verbosity flags must be strings, got: " + str(v))

@@ -73,9 +73,6 @@ typedef v_entry *VECTOR;
 
 #define BITS_PER_ENTRY (sizeof(v_entry) * 8)
 
-#define RANDOM_RANGE(lo, hi) \
-    (unsigned)(lo + (unsigned)((random() / (float)RAND_MAX) * (hi - lo + 1)))
-
 /*
  * We have slightly different structures to represent the original rules 
  * and rulesets. The original structure contains the ascii representation
@@ -100,7 +97,7 @@ typedef struct ruleset {
 	int n_rules;			/* Number of actual rules. */
 	int n_alloc;			/* Spaces allocated for rules. */
 	int n_samples;
-	ruleset_entry_t rules[];	/* Array of rules. */
+	ruleset_entry_t* rules;	/* Array of rules. */
 } ruleset_t;
 
 typedef struct params {
@@ -147,7 +144,6 @@ void ruleset_print(ruleset_t *, rule_t *, int);
 void ruleset_entry_print(ruleset_entry_t *, int, int);
 int create_random_ruleset(int, int, int, rule_t *, ruleset_t **);
 
-int rules_init(const char *, int *, int *, rule_t **, int);
 void rules_free(rule_t *, const int, int);
 
 void rule_print(rule_t *, int, int, int);

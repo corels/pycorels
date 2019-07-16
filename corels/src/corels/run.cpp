@@ -14,18 +14,44 @@ static Queue* g_queue = nullptr;
 static double g_init = 0.0;
 static std::set<std::string> g_verbosity;
 
+char* m_strsep(char** stringp, char delim)
+{
+    if(stringp == NULL) {
+        return NULL;
+    }
+    
+    char* str = *stringp;
+    if(str == NULL || *str == '\0') {
+        return NULL;
+    }
+
+    char* out = NULL;
+
+    while(*str != '\0') {
+        if(*str == delim) {
+            *str = '\0';
+            out = *stringp;
+	    *stringp = str + 1;
+            break;
+	}
+	str++;
+    }
+
+    return out;
+}
+
 int run_corels_begin(double c, char* vstring, int curiosity_policy,
                   int map_type, int ablation, int calculate_size, int nrules, int nlabels,
                   int nsamples, rule_t* rules, rule_t* labels, rule_t* meta) 
 {
     g_verbosity.clear();
 
-    const char *voptions = "rule|label|samples|progress|log|loud|mine|minor";
+    const char *voptions = "rule|label|samples|progress|loud|mine|minor";
 
     char *vopt = NULL;
-    char *vcopy = strdup(vstring);
+    char *vcopy = _strdup(vstring);
     char *vcopy_begin = vcopy;
-    while ((vopt = strsep(&vcopy, ",")) != NULL) {
+    while ((vopt = m_strsep(&vcopy, ',')) != NULL) {
         if (!strstr(voptions, vopt)) {
             fprintf(stderr, "verbosity options must be one or more of (%s)\n", voptions);
             return -1;
@@ -36,7 +62,6 @@ int run_corels_begin(double c, char* vstring, int curiosity_policy,
 
     if (g_verbosity.count("loud")) {
         g_verbosity.insert("progress");
-        g_verbosity.insert("log");
         g_verbosity.insert("label");
         g_verbosity.insert("rule");
         g_verbosity.insert("mine");
@@ -47,10 +72,6 @@ int run_corels_begin(double c, char* vstring, int curiosity_policy,
     if (g_verbosity.count("progress"))
         printf("**Not using GMP library**\n");
 #endif
-
-    if (g_verbosity.count("log")) {
-        print_machine_info();
-    }
 
     if (g_verbosity.count("rule")) {
         printf("%d rules %d samples\n\n", nrules, nsamples);

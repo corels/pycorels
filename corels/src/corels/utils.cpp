@@ -1,8 +1,21 @@
 #include "utils.hh"
 #include <stdio.h>
 #include <assert.h>
-#include <sys/utsname.h>
 
+// This patch taken from StackOverflow: https://stackoverflow.com/a/20861692
+#ifdef _WIN32
+#include <sstream>
+
+namespace patch
+{
+    template < typename T > std::string to_string( const T& n )
+    {
+        std::ostringstream stm ;
+        stm << n ;
+        return stm.str() ;
+    }
+}
+#endif
 
 Logger::Logger(double c, size_t nrules, int verbosity, char* log_fname, int freq) {
       _c = c;
@@ -80,10 +93,17 @@ std::string Logger::dumpPrefixLens() {
     std::string s = "";
     for(size_t i = 0; i < _nrules; ++i) {
         if (_state.prefix_lens[i] > 0) {
+#ifdef _WIN32
+            s += patch::to_string(i);
+            s += ":";
+            s += patch::to_string(_state.prefix_lens[i]);
+            s += ";";
+#else
             s += std::to_string(i);
             s += ":";
             s += std::to_string(_state.prefix_lens[i]);
             s += ";";
+#endif
         }
     }
     return s;
@@ -144,22 +164,4 @@ void print_final_rulelist(const tracking_vector<unsigned short, DataStruct::Tree
     }
     f << "default~" << preds.back();
     f.close();
-}
-
-/*
- * Prints out information about the machine.
- */
-void print_machine_info() {
-    struct utsname buffer;
-
-    if (uname(&buffer) == 0) {
-        printf("System information:\n"
-               "system name-> %s; node name-> %s; release-> %s; "
-               "version-> %s; machine-> %s\n\n",
-               buffer.sysname,
-               buffer.nodename,
-               buffer.release,
-               buffer.version,
-               buffer.machine);
-    }
 }

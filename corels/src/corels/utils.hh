@@ -1,14 +1,17 @@
 #pragma once
 
 #include "rule.h"
+#include "time.hh"
 
 #include <cstdlib>
-#include <sys/time.h>
 #include <string.h>
 #include <stdio.h>
 #include <fstream>
 #include <vector>
 #include <set>
+
+
+
 
 using namespace std;
 
@@ -356,5 +359,3 @@ void print_final_rulelist(const tracking_vector<unsigned short, DataStruct::Tree
                           const rule_t labels[],
                           char fname[],
    			  int print_progress);
-
-void print_machine_info();

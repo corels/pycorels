@@ -1,7 +1,6 @@
 #include "queue.hh"
 #include <algorithm>
 #include <iostream>
-#include <sys/resource.h>
 #include <stdio.h>
 
 Queue::Queue(std::function<bool(Node*, Node*)> cmp, char const *type)

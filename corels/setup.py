@@ -11,24 +11,30 @@ def configuration(gmp):
     version = '1.1.13'
 
     config = Configuration('corels')
-    
-    cpp_args = ['-Wall', '-O3', '-std=c++11']
+   
+    cpp_args = []
     libraries = []
     
+    if os.name != "nt":
+        cpp_args = ['-Wall', '-O3', '-std=c++11']
+    
     if os.name == 'posix':
-        libraries.append('m')
+        libraries = ['m']
     
     if gmp:
         cpp_args.append('-DGMP')
         libraries.append('gmp')
     
+    sources = ['_corels.cpp', 'src/utils.cpp', 'src/corels/rulelib.cpp',
+        'src/corels/run.cpp', 'src/corels/pmap.cpp', 
+        'src/corels/utils.cpp', 'src/corels/corels.cpp', 'src/corels/cache.cpp',
+        'src/corels/time.cpp']
+    
     config.add_extension('_corels',
-                    sources = ['_corels.cpp', 'src/utils.cpp', 'src/corels/rulelib.cpp',
-                    'src/corels/run.cpp', 'src/corels/pmap.cpp', 
-                    'src/corels/utils.cpp', 'src/corels/corels.cpp', 'src/corels/cache.cpp'],
+                    sources = sources,
                     libraries = libraries,
                     include_dirs = ['src/', 'src/corels/', np.get_include()],
-		            language = "c++",
+                    language = "c++",
                     extra_compile_args = cpp_args)
     
     config = config.todict()
