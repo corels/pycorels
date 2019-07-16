@@ -42,7 +42,7 @@ def install(gmp):
 
     if gmp:
         libraries.append('gmp')
-        macros.append(('GMP', '1'))
+        macros.append(("GMP", "1"))
 
     extension = Extension("corels._corels", 
                 sources = sources,
@@ -65,8 +65,8 @@ def install(gmp):
         author_email = 'vassilioskaxiras@gmail.com',
         description = description,
         long_description = long_description,
-        setup_requires = ['numpy>=1.16', 'cython'],
-        install_requires = ['numpy>=1.16'],
+        setup_requires = ['numpy<1.17'],
+        install_requires = ['numpy<1.17'],
         python_requires = '>=2.7',
         url = 'https://github.com/fingoldin/pycorels',
         cmdclass = {'build_ext': build_numpy},
