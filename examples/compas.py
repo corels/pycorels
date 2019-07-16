@@ -24,7 +24,7 @@ c.fit(X_train, y_train, features=features)
 # Score the model on the test set
 a = c.score(X_test, y_test)
 
-print("Test Accuracy: ", a)
+print("Test Accuracy: " + str(a))
 
 # Print the rulelist
 print(c.rl())

@@ -4,4 +4,7 @@ Documentation for this package is hosted at: https://corels.eecs.harvard.edu/cor
 
 For information on CORELS, please visit our website: https://corels.eecs.harvard.edu.
 
-In order to install corels, you must first install GMP, the GNU Multiple Precision Arithmetic library (https://gmplib.org/)
+For the code of this package, visit: https://github.com/fingoldin/pycorels
+
+CORELS uses Python, Numpy, GMP, and a C++ compiler (g++ is a great choice).
+GMP (GNU Multiple Precision library) is not required, but it is *highly recommended*, as it improves performance. If it is not installed, CORELS will run slower.

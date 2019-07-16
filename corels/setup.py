@@ -10,7 +10,7 @@ def configuration(gmp):
     with open('README.txt') as f:
         long_description = f.read()
 
-    version = '1.1.13'
+    version = '1.1.15'
 
     config = Configuration('corels')
    
@@ -44,6 +44,7 @@ def configuration(gmp):
     config['author'] = 'Vassilios Kaxiras'
     config['author_email'] = 'vassilioskaxiras@gmail.com'
     config['description'] = description
+    config['install_requires'] = ['numpy']
     config['long_description'] = long_description
     config['url'] = 'https://github.com/fingoldin/pycorels'
     config['package_data'] = {'': ['VERSION.txt']}
@@ -57,8 +58,8 @@ def configuration(gmp):
 
 if __name__ == "__main__":
     from numpy.distutils.core import setup
-#    try:
-    setup(**configuration(True))
-#    except:
-#        setup(**configuration(False))
+    try:
+        setup(**configuration(True))
+    except:
+        setup(**configuration(False))
         

@@ -19,7 +19,7 @@ def check_array(x, ndim=None):
     if not np.array_equal(x, asbool):
         raise ValueError("Array must contain only binary members (0 or 1), got " + str(x));
 
-    return asbool.astype(np.uint8, copy=False)
+    return asbool
 
 def check_consistent_length(x, y):
     if x.ndim < 1 or y.ndim < 1:

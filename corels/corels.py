@@ -221,7 +221,8 @@ class CorelsClassifier:
         map_id = map_types.index(self.map_type)
         policy_id = policies.index(self.policy)
 
-        fr = _corels.fit_wrap_begin(samples, labels, rl.features,
+        fr = _corels.fit_wrap_begin(samples.astype(np.uint8, copy=False),
+                             labels.astype(np.uint8, copy=False), rl.features,
                              self.max_card, self.min_support, verbose, mine_verbose, minor_verbose,
                              self.c, policy_id, map_id, self.ablation, False)
         
@@ -272,7 +273,7 @@ class CorelsClassifier:
             raise ValueError("Feature count mismatch between eval data (" + str(X.shape[1]) + 
                              ") and feature names (" + str(len(self.rl_.features)) + ")")
 
-        return np.array(_corels.predict_wrap(samples, self.rl_.rules), dtype=np.bool)
+        return np.array(_corels.predict_wrap(samples.astype(np.uint8, copy=False), self.rl_.rules), dtype=np.bool)
 
     def score(self, X, y):
         """

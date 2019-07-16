@@ -22,10 +22,10 @@ for f in range(iris.data.shape[1]):
 
 X, y = pd.DataFrame(data, columns=feature_names), targets
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
 
-C_Setosa = CorelsClassifier(c=0.0, verbosity=[])
-C_Versicolour = CorelsClassifier(c=0.0, verbosity=[])
+C_Setosa = CorelsClassifier(verbosity=[])
+C_Versicolour = CorelsClassifier(verbosity=[])
 
 C_Setosa.fit(X_train, y_train == 0, features=feature_names, prediction_name="Setosa")
 s_Setosa = C_Setosa.score(X_test, y_test == 0)

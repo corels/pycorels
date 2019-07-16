@@ -15,7 +15,7 @@ More information about the algorithm [can be found here](https://corels.eecs.har
 
 ## Dependencies
 
-CORELS uses [Python](https://www.python.org), [Numpy](https://www.numpy.org), and [GMP](https://gmplib.org).
+CORELS uses [Python](https://www.python.org), [Numpy](https://www.numpy.org), [GMP](https://gmplib.org), and a C++ compiler (gcc/g++ is a great choice).
 GMP (GNU Multiple Precision library) is not required, but it is *highly recommended*, as it improves performance. If it is not installed, CORELS will run slower.
 
 ## Installation
@@ -28,7 +28,7 @@ To install from this repo, simply run `pip install .` or `python setup.py instal
 #### Linux
 
 ```
-sudo apt install libgmp-dev
+sudo apt install libgmp-dev gcc g++
 pip install corels
 ```
 
@@ -36,7 +36,7 @@ pip install corels
 
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install gmp
+brew install gmp    # and gcc/g++ too perhaps
 pip install corels
 ```
 

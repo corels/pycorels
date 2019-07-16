@@ -27,14 +27,14 @@ char* m_strsep(char** stringp, char delim)
 
     char* out = NULL;
 
-    while(*str != '\0') {
-        if(*str == delim) {
-            *str = '\0';
+    while(1) {
+        if(*str == delim || *str == '\0') {
             out = *stringp;
-	    *stringp = str + 1;
+	        *stringp = (*str == '\0') ? NULL : str + 1;
+            *str = '\0';
             break;
-	}
-	str++;
+	    }
+	    str++;
     }
 
     return out;
