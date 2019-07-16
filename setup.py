@@ -42,7 +42,7 @@ def install(gmp):
                 libraries = libraries,
                 define_macros = macros,
                 include_dirs = ['corels/src/', 'corels/src/corels'],
-                langauge = "c++",
+                language = "c++",
                 extra_compile_args = cpp_args)
 
     extensions = [extension]
@@ -58,6 +58,7 @@ def install(gmp):
         author_email = 'vassilioskaxiras@gmail.com',
         description = description,
         long_description = long_description,
+        setup_requires = ['numpy', 'cython'],
         install_requires = ['numpy', 'cython'],
         url = 'https://github.com/fingoldin/pycorels',
         classifiers = (
