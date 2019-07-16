@@ -785,7 +785,7 @@ void
 rule_vector_print(VECTOR v, int nsamples)
 {
 #ifdef GMP
-	char* str = mpz_ge_str(NULL, 2, v);
+	char* str = mpz_get_str(NULL, 2, v);
     int len = strlen(str);
     for(int i = 0; i < (nsamples - len); i++) {
         fputc('0', stdout);
@@ -801,7 +801,7 @@ rule_vector_print(VECTOR v, int nsamples)
     unsigned n = (nsamples + BITS_PER_ENTRY - 1) / BITS_PER_ENTRY;
     for(unsigned i = 0; i < n; i++) {
         v_entry t = v[i];
-        for(unsigned j = 0; j < BITS_PER_ENTRY && (i * BITS_PER_ENTRY + j) < nsamples; j++) {
+        for(unsigned j = 0; j < BITS_PER_ENTRY && (i * BITS_PER_ENTRY + j) < (unsigned)nsamples; j++) {
             printf("%d", !!(t & m));
             t <<= 1;
         }

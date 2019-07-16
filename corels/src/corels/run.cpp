@@ -40,6 +40,10 @@ char* m_strsep(char** stringp, char delim)
     return out;
 }
 
+#ifndef _WIN32
+#define _strdup strdup
+#endif
+
 int run_corels_begin(double c, char* vstring, int curiosity_policy,
                   int map_type, int ablation, int calculate_size, int nrules, int nlabels,
                   int nsamples, rule_t* rules, rule_t* labels, rule_t* meta) 
