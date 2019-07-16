@@ -44,13 +44,17 @@ class CorelsClassifier:
     verbosity : list, optional (default=["progress"])
         The verbosity levels required. A list of strings, it can contain any
         subset of ["rule", "label", "samples", "progress", "log", "loud"].
-        - "rule" prints the a summary for each rule generated.
+        - "rule" prints a summary of each rule generated.
         - "label" prints a summary of the class labels.
-        - "samples" produces a complete dump of the rules and/or label 
-            data. "rule" being or "label" must also be already provided.
+        - "minor" prints a summary of the minority bound.
+        - "samples" produces a complete dump of the rules, label, and/or minor
+            data. You must also provide at least one of "rule", "label", or "minor"
+            to specify which data you want to dump, or "loud" for all data. The "samples"
+            option often spits out a lot of output.
         - "progress" prints periodic messages as corels runs.
         - "log" prints machine information.
-        - "loud" is the equivalent of ["progress", "log", "label", "rule"]
+        - "mine" prints debug information while mining rules, including each rule as it is generated.
+        - "loud" is the equivalent of ["progress", "log", "label", "rule", "mine", "minor"].
 
     ablation : int, optional (default=0)
         Specifies addition parameters for the bounds used while searching. Accepted
@@ -86,6 +90,8 @@ class CorelsClassifier:
     [ True False  True ]
     """
     
+    _estimator_type = "classifier"
+
     def __init__(self, c=0.01, n_iter=10000, map_type="prefix", policy="lower_bound",
                  verbosity=["progress"], ablation=0, max_card=2, min_support=0.01):
         self.c = c
@@ -97,6 +103,7 @@ class CorelsClassifier:
         self.max_card = max_card
         self.min_support = min_support
 
+    # TODO: Check early stop for memory leaks
     def fit(self, X, y, features=[], prediction_name="prediction"):
         """
         Build a CORELS classifier from the training set (X, y).
@@ -182,7 +189,7 @@ class CorelsClassifier:
         
         rl.prediction_name = prediction_name
 
-        allowed_verbosities = ["rule", "label", "samples", "progress", "log", "loud"]
+        allowed_verbosities = ["rule", "label", "samples", "progress", "log", "loud", "mine", "minor"]
         for v in self.verbosity:
             if not isinstance(v, str):
                 raise TypeError("Verbosity flags must be strings, got: " + str(v))
@@ -191,14 +198,20 @@ class CorelsClassifier:
         
         if "samples" in self.verbosity \
               and "rule" not in self.verbosity \
-              and "label" not in self.verbosity:
+              and "label" not in self.verbosity \
+              and "minor" not in self.verbosity \
+              and "loud" not in self.verbosity:
             raise ValueError("'samples' verbosity option must be combined with at" + 
-                             " least one of 'rule' or 'label'")
+                             " least one of 'rule', 'label', 'minor', or 'loud'")
 
         # Verbosity for rule mining and minority bound. 0 is quiet, 1 is verbose
-        m_verbose = 0
+        mine_verbose = 0
         if "loud" in self.verbosity or "mine" in self.verbosity:
-            m_verbose = 1
+            mine_verbose = 1
+        
+        minor_verbose = 0
+        if "loud" in self.verbosity or "minor" in self.verbosity:
+            minor_verbose = 1
         
         verbose = ",".join(self.verbosity)
 
@@ -212,11 +225,9 @@ class CorelsClassifier:
         policy_id = policies.index(self.policy)
 
         fr = _corels.fit_wrap_begin(samples, labels, rl.features,
-                             self.max_card, self.min_support, verbose, m_verbose, self.c, policy_id,
-                             map_id, self.ablation, False)
+                             self.max_card, self.min_support, verbose, mine_verbose, minor_verbose,
+                             self.c, policy_id, map_id, self.ablation, False)
         
-        acc = 0.0
-
         if fr:
             early = False
             try:
@@ -227,14 +238,13 @@ class CorelsClassifier:
                 rl.rules = _corels.fit_wrap_end(True)
                 
                 self.rl_ = rl
-                self.is_fitted_ = True
 
                 raise
              
             rl.rules = _corels.fit_wrap_end(False)
             
             self.rl_ = rl
-            self.is_fitted_ = True
+            print("");
         else:
             print("Error running model! Exiting")
 
@@ -257,7 +267,7 @@ class CorelsClassifier:
             The classifications of the input samples.
         """
 
-        check_is_fitted(self, "is_fitted_")
+        check_is_fitted(self, "rl_")
         check_rulelist(self.rl_)        
 
         samples = np.array(check_array(X, ndim=2, dtype=np.bool, order='C'), dtype=np.uint8)
@@ -339,42 +349,37 @@ class CorelsClassifier:
             if param not in valid_params:
                 raise ValueError("Invalid parameter '" + str(param) + "' given in set_params. "
                                  "Check the list of valid parameters with get_params()")
-            self.setattr(param, val)
+            setattr(self, param, val)
 
         return self
 
-    # TODO: Make human-readable
     def save(self, fname):
         """
-        Save the rulelist to a file, using python's pickle module.
+        Save the model to a file, using python's pickle module.
 
         Parameters
         ----------
         fname : string
-            File name to store the rulelist in
+            File name to store the model in
         
         Returns
         -------
         self : obj
         """
 
-        check_is_fitted(self, "is_fitted_")
-        check_rulelist(self.rl_)
-
         with open(fname, "wb") as f:
-            pickle.dump({ "f": self.rl_.features, "r": self.rl_.rules, "p": self.rl_.prediction_name }, f)
+            pickle.dump(self, f)
 
         return self
 
-    # TODO: Make human-readable
     def load(self, fname):
         """
-        Load a rulelist from a file, using python's pickle module.
+        Load a model from a file, using python's pickle module.
         
         Parameters
         ----------
         fname : string
-            File name to load the rulelist from
+            File name to load the model from
         
         Returns
         -------
@@ -382,37 +387,42 @@ class CorelsClassifier:
         """
 
         with open(fname, "rb") as f:
-            rl_dict = pickle.load(f)
-            if not "r" in rl_dict or not "f" in rl_dict or not "p" in rl_dict:
-                raise ValueError("Invalid rulelist file")
-            
-            rl = RuleList()
-            rl.rules = rl_dict["r"]
-            rl.features = rl_dict["f"]
-            rl.prediction_name = rl_dict["p"]
-            check_rulelist(rl)
+            model = pickle.load(f)
+           
+            if not hasattr(model, "get_params"):
+                raise ValueError("Invalid model provided, model must have get_params() method")
+                
+            self.set_params(**model.get_params())
 
-            self.rl_ = rl
-            self.is_fitted_ = True
+            if hasattr(model, "rl_"):
+                self.rl_ = model.rl_
 
         return self
 
-    # TODO: Reformat
-    def printrl(self):
+    def rl(self):
         """
-        Print the rulelist in a human-friendly format.
+        Return the learned rulelist
 
         Returns
         -------
-        self : obj
+        rl : obj
         """
 
-        print(self)
-        return self
+        check_is_fitted(self, "rl_")
+        return self.rl_
     
-    # TODO: Make unique
-    def __repr__(self):
-        check_is_fitted(self, "is_fitted_")
-        return self.rl_.__str__()
+    def __str__(self):
+        s = "CorelsClassifier (" + str(self.get_params()) + ")"
 
-    #TODO: Make __str__()
+        if hasattr(self, "rl_"):
+            s += "\n" + self.rl_.__str__()
+
+        return s
+    
+    def __repr__(self):
+        s = "CorelsClassifier (" + str(self.get_params()) + ")"
+
+        if hasattr(self, "rl_"):
+            s += "\n" + self.rl_.__repr__()
+
+        return s

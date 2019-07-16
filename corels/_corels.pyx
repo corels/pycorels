@@ -1,4 +1,5 @@
 # distutils: language = c++
+# cython: language_level = 3
 
 from libc.string cimport strdup, strcpy
 from libc.stdlib cimport malloc, free
@@ -96,14 +97,14 @@ def predict_wrap(np.ndarray[np.uint8_t, ndim=2] X, rules):
 
     return out
 
-cdef rule_t* _to_vector(np.ndarray[np.uint8_t, ndim=2] X, int* ncount):
+cdef rule_t* _to_vector(np.ndarray[np.uint8_t, ndim=2] X, int* ncount_out):
     d0 = X.shape[0]
     d1 = X.shape[1]
     cdef rule_t* vectors = <rule_t*>malloc(d0 * sizeof(rule_t))
     if vectors == NULL:
         raise MemoryError()
 
-    cdef int nones;
+    cdef int nones, ncount;
 
     for i in range(d0):
         arrstr = ""
@@ -114,12 +115,15 @@ cdef rule_t* _to_vector(np.ndarray[np.uint8_t, ndim=2] X, int* ncount):
                 arrstr += "0"
         
         bytestr = arrstr.encode("ascii")
-        if ascii_to_vector(bytestr, len(bytestr), ncount, &nones, &vectors[i].truthtable) != 0:
+        ncount = len(bytestr)
+        if ascii_to_vector(bytestr, ncount, &ncount, &nones, &vectors[i].truthtable) != 0:
             for j in range(i):
                 rule_vfree(&vectors[j].truthtable)
 
             free(vectors)
             raise ValueError("Could not load samples")
+
+        ncount_out[0] = ncount
 
         vectors[i].ids = NULL
         vectors[i].features = NULL
@@ -149,8 +153,8 @@ cdef int n_rules = 0
 
 def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples, 
              np.ndarray[np.uint8_t, ndim=2] labels,
-             features, int max_card, double min_support, verbosity_str, int mverbose,
-             double c, int policy, int map_type, int ablation,
+             features, int max_card, double min_support, verbosity_str, int mine_verbose,
+             int minor_verbose, double c, int policy, int map_type, int ablation,
              int calculate_size):
     global rules
     global labels_vecs
@@ -195,7 +199,7 @@ def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples,
     n_rules = 0
 
     cdef int r = mine_rules(features_vec, samples_vecs, nfeatures, nsamples,
-                max_card, min_support, &rules, mverbose)
+                max_card, min_support, &rules, mine_verbose)
 
     if features_vec != NULL:
         for i in range(nfeatures):
@@ -270,7 +274,7 @@ def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples,
         n_rules = 0
         raise MemoryError();
 
-    cdef int mr = minority(rules, n_rules, labels_vecs, nsamples, minor, mverbose)
+    cdef int mr = minority(rules, n_rules, labels_vecs, nsamples, minor, minor_verbose)
     if mr != 0:
         if labels_vecs != NULL:
             _free_vector(labels_vecs, 2)
@@ -280,14 +284,12 @@ def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples,
             rules = NULL
         n_rules = 0
         raise MemoryError();
-    
-    """
+    """    
     if count_ones_vector(minor[0].truthtable, nsamples) <= 0:
         if minor != NULL:
             _free_vector(minor, 1)
             minor = NULL
     """
-
     cdef int rb = run_corels_begin(c, verbosity, policy, map_type, ablation, calculate_size,
                    n_rules, 2, nsamples, rules, labels_vecs, minor)
 

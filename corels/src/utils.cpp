@@ -17,7 +17,7 @@ int minority(rule_t* rules, int nrules, rule_t* labels, int nsamples, rule_t* mi
   if(!rules || !labels || !minority_out) {
     return -1;
   }
-  int ret = 0, nrules_chk = 0, begin_group = 0, nsamples_chk = 0, nones;
+  int ret = 0, begin_group = 0, nones;
   int *sample_indices = NULL;
   char *line_clean = NULL, *minority = NULL;
 
@@ -31,11 +31,11 @@ int minority(rule_t* rules, int nrules, rule_t* labels, int nsamples, rule_t* mi
   // Generate the sample bitvectors
   for(int s = 0; s < nsamples; s++) {
     for(int i = 0; i < nrules; i++)
-      line_clean[i] = rule_isset(rules[i].truthtable, nsamples - s - 1) + '0';
+      line_clean[i] = rule_isset(rules[i].truthtable, nsamples - s - 1, nsamples) + '0';
 
     line_clean[nrules] = '\0';
 
-    if(ascii_to_vector(line_clean, nrules, &nrules_chk, &nones, &sample_array[s].truthtable) != 0) {
+    if(ascii_to_vector(line_clean, nrules, &nrules, &nones, &sample_array[s].truthtable) != 0) {
       ret = -1;
       nsamples = s;
       goto end;
@@ -50,21 +50,21 @@ int minority(rule_t* rules, int nrules, rule_t* labels, int nsamples, rule_t* mi
 
   // Loop through the sorted samples, finding identically-featured groups
   for(int i = 1; i < (nsamples + 1); i++) {
-    if(i == nsamples || !rule_vector_equal(sample_array[sample_indices[i]].truthtable,
-                            sample_array[sample_indices[i-1]].truthtable, nrules, nrules)) {
+    if(i == nsamples || rule_vector_cmp(sample_array[sample_indices[i]].truthtable,
+                            sample_array[sample_indices[i-1]].truthtable, nrules, nrules) != 0) {
       int ones = 0;
       int zeroes = 0;
       char c, nc;
       // Find the number of zero-labelled and one-labelled samples in this group
       for(int j = begin_group; j < i; j++) {
         int idx = sample_indices[j];
-        if(rule_isset(labels[0].truthtable, nsamples - idx - 1))
+        if(rule_isset(labels[0].truthtable, nsamples - idx - 1, nsamples))
           zeroes++;
         else
           ones++;
       }
 
-      // What should happen if zeroes = ones??
+      // What should happen if zeroes == ones??
       // Right now it just replicates bbcache/processing/minority.py
       if(zeroes < ones) {
         c = '1';
@@ -78,7 +78,7 @@ int minority(rule_t* rules, int nrules, rule_t* labels, int nsamples, rule_t* mi
       // Set all the samples in this group to either 0 or 1 in the minority file
       for(int j = begin_group; j < i; j++) {
         int idx = sample_indices[j];
-        if(rule_isset(labels[0].truthtable, nsamples - idx - 1)) {
+        if(rule_isset(labels[0].truthtable, nsamples - idx - 1, nsamples)) {
           minority[idx] = c;
         }
         else {
@@ -93,7 +93,7 @@ int minority(rule_t* rules, int nrules, rule_t* labels, int nsamples, rule_t* mi
   minority[nsamples] = '\0';
  
   minority_out->support = 0;
-  if (ascii_to_vector(minority, nsamples, &nsamples_chk, &minority_out->support, &minority_out->truthtable) != 0) {
+  if (ascii_to_vector(minority, nsamples, &nsamples, &minority_out->support, &minority_out->truthtable) != 0) {
     ret = -1;
     goto end;
   }
@@ -162,9 +162,6 @@ int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples,
   int *rule_ids = NULL, *rule_names_mine_lengths = NULL;
   rule_t *rules_vec = NULL, *rules_vec_mine = NULL;
   
-  int min_thresh = round(min_support * (double)nsamples);
-  int max_thresh = round((1.0 - min_support) * (double)nsamples);
-
   nrules = nfeatures * 2;
   rule_alloc = nrules + 1;
   rules_vec = (rule_t*)malloc(sizeof(rule_t) * rule_alloc);
@@ -197,13 +194,13 @@ int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples,
   {
     for(int j = 0; j < nsamples; j++)
     {
-      if(rule_isset(samples[j].truthtable, nfeatures - i - 1)) {
-        rule_set(rules_vec[i + 1].truthtable, nsamples - j - 1, 1);
-        rule_set(rules_vec[nrules / 2 + i + 1].truthtable, nsamples - j - 1, 0);
+      if(rule_isset(samples[j].truthtable, nfeatures - i - 1, nfeatures)) {
+        rule_set(rules_vec[i + 1].truthtable, nsamples - j - 1, 1, nsamples);
+        rule_set(rules_vec[nrules / 2 + i + 1].truthtable, nsamples - j - 1, 0, nsamples);
       }
       else {
-        rule_set(rules_vec[i + 1].truthtable, nsamples - j - 1, 0);
-        rule_set(rules_vec[nrules / 2 + i + 1].truthtable, nsamples - j - 1, 1);
+        rule_set(rules_vec[i + 1].truthtable, nsamples - j - 1, 0, nsamples);
+        rule_set(rules_vec[nrules / 2 + i + 1].truthtable, nsamples - j - 1, 1, nsamples);
       }
     }
   }
@@ -215,7 +212,7 @@ int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples,
     // If the rule satisfies the threshold requirements, add it to the out file.
     // If it exceeds the maximum threshold, it is still kept for later rule mining
     // If it less than the minimum threshold, don't add it
-    if(ones < min_thresh) {
+    if((double)ones / (double)nsamples < min_support) {
       rule_vfree(&rules_vec[i + 1].truthtable);
       continue;
     }
@@ -239,7 +236,7 @@ int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples,
 
     rule_names_mine_lengths[nrules_mine] = strlen(rules_vec_mine[nrules_mine].features);
     
-    if(ones <= max_thresh) {
+    if((double)ones / (double)nsamples <= 1.0 - min_support) {
       memcpy(&rules_vec[ntotal_rules + 1], &rules_vec[i + 1], sizeof(rule_t));
       rules_vec[ntotal_rules + 1].cardinality = 1;
       rules_vec[ntotal_rules + 1].support = ones;
@@ -284,16 +281,16 @@ int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples,
       int ones = count_ones_vector(gen_rule.truthtable, nsamples);
 
       // Generate the new rule by successive and operations, and check if it has a valid support
-      if(ones >= min_thresh) {
+      if((double)ones / (double)nsamples >= min_support) {
         for(int i = 1; i < card; i++) {
           rule_vand(gen_rule.truthtable, rules_vec_mine[rule_ids[i]].truthtable, gen_rule.truthtable, nsamples, &ones);
-          if(ones < min_thresh) {
+          if((double)ones / (double)nsamples < min_support) {
             valid = 0;
             break;
           }
         }
 
-        if(valid && ones > max_thresh)
+        if(valid && (double)ones / (double)nsamples > 1.0 - min_support)
           valid = 0;
       }
       else

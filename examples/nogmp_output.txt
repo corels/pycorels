@@ -1,0 +1,1898 @@
+(1) Age=18-22 generated with support 0.050000
+(2) Age=18-25 generated with support 0.250000
+(3) Age=24-30 generated with support 0.150000
+(4) Age=24-40 generated with support 0.500000
+(5) Age>=30 generated with support 0.700000
+(6) Age<=40 generated with support 0.350000
+(7) Age<=45 generated with support 0.100000
+(8) Gender=Male generated with support 0.850000
+(9) Race=African-American generated with support 0.350000
+(10) Race=Caucasian generated with support 0.400000
+(11) Race=Hispanic generated with support 0.050000
+(12) Race=Other generated with support 0.200000
+(13) Juvenile-Crimes=0 generated with support 0.900000
+(14) Juvenile-Crimes=1-3 generated with support 0.100000
+(15) Prior-Crimes=0 generated with support 0.400000
+(16) Prior-Crimes=1-3 generated with support 0.350000
+(17) Prior-Crimes>3 generated with support 0.250000
+(18) Prior-Crimes>5 generated with support 0.150000
+(19) Current-Charge-Degree=Misdemeanor generated with support 0.250000
+(20) Age=18-22-not generated with support 0.950000
+(21) Age=18-25-not generated with support 0.750000
+(22) Age=24-30-not generated with support 0.850000
+(23) Age=24-40-not generated with support 0.500000
+(24) Age>=30-not generated with support 0.300000
+(25) Age<=40-not generated with support 0.650000
+(26) Age<=45-not generated with support 0.900000
+(27) Gender=Male-not generated with support 0.150000
+(28) Race=African-American-not generated with support 0.650000
+(29) Race=Caucasian-not generated with support 0.600000
+(30) Race=Hispanic-not generated with support 0.950000
+(31) Race=Other-not generated with support 0.800000
+(32) Juvenile-Crimes=0-not generated with support 0.100000
+(33) Juvenile-Crimes=1-3-not generated with support 0.900000
+(34) Prior-Crimes=0-not generated with support 0.600000
+(35) Prior-Crimes=1-3-not generated with support 0.650000
+(36) Prior-Crimes>3-not generated with support 0.750000
+(37) Prior-Crimes>5-not generated with support 0.850000
+(38) Current-Charge-Degree=Misdemeanor-not generated with support 0.750000
+(39) {Age=18-22,Age=18-25} generated with support 0.050000
+(40) {Age=18-22,Gender=Male} generated with support 0.050000
+(41) {Age=18-22,Race=Caucasian} generated with support 0.050000
+(42) {Age=18-22,Juvenile-Felonies=0} generated with support 0.050000
+(43) {Age=18-22,Juvenile-Crimes=0} generated with support 0.050000
+(44) {Age=18-22,Prior-Crimes=1-3} generated with support 0.050000
+(45) {Age=18-22,Age=18-20-not} generated with support 0.050000
+(46) {Age=18-22,Age=24-30-not} generated with support 0.050000
+(47) {Age=18-22,Age=24-40-not} generated with support 0.050000
+(48) {Age=18-22,Age>=30-not} generated with support 0.050000
+(49) {Age=18-22,Age<=40-not} generated with support 0.050000
+(50) {Age=18-22,Age<=45-not} generated with support 0.050000
+(51) {Age=18-22,Race=African-American-not} generated with support 0.050000
+(52) {Age=18-22,Race=Asian-not} generated with support 0.050000
+(53) {Age=18-22,Race=Hispanic-not} generated with support 0.050000
+(54) {Age=18-22,Race=Native-American-not} generated with support 0.050000
+(55) {Age=18-22,Race=Other-not} generated with support 0.050000
+(56) {Age=18-22,Juvenile-Felonies=1-3-not} generated with support 0.050000
+(57) {Age=18-22,Juvenile-Felonies>3-not} generated with support 0.050000
+(58) {Age=18-22,Juvenile-Crimes=1-3-not} generated with support 0.050000
+(59) {Age=18-22,Juvenile-Crimes>3-not} generated with support 0.050000
+(60) {Age=18-22,Juvenile-Crimes>5-not} generated with support 0.050000
+(61) {Age=18-22,Prior-Crimes=0-not} generated with support 0.050000
+(62) {Age=18-22,Prior-Crimes>3-not} generated with support 0.050000
+(63) {Age=18-22,Prior-Crimes>5-not} generated with support 0.050000
+(64) {Age=18-22,Current-Charge-Degree=Misdemeanor-not} generated with support 0.050000
+(65) {Age=18-25,Age=24-30} generated with support 0.100000
+(66) {Age=18-25,Age=24-40} generated with support 0.100000
+(67) {Age=18-25,Gender=Male} generated with support 0.250000
+(68) {Age=18-25,Race=African-American} generated with support 0.200000
+(69) {Age=18-25,Race=Caucasian} generated with support 0.050000
+(70) {Age=18-25,Juvenile-Felonies=0} generated with support 0.250000
+(71) {Age=18-25,Juvenile-Crimes=0} generated with support 0.150000
+(72) {Age=18-25,Juvenile-Crimes=1-3} generated with support 0.100000
+(73) {Age=18-25,Prior-Crimes=1-3} generated with support 0.200000
+(74) {Age=18-25,Prior-Crimes>3} generated with support 0.050000
+(75) {Age=18-25,Current-Charge-Degree=Misdemeanor} generated with support 0.050000
+(76) {Age=18-25,Age=18-20-not} generated with support 0.250000
+(77) {Age=18-25,Age=18-22-not} generated with support 0.200000
+(78) {Age=18-25,Age=24-30-not} generated with support 0.150000
+(79) {Age=18-25,Age=24-40-not} generated with support 0.150000
+(80) {Age=18-25,Age>=30-not} generated with support 0.250000
+(81) {Age=18-25,Age<=40-not} generated with support 0.250000
+(82) {Age=18-25,Age<=45-not} generated with support 0.250000
+(83) {Age=18-25,Race=African-American-not} generated with support 0.050000
+(84) {Age=18-25,Race=Caucasian-not} generated with support 0.200000
+(85) {Age=18-25,Race=Asian-not} generated with support 0.250000
+(86) {Age=18-25,Race=Hispanic-not} generated with support 0.250000
+(87) {Age=18-25,Race=Native-American-not} generated with support 0.250000
+(88) {Age=18-25,Race=Other-not} generated with support 0.250000
+(89) {Age=18-25,Juvenile-Felonies=1-3-not} generated with support 0.250000
+(90) {Age=18-25,Juvenile-Felonies>3-not} generated with support 0.250000
+(91) {Age=18-25,Juvenile-Crimes=0-not} generated with support 0.100000
+(92) {Age=18-25,Juvenile-Crimes=1-3-not} generated with support 0.150000
+(93) {Age=18-25,Juvenile-Crimes>3-not} generated with support 0.250000
+(94) {Age=18-25,Juvenile-Crimes>5-not} generated with support 0.250000
+(95) {Age=18-25,Prior-Crimes=0-not} generated with support 0.250000
+(96) {Age=18-25,Prior-Crimes=1-3-not} generated with support 0.050000
+(97) {Age=18-25,Prior-Crimes>3-not} generated with support 0.200000
+(98) {Age=18-25,Prior-Crimes>5-not} generated with support 0.250000
+(99) {Age=18-25,Current-Charge-Degree=Misdemeanor-not} generated with support 0.200000
+(100) {Age=24-30,Age=24-40} generated with support 0.150000
+(101) {Age=24-30,Gender=Male} generated with support 0.150000
+(102) {Age=24-30,Race=African-American} generated with support 0.100000
+(103) {Age=24-30,Race=Caucasian} generated with support 0.050000
+(104) {Age=24-30,Juvenile-Felonies=0} generated with support 0.150000
+(105) {Age=24-30,Juvenile-Crimes=0} generated with support 0.100000
+(106) {Age=24-30,Juvenile-Crimes=1-3} generated with support 0.050000
+(107) {Age=24-30,Prior-Crimes=0} generated with support 0.050000
+(108) {Age=24-30,Prior-Crimes=1-3} generated with support 0.050000
+(109) {Age=24-30,Prior-Crimes>3} generated with support 0.050000
+(110) {Age=24-30,Age=18-20-not} generated with support 0.150000
+(111) {Age=24-30,Age=18-22-not} generated with support 0.150000
+(112) {Age=24-30,Age=18-25-not} generated with support 0.050000
+(113) {Age=24-30,Age>=30-not} generated with support 0.150000
+(114) {Age=24-30,Age<=40-not} generated with support 0.150000
+(115) {Age=24-30,Age<=45-not} generated with support 0.150000
+(116) {Age=24-30,Race=African-American-not} generated with support 0.050000
+(117) {Age=24-30,Race=Caucasian-not} generated with support 0.100000
+(118) {Age=24-30,Race=Asian-not} generated with support 0.150000
+(119) {Age=24-30,Race=Hispanic-not} generated with support 0.150000
+(120) {Age=24-30,Race=Native-American-not} generated with support 0.150000
+(121) {Age=24-30,Race=Other-not} generated with support 0.150000
+(122) {Age=24-30,Juvenile-Felonies=1-3-not} generated with support 0.150000
+(123) {Age=24-30,Juvenile-Felonies>3-not} generated with support 0.150000
+(124) {Age=24-30,Juvenile-Crimes=0-not} generated with support 0.050000
+(125) {Age=24-30,Juvenile-Crimes=1-3-not} generated with support 0.100000
+(126) {Age=24-30,Juvenile-Crimes>3-not} generated with support 0.150000
+(127) {Age=24-30,Juvenile-Crimes>5-not} generated with support 0.150000
+(128) {Age=24-30,Prior-Crimes=0-not} generated with support 0.100000
+(129) {Age=24-30,Prior-Crimes=1-3-not} generated with support 0.100000
+(130) {Age=24-30,Prior-Crimes>3-not} generated with support 0.100000
+(131) {Age=24-30,Prior-Crimes>5-not} generated with support 0.150000
+(132) {Age=24-30,Current-Charge-Degree=Misdemeanor-not} generated with support 0.150000
+(133) {Age=24-40,Age>=30} generated with support 0.350000
+(134) {Age=24-40,Gender=Male} generated with support 0.400000
+(135) {Age=24-40,Race=African-American} generated with support 0.200000
+(136) {Age=24-40,Race=Caucasian} generated with support 0.250000
+(137) {Age=24-40,Race=Hispanic} generated with support 0.050000
+(138) {Age=24-40,Juvenile-Felonies=0} generated with support 0.500000
+(139) {Age=24-40,Juvenile-Crimes=0} generated with support 0.450000
+(140) {Age=24-40,Juvenile-Crimes=1-3} generated with support 0.050000
+(141) {Age=24-40,Prior-Crimes=0} generated with support 0.250000
+(142) {Age=24-40,Prior-Crimes=1-3} generated with support 0.050000
+(143) {Age=24-40,Prior-Crimes>3} generated with support 0.200000
+(144) {Age=24-40,Prior-Crimes>5} generated with support 0.100000
+(145) {Age=24-40,Current-Charge-Degree=Misdemeanor} generated with support 0.150000
+(146) {Age=24-40,Age=18-20-not} generated with support 0.500000
+(147) {Age=24-40,Age=18-22-not} generated with support 0.500000
+(148) {Age=24-40,Age=18-25-not} generated with support 0.400000
+(149) {Age=24-40,Age=24-30-not} generated with support 0.350000
+(150) {Age=24-40,Age>=30-not} generated with support 0.150000
+(151) {Age=24-40,Age<=40-not} generated with support 0.500000
+(152) {Age=24-40,Age<=45-not} generated with support 0.500000
+(153) {Age=24-40,Gender=Male-not} generated with support 0.100000
+(154) {Age=24-40,Race=African-American-not} generated with support 0.300000
+(155) {Age=24-40,Race=Caucasian-not} generated with support 0.250000
+(156) {Age=24-40,Race=Asian-not} generated with support 0.500000
+(157) {Age=24-40,Race=Hispanic-not} generated with support 0.450000
+(158) {Age=24-40,Race=Native-American-not} generated with support 0.500000
+(159) {Age=24-40,Race=Other-not} generated with support 0.500000
+(160) {Age=24-40,Juvenile-Felonies=1-3-not} generated with support 0.500000
+(161) {Age=24-40,Juvenile-Felonies>3-not} generated with support 0.500000
+(162) {Age=24-40,Juvenile-Crimes=0-not} generated with support 0.050000
+(163) {Age=24-40,Juvenile-Crimes=1-3-not} generated with support 0.450000
+(164) {Age=24-40,Juvenile-Crimes>3-not} generated with support 0.500000
+(165) {Age=24-40,Juvenile-Crimes>5-not} generated with support 0.500000
+(166) {Age=24-40,Prior-Crimes=0-not} generated with support 0.250000
+(167) {Age=24-40,Prior-Crimes=1-3-not} generated with support 0.450000
+(168) {Age=24-40,Prior-Crimes>3-not} generated with support 0.300000
+(169) {Age=24-40,Prior-Crimes>5-not} generated with support 0.400000
+(170) {Age=24-40,Current-Charge-Degree=Misdemeanor-not} generated with support 0.350000
+(171) {Age>=30,Age<=40} generated with support 0.350000
+(172) {Age>=30,Age<=45} generated with support 0.100000
+(173) {Age>=30,Gender=Male} generated with support 0.550000
+(174) {Age>=30,Race=African-American} generated with support 0.150000
+(175) {Age>=30,Race=Caucasian} generated with support 0.300000
+(176) {Age>=30,Race=Hispanic} generated with support 0.050000
+(177) {Age>=30,Race=Other} generated with support 0.200000
+(178) {Age>=30,Juvenile-Felonies=0} generated with support 0.700000
+(179) {Age>=30,Juvenile-Crimes=0} generated with support 0.700000
+(180) {Age>=30,Prior-Crimes=0} generated with support 0.350000
+(181) {Age>=30,Prior-Crimes=1-3} generated with support 0.150000
+(182) {Age>=30,Prior-Crimes>3} generated with support 0.200000
+(183) {Age>=30,Prior-Crimes>5} generated with support 0.150000
+(184) {Age>=30,Current-Charge-Degree=Misdemeanor} generated with support 0.200000
+(185) {Age>=30,Age=18-20-not} generated with support 0.700000
+(186) {Age>=30,Age=18-22-not} generated with support 0.700000
+(187) {Age>=30,Age=18-25-not} generated with support 0.700000
+(188) {Age>=30,Age=24-30-not} generated with support 0.700000
+(189) {Age>=30,Age=24-40-not} generated with support 0.350000
+(190) {Age>=30,Age<=40-not} generated with support 0.350000
+(191) {Age>=30,Age<=45-not} generated with support 0.600000
+(192) {Age>=30,Gender=Male-not} generated with support 0.150000
+(193) {Age>=30,Race=African-American-not} generated with support 0.550000
+(194) {Age>=30,Race=Caucasian-not} generated with support 0.400000
+(195) {Age>=30,Race=Asian-not} generated with support 0.700000
+(196) {Age>=30,Race=Hispanic-not} generated with support 0.650000
+(197) {Age>=30,Race=Native-American-not} generated with support 0.700000
+(198) {Age>=30,Race=Other-not} generated with support 0.500000
+(199) {Age>=30,Juvenile-Felonies=1-3-not} generated with support 0.700000
+(200) {Age>=30,Juvenile-Felonies>3-not} generated with support 0.700000
+(201) {Age>=30,Juvenile-Crimes=1-3-not} generated with support 0.700000
+(202) {Age>=30,Juvenile-Crimes>3-not} generated with support 0.700000
+(203) {Age>=30,Juvenile-Crimes>5-not} generated with support 0.700000
+(204) {Age>=30,Prior-Crimes=0-not} generated with support 0.350000
+(205) {Age>=30,Prior-Crimes=1-3-not} generated with support 0.550000
+(206) {Age>=30,Prior-Crimes>3-not} generated with support 0.500000
+(207) {Age>=30,Prior-Crimes>5-not} generated with support 0.550000
+(208) {Age>=30,Current-Charge-Degree=Misdemeanor-not} generated with support 0.500000
+(209) {Age<=40,Age<=45} generated with support 0.100000
+(210) {Age<=40,Gender=Male} generated with support 0.300000
+(211) {Age<=40,Race=African-American} generated with support 0.050000
+(212) {Age<=40,Race=Caucasian} generated with support 0.100000
+(213) {Age<=40,Race=Other} generated with support 0.200000
+(214) {Age<=40,Juvenile-Felonies=0} generated with support 0.350000
+(215) {Age<=40,Juvenile-Crimes=0} generated with support 0.350000
+(216) {Age<=40,Prior-Crimes=0} generated with support 0.150000
+(217) {Age<=40,Prior-Crimes=1-3} generated with support 0.150000
+(218) {Age<=40,Prior-Crimes>3} generated with support 0.050000
+(219) {Age<=40,Prior-Crimes>5} generated with support 0.050000
+(220) {Age<=40,Current-Charge-Degree=Misdemeanor} generated with support 0.050000
+(221) {Age<=40,Age=18-20-not} generated with support 0.350000
+(222) {Age<=40,Age=18-22-not} generated with support 0.350000
+(223) {Age<=40,Age=18-25-not} generated with support 0.350000
+(224) {Age<=40,Age=24-30-not} generated with support 0.350000
+(225) {Age<=40,Age=24-40-not} generated with support 0.350000
+(226) {Age<=40,Age<=45-not} generated with support 0.250000
+(227) {Age<=40,Gender=Male-not} generated with support 0.050000
+(228) {Age<=40,Race=African-American-not} generated with support 0.300000
+(229) {Age<=40,Race=Caucasian-not} generated with support 0.250000
+(230) {Age<=40,Race=Asian-not} generated with support 0.350000
+(231) {Age<=40,Race=Hispanic-not} generated with support 0.350000
+(232) {Age<=40,Race=Native-American-not} generated with support 0.350000
+(233) {Age<=40,Race=Other-not} generated with support 0.150000
+(234) {Age<=40,Juvenile-Felonies=1-3-not} generated with support 0.350000
+(235) {Age<=40,Juvenile-Felonies>3-not} generated with support 0.350000
+(236) {Age<=40,Juvenile-Crimes=1-3-not} generated with support 0.350000
+(237) {Age<=40,Juvenile-Crimes>3-not} generated with support 0.350000
+(238) {Age<=40,Juvenile-Crimes>5-not} generated with support 0.350000
+(239) {Age<=40,Prior-Crimes=0-not} generated with support 0.200000
+(240) {Age<=40,Prior-Crimes=1-3-not} generated with support 0.200000
+(241) {Age<=40,Prior-Crimes>3-not} generated with support 0.300000
+(242) {Age<=40,Prior-Crimes>5-not} generated with support 0.300000
+(243) {Age<=40,Current-Charge-Degree=Misdemeanor-not} generated with support 0.300000
+(244) {Age<=45,Gender=Male} generated with support 0.050000
+(245) {Age<=45,Race=Caucasian} generated with support 0.050000
+(246) {Age<=45,Race=Other} generated with support 0.050000
+(247) {Age<=45,Juvenile-Felonies=0} generated with support 0.100000
+(248) {Age<=45,Juvenile-Crimes=0} generated with support 0.100000
+(249) {Age<=45,Prior-Crimes=0} generated with support 0.050000
+(250) {Age<=45,Prior-Crimes=1-3} generated with support 0.050000
+(251) {Age<=45,Age=18-20-not} generated with support 0.100000
+(252) {Age<=45,Age=18-22-not} generated with support 0.100000
+(253) {Age<=45,Age=18-25-not} generated with support 0.100000
+(254) {Age<=45,Age=24-30-not} generated with support 0.100000
+(255) {Age<=45,Age=24-40-not} generated with support 0.100000
+(256) {Age<=45,Gender=Male-not} generated with support 0.050000
+(257) {Age<=45,Race=African-American-not} generated with support 0.100000
+(258) {Age<=45,Race=Caucasian-not} generated with support 0.050000
+(259) {Age<=45,Race=Asian-not} generated with support 0.100000
+(260) {Age<=45,Race=Hispanic-not} generated with support 0.100000
+(261) {Age<=45,Race=Native-American-not} generated with support 0.100000
+(262) {Age<=45,Race=Other-not} generated with support 0.050000
+(263) {Age<=45,Juvenile-Felonies=1-3-not} generated with support 0.100000
+(264) {Age<=45,Juvenile-Felonies>3-not} generated with support 0.100000
+(265) {Age<=45,Juvenile-Crimes=1-3-not} generated with support 0.100000
+(266) {Age<=45,Juvenile-Crimes>3-not} generated with support 0.100000
+(267) {Age<=45,Juvenile-Crimes>5-not} generated with support 0.100000
+(268) {Age<=45,Prior-Crimes=0-not} generated with support 0.050000
+(269) {Age<=45,Prior-Crimes=1-3-not} generated with support 0.050000
+(270) {Age<=45,Prior-Crimes>3-not} generated with support 0.100000
+(271) {Age<=45,Prior-Crimes>5-not} generated with support 0.100000
+(272) {Age<=45,Current-Charge-Degree=Misdemeanor-not} generated with support 0.100000
+(273) {Gender=Male,Race=African-American} generated with support 0.350000
+(274) {Gender=Male,Race=Caucasian} generated with support 0.250000
+(275) {Gender=Male,Race=Hispanic} generated with support 0.050000
+(276) {Gender=Male,Race=Other} generated with support 0.200000
+(277) {Gender=Male,Juvenile-Felonies=0} generated with support 0.850000
+(278) {Gender=Male,Juvenile-Crimes=0} generated with support 0.750000
+(279) {Gender=Male,Juvenile-Crimes=1-3} generated with support 0.100000
+(280) {Gender=Male,Prior-Crimes=0} generated with support 0.300000
+(281) {Gender=Male,Prior-Crimes=1-3} generated with support 0.300000
+(282) {Gender=Male,Prior-Crimes>3} generated with support 0.250000
+(283) {Gender=Male,Prior-Crimes>5} generated with support 0.150000
+(284) {Gender=Male,Current-Charge-Degree=Misdemeanor} generated with support 0.150000
+(285) {Gender=Male,Age=18-20-not} generated with support 0.850000
+(286) {Gender=Male,Age=18-22-not} generated with support 0.800000
+(287) {Gender=Male,Age=18-25-not} generated with support 0.600000
+(288) {Gender=Male,Age=24-30-not} generated with support 0.700000
+(289) {Gender=Male,Age=24-40-not} generated with support 0.450000
+(290) {Gender=Male,Age>=30-not} generated with support 0.300000
+(291) {Gender=Male,Age<=40-not} generated with support 0.550000
+(292) {Gender=Male,Age<=45-not} generated with support 0.800000
+(293) {Gender=Male,Race=African-American-not} generated with support 0.500000
+(294) {Gender=Male,Race=Caucasian-not} generated with support 0.600000
+(295) {Gender=Male,Race=Asian-not} generated with support 0.850000
+(296) {Gender=Male,Race=Hispanic-not} generated with support 0.800000
+(297) {Gender=Male,Race=Native-American-not} generated with support 0.850000
+(298) {Gender=Male,Race=Other-not} generated with support 0.650000
+(299) {Gender=Male,Juvenile-Felonies=1-3-not} generated with support 0.850000
+(300) {Gender=Male,Juvenile-Felonies>3-not} generated with support 0.850000
+(301) {Gender=Male,Juvenile-Crimes=0-not} generated with support 0.100000
+(302) {Gender=Male,Juvenile-Crimes=1-3-not} generated with support 0.750000
+(303) {Gender=Male,Juvenile-Crimes>3-not} generated with support 0.850000
+(304) {Gender=Male,Juvenile-Crimes>5-not} generated with support 0.850000
+(305) {Gender=Male,Prior-Crimes=0-not} generated with support 0.550000
+(306) {Gender=Male,Prior-Crimes=1-3-not} generated with support 0.550000
+(307) {Gender=Male,Prior-Crimes>3-not} generated with support 0.600000
+(308) {Gender=Male,Prior-Crimes>5-not} generated with support 0.700000
+(309) {Gender=Male,Current-Charge-Degree=Misdemeanor-not} generated with support 0.700000
+(310) {Race=African-American,Juvenile-Felonies=0} generated with support 0.350000
+(311) {Race=African-American,Juvenile-Crimes=0} generated with support 0.250000
+(312) {Race=African-American,Juvenile-Crimes=1-3} generated with support 0.100000
+(313) {Race=African-American,Prior-Crimes=0} generated with support 0.100000
+(314) {Race=African-American,Prior-Crimes=1-3} generated with support 0.150000
+(315) {Race=African-American,Prior-Crimes>3} generated with support 0.100000
+(316) {Race=African-American,Prior-Crimes>5} generated with support 0.050000
+(317) {Race=African-American,Current-Charge-Degree=Misdemeanor} generated with support 0.050000
+(318) {Race=African-American,Age=18-20-not} generated with support 0.350000
+(319) {Race=African-American,Age=18-22-not} generated with support 0.350000
+(320) {Race=African-American,Age=18-25-not} generated with support 0.150000
+(321) {Race=African-American,Age=24-30-not} generated with support 0.250000
+(322) {Race=African-American,Age=24-40-not} generated with support 0.150000
+(323) {Race=African-American,Age>=30-not} generated with support 0.200000
+(324) {Race=African-American,Age<=40-not} generated with support 0.300000
+(325) {Race=African-American,Age<=45-not} generated with support 0.350000
+(326) {Race=African-American,Race=Caucasian-not} generated with support 0.350000
+(327) {Race=African-American,Race=Asian-not} generated with support 0.350000
+(328) {Race=African-American,Race=Hispanic-not} generated with support 0.350000
+(329) {Race=African-American,Race=Native-American-not} generated with support 0.350000
+(330) {Race=African-American,Race=Other-not} generated with support 0.350000
+(331) {Race=African-American,Juvenile-Felonies=1-3-not} generated with support 0.350000
+(332) {Race=African-American,Juvenile-Felonies>3-not} generated with support 0.350000
+(333) {Race=African-American,Juvenile-Crimes=0-not} generated with support 0.100000
+(334) {Race=African-American,Juvenile-Crimes=1-3-not} generated with support 0.250000
+(335) {Race=African-American,Juvenile-Crimes>3-not} generated with support 0.350000
+(336) {Race=African-American,Juvenile-Crimes>5-not} generated with support 0.350000
+(337) {Race=African-American,Prior-Crimes=0-not} generated with support 0.250000
+(338) {Race=African-American,Prior-Crimes=1-3-not} generated with support 0.200000
+(339) {Race=African-American,Prior-Crimes>3-not} generated with support 0.250000
+(340) {Race=African-American,Prior-Crimes>5-not} generated with support 0.300000
+(341) {Race=African-American,Current-Charge-Degree=Misdemeanor-not} generated with support 0.300000
+(342) {Race=Caucasian,Juvenile-Felonies=0} generated with support 0.400000
+(343) {Race=Caucasian,Juvenile-Crimes=0} generated with support 0.400000
+(344) {Race=Caucasian,Prior-Crimes=0} generated with support 0.150000
+(345) {Race=Caucasian,Prior-Crimes=1-3} generated with support 0.100000
+(346) {Race=Caucasian,Prior-Crimes>3} generated with support 0.150000
+(347) {Race=Caucasian,Prior-Crimes>5} generated with support 0.100000
+(348) {Race=Caucasian,Current-Charge-Degree=Misdemeanor} generated with support 0.100000
+(349) {Race=Caucasian,Age=18-20-not} generated with support 0.400000
+(350) {Race=Caucasian,Age=18-22-not} generated with support 0.350000
+(351) {Race=Caucasian,Age=18-25-not} generated with support 0.350000
+(352) {Race=Caucasian,Age=24-30-not} generated with support 0.350000
+(353) {Race=Caucasian,Age=24-40-not} generated with support 0.150000
+(354) {Race=Caucasian,Age>=30-not} generated with support 0.100000
+(355) {Race=Caucasian,Age<=40-not} generated with support 0.300000
+(356) {Race=Caucasian,Age<=45-not} generated with support 0.350000
+(357) {Race=Caucasian,Gender=Male-not} generated with support 0.150000
+(358) {Race=Caucasian,Race=African-American-not} generated with support 0.400000
+(359) {Race=Caucasian,Race=Asian-not} generated with support 0.400000
+(360) {Race=Caucasian,Race=Hispanic-not} generated with support 0.400000
+(361) {Race=Caucasian,Race=Native-American-not} generated with support 0.400000
+(362) {Race=Caucasian,Race=Other-not} generated with support 0.400000
+(363) {Race=Caucasian,Juvenile-Felonies=1-3-not} generated with support 0.400000
+(364) {Race=Caucasian,Juvenile-Felonies>3-not} generated with support 0.400000
+(365) {Race=Caucasian,Juvenile-Crimes=1-3-not} generated with support 0.400000
+(366) {Race=Caucasian,Juvenile-Crimes>3-not} generated with support 0.400000
+(367) {Race=Caucasian,Juvenile-Crimes>5-not} generated with support 0.400000
+(368) {Race=Caucasian,Prior-Crimes=0-not} generated with support 0.250000
+(369) {Race=Caucasian,Prior-Crimes=1-3-not} generated with support 0.300000
+(370) {Race=Caucasian,Prior-Crimes>3-not} generated with support 0.250000
+(371) {Race=Caucasian,Prior-Crimes>5-not} generated with support 0.300000
+(372) {Race=Caucasian,Current-Charge-Degree=Misdemeanor-not} generated with support 0.300000
+(373) {Race=Hispanic,Juvenile-Felonies=0} generated with support 0.050000
+(374) {Race=Hispanic,Juvenile-Crimes=0} generated with support 0.050000
+(375) {Race=Hispanic,Prior-Crimes=0} generated with support 0.050000
+(376) {Race=Hispanic,Current-Charge-Degree=Misdemeanor} generated with support 0.050000
+(377) {Race=Hispanic,Age=18-20-not} generated with support 0.050000
+(378) {Race=Hispanic,Age=18-22-not} generated with support 0.050000
+(379) {Race=Hispanic,Age=18-25-not} generated with support 0.050000
+(380) {Race=Hispanic,Age=24-30-not} generated with support 0.050000
+(381) {Race=Hispanic,Age<=40-not} generated with support 0.050000
+(382) {Race=Hispanic,Age<=45-not} generated with support 0.050000
+(383) {Race=Hispanic,Race=African-American-not} generated with support 0.050000
+(384) {Race=Hispanic,Race=Caucasian-not} generated with support 0.050000
+(385) {Race=Hispanic,Race=Asian-not} generated with support 0.050000
+(386) {Race=Hispanic,Race=Native-American-not} generated with support 0.050000
+(387) {Race=Hispanic,Race=Other-not} generated with support 0.050000
+(388) {Race=Hispanic,Juvenile-Felonies=1-3-not} generated with support 0.050000
+(389) {Race=Hispanic,Juvenile-Felonies>3-not} generated with support 0.050000
+(390) {Race=Hispanic,Juvenile-Crimes=1-3-not} generated with support 0.050000
+(391) {Race=Hispanic,Juvenile-Crimes>3-not} generated with support 0.050000
+(392) {Race=Hispanic,Juvenile-Crimes>5-not} generated with support 0.050000
+(393) {Race=Hispanic,Prior-Crimes=1-3-not} generated with support 0.050000
+(394) {Race=Hispanic,Prior-Crimes>3-not} generated with support 0.050000
+(395) {Race=Hispanic,Prior-Crimes>5-not} generated with support 0.050000
+(396) {Race=Other,Juvenile-Felonies=0} generated with support 0.200000
+(397) {Race=Other,Juvenile-Crimes=0} generated with support 0.200000
+(398) {Race=Other,Prior-Crimes=0} generated with support 0.100000
+(399) {Race=Other,Prior-Crimes=1-3} generated with support 0.100000
+(400) {Race=Other,Current-Charge-Degree=Misdemeanor} generated with support 0.050000
+(401) {Race=Other,Age=18-20-not} generated with support 0.200000
+(402) {Race=Other,Age=18-22-not} generated with support 0.200000
+(403) {Race=Other,Age=18-25-not} generated with support 0.200000
+(404) {Race=Other,Age=24-30-not} generated with support 0.200000
+(405) {Race=Other,Age=24-40-not} generated with support 0.200000
+(406) {Race=Other,Age<=45-not} generated with support 0.150000
+(407) {Race=Other,Race=African-American-not} generated with support 0.200000
+(408) {Race=Other,Race=Caucasian-not} generated with support 0.200000
+(409) {Race=Other,Race=Asian-not} generated with support 0.200000
+(410) {Race=Other,Race=Hispanic-not} generated with support 0.200000
+(411) {Race=Other,Race=Native-American-not} generated with support 0.200000
+(412) {Race=Other,Juvenile-Felonies=1-3-not} generated with support 0.200000
+(413) {Race=Other,Juvenile-Felonies>3-not} generated with support 0.200000
+(414) {Race=Other,Juvenile-Crimes=1-3-not} generated with support 0.200000
+(415) {Race=Other,Juvenile-Crimes>3-not} generated with support 0.200000
+(416) {Race=Other,Juvenile-Crimes>5-not} generated with support 0.200000
+(417) {Race=Other,Prior-Crimes=0-not} generated with support 0.100000
+(418) {Race=Other,Prior-Crimes=1-3-not} generated with support 0.100000
+(419) {Race=Other,Prior-Crimes>3-not} generated with support 0.200000
+(420) {Race=Other,Prior-Crimes>5-not} generated with support 0.200000
+(421) {Race=Other,Current-Charge-Degree=Misdemeanor-not} generated with support 0.150000
+(422) {Juvenile-Felonies=0,Juvenile-Crimes=0} generated with support 0.900000
+(423) {Juvenile-Felonies=0,Juvenile-Crimes=1-3} generated with support 0.100000
+(424) {Juvenile-Felonies=0,Prior-Crimes=0} generated with support 0.400000
+(425) {Juvenile-Felonies=0,Prior-Crimes=1-3} generated with support 0.350000
+(426) {Juvenile-Felonies=0,Prior-Crimes>3} generated with support 0.250000
+(427) {Juvenile-Felonies=0,Prior-Crimes>5} generated with support 0.150000
+(428) {Juvenile-Felonies=0,Current-Charge-Degree=Misdemeanor} generated with support 0.250000
+(429) {Juvenile-Felonies=0,Age=18-22-not} generated with support 0.950000
+(430) {Juvenile-Felonies=0,Age=18-25-not} generated with support 0.750000
+(431) {Juvenile-Felonies=0,Age=24-30-not} generated with support 0.850000
+(432) {Juvenile-Felonies=0,Age=24-40-not} generated with support 0.500000
+(433) {Juvenile-Felonies=0,Age>=30-not} generated with support 0.300000
+(434) {Juvenile-Felonies=0,Age<=40-not} generated with support 0.650000
+(435) {Juvenile-Felonies=0,Age<=45-not} generated with support 0.900000
+(436) {Juvenile-Felonies=0,Gender=Male-not} generated with support 0.150000
+(437) {Juvenile-Felonies=0,Race=African-American-not} generated with support 0.650000
+(438) {Juvenile-Felonies=0,Race=Caucasian-not} generated with support 0.600000
+(439) {Juvenile-Felonies=0,Race=Hispanic-not} generated with support 0.950000
+(440) {Juvenile-Felonies=0,Race=Other-not} generated with support 0.800000
+(441) {Juvenile-Felonies=0,Juvenile-Crimes=0-not} generated with support 0.100000
+(442) {Juvenile-Felonies=0,Juvenile-Crimes=1-3-not} generated with support 0.900000
+(443) {Juvenile-Felonies=0,Prior-Crimes=0-not} generated with support 0.600000
+(444) {Juvenile-Felonies=0,Prior-Crimes=1-3-not} generated with support 0.650000
+(445) {Juvenile-Felonies=0,Prior-Crimes>3-not} generated with support 0.750000
+(446) {Juvenile-Felonies=0,Prior-Crimes>5-not} generated with support 0.850000
+(447) {Juvenile-Felonies=0,Current-Charge-Degree=Misdemeanor-not} generated with support 0.750000
+(448) {Juvenile-Crimes=0,Prior-Crimes=0} generated with support 0.400000
+(449) {Juvenile-Crimes=0,Prior-Crimes=1-3} generated with support 0.300000
+(450) {Juvenile-Crimes=0,Prior-Crimes>3} generated with support 0.200000
+(451) {Juvenile-Crimes=0,Prior-Crimes>5} generated with support 0.150000
+(452) {Juvenile-Crimes=0,Current-Charge-Degree=Misdemeanor} generated with support 0.250000
+(453) {Juvenile-Crimes=0,Age=18-20-not} generated with support 0.900000
+(454) {Juvenile-Crimes=0,Age=18-22-not} generated with support 0.850000
+(455) {Juvenile-Crimes=0,Age=18-25-not} generated with support 0.750000
+(456) {Juvenile-Crimes=0,Age=24-30-not} generated with support 0.800000
+(457) {Juvenile-Crimes=0,Age=24-40-not} generated with support 0.450000
+(458) {Juvenile-Crimes=0,Age>=30-not} generated with support 0.200000
+(459) {Juvenile-Crimes=0,Age<=40-not} generated with support 0.550000
+(460) {Juvenile-Crimes=0,Age<=45-not} generated with support 0.800000
+(461) {Juvenile-Crimes=0,Gender=Male-not} generated with support 0.150000
+(462) {Juvenile-Crimes=0,Race=African-American-not} generated with support 0.650000
+(463) {Juvenile-Crimes=0,Race=Caucasian-not} generated with support 0.500000
+(464) {Juvenile-Crimes=0,Race=Asian-not} generated with support 0.900000
+(465) {Juvenile-Crimes=0,Race=Hispanic-not} generated with support 0.850000
+(466) {Juvenile-Crimes=0,Race=Native-American-not} generated with support 0.900000
+(467) {Juvenile-Crimes=0,Race=Other-not} generated with support 0.700000
+(468) {Juvenile-Crimes=0,Juvenile-Felonies=1-3-not} generated with support 0.900000
+(469) {Juvenile-Crimes=0,Juvenile-Felonies>3-not} generated with support 0.900000
+(470) {Juvenile-Crimes=0,Juvenile-Crimes=1-3-not} generated with support 0.900000
+(471) {Juvenile-Crimes=0,Juvenile-Crimes>3-not} generated with support 0.900000
+(472) {Juvenile-Crimes=0,Juvenile-Crimes>5-not} generated with support 0.900000
+(473) {Juvenile-Crimes=0,Prior-Crimes=0-not} generated with support 0.500000
+(474) {Juvenile-Crimes=0,Prior-Crimes=1-3-not} generated with support 0.600000
+(475) {Juvenile-Crimes=0,Prior-Crimes>3-not} generated with support 0.700000
+(476) {Juvenile-Crimes=0,Prior-Crimes>5-not} generated with support 0.750000
+(477) {Juvenile-Crimes=0,Current-Charge-Degree=Misdemeanor-not} generated with support 0.650000
+(478) {Juvenile-Crimes=1-3,Prior-Crimes=1-3} generated with support 0.050000
+(479) {Juvenile-Crimes=1-3,Prior-Crimes>3} generated with support 0.050000
+(480) {Juvenile-Crimes=1-3,Age=18-20-not} generated with support 0.100000
+(481) {Juvenile-Crimes=1-3,Age=18-22-not} generated with support 0.100000
+(482) {Juvenile-Crimes=1-3,Age=24-30-not} generated with support 0.050000
+(483) {Juvenile-Crimes=1-3,Age=24-40-not} generated with support 0.050000
+(484) {Juvenile-Crimes=1-3,Age>=30-not} generated with support 0.100000
+(485) {Juvenile-Crimes=1-3,Age<=40-not} generated with support 0.100000
+(486) {Juvenile-Crimes=1-3,Age<=45-not} generated with support 0.100000
+(487) {Juvenile-Crimes=1-3,Race=Caucasian-not} generated with support 0.100000
+(488) {Juvenile-Crimes=1-3,Race=Asian-not} generated with support 0.100000
+(489) {Juvenile-Crimes=1-3,Race=Hispanic-not} generated with support 0.100000
+(490) {Juvenile-Crimes=1-3,Race=Native-American-not} generated with support 0.100000
+(491) {Juvenile-Crimes=1-3,Race=Other-not} generated with support 0.100000
+(492) {Juvenile-Crimes=1-3,Juvenile-Felonies=1-3-not} generated with support 0.100000
+(493) {Juvenile-Crimes=1-3,Juvenile-Felonies>3-not} generated with support 0.100000
+(494) {Juvenile-Crimes=1-3,Juvenile-Crimes=0-not} generated with support 0.100000
+(495) {Juvenile-Crimes=1-3,Juvenile-Crimes>3-not} generated with support 0.100000
+(496) {Juvenile-Crimes=1-3,Juvenile-Crimes>5-not} generated with support 0.100000
+(497) {Juvenile-Crimes=1-3,Prior-Crimes=0-not} generated with support 0.100000
+(498) {Juvenile-Crimes=1-3,Prior-Crimes=1-3-not} generated with support 0.050000
+(499) {Juvenile-Crimes=1-3,Prior-Crimes>3-not} generated with support 0.050000
+(500) {Juvenile-Crimes=1-3,Prior-Crimes>5-not} generated with support 0.100000
+(501) {Juvenile-Crimes=1-3,Current-Charge-Degree=Misdemeanor-not} generated with support 0.100000
+(502) {Prior-Crimes=0,Current-Charge-Degree=Misdemeanor} generated with support 0.200000
+(503) {Prior-Crimes=0,Age=18-20-not} generated with support 0.400000
+(504) {Prior-Crimes=0,Age=18-22-not} generated with support 0.400000
+(505) {Prior-Crimes=0,Age=18-25-not} generated with support 0.400000
+(506) {Prior-Crimes=0,Age=24-30-not} generated with support 0.350000
+(507) {Prior-Crimes=0,Age=24-40-not} generated with support 0.150000
+(508) {Prior-Crimes=0,Age>=30-not} generated with support 0.050000
+(509) {Prior-Crimes=0,Age<=40-not} generated with support 0.250000
+(510) {Prior-Crimes=0,Age<=45-not} generated with support 0.350000
+(511) {Prior-Crimes=0,Gender=Male-not} generated with support 0.100000
+(512) {Prior-Crimes=0,Race=African-American-not} generated with support 0.300000
+(513) {Prior-Crimes=0,Race=Caucasian-not} generated with support 0.250000
+(514) {Prior-Crimes=0,Race=Asian-not} generated with support 0.400000
+(515) {Prior-Crimes=0,Race=Hispanic-not} generated with support 0.350000
+(516) {Prior-Crimes=0,Race=Native-American-not} generated with support 0.400000
+(517) {Prior-Crimes=0,Race=Other-not} generated with support 0.300000
+(518) {Prior-Crimes=0,Juvenile-Felonies=1-3-not} generated with support 0.400000
+(519) {Prior-Crimes=0,Juvenile-Felonies>3-not} generated with support 0.400000
+(520) {Prior-Crimes=0,Juvenile-Crimes=1-3-not} generated with support 0.400000
+(521) {Prior-Crimes=0,Juvenile-Crimes>3-not} generated with support 0.400000
+(522) {Prior-Crimes=0,Juvenile-Crimes>5-not} generated with support 0.400000
+(523) {Prior-Crimes=0,Prior-Crimes=1-3-not} generated with support 0.400000
+(524) {Prior-Crimes=0,Prior-Crimes>3-not} generated with support 0.400000
+(525) {Prior-Crimes=0,Prior-Crimes>5-not} generated with support 0.400000
+(526) {Prior-Crimes=0,Current-Charge-Degree=Misdemeanor-not} generated with support 0.200000
+(527) {Prior-Crimes=1-3,Current-Charge-Degree=Misdemeanor} generated with support 0.050000
+(528) {Prior-Crimes=1-3,Age=18-20-not} generated with support 0.350000
+(529) {Prior-Crimes=1-3,Age=18-22-not} generated with support 0.300000
+(530) {Prior-Crimes=1-3,Age=18-25-not} generated with support 0.150000
+(531) {Prior-Crimes=1-3,Age=24-30-not} generated with support 0.300000
+(532) {Prior-Crimes=1-3,Age=24-40-not} generated with support 0.300000
+(533) {Prior-Crimes=1-3,Age>=30-not} generated with support 0.200000
+(534) {Prior-Crimes=1-3,Age<=40-not} generated with support 0.200000
+(535) {Prior-Crimes=1-3,Age<=45-not} generated with support 0.300000
+(536) {Prior-Crimes=1-3,Gender=Male-not} generated with support 0.050000
+(537) {Prior-Crimes=1-3,Race=African-American-not} generated with support 0.200000
+(538) {Prior-Crimes=1-3,Race=Caucasian-not} generated with support 0.250000
+(539) {Prior-Crimes=1-3,Race=Asian-not} generated with support 0.350000
+(540) {Prior-Crimes=1-3,Race=Hispanic-not} generated with support 0.350000
+(541) {Prior-Crimes=1-3,Race=Native-American-not} generated with support 0.350000
+(542) {Prior-Crimes=1-3,Race=Other-not} generated with support 0.250000
+(543) {Prior-Crimes=1-3,Juvenile-Felonies=1-3-not} generated with support 0.350000
+(544) {Prior-Crimes=1-3,Juvenile-Felonies>3-not} generated with support 0.350000
+(545) {Prior-Crimes=1-3,Juvenile-Crimes=0-not} generated with support 0.050000
+(546) {Prior-Crimes=1-3,Juvenile-Crimes=1-3-not} generated with support 0.300000
+(547) {Prior-Crimes=1-3,Juvenile-Crimes>3-not} generated with support 0.350000
+(548) {Prior-Crimes=1-3,Juvenile-Crimes>5-not} generated with support 0.350000
+(549) {Prior-Crimes=1-3,Prior-Crimes=0-not} generated with support 0.350000
+(550) {Prior-Crimes=1-3,Prior-Crimes>3-not} generated with support 0.350000
+(551) {Prior-Crimes=1-3,Prior-Crimes>5-not} generated with support 0.350000
+(552) {Prior-Crimes=1-3,Current-Charge-Degree=Misdemeanor-not} generated with support 0.300000
+(553) {Prior-Crimes>3,Prior-Crimes>5} generated with support 0.150000
+(554) {Prior-Crimes>3,Age=18-20-not} generated with support 0.250000
+(555) {Prior-Crimes>3,Age=18-22-not} generated with support 0.250000
+(556) {Prior-Crimes>3,Age=18-25-not} generated with support 0.200000
+(557) {Prior-Crimes>3,Age=24-30-not} generated with support 0.200000
+(558) {Prior-Crimes>3,Age=24-40-not} generated with support 0.050000
+(559) {Prior-Crimes>3,Age>=30-not} generated with support 0.050000
+(560) {Prior-Crimes>3,Age<=40-not} generated with support 0.200000
+(561) {Prior-Crimes>3,Age<=45-not} generated with support 0.250000
+(562) {Prior-Crimes>3,Race=African-American-not} generated with support 0.150000
+(563) {Prior-Crimes>3,Race=Caucasian-not} generated with support 0.100000
+(564) {Prior-Crimes>3,Race=Asian-not} generated with support 0.250000
+(565) {Prior-Crimes>3,Race=Hispanic-not} generated with support 0.250000
+(566) {Prior-Crimes>3,Race=Native-American-not} generated with support 0.250000
+(567) {Prior-Crimes>3,Race=Other-not} generated with support 0.250000
+(568) {Prior-Crimes>3,Juvenile-Felonies=1-3-not} generated with support 0.250000
+(569) {Prior-Crimes>3,Juvenile-Felonies>3-not} generated with support 0.250000
+(570) {Prior-Crimes>3,Juvenile-Crimes=0-not} generated with support 0.050000
+(571) {Prior-Crimes>3,Juvenile-Crimes=1-3-not} generated with support 0.200000
+(572) {Prior-Crimes>3,Juvenile-Crimes>3-not} generated with support 0.250000
+(573) {Prior-Crimes>3,Juvenile-Crimes>5-not} generated with support 0.250000
+(574) {Prior-Crimes>3,Prior-Crimes=0-not} generated with support 0.250000
+(575) {Prior-Crimes>3,Prior-Crimes=1-3-not} generated with support 0.250000
+(576) {Prior-Crimes>3,Prior-Crimes>5-not} generated with support 0.100000
+(577) {Prior-Crimes>3,Current-Charge-Degree=Misdemeanor-not} generated with support 0.250000
+(578) {Prior-Crimes>5,Age=18-20-not} generated with support 0.150000
+(579) {Prior-Crimes>5,Age=18-22-not} generated with support 0.150000
+(580) {Prior-Crimes>5,Age=18-25-not} generated with support 0.150000
+(581) {Prior-Crimes>5,Age=24-30-not} generated with support 0.150000
+(582) {Prior-Crimes>5,Age=24-40-not} generated with support 0.050000
+(583) {Prior-Crimes>5,Age<=40-not} generated with support 0.100000
+(584) {Prior-Crimes>5,Age<=45-not} generated with support 0.150000
+(585) {Prior-Crimes>5,Race=African-American-not} generated with support 0.100000
+(586) {Prior-Crimes>5,Race=Caucasian-not} generated with support 0.050000
+(587) {Prior-Crimes>5,Race=Asian-not} generated with support 0.150000
+(588) {Prior-Crimes>5,Race=Hispanic-not} generated with support 0.150000
+(589) {Prior-Crimes>5,Race=Native-American-not} generated with support 0.150000
+(590) {Prior-Crimes>5,Race=Other-not} generated with support 0.150000
+(591) {Prior-Crimes>5,Juvenile-Felonies=1-3-not} generated with support 0.150000
+(592) {Prior-Crimes>5,Juvenile-Felonies>3-not} generated with support 0.150000
+(593) {Prior-Crimes>5,Juvenile-Crimes=1-3-not} generated with support 0.150000
+(594) {Prior-Crimes>5,Juvenile-Crimes>3-not} generated with support 0.150000
+(595) {Prior-Crimes>5,Juvenile-Crimes>5-not} generated with support 0.150000
+(596) {Prior-Crimes>5,Prior-Crimes=0-not} generated with support 0.150000
+(597) {Prior-Crimes>5,Prior-Crimes=1-3-not} generated with support 0.150000
+(598) {Prior-Crimes>5,Current-Charge-Degree=Misdemeanor-not} generated with support 0.150000
+(599) {Current-Charge-Degree=Misdemeanor,Age=18-20-not} generated with support 0.250000
+(600) {Current-Charge-Degree=Misdemeanor,Age=18-22-not} generated with support 0.250000
+(601) {Current-Charge-Degree=Misdemeanor,Age=18-25-not} generated with support 0.200000
+(602) {Current-Charge-Degree=Misdemeanor,Age=24-30-not} generated with support 0.250000
+(603) {Current-Charge-Degree=Misdemeanor,Age=24-40-not} generated with support 0.100000
+(604) {Current-Charge-Degree=Misdemeanor,Age>=30-not} generated with support 0.050000
+(605) {Current-Charge-Degree=Misdemeanor,Age<=40-not} generated with support 0.200000
+(606) {Current-Charge-Degree=Misdemeanor,Age<=45-not} generated with support 0.250000
+(607) {Current-Charge-Degree=Misdemeanor,Gender=Male-not} generated with support 0.100000
+(608) {Current-Charge-Degree=Misdemeanor,Race=African-American-not} generated with support 0.200000
+(609) {Current-Charge-Degree=Misdemeanor,Race=Caucasian-not} generated with support 0.150000
+(610) {Current-Charge-Degree=Misdemeanor,Race=Asian-not} generated with support 0.250000
+(611) {Current-Charge-Degree=Misdemeanor,Race=Hispanic-not} generated with support 0.200000
+(612) {Current-Charge-Degree=Misdemeanor,Race=Native-American-not} generated with support 0.250000
+(613) {Current-Charge-Degree=Misdemeanor,Race=Other-not} generated with support 0.200000
+(614) {Current-Charge-Degree=Misdemeanor,Juvenile-Felonies=1-3-not} generated with support 0.250000
+(615) {Current-Charge-Degree=Misdemeanor,Juvenile-Felonies>3-not} generated with support 0.250000
+(616) {Current-Charge-Degree=Misdemeanor,Juvenile-Crimes=1-3-not} generated with support 0.250000
+(617) {Current-Charge-Degree=Misdemeanor,Juvenile-Crimes>3-not} generated with support 0.250000
+(618) {Current-Charge-Degree=Misdemeanor,Juvenile-Crimes>5-not} generated with support 0.250000
+(619) {Current-Charge-Degree=Misdemeanor,Prior-Crimes=0-not} generated with support 0.050000
+(620) {Current-Charge-Degree=Misdemeanor,Prior-Crimes=1-3-not} generated with support 0.200000
+(621) {Current-Charge-Degree=Misdemeanor,Prior-Crimes>3-not} generated with support 0.250000
+(622) {Current-Charge-Degree=Misdemeanor,Prior-Crimes>5-not} generated with support 0.250000
+(623) {Age=18-20-not,Age=18-22-not} generated with support 0.950000
+(624) {Age=18-20-not,Age=18-25-not} generated with support 0.750000
+(625) {Age=18-20-not,Age=24-30-not} generated with support 0.850000
+(626) {Age=18-20-not,Age=24-40-not} generated with support 0.500000
+(627) {Age=18-20-not,Age>=30-not} generated with support 0.300000
+(628) {Age=18-20-not,Age<=40-not} generated with support 0.650000
+(629) {Age=18-20-not,Age<=45-not} generated with support 0.900000
+(630) {Age=18-20-not,Gender=Male-not} generated with support 0.150000
+(631) {Age=18-20-not,Race=African-American-not} generated with support 0.650000
+(632) {Age=18-20-not,Race=Caucasian-not} generated with support 0.600000
+(633) {Age=18-20-not,Race=Hispanic-not} generated with support 0.950000
+(634) {Age=18-20-not,Race=Other-not} generated with support 0.800000
+(635) {Age=18-20-not,Juvenile-Crimes=0-not} generated with support 0.100000
+(636) {Age=18-20-not,Juvenile-Crimes=1-3-not} generated with support 0.900000
+(637) {Age=18-20-not,Prior-Crimes=0-not} generated with support 0.600000
+(638) {Age=18-20-not,Prior-Crimes=1-3-not} generated with support 0.650000
+(639) {Age=18-20-not,Prior-Crimes>3-not} generated with support 0.750000
+(640) {Age=18-20-not,Prior-Crimes>5-not} generated with support 0.850000
+(641) {Age=18-20-not,Current-Charge-Degree=Misdemeanor-not} generated with support 0.750000
+(642) {Age=18-22-not,Age=18-25-not} generated with support 0.750000
+(643) {Age=18-22-not,Age=24-30-not} generated with support 0.800000
+(644) {Age=18-22-not,Age=24-40-not} generated with support 0.450000
+(645) {Age=18-22-not,Age>=30-not} generated with support 0.250000
+(646) {Age=18-22-not,Age<=40-not} generated with support 0.600000
+(647) {Age=18-22-not,Age<=45-not} generated with support 0.850000
+(648) {Age=18-22-not,Gender=Male-not} generated with support 0.150000
+(649) {Age=18-22-not,Race=African-American-not} generated with support 0.600000
+(650) {Age=18-22-not,Race=Caucasian-not} generated with support 0.600000
+(651) {Age=18-22-not,Race=Asian-not} generated with support 0.950000
+(652) {Age=18-22-not,Race=Hispanic-not} generated with support 0.900000
+(653) {Age=18-22-not,Race=Native-American-not} generated with support 0.950000
+(654) {Age=18-22-not,Race=Other-not} generated with support 0.750000
+(655) {Age=18-22-not,Juvenile-Felonies=1-3-not} generated with support 0.950000
+(656) {Age=18-22-not,Juvenile-Felonies>3-not} generated with support 0.950000
+(657) {Age=18-22-not,Juvenile-Crimes=0-not} generated with support 0.100000
+(658) {Age=18-22-not,Juvenile-Crimes=1-3-not} generated with support 0.850000
+(659) {Age=18-22-not,Juvenile-Crimes>3-not} generated with support 0.950000
+(660) {Age=18-22-not,Juvenile-Crimes>5-not} generated with support 0.950000
+(661) {Age=18-22-not,Prior-Crimes=0-not} generated with support 0.550000
+(662) {Age=18-22-not,Prior-Crimes=1-3-not} generated with support 0.650000
+(663) {Age=18-22-not,Prior-Crimes>3-not} generated with support 0.700000
+(664) {Age=18-22-not,Prior-Crimes>5-not} generated with support 0.800000
+(665) {Age=18-22-not,Current-Charge-Degree=Misdemeanor-not} generated with support 0.700000
+(666) {Age=18-25-not,Age=24-30-not} generated with support 0.700000
+(667) {Age=18-25-not,Age=24-40-not} generated with support 0.350000
+(668) {Age=18-25-not,Age>=30-not} generated with support 0.050000
+(669) {Age=18-25-not,Age<=40-not} generated with support 0.400000
+(670) {Age=18-25-not,Age<=45-not} generated with support 0.650000
+(671) {Age=18-25-not,Gender=Male-not} generated with support 0.150000
+(672) {Age=18-25-not,Race=African-American-not} generated with support 0.600000
+(673) {Age=18-25-not,Race=Caucasian-not} generated with support 0.400000
+(674) {Age=18-25-not,Race=Asian-not} generated with support 0.750000
+(675) {Age=18-25-not,Race=Hispanic-not} generated with support 0.700000
+(676) {Age=18-25-not,Race=Native-American-not} generated with support 0.750000
+(677) {Age=18-25-not,Race=Other-not} generated with support 0.550000
+(678) {Age=18-25-not,Juvenile-Felonies=1-3-not} generated with support 0.750000
+(679) {Age=18-25-not,Juvenile-Felonies>3-not} generated with support 0.750000
+(680) {Age=18-25-not,Juvenile-Crimes=1-3-not} generated with support 0.750000
+(681) {Age=18-25-not,Juvenile-Crimes>3-not} generated with support 0.750000
+(682) {Age=18-25-not,Juvenile-Crimes>5-not} generated with support 0.750000
+(683) {Age=18-25-not,Prior-Crimes=0-not} generated with support 0.350000
+(684) {Age=18-25-not,Prior-Crimes=1-3-not} generated with support 0.600000
+(685) {Age=18-25-not,Prior-Crimes>3-not} generated with support 0.550000
+(686) {Age=18-25-not,Prior-Crimes>5-not} generated with support 0.600000
+(687) {Age=18-25-not,Current-Charge-Degree=Misdemeanor-not} generated with support 0.550000
+(688) {Age=24-30-not,Age=24-40-not} generated with support 0.500000
+(689) {Age=24-30-not,Age>=30-not} generated with support 0.150000
+(690) {Age=24-30-not,Age<=40-not} generated with support 0.500000
+(691) {Age=24-30-not,Age<=45-not} generated with support 0.750000
+(692) {Age=24-30-not,Gender=Male-not} generated with support 0.150000
+(693) {Age=24-30-not,Race=African-American-not} generated with support 0.600000
+(694) {Age=24-30-not,Race=Caucasian-not} generated with support 0.500000
+(695) {Age=24-30-not,Race=Asian-not} generated with support 0.850000
+(696) {Age=24-30-not,Race=Hispanic-not} generated with support 0.800000
+(697) {Age=24-30-not,Race=Native-American-not} generated with support 0.850000
+(698) {Age=24-30-not,Race=Other-not} generated with support 0.650000
+(699) {Age=24-30-not,Juvenile-Felonies=1-3-not} generated with support 0.850000
+(700) {Age=24-30-not,Juvenile-Felonies>3-not} generated with support 0.850000
+(701) {Age=24-30-not,Juvenile-Crimes=0-not} generated with support 0.050000
+(702) {Age=24-30-not,Juvenile-Crimes=1-3-not} generated with support 0.800000
+(703) {Age=24-30-not,Juvenile-Crimes>3-not} generated with support 0.850000
+(704) {Age=24-30-not,Juvenile-Crimes>5-not} generated with support 0.850000
+(705) {Age=24-30-not,Prior-Crimes=0-not} generated with support 0.500000
+(706) {Age=24-30-not,Prior-Crimes=1-3-not} generated with support 0.550000
+(707) {Age=24-30-not,Prior-Crimes>3-not} generated with support 0.650000
+(708) {Age=24-30-not,Prior-Crimes>5-not} generated with support 0.700000
+(709) {Age=24-30-not,Current-Charge-Degree=Misdemeanor-not} generated with support 0.600000
+(710) {Age=24-40-not,Age>=30-not} generated with support 0.150000
+(711) {Age=24-40-not,Age<=40-not} generated with support 0.150000
+(712) {Age=24-40-not,Age<=45-not} generated with support 0.400000
+(713) {Age=24-40-not,Gender=Male-not} generated with support 0.050000
+(714) {Age=24-40-not,Race=African-American-not} generated with support 0.350000
+(715) {Age=24-40-not,Race=Caucasian-not} generated with support 0.350000
+(716) {Age=24-40-not,Race=Asian-not} generated with support 0.500000
+(717) {Age=24-40-not,Race=Hispanic-not} generated with support 0.500000
+(718) {Age=24-40-not,Race=Native-American-not} generated with support 0.500000
+(719) {Age=24-40-not,Race=Other-not} generated with support 0.300000
+(720) {Age=24-40-not,Juvenile-Felonies=1-3-not} generated with support 0.500000
+(721) {Age=24-40-not,Juvenile-Felonies>3-not} generated with support 0.500000
+(722) {Age=24-40-not,Juvenile-Crimes=0-not} generated with support 0.050000
+(723) {Age=24-40-not,Juvenile-Crimes=1-3-not} generated with support 0.450000
+(724) {Age=24-40-not,Juvenile-Crimes>3-not} generated with support 0.500000
+(725) {Age=24-40-not,Juvenile-Crimes>5-not} generated with support 0.500000
+(726) {Age=24-40-not,Prior-Crimes=0-not} generated with support 0.350000
+(727) {Age=24-40-not,Prior-Crimes=1-3-not} generated with support 0.200000
+(728) {Age=24-40-not,Prior-Crimes>3-not} generated with support 0.450000
+(729) {Age=24-40-not,Prior-Crimes>5-not} generated with support 0.450000
+(730) {Age=24-40-not,Current-Charge-Degree=Misdemeanor-not} generated with support 0.400000
+(731) {Age>=30-not,Age<=40-not} generated with support 0.300000
+(732) {Age>=30-not,Age<=45-not} generated with support 0.300000
+(733) {Age>=30-not,Race=African-American-not} generated with support 0.100000
+(734) {Age>=30-not,Race=Caucasian-not} generated with support 0.200000
+(735) {Age>=30-not,Race=Asian-not} generated with support 0.300000
+(736) {Age>=30-not,Race=Hispanic-not} generated with support 0.300000
+(737) {Age>=30-not,Race=Native-American-not} generated with support 0.300000
+(738) {Age>=30-not,Race=Other-not} generated with support 0.300000
+(739) {Age>=30-not,Juvenile-Felonies=1-3-not} generated with support 0.300000
+(740) {Age>=30-not,Juvenile-Felonies>3-not} generated with support 0.300000
+(741) {Age>=30-not,Juvenile-Crimes=0-not} generated with support 0.100000
+(742) {Age>=30-not,Juvenile-Crimes=1-3-not} generated with support 0.200000
+(743) {Age>=30-not,Juvenile-Crimes>3-not} generated with support 0.300000
+(744) {Age>=30-not,Juvenile-Crimes>5-not} generated with support 0.300000
+(745) {Age>=30-not,Prior-Crimes=0-not} generated with support 0.250000
+(746) {Age>=30-not,Prior-Crimes=1-3-not} generated with support 0.100000
+(747) {Age>=30-not,Prior-Crimes>3-not} generated with support 0.250000
+(748) {Age>=30-not,Prior-Crimes>5-not} generated with support 0.300000
+(749) {Age>=30-not,Current-Charge-Degree=Misdemeanor-not} generated with support 0.250000
+(750) {Age<=40-not,Age<=45-not} generated with support 0.650000
+(751) {Age<=40-not,Gender=Male-not} generated with support 0.100000
+(752) {Age<=40-not,Race=African-American-not} generated with support 0.350000
+(753) {Age<=40-not,Race=Caucasian-not} generated with support 0.350000
+(754) {Age<=40-not,Race=Asian-not} generated with support 0.650000
+(755) {Age<=40-not,Race=Hispanic-not} generated with support 0.600000
+(756) {Age<=40-not,Race=Native-American-not} generated with support 0.650000
+(757) {Age<=40-not,Race=Other-not} generated with support 0.650000
+(758) {Age<=40-not,Juvenile-Felonies=1-3-not} generated with support 0.650000
+(759) {Age<=40-not,Juvenile-Felonies>3-not} generated with support 0.650000
+(760) {Age<=40-not,Juvenile-Crimes=0-not} generated with support 0.100000
+(761) {Age<=40-not,Juvenile-Crimes=1-3-not} generated with support 0.550000
+(762) {Age<=40-not,Juvenile-Crimes>3-not} generated with support 0.650000
+(763) {Age<=40-not,Juvenile-Crimes>5-not} generated with support 0.650000
+(764) {Age<=40-not,Prior-Crimes=0-not} generated with support 0.400000
+(765) {Age<=40-not,Prior-Crimes=1-3-not} generated with support 0.450000
+(766) {Age<=40-not,Prior-Crimes>3-not} generated with support 0.450000
+(767) {Age<=40-not,Prior-Crimes>5-not} generated with support 0.550000
+(768) {Age<=40-not,Current-Charge-Degree=Misdemeanor-not} generated with support 0.450000
+(769) {Age<=45-not,Gender=Male-not} generated with support 0.100000
+(770) {Age<=45-not,Race=African-American-not} generated with support 0.550000
+(771) {Age<=45-not,Race=Caucasian-not} generated with support 0.550000
+(772) {Age<=45-not,Race=Asian-not} generated with support 0.900000
+(773) {Age<=45-not,Race=Hispanic-not} generated with support 0.850000
+(774) {Age<=45-not,Race=Native-American-not} generated with support 0.900000
+(775) {Age<=45-not,Race=Other-not} generated with support 0.750000
+(776) {Age<=45-not,Juvenile-Felonies=1-3-not} generated with support 0.900000
+(777) {Age<=45-not,Juvenile-Felonies>3-not} generated with support 0.900000
+(778) {Age<=45-not,Juvenile-Crimes=0-not} generated with support 0.100000
+(779) {Age<=45-not,Juvenile-Crimes=1-3-not} generated with support 0.800000
+(780) {Age<=45-not,Juvenile-Crimes>3-not} generated with support 0.900000
+(781) {Age<=45-not,Juvenile-Crimes>5-not} generated with support 0.900000
+(782) {Age<=45-not,Prior-Crimes=0-not} generated with support 0.550000
+(783) {Age<=45-not,Prior-Crimes=1-3-not} generated with support 0.600000
+(784) {Age<=45-not,Prior-Crimes>3-not} generated with support 0.650000
+(785) {Age<=45-not,Prior-Crimes>5-not} generated with support 0.750000
+(786) {Age<=45-not,Current-Charge-Degree=Misdemeanor-not} generated with support 0.650000
+(787) {Gender=Male-not,Race=African-American-not} generated with support 0.150000
+(788) {Gender=Male-not,Race=Asian-not} generated with support 0.150000
+(789) {Gender=Male-not,Race=Hispanic-not} generated with support 0.150000
+(790) {Gender=Male-not,Race=Native-American-not} generated with support 0.150000
+(791) {Gender=Male-not,Race=Other-not} generated with support 0.150000
+(792) {Gender=Male-not,Juvenile-Felonies=1-3-not} generated with support 0.150000
+(793) {Gender=Male-not,Juvenile-Felonies>3-not} generated with support 0.150000
+(794) {Gender=Male-not,Juvenile-Crimes=1-3-not} generated with support 0.150000
+(795) {Gender=Male-not,Juvenile-Crimes>3-not} generated with support 0.150000
+(796) {Gender=Male-not,Juvenile-Crimes>5-not} generated with support 0.150000
+(797) {Gender=Male-not,Prior-Crimes=0-not} generated with support 0.050000
+(798) {Gender=Male-not,Prior-Crimes=1-3-not} generated with support 0.100000
+(799) {Gender=Male-not,Prior-Crimes>3-not} generated with support 0.150000
+(800) {Gender=Male-not,Prior-Crimes>5-not} generated with support 0.150000
+(801) {Gender=Male-not,Current-Charge-Degree=Misdemeanor-not} generated with support 0.050000
+(802) {Race=African-American-not,Race=Caucasian-not} generated with support 0.250000
+(803) {Race=African-American-not,Race=Asian-not} generated with support 0.650000
+(804) {Race=African-American-not,Race=Hispanic-not} generated with support 0.600000
+(805) {Race=African-American-not,Race=Native-American-not} generated with support 0.650000
+(806) {Race=African-American-not,Race=Other-not} generated with support 0.450000
+(807) {Race=African-American-not,Juvenile-Felonies=1-3-not} generated with support 0.650000
+(808) {Race=African-American-not,Juvenile-Felonies>3-not} generated with support 0.650000
+(809) {Race=African-American-not,Juvenile-Crimes=1-3-not} generated with support 0.650000
+(810) {Race=African-American-not,Juvenile-Crimes>3-not} generated with support 0.650000
+(811) {Race=African-American-not,Juvenile-Crimes>5-not} generated with support 0.650000
+(812) {Race=African-American-not,Prior-Crimes=0-not} generated with support 0.350000
+(813) {Race=African-American-not,Prior-Crimes=1-3-not} generated with support 0.450000
+(814) {Race=African-American-not,Prior-Crimes>3-not} generated with support 0.500000
+(815) {Race=African-American-not,Prior-Crimes>5-not} generated with support 0.550000
+(816) {Race=African-American-not,Current-Charge-Degree=Misdemeanor-not} generated with support 0.450000
+(817) {Race=Caucasian-not,Race=Asian-not} generated with support 0.600000
+(818) {Race=Caucasian-not,Race=Hispanic-not} generated with support 0.550000
+(819) {Race=Caucasian-not,Race=Native-American-not} generated with support 0.600000
+(820) {Race=Caucasian-not,Race=Other-not} generated with support 0.400000
+(821) {Race=Caucasian-not,Juvenile-Felonies=1-3-not} generated with support 0.600000
+(822) {Race=Caucasian-not,Juvenile-Felonies>3-not} generated with support 0.600000
+(823) {Race=Caucasian-not,Juvenile-Crimes=0-not} generated with support 0.100000
+(824) {Race=Caucasian-not,Juvenile-Crimes=1-3-not} generated with support 0.500000
+(825) {Race=Caucasian-not,Juvenile-Crimes>3-not} generated with support 0.600000
+(826) {Race=Caucasian-not,Juvenile-Crimes>5-not} generated with support 0.600000
+(827) {Race=Caucasian-not,Prior-Crimes=0-not} generated with support 0.350000
+(828) {Race=Caucasian-not,Prior-Crimes=1-3-not} generated with support 0.350000
+(829) {Race=Caucasian-not,Prior-Crimes>3-not} generated with support 0.500000
+(830) {Race=Caucasian-not,Prior-Crimes>5-not} generated with support 0.550000
+(831) {Race=Caucasian-not,Current-Charge-Degree=Misdemeanor-not} generated with support 0.450000
+(832) {Race=Asian-not,Race=Hispanic-not} generated with support 0.950000
+(833) {Race=Asian-not,Race=Other-not} generated with support 0.800000
+(834) {Race=Asian-not,Juvenile-Crimes=0-not} generated with support 0.100000
+(835) {Race=Asian-not,Juvenile-Crimes=1-3-not} generated with support 0.900000
+(836) {Race=Asian-not,Prior-Crimes=0-not} generated with support 0.600000
+(837) {Race=Asian-not,Prior-Crimes=1-3-not} generated with support 0.650000
+(838) {Race=Asian-not,Prior-Crimes>3-not} generated with support 0.750000
+(839) {Race=Asian-not,Prior-Crimes>5-not} generated with support 0.850000
+(840) {Race=Asian-not,Current-Charge-Degree=Misdemeanor-not} generated with support 0.750000
+(841) {Race=Hispanic-not,Race=Native-American-not} generated with support 0.950000
+(842) {Race=Hispanic-not,Race=Other-not} generated with support 0.750000
+(843) {Race=Hispanic-not,Juvenile-Felonies=1-3-not} generated with support 0.950000
+(844) {Race=Hispanic-not,Juvenile-Felonies>3-not} generated with support 0.950000
+(845) {Race=Hispanic-not,Juvenile-Crimes=0-not} generated with support 0.100000
+(846) {Race=Hispanic-not,Juvenile-Crimes=1-3-not} generated with support 0.850000
+(847) {Race=Hispanic-not,Juvenile-Crimes>3-not} generated with support 0.950000
+(848) {Race=Hispanic-not,Juvenile-Crimes>5-not} generated with support 0.950000
+(849) {Race=Hispanic-not,Prior-Crimes=0-not} generated with support 0.600000
+(850) {Race=Hispanic-not,Prior-Crimes=1-3-not} generated with support 0.600000
+(851) {Race=Hispanic-not,Prior-Crimes>3-not} generated with support 0.700000
+(852) {Race=Hispanic-not,Prior-Crimes>5-not} generated with support 0.800000
+(853) {Race=Hispanic-not,Current-Charge-Degree=Misdemeanor-not} generated with support 0.750000
+(854) {Race=Native-American-not,Race=Other-not} generated with support 0.800000
+(855) {Race=Native-American-not,Juvenile-Crimes=0-not} generated with support 0.100000
+(856) {Race=Native-American-not,Juvenile-Crimes=1-3-not} generated with support 0.900000
+(857) {Race=Native-American-not,Prior-Crimes=0-not} generated with support 0.600000
+(858) {Race=Native-American-not,Prior-Crimes=1-3-not} generated with support 0.650000
+(859) {Race=Native-American-not,Prior-Crimes>3-not} generated with support 0.750000
+(860) {Race=Native-American-not,Prior-Crimes>5-not} generated with support 0.850000
+(861) {Race=Native-American-not,Current-Charge-Degree=Misdemeanor-not} generated with support 0.750000
+(862) {Race=Other-not,Juvenile-Felonies=1-3-not} generated with support 0.800000
+(863) {Race=Other-not,Juvenile-Felonies>3-not} generated with support 0.800000
+(864) {Race=Other-not,Juvenile-Crimes=0-not} generated with support 0.100000
+(865) {Race=Other-not,Juvenile-Crimes=1-3-not} generated with support 0.700000
+(866) {Race=Other-not,Juvenile-Crimes>3-not} generated with support 0.800000
+(867) {Race=Other-not,Juvenile-Crimes>5-not} generated with support 0.800000
+(868) {Race=Other-not,Prior-Crimes=0-not} generated with support 0.500000
+(869) {Race=Other-not,Prior-Crimes=1-3-not} generated with support 0.550000
+(870) {Race=Other-not,Prior-Crimes>3-not} generated with support 0.550000
+(871) {Race=Other-not,Prior-Crimes>5-not} generated with support 0.650000
+(872) {Race=Other-not,Current-Charge-Degree=Misdemeanor-not} generated with support 0.600000
+(873) {Juvenile-Felonies=1-3-not,Juvenile-Crimes=0-not} generated with support 0.100000
+(874) {Juvenile-Felonies=1-3-not,Juvenile-Crimes=1-3-not} generated with support 0.900000
+(875) {Juvenile-Felonies=1-3-not,Prior-Crimes=0-not} generated with support 0.600000
+(876) {Juvenile-Felonies=1-3-not,Prior-Crimes=1-3-not} generated with support 0.650000
+(877) {Juvenile-Felonies=1-3-not,Prior-Crimes>3-not} generated with support 0.750000
+(878) {Juvenile-Felonies=1-3-not,Prior-Crimes>5-not} generated with support 0.850000
+(879) {Juvenile-Felonies=1-3-not,Current-Charge-Degree=Misdemeanor-not} generated with support 0.750000
+(880) {Juvenile-Felonies>3-not,Juvenile-Crimes=0-not} generated with support 0.100000
+(881) {Juvenile-Felonies>3-not,Juvenile-Crimes=1-3-not} generated with support 0.900000
+(882) {Juvenile-Felonies>3-not,Prior-Crimes=0-not} generated with support 0.600000
+(883) {Juvenile-Felonies>3-not,Prior-Crimes=1-3-not} generated with support 0.650000
+(884) {Juvenile-Felonies>3-not,Prior-Crimes>3-not} generated with support 0.750000
+(885) {Juvenile-Felonies>3-not,Prior-Crimes>5-not} generated with support 0.850000
+(886) {Juvenile-Felonies>3-not,Current-Charge-Degree=Misdemeanor-not} generated with support 0.750000
+(887) {Juvenile-Crimes=0-not,Juvenile-Crimes>3-not} generated with support 0.100000
+(888) {Juvenile-Crimes=0-not,Juvenile-Crimes>5-not} generated with support 0.100000
+(889) {Juvenile-Crimes=0-not,Prior-Crimes=0-not} generated with support 0.100000
+(890) {Juvenile-Crimes=0-not,Prior-Crimes=1-3-not} generated with support 0.050000
+(891) {Juvenile-Crimes=0-not,Prior-Crimes>3-not} generated with support 0.050000
+(892) {Juvenile-Crimes=0-not,Prior-Crimes>5-not} generated with support 0.100000
+(893) {Juvenile-Crimes=0-not,Current-Charge-Degree=Misdemeanor-not} generated with support 0.100000
+(894) {Juvenile-Crimes=1-3-not,Juvenile-Crimes>3-not} generated with support 0.900000
+(895) {Juvenile-Crimes=1-3-not,Juvenile-Crimes>5-not} generated with support 0.900000
+(896) {Juvenile-Crimes=1-3-not,Prior-Crimes=0-not} generated with support 0.500000
+(897) {Juvenile-Crimes=1-3-not,Prior-Crimes=1-3-not} generated with support 0.600000
+(898) {Juvenile-Crimes=1-3-not,Prior-Crimes>3-not} generated with support 0.700000
+(899) {Juvenile-Crimes=1-3-not,Prior-Crimes>5-not} generated with support 0.750000
+(900) {Juvenile-Crimes=1-3-not,Current-Charge-Degree=Misdemeanor-not} generated with support 0.650000
+(901) {Juvenile-Crimes>3-not,Prior-Crimes=0-not} generated with support 0.600000
+(902) {Juvenile-Crimes>3-not,Prior-Crimes=1-3-not} generated with support 0.650000
+(903) {Juvenile-Crimes>3-not,Prior-Crimes>3-not} generated with support 0.750000
+(904) {Juvenile-Crimes>3-not,Prior-Crimes>5-not} generated with support 0.850000
+(905) {Juvenile-Crimes>3-not,Current-Charge-Degree=Misdemeanor-not} generated with support 0.750000
+(906) {Juvenile-Crimes>5-not,Prior-Crimes=0-not} generated with support 0.600000
+(907) {Juvenile-Crimes>5-not,Prior-Crimes=1-3-not} generated with support 0.650000
+(908) {Juvenile-Crimes>5-not,Prior-Crimes>3-not} generated with support 0.750000
+(909) {Juvenile-Crimes>5-not,Prior-Crimes>5-not} generated with support 0.850000
+(910) {Juvenile-Crimes>5-not,Current-Charge-Degree=Misdemeanor-not} generated with support 0.750000
+(911) {Prior-Crimes=0-not,Prior-Crimes=1-3-not} generated with support 0.250000
+(912) {Prior-Crimes=0-not,Prior-Crimes>3-not} generated with support 0.350000
+(913) {Prior-Crimes=0-not,Prior-Crimes>5-not} generated with support 0.450000
+(914) {Prior-Crimes=0-not,Current-Charge-Degree=Misdemeanor-not} generated with support 0.550000
+(915) {Prior-Crimes=1-3-not,Prior-Crimes>3-not} generated with support 0.400000
+(916) {Prior-Crimes=1-3-not,Prior-Crimes>5-not} generated with support 0.500000
+(917) {Prior-Crimes=1-3-not,Current-Charge-Degree=Misdemeanor-not} generated with support 0.450000
+(918) {Prior-Crimes>3-not,Prior-Crimes>5-not} generated with support 0.750000
+(919) {Prior-Crimes>3-not,Current-Charge-Degree=Misdemeanor-not} generated with support 0.500000
+(920) {Prior-Crimes>5-not,Current-Charge-Degree=Misdemeanor-not} generated with support 0.600000
+Generated 920 rules
+Generated minority bound with support 0.000000
+**Not using GMP library**
+System information:
+system name-> Linux; node name-> vassy-HP-Notebook; release-> 4.15.0-54-generic; version-> #58-Ubuntu SMP Mon Jun 24 10:55:24 UTC 2019; machine-> x86_64
+
+921 rules 20 samples
+
+RULE 0: ( default ), support=20, card=1
+RULE 1: ( Age=18-22 ), support=1, card=1
+RULE 2: ( Age=18-25 ), support=5, card=1
+RULE 3: ( Age=24-30 ), support=3, card=1
+RULE 4: ( Age=24-40 ), support=10, card=1
+RULE 5: ( Age>=30 ), support=14, card=1
+RULE 6: ( Age<=40 ), support=7, card=1
+RULE 7: ( Age<=45 ), support=2, card=1
+RULE 8: ( Gender=Male ), support=17, card=1
+RULE 9: ( Race=African-American ), support=7, card=1
+RULE 10: ( Race=Caucasian ), support=8, card=1
+RULE 11: ( Race=Hispanic ), support=1, card=1
+RULE 12: ( Race=Other ), support=4, card=1
+RULE 13: ( Juvenile-Crimes=0 ), support=18, card=1
+RULE 14: ( Juvenile-Crimes=1-3 ), support=2, card=1
+RULE 15: ( Prior-Crimes=0 ), support=8, card=1
+RULE 16: ( Prior-Crimes=1-3 ), support=7, card=1
+RULE 17: ( Prior-Crimes>3 ), support=5, card=1
+RULE 18: ( Prior-Crimes>5 ), support=3, card=1
+RULE 19: ( Current-Charge-Degree=Misdemeanor ), support=5, card=1
+RULE 20: ( Age=18-22-not ), support=19, card=1
+RULE 21: ( Age=18-25-not ), support=15, card=1
+RULE 22: ( Age=24-30-not ), support=17, card=1
+RULE 23: ( Age=24-40-not ), support=10, card=1
+RULE 24: ( Age>=30-not ), support=6, card=1
+RULE 25: ( Age<=40-not ), support=13, card=1
+RULE 26: ( Age<=45-not ), support=18, card=1
+RULE 27: ( Gender=Male-not ), support=3, card=1
+RULE 28: ( Race=African-American-not ), support=13, card=1
+RULE 29: ( Race=Caucasian-not ), support=12, card=1
+RULE 30: ( Race=Hispanic-not ), support=19, card=1
+RULE 31: ( Race=Other-not ), support=16, card=1
+RULE 32: ( Juvenile-Crimes=0-not ), support=2, card=1
+RULE 33: ( Juvenile-Crimes=1-3-not ), support=18, card=1
+RULE 34: ( Prior-Crimes=0-not ), support=12, card=1
+RULE 35: ( Prior-Crimes=1-3-not ), support=13, card=1
+RULE 36: ( Prior-Crimes>3-not ), support=15, card=1
+RULE 37: ( Prior-Crimes>5-not ), support=17, card=1
+RULE 38: ( Current-Charge-Degree=Misdemeanor-not ), support=15, card=1
+RULE 39: ( Age=18-22,Age=18-25 ), support=1, card=2
+RULE 40: ( Age=18-22,Gender=Male ), support=1, card=2
+RULE 41: ( Age=18-22,Race=Caucasian ), support=1, card=2
+RULE 42: ( Age=18-22,Juvenile-Felonies=0 ), support=1, card=2
+RULE 43: ( Age=18-22,Juvenile-Crimes=0 ), support=1, card=2
+RULE 44: ( Age=18-22,Prior-Crimes=1-3 ), support=1, card=2
+RULE 45: ( Age=18-22,Age=18-20-not ), support=1, card=2
+RULE 46: ( Age=18-22,Age=24-30-not ), support=1, card=2
+RULE 47: ( Age=18-22,Age=24-40-not ), support=1, card=2
+RULE 48: ( Age=18-22,Age>=30-not ), support=1, card=2
+RULE 49: ( Age=18-22,Age<=40-not ), support=1, card=2
+RULE 50: ( Age=18-22,Age<=45-not ), support=1, card=2
+RULE 51: ( Age=18-22,Race=African-American-not ), support=1, card=2
+RULE 52: ( Age=18-22,Race=Asian-not ), support=1, card=2
+RULE 53: ( Age=18-22,Race=Hispanic-not ), support=1, card=2
+RULE 54: ( Age=18-22,Race=Native-American-not ), support=1, card=2
+RULE 55: ( Age=18-22,Race=Other-not ), support=1, card=2
+RULE 56: ( Age=18-22,Juvenile-Felonies=1-3-not ), support=1, card=2
+RULE 57: ( Age=18-22,Juvenile-Felonies>3-not ), support=1, card=2
+RULE 58: ( Age=18-22,Juvenile-Crimes=1-3-not ), support=1, card=2
+RULE 59: ( Age=18-22,Juvenile-Crimes>3-not ), support=1, card=2
+RULE 60: ( Age=18-22,Juvenile-Crimes>5-not ), support=1, card=2
+RULE 61: ( Age=18-22,Prior-Crimes=0-not ), support=1, card=2
+RULE 62: ( Age=18-22,Prior-Crimes>3-not ), support=1, card=2
+RULE 63: ( Age=18-22,Prior-Crimes>5-not ), support=1, card=2
+RULE 64: ( Age=18-22,Current-Charge-Degree=Misdemeanor-not ), support=1, card=2
+RULE 65: ( Age=18-25,Age=24-30 ), support=2, card=2
+RULE 66: ( Age=18-25,Age=24-40 ), support=2, card=2
+RULE 67: ( Age=18-25,Gender=Male ), support=5, card=2
+RULE 68: ( Age=18-25,Race=African-American ), support=4, card=2
+RULE 69: ( Age=18-25,Race=Caucasian ), support=1, card=2
+RULE 70: ( Age=18-25,Juvenile-Felonies=0 ), support=5, card=2
+RULE 71: ( Age=18-25,Juvenile-Crimes=0 ), support=3, card=2
+RULE 72: ( Age=18-25,Juvenile-Crimes=1-3 ), support=2, card=2
+RULE 73: ( Age=18-25,Prior-Crimes=1-3 ), support=4, card=2
+RULE 74: ( Age=18-25,Prior-Crimes>3 ), support=1, card=2
+RULE 75: ( Age=18-25,Current-Charge-Degree=Misdemeanor ), support=1, card=2
+RULE 76: ( Age=18-25,Age=18-20-not ), support=5, card=2
+RULE 77: ( Age=18-25,Age=18-22-not ), support=4, card=2
+RULE 78: ( Age=18-25,Age=24-30-not ), support=3, card=2
+RULE 79: ( Age=18-25,Age=24-40-not ), support=3, card=2
+RULE 80: ( Age=18-25,Age>=30-not ), support=5, card=2
+RULE 81: ( Age=18-25,Age<=40-not ), support=5, card=2
+RULE 82: ( Age=18-25,Age<=45-not ), support=5, card=2
+RULE 83: ( Age=18-25,Race=African-American-not ), support=1, card=2
+RULE 84: ( Age=18-25,Race=Caucasian-not ), support=4, card=2
+RULE 85: ( Age=18-25,Race=Asian-not ), support=5, card=2
+RULE 86: ( Age=18-25,Race=Hispanic-not ), support=5, card=2
+RULE 87: ( Age=18-25,Race=Native-American-not ), support=5, card=2
+RULE 88: ( Age=18-25,Race=Other-not ), support=5, card=2
+RULE 89: ( Age=18-25,Juvenile-Felonies=1-3-not ), support=5, card=2
+RULE 90: ( Age=18-25,Juvenile-Felonies>3-not ), support=5, card=2
+RULE 91: ( Age=18-25,Juvenile-Crimes=0-not ), support=2, card=2
+RULE 92: ( Age=18-25,Juvenile-Crimes=1-3-not ), support=3, card=2
+RULE 93: ( Age=18-25,Juvenile-Crimes>3-not ), support=5, card=2
+RULE 94: ( Age=18-25,Juvenile-Crimes>5-not ), support=5, card=2
+RULE 95: ( Age=18-25,Prior-Crimes=0-not ), support=5, card=2
+RULE 96: ( Age=18-25,Prior-Crimes=1-3-not ), support=1, card=2
+RULE 97: ( Age=18-25,Prior-Crimes>3-not ), support=4, card=2
+RULE 98: ( Age=18-25,Prior-Crimes>5-not ), support=5, card=2
+RULE 99: ( Age=18-25,Current-Charge-Degree=Misdemeanor-not ), support=4, card=2
+RULE 100: ( Age=24-30,Age=24-40 ), support=3, card=2
+RULE 101: ( Age=24-30,Gender=Male ), support=3, card=2
+RULE 102: ( Age=24-30,Race=African-American ), support=2, card=2
+RULE 103: ( Age=24-30,Race=Caucasian ), support=1, card=2
+RULE 104: ( Age=24-30,Juvenile-Felonies=0 ), support=3, card=2
+RULE 105: ( Age=24-30,Juvenile-Crimes=0 ), support=2, card=2
+RULE 106: ( Age=24-30,Juvenile-Crimes=1-3 ), support=1, card=2
+RULE 107: ( Age=24-30,Prior-Crimes=0 ), support=1, card=2
+RULE 108: ( Age=24-30,Prior-Crimes=1-3 ), support=1, card=2
+RULE 109: ( Age=24-30,Prior-Crimes>3 ), support=1, card=2
+RULE 110: ( Age=24-30,Age=18-20-not ), support=3, card=2
+RULE 111: ( Age=24-30,Age=18-22-not ), support=3, card=2
+RULE 112: ( Age=24-30,Age=18-25-not ), support=1, card=2
+RULE 113: ( Age=24-30,Age>=30-not ), support=3, card=2
+RULE 114: ( Age=24-30,Age<=40-not ), support=3, card=2
+RULE 115: ( Age=24-30,Age<=45-not ), support=3, card=2
+RULE 116: ( Age=24-30,Race=African-American-not ), support=1, card=2
+RULE 117: ( Age=24-30,Race=Caucasian-not ), support=2, card=2
+RULE 118: ( Age=24-30,Race=Asian-not ), support=3, card=2
+RULE 119: ( Age=24-30,Race=Hispanic-not ), support=3, card=2
+RULE 120: ( Age=24-30,Race=Native-American-not ), support=3, card=2
+RULE 121: ( Age=24-30,Race=Other-not ), support=3, card=2
+RULE 122: ( Age=24-30,Juvenile-Felonies=1-3-not ), support=3, card=2
+RULE 123: ( Age=24-30,Juvenile-Felonies>3-not ), support=3, card=2
+RULE 124: ( Age=24-30,Juvenile-Crimes=0-not ), support=1, card=2
+RULE 125: ( Age=24-30,Juvenile-Crimes=1-3-not ), support=2, card=2
+RULE 126: ( Age=24-30,Juvenile-Crimes>3-not ), support=3, card=2
+RULE 127: ( Age=24-30,Juvenile-Crimes>5-not ), support=3, card=2
+RULE 128: ( Age=24-30,Prior-Crimes=0-not ), support=2, card=2
+RULE 129: ( Age=24-30,Prior-Crimes=1-3-not ), support=2, card=2
+RULE 130: ( Age=24-30,Prior-Crimes>3-not ), support=2, card=2
+RULE 131: ( Age=24-30,Prior-Crimes>5-not ), support=3, card=2
+RULE 132: ( Age=24-30,Current-Charge-Degree=Misdemeanor-not ), support=3, card=2
+RULE 133: ( Age=24-40,Age>=30 ), support=7, card=2
+RULE 134: ( Age=24-40,Gender=Male ), support=8, card=2
+RULE 135: ( Age=24-40,Race=African-American ), support=4, card=2
+RULE 136: ( Age=24-40,Race=Caucasian ), support=5, card=2
+RULE 137: ( Age=24-40,Race=Hispanic ), support=1, card=2
+RULE 138: ( Age=24-40,Juvenile-Felonies=0 ), support=10, card=2
+RULE 139: ( Age=24-40,Juvenile-Crimes=0 ), support=9, card=2
+RULE 140: ( Age=24-40,Juvenile-Crimes=1-3 ), support=1, card=2
+RULE 141: ( Age=24-40,Prior-Crimes=0 ), support=5, card=2
+RULE 142: ( Age=24-40,Prior-Crimes=1-3 ), support=1, card=2
+RULE 143: ( Age=24-40,Prior-Crimes>3 ), support=4, card=2
+RULE 144: ( Age=24-40,Prior-Crimes>5 ), support=2, card=2
+RULE 145: ( Age=24-40,Current-Charge-Degree=Misdemeanor ), support=3, card=2
+RULE 146: ( Age=24-40,Age=18-20-not ), support=10, card=2
+RULE 147: ( Age=24-40,Age=18-22-not ), support=10, card=2
+RULE 148: ( Age=24-40,Age=18-25-not ), support=8, card=2
+RULE 149: ( Age=24-40,Age=24-30-not ), support=7, card=2
+RULE 150: ( Age=24-40,Age>=30-not ), support=3, card=2
+RULE 151: ( Age=24-40,Age<=40-not ), support=10, card=2
+RULE 152: ( Age=24-40,Age<=45-not ), support=10, card=2
+RULE 153: ( Age=24-40,Gender=Male-not ), support=2, card=2
+RULE 154: ( Age=24-40,Race=African-American-not ), support=6, card=2
+RULE 155: ( Age=24-40,Race=Caucasian-not ), support=5, card=2
+RULE 156: ( Age=24-40,Race=Asian-not ), support=10, card=2
+RULE 157: ( Age=24-40,Race=Hispanic-not ), support=9, card=2
+RULE 158: ( Age=24-40,Race=Native-American-not ), support=10, card=2
+RULE 159: ( Age=24-40,Race=Other-not ), support=10, card=2
+RULE 160: ( Age=24-40,Juvenile-Felonies=1-3-not ), support=10, card=2
+RULE 161: ( Age=24-40,Juvenile-Felonies>3-not ), support=10, card=2
+RULE 162: ( Age=24-40,Juvenile-Crimes=0-not ), support=1, card=2
+RULE 163: ( Age=24-40,Juvenile-Crimes=1-3-not ), support=9, card=2
+RULE 164: ( Age=24-40,Juvenile-Crimes>3-not ), support=10, card=2
+RULE 165: ( Age=24-40,Juvenile-Crimes>5-not ), support=10, card=2
+RULE 166: ( Age=24-40,Prior-Crimes=0-not ), support=5, card=2
+RULE 167: ( Age=24-40,Prior-Crimes=1-3-not ), support=9, card=2
+RULE 168: ( Age=24-40,Prior-Crimes>3-not ), support=6, card=2
+RULE 169: ( Age=24-40,Prior-Crimes>5-not ), support=8, card=2
+RULE 170: ( Age=24-40,Current-Charge-Degree=Misdemeanor-not ), support=7, card=2
+RULE 171: ( Age>=30,Age<=40 ), support=7, card=2
+RULE 172: ( Age>=30,Age<=45 ), support=2, card=2
+RULE 173: ( Age>=30,Gender=Male ), support=11, card=2
+RULE 174: ( Age>=30,Race=African-American ), support=3, card=2
+RULE 175: ( Age>=30,Race=Caucasian ), support=6, card=2
+RULE 176: ( Age>=30,Race=Hispanic ), support=1, card=2
+RULE 177: ( Age>=30,Race=Other ), support=4, card=2
+RULE 178: ( Age>=30,Juvenile-Felonies=0 ), support=14, card=2
+RULE 179: ( Age>=30,Juvenile-Crimes=0 ), support=14, card=2
+RULE 180: ( Age>=30,Prior-Crimes=0 ), support=7, card=2
+RULE 181: ( Age>=30,Prior-Crimes=1-3 ), support=3, card=2
+RULE 182: ( Age>=30,Prior-Crimes>3 ), support=4, card=2
+RULE 183: ( Age>=30,Prior-Crimes>5 ), support=3, card=2
+RULE 184: ( Age>=30,Current-Charge-Degree=Misdemeanor ), support=4, card=2
+RULE 185: ( Age>=30,Age=18-20-not ), support=14, card=2
+RULE 186: ( Age>=30,Age=18-22-not ), support=14, card=2
+RULE 187: ( Age>=30,Age=18-25-not ), support=14, card=2
+RULE 188: ( Age>=30,Age=24-30-not ), support=14, card=2
+RULE 189: ( Age>=30,Age=24-40-not ), support=7, card=2
+RULE 190: ( Age>=30,Age<=40-not ), support=7, card=2
+RULE 191: ( Age>=30,Age<=45-not ), support=12, card=2
+RULE 192: ( Age>=30,Gender=Male-not ), support=3, card=2
+RULE 193: ( Age>=30,Race=African-American-not ), support=11, card=2
+RULE 194: ( Age>=30,Race=Caucasian-not ), support=8, card=2
+RULE 195: ( Age>=30,Race=Asian-not ), support=14, card=2
+RULE 196: ( Age>=30,Race=Hispanic-not ), support=13, card=2
+RULE 197: ( Age>=30,Race=Native-American-not ), support=14, card=2
+RULE 198: ( Age>=30,Race=Other-not ), support=10, card=2
+RULE 199: ( Age>=30,Juvenile-Felonies=1-3-not ), support=14, card=2
+RULE 200: ( Age>=30,Juvenile-Felonies>3-not ), support=14, card=2
+RULE 201: ( Age>=30,Juvenile-Crimes=1-3-not ), support=14, card=2
+RULE 202: ( Age>=30,Juvenile-Crimes>3-not ), support=14, card=2
+RULE 203: ( Age>=30,Juvenile-Crimes>5-not ), support=14, card=2
+RULE 204: ( Age>=30,Prior-Crimes=0-not ), support=7, card=2
+RULE 205: ( Age>=30,Prior-Crimes=1-3-not ), support=11, card=2
+RULE 206: ( Age>=30,Prior-Crimes>3-not ), support=10, card=2
+RULE 207: ( Age>=30,Prior-Crimes>5-not ), support=11, card=2
+RULE 208: ( Age>=30,Current-Charge-Degree=Misdemeanor-not ), support=10, card=2
+RULE 209: ( Age<=40,Age<=45 ), support=2, card=2
+RULE 210: ( Age<=40,Gender=Male ), support=6, card=2
+RULE 211: ( Age<=40,Race=African-American ), support=1, card=2
+RULE 212: ( Age<=40,Race=Caucasian ), support=2, card=2
+RULE 213: ( Age<=40,Race=Other ), support=4, card=2
+RULE 214: ( Age<=40,Juvenile-Felonies=0 ), support=7, card=2
+RULE 215: ( Age<=40,Juvenile-Crimes=0 ), support=7, card=2
+RULE 216: ( Age<=40,Prior-Crimes=0 ), support=3, card=2
+RULE 217: ( Age<=40,Prior-Crimes=1-3 ), support=3, card=2
+RULE 218: ( Age<=40,Prior-Crimes>3 ), support=1, card=2
+RULE 219: ( Age<=40,Prior-Crimes>5 ), support=1, card=2
+RULE 220: ( Age<=40,Current-Charge-Degree=Misdemeanor ), support=1, card=2
+RULE 221: ( Age<=40,Age=18-20-not ), support=7, card=2
+RULE 222: ( Age<=40,Age=18-22-not ), support=7, card=2
+RULE 223: ( Age<=40,Age=18-25-not ), support=7, card=2
+RULE 224: ( Age<=40,Age=24-30-not ), support=7, card=2
+RULE 225: ( Age<=40,Age=24-40-not ), support=7, card=2
+RULE 226: ( Age<=40,Age<=45-not ), support=5, card=2
+RULE 227: ( Age<=40,Gender=Male-not ), support=1, card=2
+RULE 228: ( Age<=40,Race=African-American-not ), support=6, card=2
+RULE 229: ( Age<=40,Race=Caucasian-not ), support=5, card=2
+RULE 230: ( Age<=40,Race=Asian-not ), support=7, card=2
+RULE 231: ( Age<=40,Race=Hispanic-not ), support=7, card=2
+RULE 232: ( Age<=40,Race=Native-American-not ), support=7, card=2
+RULE 233: ( Age<=40,Race=Other-not ), support=3, card=2
+RULE 234: ( Age<=40,Juvenile-Felonies=1-3-not ), support=7, card=2
+RULE 235: ( Age<=40,Juvenile-Felonies>3-not ), support=7, card=2
+RULE 236: ( Age<=40,Juvenile-Crimes=1-3-not ), support=7, card=2
+RULE 237: ( Age<=40,Juvenile-Crimes>3-not ), support=7, card=2
+RULE 238: ( Age<=40,Juvenile-Crimes>5-not ), support=7, card=2
+RULE 239: ( Age<=40,Prior-Crimes=0-not ), support=4, card=2
+RULE 240: ( Age<=40,Prior-Crimes=1-3-not ), support=4, card=2
+RULE 241: ( Age<=40,Prior-Crimes>3-not ), support=6, card=2
+RULE 242: ( Age<=40,Prior-Crimes>5-not ), support=6, card=2
+RULE 243: ( Age<=40,Current-Charge-Degree=Misdemeanor-not ), support=6, card=2
+RULE 244: ( Age<=45,Gender=Male ), support=1, card=2
+RULE 245: ( Age<=45,Race=Caucasian ), support=1, card=2
+RULE 246: ( Age<=45,Race=Other ), support=1, card=2
+RULE 247: ( Age<=45,Juvenile-Felonies=0 ), support=2, card=2
+RULE 248: ( Age<=45,Juvenile-Crimes=0 ), support=2, card=2
+RULE 249: ( Age<=45,Prior-Crimes=0 ), support=1, card=2
+RULE 250: ( Age<=45,Prior-Crimes=1-3 ), support=1, card=2
+RULE 251: ( Age<=45,Age=18-20-not ), support=2, card=2
+RULE 252: ( Age<=45,Age=18-22-not ), support=2, card=2
+RULE 253: ( Age<=45,Age=18-25-not ), support=2, card=2
+RULE 254: ( Age<=45,Age=24-30-not ), support=2, card=2
+RULE 255: ( Age<=45,Age=24-40-not ), support=2, card=2
+RULE 256: ( Age<=45,Gender=Male-not ), support=1, card=2
+RULE 257: ( Age<=45,Race=African-American-not ), support=2, card=2
+RULE 258: ( Age<=45,Race=Caucasian-not ), support=1, card=2
+RULE 259: ( Age<=45,Race=Asian-not ), support=2, card=2
+RULE 260: ( Age<=45,Race=Hispanic-not ), support=2, card=2
+RULE 261: ( Age<=45,Race=Native-American-not ), support=2, card=2
+RULE 262: ( Age<=45,Race=Other-not ), support=1, card=2
+RULE 263: ( Age<=45,Juvenile-Felonies=1-3-not ), support=2, card=2
+RULE 264: ( Age<=45,Juvenile-Felonies>3-not ), support=2, card=2
+RULE 265: ( Age<=45,Juvenile-Crimes=1-3-not ), support=2, card=2
+RULE 266: ( Age<=45,Juvenile-Crimes>3-not ), support=2, card=2
+RULE 267: ( Age<=45,Juvenile-Crimes>5-not ), support=2, card=2
+RULE 268: ( Age<=45,Prior-Crimes=0-not ), support=1, card=2
+RULE 269: ( Age<=45,Prior-Crimes=1-3-not ), support=1, card=2
+RULE 270: ( Age<=45,Prior-Crimes>3-not ), support=2, card=2
+RULE 271: ( Age<=45,Prior-Crimes>5-not ), support=2, card=2
+RULE 272: ( Age<=45,Current-Charge-Degree=Misdemeanor-not ), support=2, card=2
+RULE 273: ( Gender=Male,Race=African-American ), support=7, card=2
+RULE 274: ( Gender=Male,Race=Caucasian ), support=5, card=2
+RULE 275: ( Gender=Male,Race=Hispanic ), support=1, card=2
+RULE 276: ( Gender=Male,Race=Other ), support=4, card=2
+RULE 277: ( Gender=Male,Juvenile-Felonies=0 ), support=17, card=2
+RULE 278: ( Gender=Male,Juvenile-Crimes=0 ), support=15, card=2
+RULE 279: ( Gender=Male,Juvenile-Crimes=1-3 ), support=2, card=2
+RULE 280: ( Gender=Male,Prior-Crimes=0 ), support=6, card=2
+RULE 281: ( Gender=Male,Prior-Crimes=1-3 ), support=6, card=2
+RULE 282: ( Gender=Male,Prior-Crimes>3 ), support=5, card=2
+RULE 283: ( Gender=Male,Prior-Crimes>5 ), support=3, card=2
+RULE 284: ( Gender=Male,Current-Charge-Degree=Misdemeanor ), support=3, card=2
+RULE 285: ( Gender=Male,Age=18-20-not ), support=17, card=2
+RULE 286: ( Gender=Male,Age=18-22-not ), support=16, card=2
+RULE 287: ( Gender=Male,Age=18-25-not ), support=12, card=2
+RULE 288: ( Gender=Male,Age=24-30-not ), support=14, card=2
+RULE 289: ( Gender=Male,Age=24-40-not ), support=9, card=2
+RULE 290: ( Gender=Male,Age>=30-not ), support=6, card=2
+RULE 291: ( Gender=Male,Age<=40-not ), support=11, card=2
+RULE 292: ( Gender=Male,Age<=45-not ), support=16, card=2
+RULE 293: ( Gender=Male,Race=African-American-not ), support=10, card=2
+RULE 294: ( Gender=Male,Race=Caucasian-not ), support=12, card=2
+RULE 295: ( Gender=Male,Race=Asian-not ), support=17, card=2
+RULE 296: ( Gender=Male,Race=Hispanic-not ), support=16, card=2
+RULE 297: ( Gender=Male,Race=Native-American-not ), support=17, card=2
+RULE 298: ( Gender=Male,Race=Other-not ), support=13, card=2
+RULE 299: ( Gender=Male,Juvenile-Felonies=1-3-not ), support=17, card=2
+RULE 300: ( Gender=Male,Juvenile-Felonies>3-not ), support=17, card=2
+RULE 301: ( Gender=Male,Juvenile-Crimes=0-not ), support=2, card=2
+RULE 302: ( Gender=Male,Juvenile-Crimes=1-3-not ), support=15, card=2
+RULE 303: ( Gender=Male,Juvenile-Crimes>3-not ), support=17, card=2
+RULE 304: ( Gender=Male,Juvenile-Crimes>5-not ), support=17, card=2
+RULE 305: ( Gender=Male,Prior-Crimes=0-not ), support=11, card=2
+RULE 306: ( Gender=Male,Prior-Crimes=1-3-not ), support=11, card=2
+RULE 307: ( Gender=Male,Prior-Crimes>3-not ), support=12, card=2
+RULE 308: ( Gender=Male,Prior-Crimes>5-not ), support=14, card=2
+RULE 309: ( Gender=Male,Current-Charge-Degree=Misdemeanor-not ), support=14, card=2
+RULE 310: ( Race=African-American,Juvenile-Felonies=0 ), support=7, card=2
+RULE 311: ( Race=African-American,Juvenile-Crimes=0 ), support=5, card=2
+RULE 312: ( Race=African-American,Juvenile-Crimes=1-3 ), support=2, card=2
+RULE 313: ( Race=African-American,Prior-Crimes=0 ), support=2, card=2
+RULE 314: ( Race=African-American,Prior-Crimes=1-3 ), support=3, card=2
+RULE 315: ( Race=African-American,Prior-Crimes>3 ), support=2, card=2
+RULE 316: ( Race=African-American,Prior-Crimes>5 ), support=1, card=2
+RULE 317: ( Race=African-American,Current-Charge-Degree=Misdemeanor ), support=1, card=2
+RULE 318: ( Race=African-American,Age=18-20-not ), support=7, card=2
+RULE 319: ( Race=African-American,Age=18-22-not ), support=7, card=2
+RULE 320: ( Race=African-American,Age=18-25-not ), support=3, card=2
+RULE 321: ( Race=African-American,Age=24-30-not ), support=5, card=2
+RULE 322: ( Race=African-American,Age=24-40-not ), support=3, card=2
+RULE 323: ( Race=African-American,Age>=30-not ), support=4, card=2
+RULE 324: ( Race=African-American,Age<=40-not ), support=6, card=2
+RULE 325: ( Race=African-American,Age<=45-not ), support=7, card=2
+RULE 326: ( Race=African-American,Race=Caucasian-not ), support=7, card=2
+RULE 327: ( Race=African-American,Race=Asian-not ), support=7, card=2
+RULE 328: ( Race=African-American,Race=Hispanic-not ), support=7, card=2
+RULE 329: ( Race=African-American,Race=Native-American-not ), support=7, card=2
+RULE 330: ( Race=African-American,Race=Other-not ), support=7, card=2
+RULE 331: ( Race=African-American,Juvenile-Felonies=1-3-not ), support=7, card=2
+RULE 332: ( Race=African-American,Juvenile-Felonies>3-not ), support=7, card=2
+RULE 333: ( Race=African-American,Juvenile-Crimes=0-not ), support=2, card=2
+RULE 334: ( Race=African-American,Juvenile-Crimes=1-3-not ), support=5, card=2
+RULE 335: ( Race=African-American,Juvenile-Crimes>3-not ), support=7, card=2
+RULE 336: ( Race=African-American,Juvenile-Crimes>5-not ), support=7, card=2
+RULE 337: ( Race=African-American,Prior-Crimes=0-not ), support=5, card=2
+RULE 338: ( Race=African-American,Prior-Crimes=1-3-not ), support=4, card=2
+RULE 339: ( Race=African-American,Prior-Crimes>3-not ), support=5, card=2
+RULE 340: ( Race=African-American,Prior-Crimes>5-not ), support=6, card=2
+RULE 341: ( Race=African-American,Current-Charge-Degree=Misdemeanor-not ), support=6, card=2
+RULE 342: ( Race=Caucasian,Juvenile-Felonies=0 ), support=8, card=2
+RULE 343: ( Race=Caucasian,Juvenile-Crimes=0 ), support=8, card=2
+RULE 344: ( Race=Caucasian,Prior-Crimes=0 ), support=3, card=2
+RULE 345: ( Race=Caucasian,Prior-Crimes=1-3 ), support=2, card=2
+RULE 346: ( Race=Caucasian,Prior-Crimes>3 ), support=3, card=2
+RULE 347: ( Race=Caucasian,Prior-Crimes>5 ), support=2, card=2
+RULE 348: ( Race=Caucasian,Current-Charge-Degree=Misdemeanor ), support=2, card=2
+RULE 349: ( Race=Caucasian,Age=18-20-not ), support=8, card=2
+RULE 350: ( Race=Caucasian,Age=18-22-not ), support=7, card=2
+RULE 351: ( Race=Caucasian,Age=18-25-not ), support=7, card=2
+RULE 352: ( Race=Caucasian,Age=24-30-not ), support=7, card=2
+RULE 353: ( Race=Caucasian,Age=24-40-not ), support=3, card=2
+RULE 354: ( Race=Caucasian,Age>=30-not ), support=2, card=2
+RULE 355: ( Race=Caucasian,Age<=40-not ), support=6, card=2
+RULE 356: ( Race=Caucasian,Age<=45-not ), support=7, card=2
+RULE 357: ( Race=Caucasian,Gender=Male-not ), support=3, card=2
+RULE 358: ( Race=Caucasian,Race=African-American-not ), support=8, card=2
+RULE 359: ( Race=Caucasian,Race=Asian-not ), support=8, card=2
+RULE 360: ( Race=Caucasian,Race=Hispanic-not ), support=8, card=2
+RULE 361: ( Race=Caucasian,Race=Native-American-not ), support=8, card=2
+RULE 362: ( Race=Caucasian,Race=Other-not ), support=8, card=2
+RULE 363: ( Race=Caucasian,Juvenile-Felonies=1-3-not ), support=8, card=2
+RULE 364: ( Race=Caucasian,Juvenile-Felonies>3-not ), support=8, card=2
+RULE 365: ( Race=Caucasian,Juvenile-Crimes=1-3-not ), support=8, card=2
+RULE 366: ( Race=Caucasian,Juvenile-Crimes>3-not ), support=8, card=2
+RULE 367: ( Race=Caucasian,Juvenile-Crimes>5-not ), support=8, card=2
+RULE 368: ( Race=Caucasian,Prior-Crimes=0-not ), support=5, card=2
+RULE 369: ( Race=Caucasian,Prior-Crimes=1-3-not ), support=6, card=2
+RULE 370: ( Race=Caucasian,Prior-Crimes>3-not ), support=5, card=2
+RULE 371: ( Race=Caucasian,Prior-Crimes>5-not ), support=6, card=2
+RULE 372: ( Race=Caucasian,Current-Charge-Degree=Misdemeanor-not ), support=6, card=2
+RULE 373: ( Race=Hispanic,Juvenile-Felonies=0 ), support=1, card=2
+RULE 374: ( Race=Hispanic,Juvenile-Crimes=0 ), support=1, card=2
+RULE 375: ( Race=Hispanic,Prior-Crimes=0 ), support=1, card=2
+RULE 376: ( Race=Hispanic,Current-Charge-Degree=Misdemeanor ), support=1, card=2
+RULE 377: ( Race=Hispanic,Age=18-20-not ), support=1, card=2
+RULE 378: ( Race=Hispanic,Age=18-22-not ), support=1, card=2
+RULE 379: ( Race=Hispanic,Age=18-25-not ), support=1, card=2
+RULE 380: ( Race=Hispanic,Age=24-30-not ), support=1, card=2
+RULE 381: ( Race=Hispanic,Age<=40-not ), support=1, card=2
+RULE 382: ( Race=Hispanic,Age<=45-not ), support=1, card=2
+RULE 383: ( Race=Hispanic,Race=African-American-not ), support=1, card=2
+RULE 384: ( Race=Hispanic,Race=Caucasian-not ), support=1, card=2
+RULE 385: ( Race=Hispanic,Race=Asian-not ), support=1, card=2
+RULE 386: ( Race=Hispanic,Race=Native-American-not ), support=1, card=2
+RULE 387: ( Race=Hispanic,Race=Other-not ), support=1, card=2
+RULE 388: ( Race=Hispanic,Juvenile-Felonies=1-3-not ), support=1, card=2
+RULE 389: ( Race=Hispanic,Juvenile-Felonies>3-not ), support=1, card=2
+RULE 390: ( Race=Hispanic,Juvenile-Crimes=1-3-not ), support=1, card=2
+RULE 391: ( Race=Hispanic,Juvenile-Crimes>3-not ), support=1, card=2
+RULE 392: ( Race=Hispanic,Juvenile-Crimes>5-not ), support=1, card=2
+RULE 393: ( Race=Hispanic,Prior-Crimes=1-3-not ), support=1, card=2
+RULE 394: ( Race=Hispanic,Prior-Crimes>3-not ), support=1, card=2
+RULE 395: ( Race=Hispanic,Prior-Crimes>5-not ), support=1, card=2
+RULE 396: ( Race=Other,Juvenile-Felonies=0 ), support=4, card=2
+RULE 397: ( Race=Other,Juvenile-Crimes=0 ), support=4, card=2
+RULE 398: ( Race=Other,Prior-Crimes=0 ), support=2, card=2
+RULE 399: ( Race=Other,Prior-Crimes=1-3 ), support=2, card=2
+RULE 400: ( Race=Other,Current-Charge-Degree=Misdemeanor ), support=1, card=2
+RULE 401: ( Race=Other,Age=18-20-not ), support=4, card=2
+RULE 402: ( Race=Other,Age=18-22-not ), support=4, card=2
+RULE 403: ( Race=Other,Age=18-25-not ), support=4, card=2
+RULE 404: ( Race=Other,Age=24-30-not ), support=4, card=2
+RULE 405: ( Race=Other,Age=24-40-not ), support=4, card=2
+RULE 406: ( Race=Other,Age<=45-not ), support=3, card=2
+RULE 407: ( Race=Other,Race=African-American-not ), support=4, card=2
+RULE 408: ( Race=Other,Race=Caucasian-not ), support=4, card=2
+RULE 409: ( Race=Other,Race=Asian-not ), support=4, card=2
+RULE 410: ( Race=Other,Race=Hispanic-not ), support=4, card=2
+RULE 411: ( Race=Other,Race=Native-American-not ), support=4, card=2
+RULE 412: ( Race=Other,Juvenile-Felonies=1-3-not ), support=4, card=2
+RULE 413: ( Race=Other,Juvenile-Felonies>3-not ), support=4, card=2
+RULE 414: ( Race=Other,Juvenile-Crimes=1-3-not ), support=4, card=2
+RULE 415: ( Race=Other,Juvenile-Crimes>3-not ), support=4, card=2
+RULE 416: ( Race=Other,Juvenile-Crimes>5-not ), support=4, card=2
+RULE 417: ( Race=Other,Prior-Crimes=0-not ), support=2, card=2
+RULE 418: ( Race=Other,Prior-Crimes=1-3-not ), support=2, card=2
+RULE 419: ( Race=Other,Prior-Crimes>3-not ), support=4, card=2
+RULE 420: ( Race=Other,Prior-Crimes>5-not ), support=4, card=2
+RULE 421: ( Race=Other,Current-Charge-Degree=Misdemeanor-not ), support=3, card=2
+RULE 422: ( Juvenile-Felonies=0,Juvenile-Crimes=0 ), support=18, card=2
+RULE 423: ( Juvenile-Felonies=0,Juvenile-Crimes=1-3 ), support=2, card=2
+RULE 424: ( Juvenile-Felonies=0,Prior-Crimes=0 ), support=8, card=2
+RULE 425: ( Juvenile-Felonies=0,Prior-Crimes=1-3 ), support=7, card=2
+RULE 426: ( Juvenile-Felonies=0,Prior-Crimes>3 ), support=5, card=2
+RULE 427: ( Juvenile-Felonies=0,Prior-Crimes>5 ), support=3, card=2
+RULE 428: ( Juvenile-Felonies=0,Current-Charge-Degree=Misdemeanor ), support=5, card=2
+RULE 429: ( Juvenile-Felonies=0,Age=18-22-not ), support=19, card=2
+RULE 430: ( Juvenile-Felonies=0,Age=18-25-not ), support=15, card=2
+RULE 431: ( Juvenile-Felonies=0,Age=24-30-not ), support=17, card=2
+RULE 432: ( Juvenile-Felonies=0,Age=24-40-not ), support=10, card=2
+RULE 433: ( Juvenile-Felonies=0,Age>=30-not ), support=6, card=2
+RULE 434: ( Juvenile-Felonies=0,Age<=40-not ), support=13, card=2
+RULE 435: ( Juvenile-Felonies=0,Age<=45-not ), support=18, card=2
+RULE 436: ( Juvenile-Felonies=0,Gender=Male-not ), support=3, card=2
+RULE 437: ( Juvenile-Felonies=0,Race=African-American-not ), support=13, card=2
+RULE 438: ( Juvenile-Felonies=0,Race=Caucasian-not ), support=12, card=2
+RULE 439: ( Juvenile-Felonies=0,Race=Hispanic-not ), support=19, card=2
+RULE 440: ( Juvenile-Felonies=0,Race=Other-not ), support=16, card=2
+RULE 441: ( Juvenile-Felonies=0,Juvenile-Crimes=0-not ), support=2, card=2
+RULE 442: ( Juvenile-Felonies=0,Juvenile-Crimes=1-3-not ), support=18, card=2
+RULE 443: ( Juvenile-Felonies=0,Prior-Crimes=0-not ), support=12, card=2
+RULE 444: ( Juvenile-Felonies=0,Prior-Crimes=1-3-not ), support=13, card=2
+RULE 445: ( Juvenile-Felonies=0,Prior-Crimes>3-not ), support=15, card=2
+RULE 446: ( Juvenile-Felonies=0,Prior-Crimes>5-not ), support=17, card=2
+RULE 447: ( Juvenile-Felonies=0,Current-Charge-Degree=Misdemeanor-not ), support=15, card=2
+RULE 448: ( Juvenile-Crimes=0,Prior-Crimes=0 ), support=8, card=2
+RULE 449: ( Juvenile-Crimes=0,Prior-Crimes=1-3 ), support=6, card=2
+RULE 450: ( Juvenile-Crimes=0,Prior-Crimes>3 ), support=4, card=2
+RULE 451: ( Juvenile-Crimes=0,Prior-Crimes>5 ), support=3, card=2
+RULE 452: ( Juvenile-Crimes=0,Current-Charge-Degree=Misdemeanor ), support=5, card=2
+RULE 453: ( Juvenile-Crimes=0,Age=18-20-not ), support=18, card=2
+RULE 454: ( Juvenile-Crimes=0,Age=18-22-not ), support=17, card=2
+RULE 455: ( Juvenile-Crimes=0,Age=18-25-not ), support=15, card=2
+RULE 456: ( Juvenile-Crimes=0,Age=24-30-not ), support=16, card=2
+RULE 457: ( Juvenile-Crimes=0,Age=24-40-not ), support=9, card=2
+RULE 458: ( Juvenile-Crimes=0,Age>=30-not ), support=4, card=2
+RULE 459: ( Juvenile-Crimes=0,Age<=40-not ), support=11, card=2
+RULE 460: ( Juvenile-Crimes=0,Age<=45-not ), support=16, card=2
+RULE 461: ( Juvenile-Crimes=0,Gender=Male-not ), support=3, card=2
+RULE 462: ( Juvenile-Crimes=0,Race=African-American-not ), support=13, card=2
+RULE 463: ( Juvenile-Crimes=0,Race=Caucasian-not ), support=10, card=2
+RULE 464: ( Juvenile-Crimes=0,Race=Asian-not ), support=18, card=2
+RULE 465: ( Juvenile-Crimes=0,Race=Hispanic-not ), support=17, card=2
+RULE 466: ( Juvenile-Crimes=0,Race=Native-American-not ), support=18, card=2
+RULE 467: ( Juvenile-Crimes=0,Race=Other-not ), support=14, card=2
+RULE 468: ( Juvenile-Crimes=0,Juvenile-Felonies=1-3-not ), support=18, card=2
+RULE 469: ( Juvenile-Crimes=0,Juvenile-Felonies>3-not ), support=18, card=2
+RULE 470: ( Juvenile-Crimes=0,Juvenile-Crimes=1-3-not ), support=18, card=2
+RULE 471: ( Juvenile-Crimes=0,Juvenile-Crimes>3-not ), support=18, card=2
+RULE 472: ( Juvenile-Crimes=0,Juvenile-Crimes>5-not ), support=18, card=2
+RULE 473: ( Juvenile-Crimes=0,Prior-Crimes=0-not ), support=10, card=2
+RULE 474: ( Juvenile-Crimes=0,Prior-Crimes=1-3-not ), support=12, card=2
+RULE 475: ( Juvenile-Crimes=0,Prior-Crimes>3-not ), support=14, card=2
+RULE 476: ( Juvenile-Crimes=0,Prior-Crimes>5-not ), support=15, card=2
+RULE 477: ( Juvenile-Crimes=0,Current-Charge-Degree=Misdemeanor-not ), support=13, card=2
+RULE 478: ( Juvenile-Crimes=1-3,Prior-Crimes=1-3 ), support=1, card=2
+RULE 479: ( Juvenile-Crimes=1-3,Prior-Crimes>3 ), support=1, card=2
+RULE 480: ( Juvenile-Crimes=1-3,Age=18-20-not ), support=2, card=2
+RULE 481: ( Juvenile-Crimes=1-3,Age=18-22-not ), support=2, card=2
+RULE 482: ( Juvenile-Crimes=1-3,Age=24-30-not ), support=1, card=2
+RULE 483: ( Juvenile-Crimes=1-3,Age=24-40-not ), support=1, card=2
+RULE 484: ( Juvenile-Crimes=1-3,Age>=30-not ), support=2, card=2
+RULE 485: ( Juvenile-Crimes=1-3,Age<=40-not ), support=2, card=2
+RULE 486: ( Juvenile-Crimes=1-3,Age<=45-not ), support=2, card=2
+RULE 487: ( Juvenile-Crimes=1-3,Race=Caucasian-not ), support=2, card=2
+RULE 488: ( Juvenile-Crimes=1-3,Race=Asian-not ), support=2, card=2
+RULE 489: ( Juvenile-Crimes=1-3,Race=Hispanic-not ), support=2, card=2
+RULE 490: ( Juvenile-Crimes=1-3,Race=Native-American-not ), support=2, card=2
+RULE 491: ( Juvenile-Crimes=1-3,Race=Other-not ), support=2, card=2
+RULE 492: ( Juvenile-Crimes=1-3,Juvenile-Felonies=1-3-not ), support=2, card=2
+RULE 493: ( Juvenile-Crimes=1-3,Juvenile-Felonies>3-not ), support=2, card=2
+RULE 494: ( Juvenile-Crimes=1-3,Juvenile-Crimes=0-not ), support=2, card=2
+RULE 495: ( Juvenile-Crimes=1-3,Juvenile-Crimes>3-not ), support=2, card=2
+RULE 496: ( Juvenile-Crimes=1-3,Juvenile-Crimes>5-not ), support=2, card=2
+RULE 497: ( Juvenile-Crimes=1-3,Prior-Crimes=0-not ), support=2, card=2
+RULE 498: ( Juvenile-Crimes=1-3,Prior-Crimes=1-3-not ), support=1, card=2
+RULE 499: ( Juvenile-Crimes=1-3,Prior-Crimes>3-not ), support=1, card=2
+RULE 500: ( Juvenile-Crimes=1-3,Prior-Crimes>5-not ), support=2, card=2
+RULE 501: ( Juvenile-Crimes=1-3,Current-Charge-Degree=Misdemeanor-not ), support=2, card=2
+RULE 502: ( Prior-Crimes=0,Current-Charge-Degree=Misdemeanor ), support=4, card=2
+RULE 503: ( Prior-Crimes=0,Age=18-20-not ), support=8, card=2
+RULE 504: ( Prior-Crimes=0,Age=18-22-not ), support=8, card=2
+RULE 505: ( Prior-Crimes=0,Age=18-25-not ), support=8, card=2
+RULE 506: ( Prior-Crimes=0,Age=24-30-not ), support=7, card=2
+RULE 507: ( Prior-Crimes=0,Age=24-40-not ), support=3, card=2
+RULE 508: ( Prior-Crimes=0,Age>=30-not ), support=1, card=2
+RULE 509: ( Prior-Crimes=0,Age<=40-not ), support=5, card=2
+RULE 510: ( Prior-Crimes=0,Age<=45-not ), support=7, card=2
+RULE 511: ( Prior-Crimes=0,Gender=Male-not ), support=2, card=2
+RULE 512: ( Prior-Crimes=0,Race=African-American-not ), support=6, card=2
+RULE 513: ( Prior-Crimes=0,Race=Caucasian-not ), support=5, card=2
+RULE 514: ( Prior-Crimes=0,Race=Asian-not ), support=8, card=2
+RULE 515: ( Prior-Crimes=0,Race=Hispanic-not ), support=7, card=2
+RULE 516: ( Prior-Crimes=0,Race=Native-American-not ), support=8, card=2
+RULE 517: ( Prior-Crimes=0,Race=Other-not ), support=6, card=2
+RULE 518: ( Prior-Crimes=0,Juvenile-Felonies=1-3-not ), support=8, card=2
+RULE 519: ( Prior-Crimes=0,Juvenile-Felonies>3-not ), support=8, card=2
+RULE 520: ( Prior-Crimes=0,Juvenile-Crimes=1-3-not ), support=8, card=2
+RULE 521: ( Prior-Crimes=0,Juvenile-Crimes>3-not ), support=8, card=2
+RULE 522: ( Prior-Crimes=0,Juvenile-Crimes>5-not ), support=8, card=2
+RULE 523: ( Prior-Crimes=0,Prior-Crimes=1-3-not ), support=8, card=2
+RULE 524: ( Prior-Crimes=0,Prior-Crimes>3-not ), support=8, card=2
+RULE 525: ( Prior-Crimes=0,Prior-Crimes>5-not ), support=8, card=2
+RULE 526: ( Prior-Crimes=0,Current-Charge-Degree=Misdemeanor-not ), support=4, card=2
+RULE 527: ( Prior-Crimes=1-3,Current-Charge-Degree=Misdemeanor ), support=1, card=2
+RULE 528: ( Prior-Crimes=1-3,Age=18-20-not ), support=7, card=2
+RULE 529: ( Prior-Crimes=1-3,Age=18-22-not ), support=6, card=2
+RULE 530: ( Prior-Crimes=1-3,Age=18-25-not ), support=3, card=2
+RULE 531: ( Prior-Crimes=1-3,Age=24-30-not ), support=6, card=2
+RULE 532: ( Prior-Crimes=1-3,Age=24-40-not ), support=6, card=2
+RULE 533: ( Prior-Crimes=1-3,Age>=30-not ), support=4, card=2
+RULE 534: ( Prior-Crimes=1-3,Age<=40-not ), support=4, card=2
+RULE 535: ( Prior-Crimes=1-3,Age<=45-not ), support=6, card=2
+RULE 536: ( Prior-Crimes=1-3,Gender=Male-not ), support=1, card=2
+RULE 537: ( Prior-Crimes=1-3,Race=African-American-not ), support=4, card=2
+RULE 538: ( Prior-Crimes=1-3,Race=Caucasian-not ), support=5, card=2
+RULE 539: ( Prior-Crimes=1-3,Race=Asian-not ), support=7, card=2
+RULE 540: ( Prior-Crimes=1-3,Race=Hispanic-not ), support=7, card=2
+RULE 541: ( Prior-Crimes=1-3,Race=Native-American-not ), support=7, card=2
+RULE 542: ( Prior-Crimes=1-3,Race=Other-not ), support=5, card=2
+RULE 543: ( Prior-Crimes=1-3,Juvenile-Felonies=1-3-not ), support=7, card=2
+RULE 544: ( Prior-Crimes=1-3,Juvenile-Felonies>3-not ), support=7, card=2
+RULE 545: ( Prior-Crimes=1-3,Juvenile-Crimes=0-not ), support=1, card=2
+RULE 546: ( Prior-Crimes=1-3,Juvenile-Crimes=1-3-not ), support=6, card=2
+RULE 547: ( Prior-Crimes=1-3,Juvenile-Crimes>3-not ), support=7, card=2
+RULE 548: ( Prior-Crimes=1-3,Juvenile-Crimes>5-not ), support=7, card=2
+RULE 549: ( Prior-Crimes=1-3,Prior-Crimes=0-not ), support=7, card=2
+RULE 550: ( Prior-Crimes=1-3,Prior-Crimes>3-not ), support=7, card=2
+RULE 551: ( Prior-Crimes=1-3,Prior-Crimes>5-not ), support=7, card=2
+RULE 552: ( Prior-Crimes=1-3,Current-Charge-Degree=Misdemeanor-not ), support=6, card=2
+RULE 553: ( Prior-Crimes>3,Prior-Crimes>5 ), support=3, card=2
+RULE 554: ( Prior-Crimes>3,Age=18-20-not ), support=5, card=2
+RULE 555: ( Prior-Crimes>3,Age=18-22-not ), support=5, card=2
+RULE 556: ( Prior-Crimes>3,Age=18-25-not ), support=4, card=2
+RULE 557: ( Prior-Crimes>3,Age=24-30-not ), support=4, card=2
+RULE 558: ( Prior-Crimes>3,Age=24-40-not ), support=1, card=2
+RULE 559: ( Prior-Crimes>3,Age>=30-not ), support=1, card=2
+RULE 560: ( Prior-Crimes>3,Age<=40-not ), support=4, card=2
+RULE 561: ( Prior-Crimes>3,Age<=45-not ), support=5, card=2
+RULE 562: ( Prior-Crimes>3,Race=African-American-not ), support=3, card=2
+RULE 563: ( Prior-Crimes>3,Race=Caucasian-not ), support=2, card=2
+RULE 564: ( Prior-Crimes>3,Race=Asian-not ), support=5, card=2
+RULE 565: ( Prior-Crimes>3,Race=Hispanic-not ), support=5, card=2
+RULE 566: ( Prior-Crimes>3,Race=Native-American-not ), support=5, card=2
+RULE 567: ( Prior-Crimes>3,Race=Other-not ), support=5, card=2
+RULE 568: ( Prior-Crimes>3,Juvenile-Felonies=1-3-not ), support=5, card=2
+RULE 569: ( Prior-Crimes>3,Juvenile-Felonies>3-not ), support=5, card=2
+RULE 570: ( Prior-Crimes>3,Juvenile-Crimes=0-not ), support=1, card=2
+RULE 571: ( Prior-Crimes>3,Juvenile-Crimes=1-3-not ), support=4, card=2
+RULE 572: ( Prior-Crimes>3,Juvenile-Crimes>3-not ), support=5, card=2
+RULE 573: ( Prior-Crimes>3,Juvenile-Crimes>5-not ), support=5, card=2
+RULE 574: ( Prior-Crimes>3,Prior-Crimes=0-not ), support=5, card=2
+RULE 575: ( Prior-Crimes>3,Prior-Crimes=1-3-not ), support=5, card=2
+RULE 576: ( Prior-Crimes>3,Prior-Crimes>5-not ), support=2, card=2
+RULE 577: ( Prior-Crimes>3,Current-Charge-Degree=Misdemeanor-not ), support=5, card=2
+RULE 578: ( Prior-Crimes>5,Age=18-20-not ), support=3, card=2
+RULE 579: ( Prior-Crimes>5,Age=18-22-not ), support=3, card=2
+RULE 580: ( Prior-Crimes>5,Age=18-25-not ), support=3, card=2
+RULE 581: ( Prior-Crimes>5,Age=24-30-not ), support=3, card=2
+RULE 582: ( Prior-Crimes>5,Age=24-40-not ), support=1, card=2
+RULE 583: ( Prior-Crimes>5,Age<=40-not ), support=2, card=2
+RULE 584: ( Prior-Crimes>5,Age<=45-not ), support=3, card=2
+RULE 585: ( Prior-Crimes>5,Race=African-American-not ), support=2, card=2
+RULE 586: ( Prior-Crimes>5,Race=Caucasian-not ), support=1, card=2
+RULE 587: ( Prior-Crimes>5,Race=Asian-not ), support=3, card=2
+RULE 588: ( Prior-Crimes>5,Race=Hispanic-not ), support=3, card=2
+RULE 589: ( Prior-Crimes>5,Race=Native-American-not ), support=3, card=2
+RULE 590: ( Prior-Crimes>5,Race=Other-not ), support=3, card=2
+RULE 591: ( Prior-Crimes>5,Juvenile-Felonies=1-3-not ), support=3, card=2
+RULE 592: ( Prior-Crimes>5,Juvenile-Felonies>3-not ), support=3, card=2
+RULE 593: ( Prior-Crimes>5,Juvenile-Crimes=1-3-not ), support=3, card=2
+RULE 594: ( Prior-Crimes>5,Juvenile-Crimes>3-not ), support=3, card=2
+RULE 595: ( Prior-Crimes>5,Juvenile-Crimes>5-not ), support=3, card=2
+RULE 596: ( Prior-Crimes>5,Prior-Crimes=0-not ), support=3, card=2
+RULE 597: ( Prior-Crimes>5,Prior-Crimes=1-3-not ), support=3, card=2
+RULE 598: ( Prior-Crimes>5,Current-Charge-Degree=Misdemeanor-not ), support=3, card=2
+RULE 599: ( Current-Charge-Degree=Misdemeanor,Age=18-20-not ), support=5, card=2
+RULE 600: ( Current-Charge-Degree=Misdemeanor,Age=18-22-not ), support=5, card=2
+RULE 601: ( Current-Charge-Degree=Misdemeanor,Age=18-25-not ), support=4, card=2
+RULE 602: ( Current-Charge-Degree=Misdemeanor,Age=24-30-not ), support=5, card=2
+RULE 603: ( Current-Charge-Degree=Misdemeanor,Age=24-40-not ), support=2, card=2
+RULE 604: ( Current-Charge-Degree=Misdemeanor,Age>=30-not ), support=1, card=2
+RULE 605: ( Current-Charge-Degree=Misdemeanor,Age<=40-not ), support=4, card=2
+RULE 606: ( Current-Charge-Degree=Misdemeanor,Age<=45-not ), support=5, card=2
+RULE 607: ( Current-Charge-Degree=Misdemeanor,Gender=Male-not ), support=2, card=2
+RULE 608: ( Current-Charge-Degree=Misdemeanor,Race=African-American-not ), support=4, card=2
+RULE 609: ( Current-Charge-Degree=Misdemeanor,Race=Caucasian-not ), support=3, card=2
+RULE 610: ( Current-Charge-Degree=Misdemeanor,Race=Asian-not ), support=5, card=2
+RULE 611: ( Current-Charge-Degree=Misdemeanor,Race=Hispanic-not ), support=4, card=2
+RULE 612: ( Current-Charge-Degree=Misdemeanor,Race=Native-American-not ), support=5, card=2
+RULE 613: ( Current-Charge-Degree=Misdemeanor,Race=Other-not ), support=4, card=2
+RULE 614: ( Current-Charge-Degree=Misdemeanor,Juvenile-Felonies=1-3-not ), support=5, card=2
+RULE 615: ( Current-Charge-Degree=Misdemeanor,Juvenile-Felonies>3-not ), support=5, card=2
+RULE 616: ( Current-Charge-Degree=Misdemeanor,Juvenile-Crimes=1-3-not ), support=5, card=2
+RULE 617: ( Current-Charge-Degree=Misdemeanor,Juvenile-Crimes>3-not ), support=5, card=2
+RULE 618: ( Current-Charge-Degree=Misdemeanor,Juvenile-Crimes>5-not ), support=5, card=2
+RULE 619: ( Current-Charge-Degree=Misdemeanor,Prior-Crimes=0-not ), support=1, card=2
+RULE 620: ( Current-Charge-Degree=Misdemeanor,Prior-Crimes=1-3-not ), support=4, card=2
+RULE 621: ( Current-Charge-Degree=Misdemeanor,Prior-Crimes>3-not ), support=5, card=2
+RULE 622: ( Current-Charge-Degree=Misdemeanor,Prior-Crimes>5-not ), support=5, card=2
+RULE 623: ( Age=18-20-not,Age=18-22-not ), support=19, card=2
+RULE 624: ( Age=18-20-not,Age=18-25-not ), support=15, card=2
+RULE 625: ( Age=18-20-not,Age=24-30-not ), support=17, card=2
+RULE 626: ( Age=18-20-not,Age=24-40-not ), support=10, card=2
+RULE 627: ( Age=18-20-not,Age>=30-not ), support=6, card=2
+RULE 628: ( Age=18-20-not,Age<=40-not ), support=13, card=2
+RULE 629: ( Age=18-20-not,Age<=45-not ), support=18, card=2
+RULE 630: ( Age=18-20-not,Gender=Male-not ), support=3, card=2
+RULE 631: ( Age=18-20-not,Race=African-American-not ), support=13, card=2
+RULE 632: ( Age=18-20-not,Race=Caucasian-not ), support=12, card=2
+RULE 633: ( Age=18-20-not,Race=Hispanic-not ), support=19, card=2
+RULE 634: ( Age=18-20-not,Race=Other-not ), support=16, card=2
+RULE 635: ( Age=18-20-not,Juvenile-Crimes=0-not ), support=2, card=2
+RULE 636: ( Age=18-20-not,Juvenile-Crimes=1-3-not ), support=18, card=2
+RULE 637: ( Age=18-20-not,Prior-Crimes=0-not ), support=12, card=2
+RULE 638: ( Age=18-20-not,Prior-Crimes=1-3-not ), support=13, card=2
+RULE 639: ( Age=18-20-not,Prior-Crimes>3-not ), support=15, card=2
+RULE 640: ( Age=18-20-not,Prior-Crimes>5-not ), support=17, card=2
+RULE 641: ( Age=18-20-not,Current-Charge-Degree=Misdemeanor-not ), support=15, card=2
+RULE 642: ( Age=18-22-not,Age=18-25-not ), support=15, card=2
+RULE 643: ( Age=18-22-not,Age=24-30-not ), support=16, card=2
+RULE 644: ( Age=18-22-not,Age=24-40-not ), support=9, card=2
+RULE 645: ( Age=18-22-not,Age>=30-not ), support=5, card=2
+RULE 646: ( Age=18-22-not,Age<=40-not ), support=12, card=2
+RULE 647: ( Age=18-22-not,Age<=45-not ), support=17, card=2
+RULE 648: ( Age=18-22-not,Gender=Male-not ), support=3, card=2
+RULE 649: ( Age=18-22-not,Race=African-American-not ), support=12, card=2
+RULE 650: ( Age=18-22-not,Race=Caucasian-not ), support=12, card=2
+RULE 651: ( Age=18-22-not,Race=Asian-not ), support=19, card=2
+RULE 652: ( Age=18-22-not,Race=Hispanic-not ), support=18, card=2
+RULE 653: ( Age=18-22-not,Race=Native-American-not ), support=19, card=2
+RULE 654: ( Age=18-22-not,Race=Other-not ), support=15, card=2
+RULE 655: ( Age=18-22-not,Juvenile-Felonies=1-3-not ), support=19, card=2
+RULE 656: ( Age=18-22-not,Juvenile-Felonies>3-not ), support=19, card=2
+RULE 657: ( Age=18-22-not,Juvenile-Crimes=0-not ), support=2, card=2
+RULE 658: ( Age=18-22-not,Juvenile-Crimes=1-3-not ), support=17, card=2
+RULE 659: ( Age=18-22-not,Juvenile-Crimes>3-not ), support=19, card=2
+RULE 660: ( Age=18-22-not,Juvenile-Crimes>5-not ), support=19, card=2
+RULE 661: ( Age=18-22-not,Prior-Crimes=0-not ), support=11, card=2
+RULE 662: ( Age=18-22-not,Prior-Crimes=1-3-not ), support=13, card=2
+RULE 663: ( Age=18-22-not,Prior-Crimes>3-not ), support=14, card=2
+RULE 664: ( Age=18-22-not,Prior-Crimes>5-not ), support=16, card=2
+RULE 665: ( Age=18-22-not,Current-Charge-Degree=Misdemeanor-not ), support=14, card=2
+RULE 666: ( Age=18-25-not,Age=24-30-not ), support=14, card=2
+RULE 667: ( Age=18-25-not,Age=24-40-not ), support=7, card=2
+RULE 668: ( Age=18-25-not,Age>=30-not ), support=1, card=2
+RULE 669: ( Age=18-25-not,Age<=40-not ), support=8, card=2
+RULE 670: ( Age=18-25-not,Age<=45-not ), support=13, card=2
+RULE 671: ( Age=18-25-not,Gender=Male-not ), support=3, card=2
+RULE 672: ( Age=18-25-not,Race=African-American-not ), support=12, card=2
+RULE 673: ( Age=18-25-not,Race=Caucasian-not ), support=8, card=2
+RULE 674: ( Age=18-25-not,Race=Asian-not ), support=15, card=2
+RULE 675: ( Age=18-25-not,Race=Hispanic-not ), support=14, card=2
+RULE 676: ( Age=18-25-not,Race=Native-American-not ), support=15, card=2
+RULE 677: ( Age=18-25-not,Race=Other-not ), support=11, card=2
+RULE 678: ( Age=18-25-not,Juvenile-Felonies=1-3-not ), support=15, card=2
+RULE 679: ( Age=18-25-not,Juvenile-Felonies>3-not ), support=15, card=2
+RULE 680: ( Age=18-25-not,Juvenile-Crimes=1-3-not ), support=15, card=2
+RULE 681: ( Age=18-25-not,Juvenile-Crimes>3-not ), support=15, card=2
+RULE 682: ( Age=18-25-not,Juvenile-Crimes>5-not ), support=15, card=2
+RULE 683: ( Age=18-25-not,Prior-Crimes=0-not ), support=7, card=2
+RULE 684: ( Age=18-25-not,Prior-Crimes=1-3-not ), support=12, card=2
+RULE 685: ( Age=18-25-not,Prior-Crimes>3-not ), support=11, card=2
+RULE 686: ( Age=18-25-not,Prior-Crimes>5-not ), support=12, card=2
+RULE 687: ( Age=18-25-not,Current-Charge-Degree=Misdemeanor-not ), support=11, card=2
+RULE 688: ( Age=24-30-not,Age=24-40-not ), support=10, card=2
+RULE 689: ( Age=24-30-not,Age>=30-not ), support=3, card=2
+RULE 690: ( Age=24-30-not,Age<=40-not ), support=10, card=2
+RULE 691: ( Age=24-30-not,Age<=45-not ), support=15, card=2
+RULE 692: ( Age=24-30-not,Gender=Male-not ), support=3, card=2
+RULE 693: ( Age=24-30-not,Race=African-American-not ), support=12, card=2
+RULE 694: ( Age=24-30-not,Race=Caucasian-not ), support=10, card=2
+RULE 695: ( Age=24-30-not,Race=Asian-not ), support=17, card=2
+RULE 696: ( Age=24-30-not,Race=Hispanic-not ), support=16, card=2
+RULE 697: ( Age=24-30-not,Race=Native-American-not ), support=17, card=2
+RULE 698: ( Age=24-30-not,Race=Other-not ), support=13, card=2
+RULE 699: ( Age=24-30-not,Juvenile-Felonies=1-3-not ), support=17, card=2
+RULE 700: ( Age=24-30-not,Juvenile-Felonies>3-not ), support=17, card=2
+RULE 701: ( Age=24-30-not,Juvenile-Crimes=0-not ), support=1, card=2
+RULE 702: ( Age=24-30-not,Juvenile-Crimes=1-3-not ), support=16, card=2
+RULE 703: ( Age=24-30-not,Juvenile-Crimes>3-not ), support=17, card=2
+RULE 704: ( Age=24-30-not,Juvenile-Crimes>5-not ), support=17, card=2
+RULE 705: ( Age=24-30-not,Prior-Crimes=0-not ), support=10, card=2
+RULE 706: ( Age=24-30-not,Prior-Crimes=1-3-not ), support=11, card=2
+RULE 707: ( Age=24-30-not,Prior-Crimes>3-not ), support=13, card=2
+RULE 708: ( Age=24-30-not,Prior-Crimes>5-not ), support=14, card=2
+RULE 709: ( Age=24-30-not,Current-Charge-Degree=Misdemeanor-not ), support=12, card=2
+RULE 710: ( Age=24-40-not,Age>=30-not ), support=3, card=2
+RULE 711: ( Age=24-40-not,Age<=40-not ), support=3, card=2
+RULE 712: ( Age=24-40-not,Age<=45-not ), support=8, card=2
+RULE 713: ( Age=24-40-not,Gender=Male-not ), support=1, card=2
+RULE 714: ( Age=24-40-not,Race=African-American-not ), support=7, card=2
+RULE 715: ( Age=24-40-not,Race=Caucasian-not ), support=7, card=2
+RULE 716: ( Age=24-40-not,Race=Asian-not ), support=10, card=2
+RULE 717: ( Age=24-40-not,Race=Hispanic-not ), support=10, card=2
+RULE 718: ( Age=24-40-not,Race=Native-American-not ), support=10, card=2
+RULE 719: ( Age=24-40-not,Race=Other-not ), support=6, card=2
+RULE 720: ( Age=24-40-not,Juvenile-Felonies=1-3-not ), support=10, card=2
+RULE 721: ( Age=24-40-not,Juvenile-Felonies>3-not ), support=10, card=2
+RULE 722: ( Age=24-40-not,Juvenile-Crimes=0-not ), support=1, card=2
+RULE 723: ( Age=24-40-not,Juvenile-Crimes=1-3-not ), support=9, card=2
+RULE 724: ( Age=24-40-not,Juvenile-Crimes>3-not ), support=10, card=2
+RULE 725: ( Age=24-40-not,Juvenile-Crimes>5-not ), support=10, card=2
+RULE 726: ( Age=24-40-not,Prior-Crimes=0-not ), support=7, card=2
+RULE 727: ( Age=24-40-not,Prior-Crimes=1-3-not ), support=4, card=2
+RULE 728: ( Age=24-40-not,Prior-Crimes>3-not ), support=9, card=2
+RULE 729: ( Age=24-40-not,Prior-Crimes>5-not ), support=9, card=2
+RULE 730: ( Age=24-40-not,Current-Charge-Degree=Misdemeanor-not ), support=8, card=2
+RULE 731: ( Age>=30-not,Age<=40-not ), support=6, card=2
+RULE 732: ( Age>=30-not,Age<=45-not ), support=6, card=2
+RULE 733: ( Age>=30-not,Race=African-American-not ), support=2, card=2
+RULE 734: ( Age>=30-not,Race=Caucasian-not ), support=4, card=2
+RULE 735: ( Age>=30-not,Race=Asian-not ), support=6, card=2
+RULE 736: ( Age>=30-not,Race=Hispanic-not ), support=6, card=2
+RULE 737: ( Age>=30-not,Race=Native-American-not ), support=6, card=2
+RULE 738: ( Age>=30-not,Race=Other-not ), support=6, card=2
+RULE 739: ( Age>=30-not,Juvenile-Felonies=1-3-not ), support=6, card=2
+RULE 740: ( Age>=30-not,Juvenile-Felonies>3-not ), support=6, card=2
+RULE 741: ( Age>=30-not,Juvenile-Crimes=0-not ), support=2, card=2
+RULE 742: ( Age>=30-not,Juvenile-Crimes=1-3-not ), support=4, card=2
+RULE 743: ( Age>=30-not,Juvenile-Crimes>3-not ), support=6, card=2
+RULE 744: ( Age>=30-not,Juvenile-Crimes>5-not ), support=6, card=2
+RULE 745: ( Age>=30-not,Prior-Crimes=0-not ), support=5, card=2
+RULE 746: ( Age>=30-not,Prior-Crimes=1-3-not ), support=2, card=2
+RULE 747: ( Age>=30-not,Prior-Crimes>3-not ), support=5, card=2
+RULE 748: ( Age>=30-not,Prior-Crimes>5-not ), support=6, card=2
+RULE 749: ( Age>=30-not,Current-Charge-Degree=Misdemeanor-not ), support=5, card=2
+RULE 750: ( Age<=40-not,Age<=45-not ), support=13, card=2
+RULE 751: ( Age<=40-not,Gender=Male-not ), support=2, card=2
+RULE 752: ( Age<=40-not,Race=African-American-not ), support=7, card=2
+RULE 753: ( Age<=40-not,Race=Caucasian-not ), support=7, card=2
+RULE 754: ( Age<=40-not,Race=Asian-not ), support=13, card=2
+RULE 755: ( Age<=40-not,Race=Hispanic-not ), support=12, card=2
+RULE 756: ( Age<=40-not,Race=Native-American-not ), support=13, card=2
+RULE 757: ( Age<=40-not,Race=Other-not ), support=13, card=2
+RULE 758: ( Age<=40-not,Juvenile-Felonies=1-3-not ), support=13, card=2
+RULE 759: ( Age<=40-not,Juvenile-Felonies>3-not ), support=13, card=2
+RULE 760: ( Age<=40-not,Juvenile-Crimes=0-not ), support=2, card=2
+RULE 761: ( Age<=40-not,Juvenile-Crimes=1-3-not ), support=11, card=2
+RULE 762: ( Age<=40-not,Juvenile-Crimes>3-not ), support=13, card=2
+RULE 763: ( Age<=40-not,Juvenile-Crimes>5-not ), support=13, card=2
+RULE 764: ( Age<=40-not,Prior-Crimes=0-not ), support=8, card=2
+RULE 765: ( Age<=40-not,Prior-Crimes=1-3-not ), support=9, card=2
+RULE 766: ( Age<=40-not,Prior-Crimes>3-not ), support=9, card=2
+RULE 767: ( Age<=40-not,Prior-Crimes>5-not ), support=11, card=2
+RULE 768: ( Age<=40-not,Current-Charge-Degree=Misdemeanor-not ), support=9, card=2
+RULE 769: ( Age<=45-not,Gender=Male-not ), support=2, card=2
+RULE 770: ( Age<=45-not,Race=African-American-not ), support=11, card=2
+RULE 771: ( Age<=45-not,Race=Caucasian-not ), support=11, card=2
+RULE 772: ( Age<=45-not,Race=Asian-not ), support=18, card=2
+RULE 773: ( Age<=45-not,Race=Hispanic-not ), support=17, card=2
+RULE 774: ( Age<=45-not,Race=Native-American-not ), support=18, card=2
+RULE 775: ( Age<=45-not,Race=Other-not ), support=15, card=2
+RULE 776: ( Age<=45-not,Juvenile-Felonies=1-3-not ), support=18, card=2
+RULE 777: ( Age<=45-not,Juvenile-Felonies>3-not ), support=18, card=2
+RULE 778: ( Age<=45-not,Juvenile-Crimes=0-not ), support=2, card=2
+RULE 779: ( Age<=45-not,Juvenile-Crimes=1-3-not ), support=16, card=2
+RULE 780: ( Age<=45-not,Juvenile-Crimes>3-not ), support=18, card=2
+RULE 781: ( Age<=45-not,Juvenile-Crimes>5-not ), support=18, card=2
+RULE 782: ( Age<=45-not,Prior-Crimes=0-not ), support=11, card=2
+RULE 783: ( Age<=45-not,Prior-Crimes=1-3-not ), support=12, card=2
+RULE 784: ( Age<=45-not,Prior-Crimes>3-not ), support=13, card=2
+RULE 785: ( Age<=45-not,Prior-Crimes>5-not ), support=15, card=2
+RULE 786: ( Age<=45-not,Current-Charge-Degree=Misdemeanor-not ), support=13, card=2
+RULE 787: ( Gender=Male-not,Race=African-American-not ), support=3, card=2
+RULE 788: ( Gender=Male-not,Race=Asian-not ), support=3, card=2
+RULE 789: ( Gender=Male-not,Race=Hispanic-not ), support=3, card=2
+RULE 790: ( Gender=Male-not,Race=Native-American-not ), support=3, card=2
+RULE 791: ( Gender=Male-not,Race=Other-not ), support=3, card=2
+RULE 792: ( Gender=Male-not,Juvenile-Felonies=1-3-not ), support=3, card=2
+RULE 793: ( Gender=Male-not,Juvenile-Felonies>3-not ), support=3, card=2
+RULE 794: ( Gender=Male-not,Juvenile-Crimes=1-3-not ), support=3, card=2
+RULE 795: ( Gender=Male-not,Juvenile-Crimes>3-not ), support=3, card=2
+RULE 796: ( Gender=Male-not,Juvenile-Crimes>5-not ), support=3, card=2
+RULE 797: ( Gender=Male-not,Prior-Crimes=0-not ), support=1, card=2
+RULE 798: ( Gender=Male-not,Prior-Crimes=1-3-not ), support=2, card=2
+RULE 799: ( Gender=Male-not,Prior-Crimes>3-not ), support=3, card=2
+RULE 800: ( Gender=Male-not,Prior-Crimes>5-not ), support=3, card=2
+RULE 801: ( Gender=Male-not,Current-Charge-Degree=Misdemeanor-not ), support=1, card=2
+RULE 802: ( Race=African-American-not,Race=Caucasian-not ), support=5, card=2
+RULE 803: ( Race=African-American-not,Race=Asian-not ), support=13, card=2
+RULE 804: ( Race=African-American-not,Race=Hispanic-not ), support=12, card=2
+RULE 805: ( Race=African-American-not,Race=Native-American-not ), support=13, card=2
+RULE 806: ( Race=African-American-not,Race=Other-not ), support=9, card=2
+RULE 807: ( Race=African-American-not,Juvenile-Felonies=1-3-not ), support=13, card=2
+RULE 808: ( Race=African-American-not,Juvenile-Felonies>3-not ), support=13, card=2
+RULE 809: ( Race=African-American-not,Juvenile-Crimes=1-3-not ), support=13, card=2
+RULE 810: ( Race=African-American-not,Juvenile-Crimes>3-not ), support=13, card=2
+RULE 811: ( Race=African-American-not,Juvenile-Crimes>5-not ), support=13, card=2
+RULE 812: ( Race=African-American-not,Prior-Crimes=0-not ), support=7, card=2
+RULE 813: ( Race=African-American-not,Prior-Crimes=1-3-not ), support=9, card=2
+RULE 814: ( Race=African-American-not,Prior-Crimes>3-not ), support=10, card=2
+RULE 815: ( Race=African-American-not,Prior-Crimes>5-not ), support=11, card=2
+RULE 816: ( Race=African-American-not,Current-Charge-Degree=Misdemeanor-not ), support=9, card=2
+RULE 817: ( Race=Caucasian-not,Race=Asian-not ), support=12, card=2
+RULE 818: ( Race=Caucasian-not,Race=Hispanic-not ), support=11, card=2
+RULE 819: ( Race=Caucasian-not,Race=Native-American-not ), support=12, card=2
+RULE 820: ( Race=Caucasian-not,Race=Other-not ), support=8, card=2
+RULE 821: ( Race=Caucasian-not,Juvenile-Felonies=1-3-not ), support=12, card=2
+RULE 822: ( Race=Caucasian-not,Juvenile-Felonies>3-not ), support=12, card=2
+RULE 823: ( Race=Caucasian-not,Juvenile-Crimes=0-not ), support=2, card=2
+RULE 824: ( Race=Caucasian-not,Juvenile-Crimes=1-3-not ), support=10, card=2
+RULE 825: ( Race=Caucasian-not,Juvenile-Crimes>3-not ), support=12, card=2
+RULE 826: ( Race=Caucasian-not,Juvenile-Crimes>5-not ), support=12, card=2
+RULE 827: ( Race=Caucasian-not,Prior-Crimes=0-not ), support=7, card=2
+RULE 828: ( Race=Caucasian-not,Prior-Crimes=1-3-not ), support=7, card=2
+RULE 829: ( Race=Caucasian-not,Prior-Crimes>3-not ), support=10, card=2
+RULE 830: ( Race=Caucasian-not,Prior-Crimes>5-not ), support=11, card=2
+RULE 831: ( Race=Caucasian-not,Current-Charge-Degree=Misdemeanor-not ), support=9, card=2
+RULE 832: ( Race=Asian-not,Race=Hispanic-not ), support=19, card=2
+RULE 833: ( Race=Asian-not,Race=Other-not ), support=16, card=2
+RULE 834: ( Race=Asian-not,Juvenile-Crimes=0-not ), support=2, card=2
+RULE 835: ( Race=Asian-not,Juvenile-Crimes=1-3-not ), support=18, card=2
+RULE 836: ( Race=Asian-not,Prior-Crimes=0-not ), support=12, card=2
+RULE 837: ( Race=Asian-not,Prior-Crimes=1-3-not ), support=13, card=2
+RULE 838: ( Race=Asian-not,Prior-Crimes>3-not ), support=15, card=2
+RULE 839: ( Race=Asian-not,Prior-Crimes>5-not ), support=17, card=2
+RULE 840: ( Race=Asian-not,Current-Charge-Degree=Misdemeanor-not ), support=15, card=2
+RULE 841: ( Race=Hispanic-not,Race=Native-American-not ), support=19, card=2
+RULE 842: ( Race=Hispanic-not,Race=Other-not ), support=15, card=2
+RULE 843: ( Race=Hispanic-not,Juvenile-Felonies=1-3-not ), support=19, card=2
+RULE 844: ( Race=Hispanic-not,Juvenile-Felonies>3-not ), support=19, card=2
+RULE 845: ( Race=Hispanic-not,Juvenile-Crimes=0-not ), support=2, card=2
+RULE 846: ( Race=Hispanic-not,Juvenile-Crimes=1-3-not ), support=17, card=2
+RULE 847: ( Race=Hispanic-not,Juvenile-Crimes>3-not ), support=19, card=2
+RULE 848: ( Race=Hispanic-not,Juvenile-Crimes>5-not ), support=19, card=2
+RULE 849: ( Race=Hispanic-not,Prior-Crimes=0-not ), support=12, card=2
+RULE 850: ( Race=Hispanic-not,Prior-Crimes=1-3-not ), support=12, card=2
+RULE 851: ( Race=Hispanic-not,Prior-Crimes>3-not ), support=14, card=2
+RULE 852: ( Race=Hispanic-not,Prior-Crimes>5-not ), support=16, card=2
+RULE 853: ( Race=Hispanic-not,Current-Charge-Degree=Misdemeanor-not ), support=15, card=2
+RULE 854: ( Race=Native-American-not,Race=Other-not ), support=16, card=2
+RULE 855: ( Race=Native-American-not,Juvenile-Crimes=0-not ), support=2, card=2
+RULE 856: ( Race=Native-American-not,Juvenile-Crimes=1-3-not ), support=18, card=2
+RULE 857: ( Race=Native-American-not,Prior-Crimes=0-not ), support=12, card=2
+RULE 858: ( Race=Native-American-not,Prior-Crimes=1-3-not ), support=13, card=2
+RULE 859: ( Race=Native-American-not,Prior-Crimes>3-not ), support=15, card=2
+RULE 860: ( Race=Native-American-not,Prior-Crimes>5-not ), support=17, card=2
+RULE 861: ( Race=Native-American-not,Current-Charge-Degree=Misdemeanor-not ), support=15, card=2
+RULE 862: ( Race=Other-not,Juvenile-Felonies=1-3-not ), support=16, card=2
+RULE 863: ( Race=Other-not,Juvenile-Felonies>3-not ), support=16, card=2
+RULE 864: ( Race=Other-not,Juvenile-Crimes=0-not ), support=2, card=2
+RULE 865: ( Race=Other-not,Juvenile-Crimes=1-3-not ), support=14, card=2
+RULE 866: ( Race=Other-not,Juvenile-Crimes>3-not ), support=16, card=2
+RULE 867: ( Race=Other-not,Juvenile-Crimes>5-not ), support=16, card=2
+RULE 868: ( Race=Other-not,Prior-Crimes=0-not ), support=10, card=2
+RULE 869: ( Race=Other-not,Prior-Crimes=1-3-not ), support=11, card=2
+RULE 870: ( Race=Other-not,Prior-Crimes>3-not ), support=11, card=2
+RULE 871: ( Race=Other-not,Prior-Crimes>5-not ), support=13, card=2
+RULE 872: ( Race=Other-not,Current-Charge-Degree=Misdemeanor-not ), support=12, card=2
+RULE 873: ( Juvenile-Felonies=1-3-not,Juvenile-Crimes=0-not ), support=2, card=2
+RULE 874: ( Juvenile-Felonies=1-3-not,Juvenile-Crimes=1-3-not ), support=18, card=2
+RULE 875: ( Juvenile-Felonies=1-3-not,Prior-Crimes=0-not ), support=12, card=2
+RULE 876: ( Juvenile-Felonies=1-3-not,Prior-Crimes=1-3-not ), support=13, card=2
+RULE 877: ( Juvenile-Felonies=1-3-not,Prior-Crimes>3-not ), support=15, card=2
+RULE 878: ( Juvenile-Felonies=1-3-not,Prior-Crimes>5-not ), support=17, card=2
+RULE 879: ( Juvenile-Felonies=1-3-not,Current-Charge-Degree=Misdemeanor-not ), support=15, card=2
+RULE 880: ( Juvenile-Felonies>3-not,Juvenile-Crimes=0-not ), support=2, card=2
+RULE 881: ( Juvenile-Felonies>3-not,Juvenile-Crimes=1-3-not ), support=18, card=2
+RULE 882: ( Juvenile-Felonies>3-not,Prior-Crimes=0-not ), support=12, card=2
+RULE 883: ( Juvenile-Felonies>3-not,Prior-Crimes=1-3-not ), support=13, card=2
+RULE 884: ( Juvenile-Felonies>3-not,Prior-Crimes>3-not ), support=15, card=2
+RULE 885: ( Juvenile-Felonies>3-not,Prior-Crimes>5-not ), support=17, card=2
+RULE 886: ( Juvenile-Felonies>3-not,Current-Charge-Degree=Misdemeanor-not ), support=15, card=2
+RULE 887: ( Juvenile-Crimes=0-not,Juvenile-Crimes>3-not ), support=2, card=2
+RULE 888: ( Juvenile-Crimes=0-not,Juvenile-Crimes>5-not ), support=2, card=2
+RULE 889: ( Juvenile-Crimes=0-not,Prior-Crimes=0-not ), support=2, card=2
+RULE 890: ( Juvenile-Crimes=0-not,Prior-Crimes=1-3-not ), support=1, card=2
+RULE 891: ( Juvenile-Crimes=0-not,Prior-Crimes>3-not ), support=1, card=2
+RULE 892: ( Juvenile-Crimes=0-not,Prior-Crimes>5-not ), support=2, card=2
+RULE 893: ( Juvenile-Crimes=0-not,Current-Charge-Degree=Misdemeanor-not ), support=2, card=2
+RULE 894: ( Juvenile-Crimes=1-3-not,Juvenile-Crimes>3-not ), support=18, card=2
+RULE 895: ( Juvenile-Crimes=1-3-not,Juvenile-Crimes>5-not ), support=18, card=2
+RULE 896: ( Juvenile-Crimes=1-3-not,Prior-Crimes=0-not ), support=10, card=2
+RULE 897: ( Juvenile-Crimes=1-3-not,Prior-Crimes=1-3-not ), support=12, card=2
+RULE 898: ( Juvenile-Crimes=1-3-not,Prior-Crimes>3-not ), support=14, card=2
+RULE 899: ( Juvenile-Crimes=1-3-not,Prior-Crimes>5-not ), support=15, card=2
+RULE 900: ( Juvenile-Crimes=1-3-not,Current-Charge-Degree=Misdemeanor-not ), support=13, card=2
+RULE 901: ( Juvenile-Crimes>3-not,Prior-Crimes=0-not ), support=12, card=2
+RULE 902: ( Juvenile-Crimes>3-not,Prior-Crimes=1-3-not ), support=13, card=2
+RULE 903: ( Juvenile-Crimes>3-not,Prior-Crimes>3-not ), support=15, card=2
+RULE 904: ( Juvenile-Crimes>3-not,Prior-Crimes>5-not ), support=17, card=2
+RULE 905: ( Juvenile-Crimes>3-not,Current-Charge-Degree=Misdemeanor-not ), support=15, card=2
+RULE 906: ( Juvenile-Crimes>5-not,Prior-Crimes=0-not ), support=12, card=2
+RULE 907: ( Juvenile-Crimes>5-not,Prior-Crimes=1-3-not ), support=13, card=2
+RULE 908: ( Juvenile-Crimes>5-not,Prior-Crimes>3-not ), support=15, card=2
+RULE 909: ( Juvenile-Crimes>5-not,Prior-Crimes>5-not ), support=17, card=2
+RULE 910: ( Juvenile-Crimes>5-not,Current-Charge-Degree=Misdemeanor-not ), support=15, card=2
+RULE 911: ( Prior-Crimes=0-not,Prior-Crimes=1-3-not ), support=5, card=2
+RULE 912: ( Prior-Crimes=0-not,Prior-Crimes>3-not ), support=7, card=2
+RULE 913: ( Prior-Crimes=0-not,Prior-Crimes>5-not ), support=9, card=2
+RULE 914: ( Prior-Crimes=0-not,Current-Charge-Degree=Misdemeanor-not ), support=11, card=2
+RULE 915: ( Prior-Crimes=1-3-not,Prior-Crimes>3-not ), support=8, card=2
+RULE 916: ( Prior-Crimes=1-3-not,Prior-Crimes>5-not ), support=10, card=2
+RULE 917: ( Prior-Crimes=1-3-not,Current-Charge-Degree=Misdemeanor-not ), support=9, card=2
+RULE 918: ( Prior-Crimes>3-not,Prior-Crimes>5-not ), support=15, card=2
+RULE 919: ( Prior-Crimes>3-not,Current-Charge-Degree=Misdemeanor-not ), support=10, card=2
+RULE 920: ( Prior-Crimes>5-not,Current-Charge-Degree=Misdemeanor-not ), support=12, card=2
+
+
+Labels (2) for 20 samples
+
+RULE 0: ( label=0 ), support=11, card=1
+RULE 1: ( label=1 ), support=9, card=1
+
+
+LEARNING RULE LIST via LOWER BOUND Prefix Map
+min(objective): 0.45000 -> 0.41000, length: 1, cache size: 1
+min(objective): 0.41000 -> 0.41000, length: 1, cache size: 2
+min(objective): 0.41000 -> 0.36000, length: 1, cache size: 9
+min(objective): 0.36000 -> 0.26000, length: 1, cache size: 13
+min(objective): 0.26000 -> 0.21000, length: 1, cache size: 15
+min(objective): 0.21000 -> 0.16000, length: 1, cache size: 514
+before garbage_collect. num_nodes: 579
+after garbage_collect. num_nodes: 579
+min(objective): 0.16000 -> 0.12000, length: 2, cache size: 872
+before garbage_collect. num_nodes: 1104
+after garbage_collect. num_nodes: 1104
+min(objective): 0.12000 -> 0.12000, length: 2, cache size: 2357
+before garbage_collect. num_nodes: 2404
+after garbage_collect. num_nodes: 2404
+min(objective): 0.12000 -> 0.08000, length: 3, cache size: 84872
+before garbage_collect. num_nodes: 85176
+after garbage_collect. num_nodes: 85176
+iter: 309, tree: 100234, queue: 99925, pmap: 100233, time elapsed: 0.159865
+Exited because max number of nodes in the tree was reached
+Deleting queue elements and corresponding nodes in the cache,since they may not be reachable by the
+Test Accuracy:  0.5765916041145399
+RULELIST:
+if [Race=Caucasian && not Age=24-40]:
+  prediction = True
+else if [Gender=Male && Prior-Crimes>3]:
+  prediction = True
+else if [Age=18-25 && Current-Charge-Degree=Misdemeanor]:
+  prediction = True
+else 
+  prediction = False
+ tree's destructor
+
+minimum objective: 0.0800000000
+minimum lower bound in queue: 0.0300000000
+
+final num_nodes: 50680
+final num_evaluated: 309
+final min_objective: 0.08000
+final accuracy: 0.95000
+final total time: 0.189986

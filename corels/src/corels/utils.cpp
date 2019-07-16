@@ -31,7 +31,7 @@ void Logger::setLogFileName(char *fname) {
        << "tree_num_nodes,tree_num_evaluated,tree_memory,"
        << "queue_size,queue_min_length,queue_memory,"
        << "pmap_size,pmap_null_num,pmap_discard_num,"
-       << "log_remaining_space_size,prefix_lengths" << endl;
+       << "prefix_lengths" << endl;
 }
 
 /*
@@ -70,20 +70,7 @@ void Logger::dumpState() {
        << _state.pmap_size << ","
        << _state.pmap_null_num << ","
        << _state.pmap_discard_num << ","
-       << getLogRemainingSpaceSize() << ","
        << dumpPrefixLens().c_str() << endl;
-}
-
-/*
- * Uses GMP library to dump a string version of the remaining state space size.
- * This number is typically very large (e.g. 10^20) which is why we use GMP instead of a long.
- * Note: this function may not work on some Linux machines.
- */
-std::string Logger::dumpRemainingSpaceSize() {
-    char* str = mpz_get_str(NULL, 10, _state.remaining_space_size);
-    std::string ret(str);
-    free(str);
-    return ret;
 }
 
 /*

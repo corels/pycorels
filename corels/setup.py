@@ -2,23 +2,25 @@ import os
 import numpy as np
 from numpy.distutils.misc_util import Configuration
 
-def configuration():
+def configuration(gmp):
     description = 'Python binding of the CORELS algorithm'
     long_description = description
     with open('README.txt') as f:
         long_description = f.read()
 
-    version = '1.1.12'
-    with open('VERSION.txt') as f:
-        version = f.read()
+    version = '1.1.13'
 
     config = Configuration('corels')
     
-    cpp_args = ['-O3', '-DGMP', '-std=c++11']
-    libraries = ['gmp']
+    cpp_args = ['-Wall', '-O3', '-std=c++11']
+    libraries = []
     
     if os.name == 'posix':
         libraries.append('m')
+    
+    if gmp:
+        cpp_args.append('-DGMP')
+        libraries.append('gmp')
     
     config.add_extension('_corels',
                     sources = ['_corels.cpp', 'src/utils.cpp', 'src/corels/rulelib.cpp',
@@ -36,6 +38,7 @@ def configuration():
     config['description'] = description
     config['long_description'] = long_description
     config['url'] = 'https://github.com/fingoldin/pycorels'
+    config['package_data'] = {'': ['VERSION.txt']}
     config['classifiers'] = (
         "Programming Language :: C++",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
@@ -46,4 +49,8 @@ def configuration():
 
 if __name__ == "__main__":
     from numpy.distutils.core import setup
-    setup(**configuration())
+    try:
+        setup(**configuration(True))
+    except:
+        setup(**configuration(False))
+        

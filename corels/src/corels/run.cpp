@@ -18,13 +18,9 @@ int run_corels_begin(double c, char* vstring, int curiosity_policy,
                   int map_type, int ablation, int calculate_size, int nrules, int nlabels,
                   int nsamples, rule_t* rules, rule_t* labels, rule_t* meta) 
 {
-#ifndef GMP
-    printf("**Not using GMP library**\n");
-#endif
-    
     g_verbosity.clear();
 
-    const char *voptions = "rule|label|samples|progress|log|loud";
+    const char *voptions = "rule|label|samples|progress|log|loud|mine|minor";
 
     char *vopt = NULL;
     char *vcopy = strdup(vstring);
@@ -38,17 +34,19 @@ int run_corels_begin(double c, char* vstring, int curiosity_policy,
     }
     free(vcopy_begin);
 
-    if (g_verbosity.count("samples") && !(g_verbosity.count("rule") || g_verbosity.count("label"))) {
-        fprintf(stderr, "verbosity 'samples' option must be combined with at least one of (rule|label)\n");
-        return -1;
-    }
-    
     if (g_verbosity.count("loud")) {
         g_verbosity.insert("progress");
         g_verbosity.insert("log");
         g_verbosity.insert("label");
         g_verbosity.insert("rule");
+        g_verbosity.insert("mine");
+        g_verbosity.insert("minor");
     }
+
+#ifndef GMP
+    if (g_verbosity.count("progress"))
+        printf("**Not using GMP library**\n");
+#endif
 
     if (g_verbosity.count("log")) {
         print_machine_info();
@@ -63,6 +61,12 @@ int run_corels_begin(double c, char* vstring, int curiosity_policy,
     if (g_verbosity.count("label")) {
         printf("Labels (%d) for %d samples\n\n", nlabels, nsamples);
         rule_print_all(labels, nlabels, nsamples, g_verbosity.count("samples"));
+        printf("\n\n");
+    }
+    
+    if (g_verbosity.count("minor") && meta) {
+        printf("Minority bound for %d samples\n\n", nsamples);
+        rule_print_all(meta, 1, nsamples, g_verbosity.count("samples"));
         printf("\n\n");
     }
     

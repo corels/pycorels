@@ -1,43 +1,5 @@
 import numpy as np
 
-def load_from_csv(fname):
-    """
-    Load a dataset from a csv file.
-    
-    Parameters
-    ----------
-    fname : str
-        File name of the csv data file
-    
-    Returns
-    -------
-    X : array-like, shape = [n_samples, n_features]
-        The sample data
-
-    y : array-line, shape = [n_samples]
-        The target values for the sample data
-    
-    features : list
-        A list of strings of length n_features. Specifies the names of each
-        of the features.
-    """
-
-    import csv
-    features = []
-    prediction_name = ""
-
-    with open(fname, "r") as f:
-        features = f.readline().strip().split(",")
-        prediction_name = features[-1]
-        features = features[0:-1]
-
-    data = np.genfromtxt(fname, dtype=np.uint8, skip_header=1, delimiter=",")
-
-    X = data[:, 0:-1]
-    y = data[:, -1]
-
-    return X, y, features
-
 def check_array(x, ndim=None, dtype=None, order=None):
     if not hasattr(x, 'shape') and \
        not hasattr(x, '__len__') and \
@@ -158,13 +120,65 @@ class RuleList:
         self.rules = []
         self.prediction_name = ""
 
+    def save(self, fname):
+        """
+        Save the rulelist to a file, using python's pickle module.
+
+        Parameters
+        ----------
+        fname : string
+            File name to store the rulelist in
+        
+        Returns
+        -------
+        self : obj
+        """
+
+        check_rulelist(self)
+
+        with open(fname, "wb") as f:
+            pickle.dump({ "f": self.features, "r": self.rules, "p": self.prediction_name }, f)
+
+        return self
+
+    def load(self, fname):
+        """
+        Load a rulelist from a file, using python's pickle module.
+        
+        Parameters
+        ----------
+        fname : string
+            File name to load the rulelist from
+        
+        Returns
+        -------
+        self : obj
+        """
+
+        with open(fname, "rb") as f:
+            rl_dict = pickle.load(f)
+            if not "r" in rl_dict or not "f" in rl_dict or not "p" in rl_dict:
+                raise ValueError("Invalid rulelist file")
+            
+            rl = RuleList()
+            rl.rules = rl_dict["r"]
+            rl.features = rl_dict["f"]
+            rl.prediction_name = rl_dict["p"]
+            check_rulelist(rl)
+
+            self.rules = rl.rules
+            self.features = rl.features
+            self.prediction_name = rl.prediction_name
+
+        return self
+
     def __str__(self):
         check_rulelist(self)
 
         tot = "RULELIST:\n"
         
         if len(self.rules) == 1:
-            tot += self.prediction_name + " = " + str(self.rules[0]["prediction"]) + "\n"
+            tot += self.prediction_name + " = " + str(self.rules[0]["prediction"])
         else:    
             for i in range(len(self.rules) - 1):
                 feat = get_feature(self.features, self.rules[i]["antecedents"][0])
@@ -172,8 +186,48 @@ class RuleList:
                     feat += " && " + get_feature(self.features, self.rules[i]["antecedents"][j])
                 tot += "if [" + feat + "]:\n  " + self.prediction_name + " = " + str(bool(self.rules[i]["prediction"])) + "\nelse "
 
-            tot += "\n  " + self.prediction_name + " = " + str(bool(self.rules[-1]["prediction"])) + "\n"
+            tot += "\n  " + self.prediction_name + " = " + str(bool(self.rules[-1]["prediction"]))
+
 
         return tot
+    
+    def __repr__(self):
+        return self.__str__() + "\nAll features: (" + str(self.features) + ")"
 
-    #TODO: add __repr__
+def load_from_csv(fname):
+    """
+    Load a dataset from a csv file.
+    
+    Parameters
+    ----------
+    fname : str
+        File name of the csv data file
+    
+    Returns
+    -------
+    X : array-like, shape = [n_samples, n_features]
+        The sample data
+
+    y : array-line, shape = [n_samples]
+        The target values for the sample data
+    
+    features : list
+        A list of strings of length n_features. Specifies the names of each
+        of the features.
+    """
+
+    import csv
+    features = []
+    prediction_name = ""
+
+    with open(fname, "r") as f:
+        features = f.readline().strip().split(",")
+        prediction_name = features[-1]
+        features = features[0:-1]
+
+    data = np.genfromtxt(fname, dtype=np.uint8, skip_header=1, delimiter=",")
+
+    X = data[:, 0:-1]
+    y = data[:, -1]
+
+    return X, y, features

@@ -179,8 +179,6 @@ void CacheTree::gc_helper(Node* node) {
  * Public wrapper function to garbage collect the entire tree beginning from the root.
  */
 void CacheTree::garbage_collect() {
-    if (calculate_size_)
-        logger->clearRemainingSpaceSize();
     gc_helper(root_);
 }
 
