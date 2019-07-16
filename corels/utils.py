@@ -1,4 +1,6 @@
+from __future__ import print_function, division, with_statement
 import numpy as np
+import pickle
 
 def check_array(x, ndim=None, dtype=None, order=None):
     if not hasattr(x, 'shape') and \

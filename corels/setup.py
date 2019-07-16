@@ -1,5 +1,7 @@
+from __future__ import print_function, division, with_statement
 import os
 import numpy as np
+import sys
 from numpy.distutils.misc_util import Configuration
 
 def configuration(gmp):
@@ -23,7 +25,7 @@ def configuration(gmp):
     
     if gmp:
         cpp_args.append('-DGMP')
-        libraries.append('gmp')
+        libraries.append('sgmp')
     
     sources = ['_corels.cpp', 'src/utils.cpp', 'src/corels/rulelib.cpp',
         'src/corels/run.cpp', 'src/corels/pmap.cpp', 

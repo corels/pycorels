@@ -1,9 +1,12 @@
+# Example integration of corels with pandas and scikit-learn
+
 import pandas as pd
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 import numpy as np
 from corels import CorelsClassifier
 
+# Load the boston dataset
 boston = datasets.load_iris()
 feature_names = list(boston.feature_names)
 X, y = pd.DataFrame(boston.data > 3, columns=feature_names), boston.target
