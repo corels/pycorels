@@ -13,3 +13,4 @@ tests/model
 valgrind-python.supp
 .tox/
 test*
+.eggs/

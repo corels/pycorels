@@ -1,8 +1,0 @@
-Cython/Tempita/_tempita.cpython-35m-x86_64-linux-gnu.so
-Cython/Compiler/FusedNode.cpython-35m-x86_64-linux-gnu.so
-Cython/Compiler/FlowControl.cpython-35m-x86_64-linux-gnu.so
-Cython/Compiler/Scanning.cpython-35m-x86_64-linux-gnu.so
-Cython/Compiler/Visitor.cpython-35m-x86_64-linux-gnu.so
-Cython/Runtime/refnanny.cpython-35m-x86_64-linux-gnu.so
-Cython/Plex/Actions.cpython-35m-x86_64-linux-gnu.so
-Cython/Plex/Scanners.cpython-35m-x86_64-linux-gnu.so

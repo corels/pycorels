@@ -1,8 +1,0 @@
-Cython/Tempita/_tempita.so
-Cython/Compiler/FusedNode.so
-Cython/Compiler/Visitor.so
-Cython/Compiler/Scanning.so
-Cython/Compiler/FlowControl.so
-Cython/Runtime/refnanny.so
-Cython/Plex/Actions.so
-Cython/Plex/Scanners.so
