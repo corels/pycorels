@@ -59,7 +59,8 @@ def install(gmp):
         description = description,
         long_description = long_description,
         setup_requires = ['numpy', 'cython'],
-        install_requires = ['numpy', 'cython'],
+        install_requires = ['numpy'],
+        python_requires = ['>=2.7'],
         url = 'https://github.com/fingoldin/pycorels',
         classifiers = (
             "Programming Language :: C++",
