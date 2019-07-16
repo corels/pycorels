@@ -9,7 +9,7 @@ CORELS (Certifiably Optimal RulE ListS) is a custom discrete optimization techni
 The CORELS pipeline is simple. Given a dataset matrix of size `n_samples x n_features` and a labels vector of size `n_samples`, it will compute a rulelist (similar to a series of if-then statements) to predict the labels with the highest accuracy.
 
 Here's an example:
-![Whoops! The image failed to load](https://raw.githubusercontent.com/fingoldin/pycorels/master/utils/Corels.svg)
+![Whoops! The image failed to load](https://raw.githubusercontent.com/fingoldin/pycorels/master/utils/Corels.png)
 
 More information about the algorithm [can be found here](https://corels.eecs.harvard.edu/corels)
 
