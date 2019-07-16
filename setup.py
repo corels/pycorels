@@ -1,4 +1,5 @@
 from setuptools import setup, Extension
+from setuptools.command.build_ext import build_ext
 import os
 
 USE_CYTHON = True
@@ -7,6 +8,12 @@ try:
 except ImportError:
     USE_CYTHON = False
 
+class build_numpy(build_ext):
+    def finalize_options(self):
+        build_ext.finalize_options(self)
+        __builtins__.__NUMPY_SETUP__ = False
+        import numpy
+        self.include_dirs.append(numpy.get_include())
 
 def install(gmp):
     description = 'Python binding of the CORELS algorithm'
@@ -60,8 +67,9 @@ def install(gmp):
         long_description = long_description,
         setup_requires = ['numpy', 'cython'],
         install_requires = ['numpy'],
-        python_requires = ['>=2.7'],
+        python_requires = '>=2.7',
         url = 'https://github.com/fingoldin/pycorels',
+        cmd_class = {'build_numpy': build_numpy},
         classifiers = (
             "Programming Language :: C++",
             "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
