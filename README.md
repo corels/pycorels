@@ -23,25 +23,28 @@ GMP (GNU Multiple Precision library) is not required, but it is *highly recommen
 CORELS exists on PyPI, and can be downloaded with
 `pip install corels`
 
-To install from this repo, simply run `pip install .` or `python setup.py install` from the `corels` directory.
+To install from this repo, simply run `pip install .` or `python setup.py install` from the `corels/` directory.
 
 #### Linux
-~~~~
+
+```
 sudo apt install libgmp-dev
 pip install corels
-~~~~
+```
 
 #### Mac
-~~~~
+
+```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install gmp
 pip install corels
-~~~~
+```
 
 #### Windows
-~~~~
+
+```
 pip install corels
-~~~~
+```
 
 ## Documentation
 
@@ -50,7 +53,8 @@ The docs for this package are hosted on [our website](https://corels.eecs.harvar
 ## Examples
 
 ### Large dataset, loaded from [this file](https://raw.githubusercontent.com/fingoldin/pycorels/master/examples/data/compas.csv)
-~~~~
+
+```python
 from corels import *
 
 # Load the dataset
@@ -64,10 +68,11 @@ a = c.fit(X, y).score(X, y)
 
 # Print the model's accuracy on the training set
 print(a)
-~~~~
+```
 
 ### Toy dataset (See picture example above)
-~~~~
+
+```python
 from corels import CorelsClassifier
 
 # ["loud", "samples"] is the most verbose setting possible
@@ -87,8 +92,9 @@ print(C.rl())
 
 # Predict on the training set
 print(C.predict(X))
-~~~~
+```
 
+More examples are in the `examples/` directory
 
 
 ### Questions?

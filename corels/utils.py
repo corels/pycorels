@@ -2,30 +2,26 @@ from __future__ import print_function, division, with_statement
 import numpy as np
 import pickle
 
-def check_array(x, ndim=None, dtype=None, order=None):
+def check_array(x, ndim=None):
     if not hasattr(x, 'shape') and \
        not hasattr(x, '__len__') and \
        not hasattr(x, '__array__'):
        raise TypeError("Array must be provided, got: " + str(type(x)))
 
-    x = np.array(x)
+    x = np.array(x, order='C', copy=False)
 
     if ndim and ndim != x.ndim:
         raise ValueError("Array must be " + str(ndim) + "-dimensional in shape, got " + str(x.ndim) +
                          " dimensions instead")
-    
-    if dtype:
-        if order:
-            return np.array(x, dtype=dtype, order=order)
-        return np.array(x, dtype=dtype)
-    if order:
-        return np.array(x, order=order)
-    return x
+
+    asbool = x.astype(np.bool)
+
+    if not np.array_equal(x, asbool):
+        raise ValueError("Array must contain only binary members (0 or 1), got " + str(x));
+
+    return asbool.astype(np.uint8, copy=False)
 
 def check_consistent_length(x, y):
-    x = check_array(x)
-    y = check_array(y)
-    
     if x.ndim < 1 or y.ndim < 1:
         raise ValueError("Arrays must have at least one dimension")
 

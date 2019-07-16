@@ -128,7 +128,6 @@ class CorelsClassifier:
         -------
         self : obj
         """
-
         if not isinstance(self.c, float):
             raise TypeError("Regularization constant (c) must be a float, got: " + str(type(self.c)))
         if self.c < 0.0 or self.c > 1.0:
@@ -158,11 +157,10 @@ class CorelsClassifier:
         if not isinstance(prediction_name, str):
             raise TypeError("Prediction name must be a string, got: " + str(type(prediction_name)))
        
-        check_consistent_length(X, y)
-        label = check_array(y, ndim=1, dtype=np.bool, order='C')
-        labels = np.array([ np.invert(label), label ], dtype=np.uint8)
-
-        samples = np.array(check_array(X, ndim=2, dtype=np.bool, order='C'), dtype=np.uint8)
+        label = check_array(y, ndim=1)
+        labels = np.stack([ np.invert(label), label ])
+        samples = check_array(X, ndim=2)
+        check_consistent_length(samples, labels)
 
         n_samples = samples.shape[0]
         n_features = samples.shape[1]
@@ -243,7 +241,6 @@ class CorelsClassifier:
             rl.rules = _corels.fit_wrap_end(False)
             
             self.rl_ = rl
-            print("");
         else:
             print("Error running model! Exiting")
 
@@ -269,7 +266,7 @@ class CorelsClassifier:
         check_is_fitted(self, "rl_")
         check_rulelist(self.rl_)        
 
-        samples = np.array(check_array(X, ndim=2, dtype=np.bool, order='C'), dtype=np.uint8)
+        samples = check_array(X, ndim=2)
         
         if samples.shape[1] != len(self.rl_.features):
             raise ValueError("Feature count mismatch between eval data (" + str(X.shape[1]) + 
@@ -297,10 +294,10 @@ class CorelsClassifier:
             The accuracy, from 0.0 to 1.0, of the rulelist predictions
         """
 
-        check_consistent_length(X, y)
-        labels = check_array(y, ndim=1, dtype=np.bool, order='C')
-       
-        p = check_array(X, dtype=np.bool, order='C')
+        labels = check_array(y, ndim=1)
+        p = check_array(X)
+        check_consistent_length(p, labels)
+        
         if p.ndim == 2:
             p = self.predict(p)
         elif p.ndim != 1:

@@ -25,7 +25,7 @@ def configuration(gmp):
     
     if gmp:
         cpp_args.append('-DGMP')
-        libraries.append('sgmp')
+        libraries.append('gmp')
     
     sources = ['_corels.cpp', 'src/utils.cpp', 'src/corels/rulelib.cpp',
         'src/corels/run.cpp', 'src/corels/pmap.cpp', 
@@ -57,8 +57,8 @@ def configuration(gmp):
 
 if __name__ == "__main__":
     from numpy.distutils.core import setup
-    try:
-        setup(**configuration(True))
-    except:
-        setup(**configuration(False))
+#    try:
+    setup(**configuration(True))
+#    except:
+#        setup(**configuration(False))
         

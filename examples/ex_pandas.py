@@ -6,14 +6,37 @@ from sklearn.model_selection import train_test_split
 import numpy as np
 from corels import CorelsClassifier
 
-# Load the boston dataset
-boston = datasets.load_iris()
-feature_names = list(boston.feature_names)
-X, y = pd.DataFrame(boston.data > 3, columns=feature_names), boston.target
 
-seed = 1
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=seed)
+# Load the iris dataset
+iris = datasets.load_iris()
+feature_names = list(iris.feature_names)
 
-corels = CorelsClassifier(c=0.0)
-score = corels.fit(X_train, y_train).score(X_train, y_train)
-print(corels.rl())
+data = iris.data
+targets = iris.target
+
+# Binarize the features
+for f in range(iris.data.shape[1]):
+    mean = round(np.mean(data[:,f]), 3) 
+    data[:,f] = (data[:,f] >= mean)
+    feature_names[f] += " >= " + str(mean)
+
+X, y = pd.DataFrame(data, columns=feature_names), targets
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
+
+C_Setosa = CorelsClassifier(c=0.0, verbosity=[])
+C_Versicolour = CorelsClassifier(c=0.0, verbosity=[])
+
+C_Setosa.fit(X_train, y_train == 0, features=feature_names, prediction_name="Setosa")
+s_Setosa = C_Setosa.score(X_test, y_test == 0)
+
+C_Versicolour.fit(X_train, y_train == 1, features=feature_names, prediction_name="Versicolour")
+s_Versicolour = C_Versicolour.score(X_test, y_test == 1)
+
+print("SETOSA:")
+print(C_Setosa.rl())
+print("Setosa score = " + str(s_Setosa))
+
+print("\n\nVERSICOLOUR:")
+print(C_Versicolour.rl())
+print("Versicolour score = " + str(s_Versicolour))
