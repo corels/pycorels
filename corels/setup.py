@@ -2,7 +2,8 @@ from __future__ import print_function, division, with_statement
 import os
 import numpy as np
 import sys
-from numpy.distutils.misc_util import Configuration
+from distutils.core import setup
+from misc_util import Configuration
 
 def configuration(gmp):
     description = 'Python binding of the CORELS algorithm'
@@ -57,7 +58,6 @@ def configuration(gmp):
     return config
 
 if __name__ == "__main__":
-    from numpy.distutils.core import setup
     try:
         setup(**configuration(True))
     except:
