@@ -12,3 +12,4 @@ MANIFEST
 tests/model
 valgrind-python.supp
 .tox/
+test*
