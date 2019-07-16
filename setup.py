@@ -32,7 +32,6 @@ def install(gmp):
     
     cpp_args = ['-Wall']
     libraries = []
-    macros = []
 
     if os.name != 'nt':
         cpp_args.extend(['-O3', '-std=c++11'])
@@ -42,12 +41,11 @@ def install(gmp):
 
     if gmp:
         libraries.append('gmp')
-        macros.append(("GMP", "1"))
+        cpp_args.append('-DGMP')
 
     extension = Extension("corels._corels", 
                 sources = sources,
                 libraries = libraries,
-                define_macros = macros,
                 include_dirs = ['corels/src/', 'corels/src/corels'],
                 language = "c++",
                 extra_compile_args = cpp_args)
