@@ -65,11 +65,11 @@ def install(gmp):
         author_email = 'vassilioskaxiras@gmail.com',
         description = description,
         long_description = long_description,
-        setup_requires = ['numpy', 'cython'],
-        install_requires = ['numpy'],
+        setup_requires = ['numpy>=1.16', 'cython'],
+        install_requires = ['numpy>=1.16'],
         python_requires = '>=2.7',
         url = 'https://github.com/fingoldin/pycorels',
-        cmd_class = {'build_numpy': build_numpy},
+        cmdclass = {'build_ext': build_numpy},
         classifiers = (
             "Programming Language :: C++",
             "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
@@ -78,4 +78,7 @@ def install(gmp):
     )
 
 if __name__ == "__main__":
-    install(True)
+    try:
+        install(True)
+    except:
+        install(False)
