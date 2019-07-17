@@ -4,7 +4,6 @@ from .utils import check_consistent_length, check_array, check_is_fitted, get_fe
 import numpy as np
 import pickle
 
-#TODO: handle 2to3 problems (str)
 class CorelsClassifier:
     """Certifiably Optimal RulE ListS classifier.
 
@@ -102,7 +101,6 @@ class CorelsClassifier:
         self.max_card = max_card
         self.min_support = min_support
 
-    # TODO: Check early stop for memory leaks
     def fit(self, X, y, features=[], prediction_name="prediction"):
         """
         Build a CORELS classifier from the training set (X, y).
@@ -396,16 +394,28 @@ class CorelsClassifier:
 
         return self
 
-    def rl(self):
+    def rl(self, set_val=None):
         """
-        Return the learned rulelist
+        Return or set the learned rulelist
+        
+        Parameters
+        ----------
+        set_val : RuleList, optional
+            Rulelist to set the model to
 
         Returns
         -------
         rl : obj
+            The model's rulelist
         """
 
-        check_is_fitted(self, "rl_")
+        if set_val != None:
+            check_rulelist(set_val)
+
+            self.rl_ = set_val
+        else:
+            check_is_fitted(self, "rl_")
+        
         return self.rl_
     
     def __str__(self):

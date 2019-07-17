@@ -4,7 +4,7 @@ import pickle
 
 def check_array(x, ndim=None):
     if not hasattr(x, 'shape') and \
-       not hasattr(x, '__len__') and \
+       (type(x) == str or not hasattr(x, '__len__')) and \
        not hasattr(x, '__array__'):
        raise TypeError("Array must be provided, got: " + str(type(x)))
 
@@ -113,10 +113,10 @@ class RuleList:
         Name of the feature being predicted.
     """
 
-    def __init__(self):
-        self.features = []
-        self.rules = []
-        self.prediction_name = ""
+    def __init__(self, rules=[], features=[], prediction_name=""):
+        self.rules = rules
+        self.features = features
+        self.prediction_name = prediction_name
 
     def save(self, fname):
         """

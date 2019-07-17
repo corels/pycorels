@@ -66,6 +66,7 @@ def predict_wrap(np.ndarray[np.uint8_t, ndim=2] X, rules):
         for a in range(antecedent_lengths[r]):
             antecedents[r][a] = rules[r]["antecedents"][a]
 
+    # This compiles to C, so it's pretty fast!
     for s in range(nsamples):
         for r in range(n_rules):
             next_rule = 0
@@ -311,6 +312,7 @@ def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples,
 
 def fit_wrap_loop(size_t max_nodes):
     cdef size_t max_num_nodes = max_nodes
+    # This is where the magic happens
     return (run_corels_loop(max_num_nodes) != -1)
 
 def fit_wrap_end(int early):

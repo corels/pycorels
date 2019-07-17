@@ -51,6 +51,8 @@ You will want to install Visual Studio in order to have a C++ compiler before ru
 pip install corels
 ```
 
+Upon installing, install and run `pytest` from the current directory to run a suite of unit tests.
+
 ## Documentation
 
 The docs for this package are hosted on [our website](https://corels.eecs.harvard.edu/corels/pycorels/)
