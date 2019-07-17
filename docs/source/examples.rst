@@ -11,7 +11,7 @@ Toy Dataset
     y = np.array([ 1, 0, 1])
     c = CorelsClassifier(verbosity=[])
     c.fit(X, y)
-    c.printrl()
+    print(c.rl())
 
 COMPAS Dataset
 --------------
@@ -25,6 +25,6 @@ COMPAS Dataset
     a = c.fit(X, y, features=features).score(X, y)
     c.save("model")
     c.load("model")
-    print(c) # same as c.printrl(), or print(c.rl_)
+    print(c.rl())
 
 The data file used in this example can be `found here <https://raw.githubusercontent.com/fingoldin/pycorels/master/tests/data/compas.csv>`_.

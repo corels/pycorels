@@ -62,7 +62,7 @@ def install(gmp):
         packages = ['corels'],
         ext_modules = extensions,
         version = version,
-        author = 'Vassilios Kaxiras',
+        author = 'Elaine Angelino, Nicholas Larus-Stone, Hongyu Yang, Cythnia Rudin, Vassilios Kaxiras, Margo Seltzer',
         author_email = 'vassilioskaxiras@gmail.com',
         description = description,
         long_description = long_description,

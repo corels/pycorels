@@ -43,13 +43,11 @@ class CorelsClassifier:
     verbosity : list, optional (default=["progress"])
         The verbosity levels required. A list of strings, it can contain any
         subset of ["rule", "label", "minor", "samples", "progress", "mine", "loud"].
+
         - "rule" prints a summary of each rule generated.
         - "label" prints a summary of the class labels.
         - "minor" prints a summary of the minority bound.
-        - "samples" produces a complete dump of the rules, label, and/or minor
-            data. You must also provide at least one of "rule", "label", or "minor"
-            to specify which data you want to dump, or "loud" for all data. The "samples"
-            option often spits out a lot of output.
+        - "samples" produces a complete dump of the rules, label, and/or minor data. You must also provide at least one of "rule", "label", or "minor" to specify which data you want to dump, or "loud" for all data. The "samples" option often spits out a lot of output.
         - "progress" prints periodic messages as corels runs.
         - "mine" prints debug information while mining rules, including each rule as it is generated.
         - "loud" is the equivalent of ["progress", "label", "rule", "mine", "minor"].

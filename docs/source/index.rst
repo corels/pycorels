@@ -6,6 +6,8 @@ CORELS: Certifiably Optimal RulE ListS
 Welcome to the documentation of the Python binding of CORELS!
 All functionality is exposed via a class named 'CorelsClassifier'. In addition, a couple helper functions are provided. Lastly, we provide some examples in the 'examples' section.
 
+For installation instructions and more information on the code, visit https://github.com/fingoldin/pycorels.
+
 .. toctree::
     :maxdepth: 2
 

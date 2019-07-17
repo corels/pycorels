@@ -12,5 +12,6 @@ MANIFEST
 tests/model
 valgrind-python.supp
 .tox/
-test*
 .eggs/
+tox.ini
+upload.sh

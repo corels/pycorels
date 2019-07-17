@@ -54,13 +54,16 @@ pip install corels
 #### Troubleshooting
 - If you come across an error saying Python version >=3.5 is required, try running `pip install numpy` before again running `pip install corels`. 
 - If `pip` does not successfully install corels, try using `pip3`
-- Upon installing, install and run `pytest` from the current directory to run a suite of unit tests.
 
 ## Documentation
 
 The docs for this package are hosted on [our website](https://corels.eecs.harvard.edu/corels/pycorels/)
 
-## ExamplesS uses Python, Numpy, GMP, and a C++ compiler (g++ is a great choice). GMP (GNU Multiple Precision library) is not required, but it is highly recommended, as it improves perfor
+## Tests
+
+After installing corels, run `pytest` (you may have to install it with `pip install pytest` first) from the root project directory to run a suite of unit tests. The tests are located in the `tests` folder.
+
+## Examples
 
 ### Large dataset, loaded from [this file](https://raw.githubusercontent.com/fingoldin/pycorels/master/examples/data/compas.csv)
 
