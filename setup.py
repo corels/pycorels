@@ -57,7 +57,7 @@ def install(gmp):
 
     numpy_version = 'numpy'
     if sys.version_info[0] < 3 or sys.version_info[1] < 5:
-        numpy_version = 'numpy<=1.16'
+        numpy_version = 'numpy<1.17'
 
     setup(
         name = 'corels',
