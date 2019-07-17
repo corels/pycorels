@@ -7,7 +7,7 @@ train_proportion = 0.8
 X, y, features = load_from_csv("data/compas.csv")
 # Constructor parameters ensure maximum verbosity, and a maximum cardinality of 3
 # makes CORELS search all rule antecedents with up to three features combined together
-c = CorelsClassifier(max_card=2, n_iter=10000, verbosity=["loud", "samples"])
+c = CorelsClassifier(max_card=2, n_iter=10000, verbosity=["progress"])
 
 # Generate train and test sets
 train_split = int(train_proportion * X.shape[0])

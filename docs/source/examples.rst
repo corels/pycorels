@@ -19,5 +19,5 @@ COMPAS Dataset
 
 Scikit-learn
 ------------
-.. literalinclude:: ../../examples/ex_scikit.py
+.. literalinclude:: ../../examples/scikit.py
     :language: python
