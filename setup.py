@@ -56,8 +56,6 @@ def install(gmp):
         extensions = cythonize(extensions)
 
     numpy_version = 'numpy'
-    if sys.version_info[0] < 3 or sys.version_info[1] < 5:
-        numpy_version = 'numpy<=1.16'
 
     setup(
         name = 'corels',
