@@ -43,7 +43,8 @@ class CorelsClassifier:
     verbosity : list, optional (default=["rulelist"])
         The verbosity levels required. A list of strings, it can contain any
         subset of ["rulelist", "rule", "label", "minor", "samples", "progress", "mine", "loud"].
-        - "rulelist" prints the generated rulelist at the end
+
+        - "rulelist" prints the generated rulelist at the end.
         - "rule" prints a summary of each rule generated.
         - "label" prints a summary of the class labels.
         - "minor" prints a summary of the minority bound.

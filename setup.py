@@ -31,11 +31,8 @@ def install(gmp):
         'corels/src/corels/utils.cpp', 'corels/src/corels/corels.cpp', 
         'corels/src/corels/cache.cpp', 'corels/src/corels/time.cpp']
     
-    cpp_args = ['-Wall']
+    cpp_args = ['-Wall', '-O3', '-std=c++11']
     libraries = []
-
-    if os.name != 'nt':
-        cpp_args.extend(['-O3', '-std=c++11'])
 
     if os.name == 'posix':
         libraries.append('m')
