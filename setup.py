@@ -22,7 +22,7 @@ def install(gmp):
     with open('corels/README.txt') as f:
         long_description = f.read()
 
-    version = '1.1.24'
+    version = '1.1.25'
 
     pyx_file = 'corels/_corels.pyx' if USE_CYTHON else 'corels/_corels.cpp'
 
