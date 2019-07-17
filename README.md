@@ -15,7 +15,7 @@ More information about the algorithm [can be found here](https://corels.eecs.har
 
 ## Dependencies
 
-CORELS uses [Python](https://www.python.org), [Numpy](https://www.numpy.org), [GMP](https://gmplib.org), and a C++ compiler (g++ is a great choice).
+CORELS uses [Python](https://www.python.org), [Numpy](https://www.numpy.org), [GMP](https://gmplib.org).
 GMP (GNU Multiple Precision library) is not required, but it is *highly recommended*, as it improves performance. If it is not installed, CORELS will run slower.
 
 ## Installation
@@ -39,14 +39,12 @@ pip install corels
 ```
 # Install g++ and gmp
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install g++ gmp
+brew install gmp
 
 pip install corels
 ```
 
 #### Windows
-You will want to install Visual Studio in order to have a C++ compiler before running the below commands
-
 ```
 pip install corels
 ```

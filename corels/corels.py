@@ -40,10 +40,10 @@ class CorelsClassifier:
         minus the default prediction error; "objective" for the objective function
         evaluated at that rulelist; and "dfs" for depth-first search.
 
-    verbosity : list, optional (default=["progress"])
+    verbosity : list, optional (default=["rulelist"])
         The verbosity levels required. A list of strings, it can contain any
-        subset of ["rule", "label", "minor", "samples", "progress", "mine", "loud"].
-
+        subset of ["rulelist", "rule", "label", "minor", "samples", "progress", "mine", "loud"].
+        - "rulelist" prints the generated rulelist at the end
         - "rule" prints a summary of each rule generated.
         - "label" prints a summary of the class labels.
         - "minor" prints a summary of the minority bound.
@@ -89,7 +89,7 @@ class CorelsClassifier:
     _estimator_type = "classifier"
 
     def __init__(self, c=0.01, n_iter=10000, map_type="prefix", policy="lower_bound",
-                 verbosity=["progress"], ablation=0, max_card=2, min_support=0.01):
+                 verbosity=["rulelist"], ablation=0, max_card=2, min_support=0.01):
         self.c = c
         self.n_iter = n_iter
         self.map_type = map_type
@@ -182,7 +182,7 @@ class CorelsClassifier:
         
         rl.prediction_name = prediction_name
 
-        allowed_verbosities = ["rule", "label", "samples", "progress", "loud", "mine", "minor"]
+        allowed_verbosities = ["rulelist", "rule", "label", "samples", "progress", "loud", "mine", "minor"]
         for v in self.verbosity:
             if not isinstance(v, str):
                 raise TypeError("Verbosity flags must be strings, got: " + str(v))
@@ -206,7 +206,7 @@ class CorelsClassifier:
         if "loud" in self.verbosity or "minor" in self.verbosity:
             minor_verbose = 1
         
-        verbose = ",".join(self.verbosity)
+        verbose = ",".join([ v for v in self.verbosity if v != "rulelist" ])
 
         map_types = ["none", "prefix", "captured"]
         policies = ["bfs", "curious", "lower_bound", "objective", "dfs"]
@@ -238,6 +238,9 @@ class CorelsClassifier:
             rl.rules = fit_wrap_end(False)
             
             self.rl_ = rl
+
+            if "rulelist" in self.verbosity:
+                print(self.rl_)
         else:
             print("Error running model! Exiting")
 
