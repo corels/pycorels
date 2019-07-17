@@ -194,7 +194,9 @@ class RuleList:
 
 def load_from_csv(fname):
     """
-    Load a dataset from a csv file.
+    Load a dataset from a csv file. The csv file must contain n_samples+1 rows, each with n_features+1
+    columns. The last column of each sample is its prediction class, and the first row of the file
+    contains the feature names and prediction name (the prediction name is not returned).
     
     Parameters
     ----------

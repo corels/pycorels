@@ -1,30 +1,23 @@
 Examples
 ========
 
+Many of these examples make use of the COMPAS dataset, which `can be found here <https://raw.githubusercontent.com/fingoldin/pycorels/master/tests/data/compas.csv>`_.
+Its data is stored with one comma-separated-row per sample, each with 26 binary features, and 1 classification (the 27th column). The first row specifies the feature names.
+
+
 Toy Dataset
 -----------
-::
-    
-    import numpy as np
-    from corels import CorelsClassifier
-    X = np.array([ [1, 0, 1], [0, 1, 0], [1, 1, 1] ])
-    y = np.array([ 1, 0, 1])
-    c = CorelsClassifier(verbosity=[])
-    c.fit(X, y)
-    print(c.rl())
+.. literalinclude:: ../../examples/toy.py
+    :language: python
+
 
 COMPAS Dataset
 --------------
-::
-    
-    from corels import *
+.. literalinclude:: ../../examples/compas.py
+    :language: python
 
-    X, y, features = load_from_csv("data/compas.csv")
-    c = CorelsClassifier(n_iter=10000)
 
-    a = c.fit(X, y, features=features).score(X, y)
-    c.save("model")
-    c.load("model")
-    print(c.rl())
-
-The data file used in this example can be `found here <https://raw.githubusercontent.com/fingoldin/pycorels/master/tests/data/compas.csv>`_.
+Scikit-learn
+------------
+.. literalinclude:: ../../examples/ex_scikit.py
+    :language: python
