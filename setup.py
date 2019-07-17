@@ -1,6 +1,7 @@
 from setuptools import setup, Extension
 from setuptools.command.build_ext import build_ext
 import os
+import sys
 
 USE_CYTHON = True
 try:
@@ -21,7 +22,7 @@ def install(gmp):
     with open('corels/README.txt') as f:
         long_description = f.read()
 
-    version = '1.1.17'
+    version = '1.1.19'
 
     pyx_file = 'corels/_corels.pyx' if USE_CYTHON else 'corels/_corels.cpp'
 
@@ -54,6 +55,10 @@ def install(gmp):
     if USE_CYTHON:
         extensions = cythonize(extensions)
 
+    numpy_version = 'numpy'
+    if sys.version_info[0] < 3 or sys.version_info[1] < 5:
+        numpy_version = 'numpy<=1.16'
+
     setup(
         name = 'corels',
         packages = ['corels'],
@@ -63,8 +68,8 @@ def install(gmp):
         author_email = 'vassilioskaxiras@gmail.com',
         description = description,
         long_description = long_description,
-        setup_requires = ['numpy<1.17'],
-        install_requires = ['numpy<1.17'],
+        setup_requires = [numpy_version],
+        install_requires = [numpy_version],
         python_requires = '>=2.7',
         url = 'https://github.com/fingoldin/pycorels',
         cmdclass = {'build_ext': build_numpy},

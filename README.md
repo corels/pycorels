@@ -30,8 +30,7 @@ Here are some detailed examples of how to install all the dependencies needed, f
 #### Ubuntu
 
 ```
-sudo apt install libgmp-dev g++ libpython-dev python-pip
-pip install numpy
+sudo apt install libgmp-dev
 pip install corels
 ```
 
@@ -42,7 +41,6 @@ pip install corels
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install g++ gmp
 
-pip install numpy
 pip install corels
 ```
 
@@ -50,7 +48,6 @@ pip install corels
 You will want to install Visual Studio in order to have a C++ compiler before running the below commands
 
 ```
-pip install numpy
 pip install corels
 ```
 
