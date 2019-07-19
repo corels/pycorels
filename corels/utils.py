@@ -196,7 +196,7 @@ def load_from_csv(fname):
     """
     Load a dataset from a csv file. The csv file must contain n_samples+1 rows, each with n_features+1
     columns. The last column of each sample is its prediction class, and the first row of the file
-    contains the feature names and prediction name (the prediction name is not returned).
+    contains the feature names and prediction class name.
     
     Parameters
     ----------
@@ -212,8 +212,10 @@ def load_from_csv(fname):
         The target values for the sample data
     
     features : list
-        A list of strings of length n_features. Specifies the names of each
-        of the features.
+        A list of strings of length n_features. Specifies the names of each of the features.
+
+    prediction_name : str
+        The name of the prediction class
     """
 
     import csv
@@ -230,4 +232,4 @@ def load_from_csv(fname):
     X = data[:, 0:-1]
     y = data[:, -1]
 
-    return X, y, features
+    return X, y, features, prediction_name

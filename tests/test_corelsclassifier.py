@@ -6,7 +6,7 @@ import numpy as np
 import os
 
 compas_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "compas.csv")
-compas_X, compas_y, compas_features = load_from_csv(compas_path)
+compas_X, compas_y, compas_features, compas_prediction = load_from_csv(compas_path)
 
 toy_X, toy_y = [[1, 0, 1], [0, 1, 1], [1, 1, 1]], [1, 0, 1]
 
@@ -107,7 +107,7 @@ def test_general_params():
         ("map_type", str, "prefix", ["none", "prefix", "captured"], ["yay", "asdf"], 4),
         ("policy", str, "lower_bound", ["bfs", "curious", "lower_bound", "objective", "dfs"], ["yay", "asdf"], 4),
         ("max_card", int, 2, [1, 2, 10], [0, -1], 1.4),
-        ("verbosity", list, ["progress"], [["rule", "label"], ["label"], ["samples"], ["progress", "log", "loud"]], [["whoops"], ["rule", "label", "whoops"]], "str")
+        ("verbosity", list, ["rulelist"], [["rule", "label"], ["label"], ["samples"], ["progress", "log", "loud"]], [["whoops"], ["rule", "label", "whoops"]], "str")
     ]
 
     for param in params:
@@ -172,7 +172,7 @@ def test_get_params():
     assert params["n_iter"] == 10000
     assert params["map_type"] == "prefix"
     assert params["policy"] == "lower_bound"
-    assert params["verbosity"] == ["progress"]
+    assert params["verbosity"] == ["rulelist"]
     assert params["ablation"] == 0
     assert params["max_card"] == 2
     assert params["min_support"] == 0.01

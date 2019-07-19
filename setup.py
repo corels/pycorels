@@ -22,7 +22,7 @@ def install(gmp):
     with open('corels/README.txt') as f:
         long_description = f.read()
 
-    version = '1.1.27'
+    version = '1.1.28'
 
     pyx_file = 'corels/_corels.pyx' if USE_CYTHON else 'corels/_corels.cpp'
 
@@ -56,6 +56,9 @@ def install(gmp):
         extensions = cythonize(extensions)
 
     numpy_version = 'numpy'
+
+    if sys.version_info[0] < 3 or sys.version_info[1] < 5:
+        numpy_version = 'numpy<=1.16'
 
     setup(
         name = 'corels',
