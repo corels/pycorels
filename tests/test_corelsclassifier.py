@@ -300,3 +300,11 @@ def test_features():
     custom = ["custom" + str(i + 1) for i in range(len(toy_y)) ]
     f2 = c.fit(toy_X, toy_y, features=custom).rl().features
     assert f2 == custom
+
+def test_general():
+    # Test the whole algorithm
+    c = C(verbosity=[], c=0.001)
+
+    rl = c.fit(compas_X, compas_y, compas_features, compas_prediction).rl()
+
+    assert rl.__str__() == "RULELIST:\nif [Age=24-30 && Prior-Crimes=0]:\n  Recidivate-Within-Two-Years = False\nelse if [not Age=18-25 && not Prior-Crimes>3]:\n  Recidivate-Within-Two-Years = False\nelse \n  Recidivate-Within-Two-Years = True"
