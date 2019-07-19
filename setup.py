@@ -76,7 +76,4 @@ def install(gmp):
     )
 
 if __name__ == "__main__":
-    try:
-        install(True)
-    except:
-        install(False)
+    install(True)
