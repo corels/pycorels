@@ -15,3 +15,4 @@ valgrind-python.supp
 .eggs/
 tox.ini
 upload.sh
+env/
