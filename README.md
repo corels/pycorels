@@ -59,7 +59,7 @@ The docs for this package are hosted on [our website](https://corels.eecs.harvar
 
 ## Tests
 
-After installing corels, run `pytest` (you may have to install it with `pip install pytest` first) from the root project directory to run a suite of unit tests. The tests are located in the `tests` folder.
+After installing corels, run `pytest` (you may have to install it with `pip install pytest` first) from the `tests/` folder, where the tests are located.
 
 ## Examples
 
