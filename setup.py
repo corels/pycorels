@@ -3,12 +3,6 @@ from setuptools.command.build_ext import build_ext
 import os
 import sys
 
-USE_CYTHON = True
-try:
-    from Cython.Build import cythonize
-except ImportError:
-    USE_CYTHON = False
-
 class build_numpy(build_ext):
     def finalize_options(self):
         build_ext.finalize_options(self)
@@ -22,9 +16,9 @@ def install(gmp):
     with open('corels/README.txt') as f:
         long_description = f.read()
 
-    version = '1.1.28'
+    version = '1.1.29'
 
-    pyx_file = 'corels/_corels.pyx' if USE_CYTHON else 'corels/_corels.cpp'
+    pyx_file = 'corels/_corels.cpp'
 
     sources = [pyx_file, 'corels/src/utils.cpp', 'corels/src/corels/rulelib.cpp',
         'corels/src/corels/run.cpp', 'corels/src/corels/pmap.cpp', 
@@ -52,8 +46,6 @@ def install(gmp):
                 extra_compile_args = cpp_args)
 
     extensions = [extension]
-    if USE_CYTHON:
-        extensions = cythonize(extensions)
 
     numpy_version = 'numpy'
 
