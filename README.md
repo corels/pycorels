@@ -39,7 +39,7 @@ pip install corels
 ```
 # Install g++ and gmp
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install gmp
+brew install g++ gmp
 
 pip install corels
 ```
