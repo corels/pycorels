@@ -16,7 +16,7 @@ def install(gmp):
     with open('corels/README.txt') as f:
         long_description = f.read()
 
-    version = '1.1.30'
+    version = '1.2.0'
 
     source_dir = 'corels/src/corels/src/'
     sources = ['utils.cpp', 'rulelib.cpp', 'run.cpp', 'pmap.cpp', 
@@ -69,11 +69,12 @@ def install(gmp):
         python_requires = '>=2.7',
         url = 'https://github.com/fingoldin/pycorels',
         cmdclass = {'build_ext': build_numpy},
-        classifiers = (
+        license = "GNU General Public License v3 (GPLv3)",
+        classifiers = [
             "Programming Language :: C++",
             "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
             "Operating System :: OS Independent"
-        )
+        ]
     )
 
 if __name__ == "__main__":
