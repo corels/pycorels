@@ -1,4 +1,4 @@
-include corels/LICENSE
+include LICENSE
 include corels/README.txt
 include corels/_corels.cpp
 include corels/*.py
