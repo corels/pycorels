@@ -16,15 +16,18 @@ def install(gmp):
     with open('corels/README.txt') as f:
         long_description = f.read()
 
-    version = '1.1.29'
+    version = '1.1.30'
 
-    pyx_file = 'corels/_corels.cpp'
-
-    sources = [pyx_file, 'corels/src/utils.cpp', 'corels/src/corels/rulelib.cpp',
-        'corels/src/corels/run.cpp', 'corels/src/corels/pmap.cpp', 
-        'corels/src/corels/utils.cpp', 'corels/src/corels/corels.cpp', 
-        'corels/src/corels/cache.cpp', 'corels/src/corels/time.cpp']
+    source_dir = 'corels/src/corels/src/'
+    sources = ['utils.cpp', 'rulelib.cpp', 'run.cpp', 'pmap.cpp', 
+               'corels.cpp', 'cache.cpp']
     
+    for i in range(len(sources)):
+        sources[i] = source_dir + sources[i]
+    
+    sources.append('corels/_corels.cpp')
+    sources.append('corels/src/utils.cpp')
+
     cpp_args = ['-Wall', '-O3', '-std=c++11']
     libraries = []
 
@@ -41,7 +44,7 @@ def install(gmp):
     extension = Extension("corels._corels", 
                 sources = sources,
                 libraries = libraries,
-                include_dirs = ['corels/src/', 'corels/src/corels'],
+                include_dirs = ['corels/src/', 'corels/src/corels/src'],
                 language = "c++",
                 extra_compile_args = cpp_args)
 

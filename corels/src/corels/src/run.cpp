@@ -3,7 +3,7 @@
 #include <set>
 
 #include "queue.hh"
-#include "run.h"
+#include "run.hh"
 
 #define BUFSZ 512
 
@@ -46,11 +46,11 @@ char* m_strsep(char** stringp, char delim)
 
 int run_corels_begin(double c, char* vstring, int curiosity_policy,
                   int map_type, int ablation, int calculate_size, int nrules, int nlabels,
-                  int nsamples, rule_t* rules, rule_t* labels, rule_t* meta) 
+                  int nsamples, rule_t* rules, rule_t* labels, rule_t* meta, int freq, char* log_fname) 
 {
     g_verbosity.clear();
 
-    const char *voptions = "rule|label|samples|progress|loud|mine|minor";
+    const char *voptions = "rule|label|minor|samples|progress|loud";
 
     char *vopt = NULL;
     char *vcopy = _strdup(vstring);
@@ -68,7 +68,6 @@ int run_corels_begin(double c, char* vstring, int curiosity_policy,
         g_verbosity.insert("progress");
         g_verbosity.insert("label");
         g_verbosity.insert("rule");
-        g_verbosity.insert("mine");
         g_verbosity.insert("minor");
     }
 
@@ -95,9 +94,6 @@ int run_corels_begin(double c, char* vstring, int curiosity_policy,
         printf("\n\n");
     }
     
-    if(!logger)
-        logger = new PyLogger();
-   
     if (g_tree)
         delete g_tree;
     g_tree = nullptr;
@@ -115,8 +111,15 @@ int run_corels_begin(double c, char* vstring, int curiosity_policy,
         v = 1000;
     else if (g_verbosity.count("progress"))
         v = 1;
-
-    logger->setVerbosity(v);
+   
+    if(!logger) {
+        if(v)
+            logger = new Logger(c, nrules, v, log_fname, freq);
+        else {
+            logger = new PyLogger();
+            logger->setVerbosity(v);
+        }
+    }
 
     g_init = timestamp();
     char run_type[BUFSZ];
@@ -171,7 +174,7 @@ int run_corels_loop(size_t max_num_nodes) {
     return -1;
 }
 
-double run_corels_end(int** rulelist, int* rulelist_size, int** classes, int early)
+double run_corels_end(int** rulelist, int* rulelist_size, int** classes, int early, int latex_out, rule_t* rules, rule_t* labels, char* opt_fname)
 {
     bbound_end(g_tree, g_queue, g_pmap, early);
 
@@ -195,6 +198,12 @@ double run_corels_end(int** rulelist, int* rulelist_size, int** classes, int ear
         printf("final min_objective: %1.5f\n", g_tree->min_objective());
         printf("final accuracy: %1.5f\n", accuracy);
         printf("final total time: %f\n", time_diff(g_init));
+    }
+
+    if(opt_fname) {
+        print_final_rulelist(r_list, g_tree->opt_predictions(), latex_out, rules, labels, opt_fname);
+        logger->dumpState();
+        logger->closeFile();
     }
 
     if(g_tree)

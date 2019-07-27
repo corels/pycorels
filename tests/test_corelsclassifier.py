@@ -1,4 +1,5 @@
 from corels import load_from_csv, RuleList, CorelsClassifier as C
+import corels
 import pytest
 import sys
 import time
@@ -301,10 +302,26 @@ def test_features():
     f2 = c.fit(toy_X, toy_y, features=custom).rl().features
     assert f2 == custom
 
-def test_general():
+def test_general_compas():
     # Test the whole algorithm
     c = C(verbosity=[], c=0.001)
 
     rl = c.fit(compas_X, compas_y, compas_features, compas_prediction).rl()
 
     assert rl.__str__() == "RULELIST:\nif [Age=24-30 && Prior-Crimes=0]:\n  Recidivate-Within-Two-Years = False\nelse if [not Age=18-25 && not Prior-Crimes>3]:\n  Recidivate-Within-Two-Years = False\nelse \n  Recidivate-Within-Two-Years = True"
+
+    # Test using the same classifier twice    
+    c.set_params(max_card=1)
+    rl = c.fit(compas_X, compas_y, compas_features, compas_prediction).rl()
+
+    assert rl.__str__() == "RULELIST:\nif [Prior-Crimes>5]:\n  Recidivate-Within-Two-Years = True\nelse if [Age<=40]:\n  Recidivate-Within-Two-Years = False\nelse if [Age=18-20]:\n  Recidivate-Within-Two-Years = True\nelse if [Prior-Crimes>3]:\n  Recidivate-Within-Two-Years = True\nelse if [Age>=30]:\n  Recidivate-Within-Two-Years = False\nelse if [Prior-Crimes=0]:\n  Recidivate-Within-Two-Years = False\nelse \n  Recidivate-Within-Two-Years = True"
+
+def test_general_other():
+    c = C(verbosity=[])
+    
+    data_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data_train.csv")
+    data_X, data_y, data_features, data_prediction = load_from_csv(data_path)
+
+    rl = c.fit(data_X, data_y, data_features, data_prediction).rl()
+
+    assert rl.__str__() == "RULELIST:\nlabel = False"

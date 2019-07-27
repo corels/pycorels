@@ -7,7 +7,7 @@ import numpy as np
 cimport numpy as np
 cimport cython
 
-cdef extern from "src/corels/rule.h":
+cdef extern from "src/corels/src/rule.hh":
     ctypedef unsigned long* VECTOR
     cdef struct rule:
         VECTOR truthtable
@@ -26,16 +26,18 @@ cdef extern from "src/corels/rule.h":
     int rule_isset(VECTOR, int)
     int count_ones_vector(VECTOR, int)
 
-cdef extern from "src/corels/run.h":
+cdef extern from "src/corels/src/run.hh":
     int run_corels_begin(double c, char* vstring, int curiosity_policy,
                       int map_type, int ablation, int calculate_size, int nrules, int nlabels,
-                      int nsamples, rule_t* rules, rule_t* labels, rule_t* meta)
+                      int nsamples, rule_t* rules, rule_t* labels, rule_t* meta, 
+                      int freq, char* log_fname)
 
     int run_corels_loop(size_t max_num_nodes)
 
-    double run_corels_end(int** rulelist, int* rulelist_size, int** classes, int early)
+    double run_corels_end(int** rulelist, int* rulelist_size, int** classes, int early,
+                          int latex_out, rule_t* rules, rule_t* labels, char* opt_fname)
 
-cdef extern from "src/utils.h":
+cdef extern from "src/utils.hh":
     int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples, 
                 int max_card, double min_support, rule_t **rules_out, int verbose)
 
@@ -292,7 +294,7 @@ def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples,
             minor = NULL
     """
     cdef int rb = run_corels_begin(c, verbosity, policy, map_type, ablation, calculate_size,
-                   n_rules, 2, nsamples, rules, labels_vecs, minor)
+                   n_rules, 2, nsamples, rules, labels_vecs, minor, 0, NULL)
 
     if rb == -1:
         if labels_vecs != NULL:
@@ -324,7 +326,7 @@ def fit_wrap_end(int early):
     cdef int rulelist_size = 0
     cdef int* rulelist = NULL
     cdef int* classes = NULL
-    run_corels_end(&rulelist, &rulelist_size, &classes, early)
+    run_corels_end(&rulelist, &rulelist_size, &classes, early, 0, NULL, NULL, NULL)
 
     r_out = []
     if classes != NULL and rules != NULL:

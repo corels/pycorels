@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
-#include "utils.h"
+#include "utils.hh"
 
 static rule_t *sample_array = NULL;
 static int samples_nrules = 0;
