@@ -5,10 +5,10 @@ matrix:
       os: windows           # Windows 10.0.17134 N/A Build 17134
       language: shell       # 'language: python' is an error on Travis CI Windows
       before_install:
-        - choco install python2 wget
+        - choco install python2 mingw
         - python -m pip install --upgrade pip
-        - wget https://download.microsoft.com/download/7/9/6/796EF2E4-801B-4FC4-AB28-B59FBF6D907B/VCForPython27.msi
-        - msiexec /i VCForPython27.msi
+#        - wget https://download.microsoft.com/download/7/9/6/796EF2E4-801B-4FC4-AB28-B59FBF6D907B/VCForPython27.msi
+#        - msiexec /i VCForPython27.msi
       env: PATH=/c/Python27:/c/Python27/Scripts:$PATH
       install: python -m pip install pytest .
       script: cd tests && python -m pytest
