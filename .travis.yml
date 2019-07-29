@@ -7,8 +7,8 @@ matrix:
       before_install:
         - choco install python2
         - python -m pip install --upgrade pip
-      env: PATH=/c/Python27:/c/Python37/Scripts:$PATH
-      install: pip install --upgrade pip pytest .
+      env: PATH=/c/Python27:/c/Python27/Scripts:$PATH
+      install: python -m pip install pytest .
       script: cd tests && python -m pytest
     - name: "Python 2.7 on Linux"
       python: 2.7
@@ -38,7 +38,7 @@ matrix:
         - choco install python
         - python -m pip install --upgrade pip
       env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
-      install: pip3 install --upgrade pip pytest .
+      install: pip3 install pytest .
       script: cd tests && python -m pytest
 # 'python' points to Python 2.7 on macOS but points to Python 3.7 on Linux and Windows
 # 'python3' is a 'command not found' error on Windows but 'py' works on Windows only
