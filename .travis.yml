@@ -2,12 +2,7 @@ language: python            # this works for Linux but is an error on macOS or W
 matrix:
   include:
     - name: "Python on Xenial Linux"
-      python:
-        - 2.7
-        - 2.8
-        - 3.5
-        - 3.6
-        - 3.7
+      python: 3.7
       dist: xenial          # required for Python >= 3.7
     - name: "Python 3.7.2 on macOS"
       os: osx
