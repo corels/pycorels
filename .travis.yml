@@ -1,24 +1,35 @@
 language: python            # this works for Linux but is an error on macOS or Windows
 matrix:
   include:
-    - name: "Python on Xenial Linux"
+    - name: "Python 2.7 on Linux"
+      python: 2.7
+      install: pip install --upgrade pip pytest .
+      script: cd tests && python -m pytest
+    - name: "Python 3.7 on Xenial Linux"
       python: 3.7
       dist: xenial          # required for Python >= 3.7
-    - name: "Python 3.7.2 on macOS"
+      install: pip install --upgrade pip pytest .
+      script: cd tests && python -m pytest
+    - name: "Python 2.7 on macOS"
+      os: osx
+      osx_image: xcode10.2
+      language: shell       # 'language: python' is an error on Travis CI macOS
+      install: pip install --upgrade pip pytest .
+      script: cd tests && python -m pytest
+    - name: "Python 3.7 on macOS"
       os: osx
       osx_image: xcode10.2  # Python 3.7.2 running on macOS 10.14.3
       language: shell       # 'language: python' is an error on Travis CI macOS
-    - name: "Python 3.7.3 on Windows"
+      install: pip3 install --upgrade pip pytest .
+      script: cd tests && python3 -m pytest
+    - name: "Python 3.7 on Windows"
       os: windows           # Windows 10.0.17134 N/A Build 17134
       language: shell       # 'language: python' is an error on Travis CI Windows
       before_install:
         - choco install python
         - python -m pip install --upgrade pip
       env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
-install: pip3 install --upgrade pip pytest  # all three OSes agree about 'pip3'
+      install: pip3 install --upgrade pip pytest .
+      script: cd tests && python -m pytest
 # 'python' points to Python 2.7 on macOS but points to Python 3.7 on Linux and Windows
 # 'python3' is a 'command not found' error on Windows but 'py' works on Windows only
-script:
-  - pip3 install .
-  - cd tests
-  - python3 -m pytest || python -m pytest
