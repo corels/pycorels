@@ -116,12 +116,16 @@ matrix:
         - make -B
         - ./corels -b ../data/compas_test.out ../data/compas_test.label
       script: cd ../../../../tests && python3 -m pytest
-    - name: "Python 3.7 Docs on Xenial Linux"
+    - name: "Python 3.7 Docs and PyPi on Xenial Linux"
       python: 3.7
       dist: xenial          # required for Python >= 3.7
-      install:
+      before_install:
         - pip install --upgrade pip
-        - pip install sphinx
-      script: cd docs && make html
+        - pip install sphinx pytest
+        - cd docs
+      install: pip install corels
+      script:
+        - make html
+        - cd ../tests && python -m pytest
 # 'python' points to Python 2.7 on macOS but points to Python 3.7 on Linux and Windows
 # 'python3' is a 'command not found' error on Windows but 'py' works on Windows only
