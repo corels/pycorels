@@ -40,6 +40,8 @@ def install(gmp):
 
     if os.name == 'nt':
         cpp_args.append('-D_hypot=hypot')
+        if sys.version_info[0] < 3:
+            raise Exception("Python 3.x is required on Windows")
 
     extension = Extension("corels._corels", 
                 sources = sources,

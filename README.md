@@ -46,6 +46,7 @@ pip install corels
 ```
 
 #### Windows
+Note: Python 2 is currently NOT supported on Windows.
 ```
 pip install corels
 ```
