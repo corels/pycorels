@@ -91,9 +91,12 @@ matrix:
     - name: "Python 2.7 on macOS with GMP"
       os: osx
       osx_image: xcode10.2
+      addons:
+        homebrew:
+          packages:
+          - gmp
       language: shell       # 'language: python' is an error on Travis CI macOS
       before_install:
-        - brew install gmp
         - pip install --upgrade pip
         - pip install pytest
       install: pip install .
@@ -105,9 +108,12 @@ matrix:
     - name: "Python 3.7 on macOS with GMP"
       os: osx
       osx_image: xcode10.2  # Python 3.7.2 running on macOS 10.14.3
+      addons:
+        homebrew:
+          packages:
+          - gmp
       language: shell       # 'language: python' is an error on Travis CI macOS
       before_install:
-        - brew install gmp
         - pip3 install --upgrade pip
         - pip3 install pytest
       install: pip3 install .
