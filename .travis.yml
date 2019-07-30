@@ -8,29 +8,79 @@ matrix:
         - choco install python2 vcredist2008
         - choco install --ignore-dependencies vcpython27
         - python -m pip install --upgrade pip
+        - python -m pip install pytest
       env: PATH=/c/Python27:/c/Python27/Scripts:$PATH
-      install: python -m pip install pytest .
+      install: python -m pip install .
       script: cd tests && python -m pytest
     - name: "Python 2.7 on Linux"
       python: 2.7
-      install: pip install --upgrade pip pytest .
+      before_install:
+        - pip install --upgrade pip
+        - pip install pytest
+      install: pip install .
       script: cd tests && python -m pytest
     - name: "Python 3.7 on Xenial Linux"
       python: 3.7
       dist: xenial          # required for Python >= 3.7
-      install: pip install --upgrade pip pytest .
+      before_install:
+        - pip install --upgrade pip
+        - pip install pytest
+      install: pip install .
+      script: cd tests && python -m pytest
+    - name: "Python 2.7 on Linux With GMP"
+      python: 2.7
+      before_install:
+        - sudo apt-get install libgmp-dev
+        - pip install --upgrade pip
+        - pip install pytest
+      install: pip install .
+      script: cd tests && python -m pytest
+    - name: "Python 3.7 on Xenial Linux With GMP"
+      python: 3.7
+      dist: xenial          # required for Python >= 3.7
+      before_install:
+        - sudo apt-get install libgmp-dev
+        - pip install --upgrade pip
+        - pip install pytest
+      install: pip install .
       script: cd tests && python -m pytest
     - name: "Python 2.7 on macOS"
       os: osx
       osx_image: xcode10.2
       language: shell       # 'language: python' is an error on Travis CI macOS
-      install: pip install --upgrade pip pytest .
+      before_install:
+        - pip install --upgrade pip
+        - pip install pytest
+      install: pip install .
       script: cd tests && python -m pytest
     - name: "Python 3.7 on macOS"
       os: osx
       osx_image: xcode10.2  # Python 3.7.2 running on macOS 10.14.3
       language: shell       # 'language: python' is an error on Travis CI macOS
-      install: pip3 install --upgrade pip pytest .
+      before_install:
+        - pip3 install --upgrade pip
+        - pip3 install pytest
+      install: pip3 install .
+      script: cd tests && python3 -m pytest
+    - name: "Python 2.7 on macOS With GMP"
+      os: osx
+      osx_image: xcode10.2
+      language: shell       # 'language: python' is an error on Travis CI macOS
+      before_install:
+        - brew install gmp
+        - pip install --upgrade pip
+        - pip install pytest
+      install: pip install .
+      script: cd tests && python -m pytest
+    - name: "Python 3.7 on macOS With GMP"
+      os: osx
+      osx_image: xcode10.2  # Python 3.7.2 running on macOS 10.14.3
+      language: shell       # 'language: python' is an error on Travis CI macOS
+      before_install:
+        - brew install gmp
+        - pip3 install --upgrade pip
+        - pip3 install pytest
+      install: pip3 install .
       script: cd tests && python3 -m pytest
     - name: "Python 3.7 on Windows"
       os: windows           # Windows 10.0.17134 N/A Build 17134
