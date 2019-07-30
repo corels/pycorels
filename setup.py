@@ -12,11 +12,12 @@ class build_numpy(build_ext):
 
 def install(gmp):
     description = 'Python binding of the CORELS algorithm'
-    long_description = description
+    
     with open('corels/README.txt') as f:
         long_description = f.read()
 
-    version = '1.1.30'
+    with open('corels/VERSION') as f:
+        version = f.read().strip()
 
     source_dir = 'corels/src/corels/src/'
     sources = ['utils.cpp', 'rulelib.cpp', 'run.cpp', 'pmap.cpp', 
@@ -72,6 +73,8 @@ def install(gmp):
         url = 'https://github.com/fingoldin/pycorels',
         cmdclass = {'build_ext': build_numpy},
         license = "GNU General Public License v3 (GPLv3)",
+        package_dir={'corels': 'corels'},
+        package_data={'corels': ['VERSION']},
         classifiers = [
             "Programming Language :: C++",
             "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",

@@ -23,10 +23,11 @@ project = u'corels'
 copyright = u'2019, Vassilios Kaxiras'
 author = u'Vassilios Kaxiras'
 
-# The short X.Y version
-version = u'1.1'
-# The full version, including alpha/beta/rc tags
-release = u'1.1.30'
+with open('../../corels/VERSION') as f:
+    # The full version, including alpha/beta/rc tags
+    release = f.read().strip()
+    # The short X.Y version
+    version = release[:release.rfind(".")]
 
 
 # -- General configuration ---------------------------------------------------
