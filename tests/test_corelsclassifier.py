@@ -250,7 +250,7 @@ def test_maxcard():
 
 def test_niter():
     times = []
-    n_iters = [10, 1000, 100000]
+    n_iters = [10, 100000]
 
     for n_iter in n_iters:
         s = time.time()
