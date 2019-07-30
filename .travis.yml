@@ -122,7 +122,6 @@ matrix:
     - pip install sphinx
     script:
     - cd docs && make html
-    - cd ../tests && python -m pytest
     deploy:
       provider: pypi
       user: "fingoldin" 
