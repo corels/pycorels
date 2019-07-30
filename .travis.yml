@@ -121,7 +121,9 @@ matrix:
     - pip install --upgrade pip
     - pip install sphinx
     script:
-    - cd docs && make html
+    - cd docs
+    - make html
+    - cd ../
     deploy:
       provider: pypi
       user: "fingoldin" 
