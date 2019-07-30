@@ -7,6 +7,10 @@ matrix:
         - pip install --upgrade pip
         - pip install pytest
       install: pip install .
+      before_script:
+        - cd corels/src/corels/src
+        - make -B NGMP=1
+        - ./corels -b ../data/compas_test.out ../data/compas_test.label
       script: cd tests && python -m pytest
     - name: "Python 3.7 on Xenial Linux"
       python: 3.7
@@ -15,6 +19,10 @@ matrix:
         - pip install --upgrade pip
         - pip install pytest
       install: pip install .
+      before_script:
+        - cd corels/src/corels/src
+        - make -B NGMP=1
+        - ./corels -b ../data/compas_test.out ../data/compas_test.label
       script: cd tests && python -m pytest
     - name: "Python 2.7 on Linux with GMP"
       python: 2.7
@@ -23,6 +31,10 @@ matrix:
         - pip install --upgrade pip
         - pip install pytest
       install: pip install .
+      before_script:
+        - cd corels/src/corels/src
+        - make -B
+        - ./corels -b ../data/compas_test.out ../data/compas_test.label
       script: cd tests && python -m pytest
     - name: "Python 3.7 on Xenial Linux with GMP"
       python: 3.7
@@ -32,6 +44,10 @@ matrix:
         - pip install --upgrade pip
         - pip install pytest
       install: pip install .
+      before_script:
+        - cd corels/src/corels/src
+        - make -B
+        - ./corels -b ../data/compas_test.out ../data/compas_test.label
       script: cd tests && python -m pytest
     - name: "Python 2.7 on macOS"
       os: osx
@@ -41,6 +57,10 @@ matrix:
         - pip install --upgrade pip
         - pip install pytest
       install: pip install .
+      before_script:
+        - cd corels/src/corels/src
+        - make -B NGMP=1
+        - ./corels -b ../data/compas_test.out ../data/compas_test.label
       script: cd tests && python -m pytest
     - name: "Python 3.7 on macOS"
       os: osx
@@ -50,6 +70,10 @@ matrix:
         - pip3 install --upgrade pip
         - pip3 install pytest
       install: pip3 install .
+      before_script:
+        - cd corels/src/corels/src
+        - make -B NGMP=1
+        - ./corels -b ../data/compas_test.out ../data/compas_test.label
       script: cd tests && python3 -m pytest
     - name: "Python 2.7 on macOS with GMP"
       os: osx
@@ -60,6 +84,10 @@ matrix:
         - pip install --upgrade pip
         - pip install pytest
       install: pip install .
+      before_script:
+        - cd corels/src/corels/src
+        - make -B
+        - ./corels -b ../data/compas_test.out ../data/compas_test.label
       script: cd tests && python -m pytest
     - name: "Python 3.7 on macOS with GMP"
       os: osx
@@ -70,6 +98,10 @@ matrix:
         - pip3 install --upgrade pip
         - pip3 install pytest
       install: pip3 install .
+      before_script:
+        - cd corels/src/corels/src
+        - make -B
+        - ./corels -b ../data/compas_test.out ../data/compas_test.label
       script: cd tests && python3 -m pytest
     - name: "Python 3.7 on Windows"
       os: windows           # Windows 10.0.17134 N/A Build 17134
@@ -79,6 +111,10 @@ matrix:
         - python -m pip install --upgrade pip
       env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
       install: pip3 install pytest .
+      before_script:
+        - cd corels/src/corels/src
+        - make -B NGMP=1
+        - ./corels -b ../data/compas_test.out ../data/compas_test.label
       script: cd tests && python -m pytest
     - name: "Python 3.7 Docs on Xenial Linux"
       python: 3.7
