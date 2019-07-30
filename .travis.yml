@@ -11,7 +11,7 @@ matrix:
         - cd corels/src/corels/src
         - make -B NGMP=1
         - ./corels -b ../data/compas_test.out ../data/compas_test.label
-      script: cd tests && python -m pytest
+      script: cd ../../../../tests && python -m pytest
     - name: "Python 3.7 on Xenial Linux"
       python: 3.7
       dist: xenial          # required for Python >= 3.7
@@ -23,7 +23,7 @@ matrix:
         - cd corels/src/corels/src
         - make -B NGMP=1
         - ./corels -b ../data/compas_test.out ../data/compas_test.label
-      script: cd tests && python -m pytest
+      script: cd ../../../../tests && python -m pytest
     - name: "Python 2.7 on Linux with GMP"
       python: 2.7
       before_install:
@@ -35,7 +35,7 @@ matrix:
         - cd corels/src/corels/src
         - make -B
         - ./corels -b ../data/compas_test.out ../data/compas_test.label
-      script: cd tests && python -m pytest
+      script: cd ../../../../tests && python -m pytest
     - name: "Python 3.7 on Xenial Linux with GMP"
       python: 3.7
       dist: xenial          # required for Python >= 3.7
@@ -48,7 +48,7 @@ matrix:
         - cd corels/src/corels/src
         - make -B
         - ./corels -b ../data/compas_test.out ../data/compas_test.label
-      script: cd tests && python -m pytest
+      script: cd ../../../../tests && python -m pytest
     - name: "Python 2.7 on macOS"
       os: osx
       osx_image: xcode10.2
@@ -61,7 +61,7 @@ matrix:
         - cd corels/src/corels/src
         - make -B NGMP=1
         - ./corels -b ../data/compas_test.out ../data/compas_test.label
-      script: cd tests && python -m pytest
+      script: cd ../../../../tests && python -m pytest
     - name: "Python 3.7 on macOS"
       os: osx
       osx_image: xcode10.2  # Python 3.7.2 running on macOS 10.14.3
@@ -74,7 +74,7 @@ matrix:
         - cd corels/src/corels/src
         - make -B NGMP=1
         - ./corels -b ../data/compas_test.out ../data/compas_test.label
-      script: cd tests && python3 -m pytest
+      script: cd ../../../../tests && python3 -m pytest
     - name: "Python 2.7 on macOS with GMP"
       os: osx
       osx_image: xcode10.2
@@ -88,7 +88,7 @@ matrix:
         - cd corels/src/corels/src
         - make -B
         - ./corels -b ../data/compas_test.out ../data/compas_test.label
-      script: cd tests && python -m pytest
+      script: cd ../../../../tests && python -m pytest
     - name: "Python 3.7 on macOS with GMP"
       os: osx
       osx_image: xcode10.2  # Python 3.7.2 running on macOS 10.14.3
@@ -102,7 +102,7 @@ matrix:
         - cd corels/src/corels/src
         - make -B
         - ./corels -b ../data/compas_test.out ../data/compas_test.label
-      script: cd tests && python3 -m pytest
+      script: cd ../../../../tests && python3 -m pytest
     - name: "Python 3.7 on Windows"
       os: windows           # Windows 10.0.17134 N/A Build 17134
       language: shell       # 'language: python' is an error on Travis CI Windows
@@ -115,7 +115,7 @@ matrix:
         - cd corels/src/corels/src
         - make -B NGMP=1
         - ./corels -b ../data/compas_test.out ../data/compas_test.label
-      script: cd tests && python -m pytest
+      script: cd ../../../../tests && python -m pytest
     - name: "Python 3.7 Docs on Xenial Linux"
       python: 3.7
       dist: xenial          # required for Python >= 3.7
