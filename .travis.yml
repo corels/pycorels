@@ -129,5 +129,6 @@ matrix:
       user: "fingoldin" 
       distributions: "sdist"
       server: https://test.pypi.org/legacy/
+      skip_existing: true
       password:
         secure: pacjUROajmH0VKSKCgvveDrGs8tw6vNN0CI55pAduXRClxR0f8tZ45qMhiRWS39aVLCDtnaYc0nP8gVCRn+va6jK3+Jg+EmP0bNMrlxzCkCrfm7hEbkA4Yb+BRwF+pnrlWIGEe0b8rQUF2CgnPBp+9hE+kH1go+xgvJpFmiVh/sBTJDhA3F/laqYYmmkiI/XXD1kUFZdaIkmfFIU9qqYmyNsLmnIV+dl0y3PSnKZfrvg9Td60Py1CJPLVJKqURMKzbArCmECswEurcUHQZeLzmpIXeQqAgtV2WIAeGCf3yZYRUw/d0boqTClX0pVU47X+5O+gU2mTCJtNo/8cEZHm8viOI6n3yYkKpLdtrwKlVZB8iqcROoVKT6KdeKZF0oa6O7+7HKz0XNiiEi95UXG1BZkccWNeOePT5d1u11y1yxu3VQA3QDGoAMSSFS5xdv1vsv7+ztaU43hZHrMYyrD4QFc++rxwtk67h8jElu78b9ApL8/fmozZZspI+VkQEyCzNY11bucYU5gGQld8n7OX6KuODVtdH9IanhCfEEUdNumTHSii3KZ41TlV/P8Dxb5GEdMXUYjZBqxTIXOARlof/Zuw3z64dwSQgdrx5GoM4jWOKdnhGnWfb3fq1VHrjZHCmhq0AuVuQVmu4jBLV/pXoOkmhH/wS2BR2g0bZCKgIA=
