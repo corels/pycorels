@@ -3,7 +3,7 @@
 CORELS: Certifiably Optimal RulE ListS
 ======================================
 
-Welcome to the documentation of the Python binding of CORELS!
+Welcome to the documentation of the Python binding of CORELS (Certifiably Optimal RulE ListS)!
 
 
 Quick Start
