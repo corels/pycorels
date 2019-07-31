@@ -114,7 +114,16 @@ matrix:
     - "./corels -b ../data/compas_test.out ../data/compas_test.label"
     script: cd ../../../../tests && python3 -m pytest
   - stage: deploy
-    name: Python 3.7 Deploy on Xenial Linux
+    name: Python 3.7 Docs and PyPi on Xenial Linux
+    python: 3.7
+    dist: xenial
+    install:
+    - pip install --upgrade pip
+    - pip install sphinx
+    script:
+    - cd docs
+    - make html
+    - cd ../
     deploy:
       provider: pypi
       user: "fingoldin" 
