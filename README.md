@@ -1,5 +1,6 @@
 # Pycorels
 [![Build Status](https://travis-ci.org/fingoldin/pycorels.svg?branch=master)](https://travis-ci.org/fingoldin/pycorels)
+[![Documentation Status](https://readthedocs.org/projects/pycorels/badge/?version=latest)](https://pycorels.readthedocs.io/en/latest/?badge=latest)
 
 Welcome to the python binding of the Certifiably Optimal RulE ListS (CORELS) algorithm!
 
