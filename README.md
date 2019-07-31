@@ -57,7 +57,7 @@ pip install corels
 
 ## Documentation
 
-The docs for this package are hosted on [our website](https://corels.eecs.harvard.edu/corels/pycorels/)
+The docs for this package are hosted on here: https://pycorels.readthedocs.io/
 
 ## Tests
 

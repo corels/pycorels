@@ -1,6 +1,6 @@
 Welcome to the Python binding of the Certifiably Optimal RulE ListS (CORELS) algorithm! 
 
-Documentation for this package is hosted at: https://corels.eecs.harvard.edu/corels/pycorels/
+Documentation for this package is hosted at: https://pycorels.readthedocs.io/
 
 For information on CORELS, please visit our website: https://corels.eecs.harvard.edu.
 
