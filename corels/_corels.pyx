@@ -3,6 +3,8 @@
 
 from libc.string cimport strdup, strcpy
 from libc.stdlib cimport malloc, free
+from libcpp.set cimport set
+from libcpp.string cimport string
 import numpy as np
 cimport numpy as np
 cimport cython
@@ -29,19 +31,33 @@ cdef extern from "src/corels/src/rule.hh":
 cdef extern from "src/corels/src/run.hh":
     int run_corels_begin(double c, char* vstring, int curiosity_policy,
                       int map_type, int ablation, int calculate_size, int nrules, int nlabels,
-                      int nsamples, rule_t* rules, rule_t* labels, rule_t* meta, 
-                      int freq, char* log_fname)
+                      int nsamples, rule_t* rules, rule_t* labels, rule_t* meta, int freq, char* log_fname,
+                      PermutationMap*& g_pmap, CacheTree*& g_tree, Queue*& g_queue, double& g_init,
+                      set[string]& g_verbosity)
 
-    int run_corels_loop(size_t max_num_nodes)
+    int run_corels_loop(size_t max_num_nodes, PermutationMap* g_pmap, CacheTree* g_tree, Queue* g_queue)
 
-    double run_corels_end(int** rulelist, int* rulelist_size, int** classes, int early,
-                          int latex_out, rule_t* rules, rule_t* labels, char* opt_fname)
+    double run_corels_end(int** rulelist, int* rulelist_size, int** classes, int early, int latex_out, rule_t* rules,
+                          rule_t* labels, char* opt_fname, PermutationMap*& g_pmap, CacheTree*& g_tree, Queue*& g_queue,
+                          double g_init, set[string]& g_verbosity)
 
 cdef extern from "src/utils.hh":
     int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples, 
                 int max_card, double min_support, rule_t **rules_out, int verbose)
 
     int minority(rule_t* rules, int nrules, rule_t* labels, int nsamples, rule_t* minority_out, int verbose)
+
+cdef extern from "src/corels/src/pmap.hh":
+    cdef cppclass PermutationMap:
+        pass
+
+cdef extern from "src/corels/src/cache.hh":
+    cdef cppclass CacheTree:
+        pass
+
+cdef extern from "src/corels/src/queue.hh":
+    cdef cppclass Queue:
+        pass
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
@@ -153,6 +169,11 @@ cdef rule_t* rules = NULL
 cdef rule_t* labels_vecs = NULL
 cdef rule_t* minor = NULL
 cdef int n_rules = 0
+cdef PermutationMap* g_pmap = NULL
+cdef CacheTree* g_tree = NULL
+cdef Queue* g_queue = NULL
+cdef double g_init = 0.0
+cdef set[string] g_verbosity
 
 def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples, 
              np.ndarray[np.uint8_t, ndim=2] labels,
@@ -286,15 +307,17 @@ def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples,
             _free_vector(rules, n_rules)
             rules = NULL
         n_rules = 0
-        raise MemoryError();
+        raise MemoryError()
     """    
     if count_ones_vector(minor[0].truthtable, nsamples) <= 0:
         if minor != NULL:
             _free_vector(minor, 1)
             minor = NULL
     """
+
     cdef int rb = run_corels_begin(c, verbosity, policy, map_type, ablation, calculate_size,
-                   n_rules, 2, nsamples, rules, labels_vecs, minor, 0, NULL)
+                   n_rules, 2, nsamples, rules, labels_vecs, minor, 0, NULL, g_pmap, g_tree,
+                   g_queue, g_init, g_verbosity)
 
     if rb == -1:
         if labels_vecs != NULL:
@@ -315,7 +338,7 @@ def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples,
 def fit_wrap_loop(size_t max_nodes):
     cdef size_t max_num_nodes = max_nodes
     # This is where the magic happens
-    return (run_corels_loop(max_num_nodes) != -1)
+    return (run_corels_loop(max_num_nodes, g_pmap, g_tree, g_queue) != -1)
 
 def fit_wrap_end(int early):
     global rules
@@ -326,7 +349,8 @@ def fit_wrap_end(int early):
     cdef int rulelist_size = 0
     cdef int* rulelist = NULL
     cdef int* classes = NULL
-    run_corels_end(&rulelist, &rulelist_size, &classes, early, 0, NULL, NULL, NULL)
+    run_corels_end(&rulelist, &rulelist_size, &classes, early, 0, NULL, NULL, NULL, g_pmap, g_tree,
+                    g_queue, g_init, g_verbosity)
 
     r_out = []
     if classes != NULL and rules != NULL:
