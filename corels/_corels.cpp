@@ -1778,11 +1778,11 @@ static rule_t *__pyx_v_6corels_7_corels_rules;
 static rule_t *__pyx_v_6corels_7_corels_labels_vecs;
 static rule_t *__pyx_v_6corels_7_corels_minor;
 static int __pyx_v_6corels_7_corels_n_rules;
-static PermutationMap *__pyx_v_6corels_7_corels_g_pmap;
-static CacheTree *__pyx_v_6corels_7_corels_g_tree;
-static Queue *__pyx_v_6corels_7_corels_g_queue;
-static double __pyx_v_6corels_7_corels_g_init;
-static std::set<std::string>  __pyx_v_6corels_7_corels_g_verbosity;
+static PermutationMap *__pyx_v_6corels_7_corels_pmap;
+static CacheTree *__pyx_v_6corels_7_corels_tree;
+static Queue *__pyx_v_6corels_7_corels_queue;
+static double __pyx_v_6corels_7_corels_init;
+static std::set<std::string>  __pyx_v_6corels_7_corels_run_verbosity;
 static rule_t *__pyx_f_6corels_7_corels__to_vector(PyArrayObject *, int *); /*proto*/
 static PyObject *__pyx_f_6corels_7_corels__free_vector(rule_t *, int); /*proto*/
 static __Pyx_TypeInfo __Pyx_TypeInfo_nn___pyx_t_5numpy_uint8_t = { "uint8_t", NULL, sizeof(__pyx_t_5numpy_uint8_t), { 0 }, 0, IS_UNSIGNED(__pyx_t_5numpy_uint8_t) ? 'U' : 'I', IS_UNSIGNED(__pyx_t_5numpy_uint8_t), 0 };
@@ -3369,7 +3369,7 @@ static PyObject *__pyx_f_6corels_7_corels__free_vector(rule_t *__pyx_v_vs, int _
 }
 
 /* "corels/_corels.pyx":178
- * cdef set[string] g_verbosity
+ * cdef set[string] run_verbosity
  * 
  * def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples,             # <<<<<<<<<<<<<<
  *              np.ndarray[np.uint8_t, ndim=2] labels,
@@ -4969,8 +4969,8 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
   /* "corels/_corels.pyx":319
  * 
  *     cdef int rb = run_corels_begin(c, verbosity, policy, map_type, ablation, calculate_size,
- *                    n_rules, 2, nsamples, rules, labels_vecs, minor, 0, NULL, g_pmap, g_tree,             # <<<<<<<<<<<<<<
- *                    g_queue, g_init, g_verbosity)
+ *                    n_rules, 2, nsamples, rules, labels_vecs, minor, 0, NULL, pmap, tree,             # <<<<<<<<<<<<<<
+ *                    queue, init, run_verbosity)
  * 
  */
   __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_v_nsamples); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 319, __pyx_L1_error)
@@ -4979,13 +4979,13 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
  *     """
  * 
  *     cdef int rb = run_corels_begin(c, verbosity, policy, map_type, ablation, calculate_size,             # <<<<<<<<<<<<<<
- *                    n_rules, 2, nsamples, rules, labels_vecs, minor, 0, NULL, g_pmap, g_tree,
- *                    g_queue, g_init, g_verbosity)
+ *                    n_rules, 2, nsamples, rules, labels_vecs, minor, 0, NULL, pmap, tree,
+ *                    queue, init, run_verbosity)
  */
-  __pyx_v_rb = run_corels_begin(__pyx_v_c, __pyx_v_verbosity, __pyx_v_policy, __pyx_v_map_type, __pyx_v_ablation, __pyx_v_calculate_size, __pyx_v_6corels_7_corels_n_rules, 2, __pyx_t_4, __pyx_v_6corels_7_corels_rules, __pyx_v_6corels_7_corels_labels_vecs, __pyx_v_6corels_7_corels_minor, 0, NULL, __pyx_v_6corels_7_corels_g_pmap, __pyx_v_6corels_7_corels_g_tree, __pyx_v_6corels_7_corels_g_queue, __pyx_v_6corels_7_corels_g_init, __pyx_v_6corels_7_corels_g_verbosity);
+  __pyx_v_rb = run_corels_begin(__pyx_v_c, __pyx_v_verbosity, __pyx_v_policy, __pyx_v_map_type, __pyx_v_ablation, __pyx_v_calculate_size, __pyx_v_6corels_7_corels_n_rules, 2, __pyx_t_4, __pyx_v_6corels_7_corels_rules, __pyx_v_6corels_7_corels_labels_vecs, __pyx_v_6corels_7_corels_minor, 0, NULL, __pyx_v_6corels_7_corels_pmap, __pyx_v_6corels_7_corels_tree, __pyx_v_6corels_7_corels_queue, __pyx_v_6corels_7_corels_init, __pyx_v_6corels_7_corels_run_verbosity);
 
   /* "corels/_corels.pyx":322
- *                    g_queue, g_init, g_verbosity)
+ *                    queue, init, run_verbosity)
  * 
  *     if rb == -1:             # <<<<<<<<<<<<<<
  *         if labels_vecs != NULL:
@@ -5133,7 +5133,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
     goto __pyx_L0;
 
     /* "corels/_corels.pyx":322
- *                    g_queue, g_init, g_verbosity)
+ *                    queue, init, run_verbosity)
  * 
  *     if rb == -1:             # <<<<<<<<<<<<<<
  *         if labels_vecs != NULL:
@@ -5154,7 +5154,7 @@ static PyObject *__pyx_pf_6corels_7_corels_2fit_wrap_begin(CYTHON_UNUSED PyObjec
   goto __pyx_L0;
 
   /* "corels/_corels.pyx":178
- * cdef set[string] g_verbosity
+ * cdef set[string] run_verbosity
  * 
  * def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples,             # <<<<<<<<<<<<<<
  *              np.ndarray[np.uint8_t, ndim=2] labels,
@@ -5232,19 +5232,19 @@ static PyObject *__pyx_pf_6corels_7_corels_4fit_wrap_loop(CYTHON_UNUSED PyObject
  * def fit_wrap_loop(size_t max_nodes):
  *     cdef size_t max_num_nodes = max_nodes             # <<<<<<<<<<<<<<
  *     # This is where the magic happens
- *     return (run_corels_loop(max_num_nodes, g_pmap, g_tree, g_queue) != -1)
+ *     return (run_corels_loop(max_num_nodes, pmap, tree, queue) != -1)
  */
   __pyx_v_max_num_nodes = __pyx_v_max_nodes;
 
   /* "corels/_corels.pyx":341
  *     cdef size_t max_num_nodes = max_nodes
  *     # This is where the magic happens
- *     return (run_corels_loop(max_num_nodes, g_pmap, g_tree, g_queue) != -1)             # <<<<<<<<<<<<<<
+ *     return (run_corels_loop(max_num_nodes, pmap, tree, queue) != -1)             # <<<<<<<<<<<<<<
  * 
  * def fit_wrap_end(int early):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong((run_corels_loop(__pyx_v_max_num_nodes, __pyx_v_6corels_7_corels_g_pmap, __pyx_v_6corels_7_corels_g_tree, __pyx_v_6corels_7_corels_g_queue) != -1L)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 341, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong((run_corels_loop(__pyx_v_max_num_nodes, __pyx_v_6corels_7_corels_pmap, __pyx_v_6corels_7_corels_tree, __pyx_v_6corels_7_corels_queue) != -1L)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 341, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5270,7 +5270,7 @@ static PyObject *__pyx_pf_6corels_7_corels_4fit_wrap_loop(CYTHON_UNUSED PyObject
 }
 
 /* "corels/_corels.pyx":343
- *     return (run_corels_loop(max_num_nodes, g_pmap, g_tree, g_queue) != -1)
+ *     return (run_corels_loop(max_num_nodes, pmap, tree, queue) != -1)
  * 
  * def fit_wrap_end(int early):             # <<<<<<<<<<<<<<
  *     global rules
@@ -5337,7 +5337,7 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
  *     cdef int rulelist_size = 0
  *     cdef int* rulelist = NULL             # <<<<<<<<<<<<<<
  *     cdef int* classes = NULL
- *     run_corels_end(&rulelist, &rulelist_size, &classes, early, 0, NULL, NULL, NULL, g_pmap, g_tree,
+ *     run_corels_end(&rulelist, &rulelist_size, &classes, early, 0, NULL, NULL, NULL, pmap, tree,
  */
   __pyx_v_rulelist = NULL;
 
@@ -5345,22 +5345,22 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
  *     cdef int rulelist_size = 0
  *     cdef int* rulelist = NULL
  *     cdef int* classes = NULL             # <<<<<<<<<<<<<<
- *     run_corels_end(&rulelist, &rulelist_size, &classes, early, 0, NULL, NULL, NULL, g_pmap, g_tree,
- *                     g_queue, g_init, g_verbosity)
+ *     run_corels_end(&rulelist, &rulelist_size, &classes, early, 0, NULL, NULL, NULL, pmap, tree,
+ *                     queue, init, run_verbosity)
  */
   __pyx_v_classes = NULL;
 
   /* "corels/_corels.pyx":352
  *     cdef int* rulelist = NULL
  *     cdef int* classes = NULL
- *     run_corels_end(&rulelist, &rulelist_size, &classes, early, 0, NULL, NULL, NULL, g_pmap, g_tree,             # <<<<<<<<<<<<<<
- *                     g_queue, g_init, g_verbosity)
+ *     run_corels_end(&rulelist, &rulelist_size, &classes, early, 0, NULL, NULL, NULL, pmap, tree,             # <<<<<<<<<<<<<<
+ *                     queue, init, run_verbosity)
  * 
  */
-  (void)(run_corels_end((&__pyx_v_rulelist), (&__pyx_v_rulelist_size), (&__pyx_v_classes), __pyx_v_early, 0, NULL, NULL, NULL, __pyx_v_6corels_7_corels_g_pmap, __pyx_v_6corels_7_corels_g_tree, __pyx_v_6corels_7_corels_g_queue, __pyx_v_6corels_7_corels_g_init, __pyx_v_6corels_7_corels_g_verbosity));
+  (void)(run_corels_end((&__pyx_v_rulelist), (&__pyx_v_rulelist_size), (&__pyx_v_classes), __pyx_v_early, 0, NULL, NULL, NULL, __pyx_v_6corels_7_corels_pmap, __pyx_v_6corels_7_corels_tree, __pyx_v_6corels_7_corels_queue, __pyx_v_6corels_7_corels_init, __pyx_v_6corels_7_corels_run_verbosity));
 
   /* "corels/_corels.pyx":355
- *                     g_queue, g_init, g_verbosity)
+ *                     queue, init, run_verbosity)
  * 
  *     r_out = []             # <<<<<<<<<<<<<<
  *     if classes != NULL and rules != NULL:
@@ -5708,7 +5708,7 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
   goto __pyx_L0;
 
   /* "corels/_corels.pyx":343
- *     return (run_corels_loop(max_num_nodes, g_pmap, g_tree, g_queue) != -1)
+ *     return (run_corels_loop(max_num_nodes, pmap, tree, queue) != -1)
  * 
  * def fit_wrap_end(int early):             # <<<<<<<<<<<<<<
  *     global rules
@@ -8419,7 +8419,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(2, 0, 17, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_corels_pyx, __pyx_n_s_predict_wrap, 64, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(0, 64, __pyx_L1_error)
 
   /* "corels/_corels.pyx":178
- * cdef set[string] g_verbosity
+ * cdef set[string] run_verbosity
  * 
  * def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples,             # <<<<<<<<<<<<<<
  *              np.ndarray[np.uint8_t, ndim=2] labels,
@@ -8443,7 +8443,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_corels_pyx, __pyx_n_s_fit_wrap_loop, 338, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) __PYX_ERR(0, 338, __pyx_L1_error)
 
   /* "corels/_corels.pyx":343
- *     return (run_corels_loop(max_num_nodes, g_pmap, g_tree, g_queue) != -1)
+ *     return (run_corels_loop(max_num_nodes, pmap, tree, queue) != -1)
  * 
  * def fit_wrap_end(int early):             # <<<<<<<<<<<<<<
  *     global rules
@@ -8806,7 +8806,7 @@ if (!__Pyx_RefNanny) {
  * cdef rule_t* labels_vecs = NULL
  * cdef rule_t* minor = NULL             # <<<<<<<<<<<<<<
  * cdef int n_rules = 0
- * cdef PermutationMap* g_pmap = NULL
+ * cdef PermutationMap* pmap = NULL
  */
   __pyx_v_6corels_7_corels_minor = NULL;
 
@@ -8814,49 +8814,49 @@ if (!__Pyx_RefNanny) {
  * cdef rule_t* labels_vecs = NULL
  * cdef rule_t* minor = NULL
  * cdef int n_rules = 0             # <<<<<<<<<<<<<<
- * cdef PermutationMap* g_pmap = NULL
- * cdef CacheTree* g_tree = NULL
+ * cdef PermutationMap* pmap = NULL
+ * cdef CacheTree* tree = NULL
  */
   __pyx_v_6corels_7_corels_n_rules = 0;
 
   /* "corels/_corels.pyx":172
  * cdef rule_t* minor = NULL
  * cdef int n_rules = 0
- * cdef PermutationMap* g_pmap = NULL             # <<<<<<<<<<<<<<
- * cdef CacheTree* g_tree = NULL
- * cdef Queue* g_queue = NULL
+ * cdef PermutationMap* pmap = NULL             # <<<<<<<<<<<<<<
+ * cdef CacheTree* tree = NULL
+ * cdef Queue* queue = NULL
  */
-  __pyx_v_6corels_7_corels_g_pmap = NULL;
+  __pyx_v_6corels_7_corels_pmap = NULL;
 
   /* "corels/_corels.pyx":173
  * cdef int n_rules = 0
- * cdef PermutationMap* g_pmap = NULL
- * cdef CacheTree* g_tree = NULL             # <<<<<<<<<<<<<<
- * cdef Queue* g_queue = NULL
- * cdef double g_init = 0.0
+ * cdef PermutationMap* pmap = NULL
+ * cdef CacheTree* tree = NULL             # <<<<<<<<<<<<<<
+ * cdef Queue* queue = NULL
+ * cdef double init = 0.0
  */
-  __pyx_v_6corels_7_corels_g_tree = NULL;
+  __pyx_v_6corels_7_corels_tree = NULL;
 
   /* "corels/_corels.pyx":174
- * cdef PermutationMap* g_pmap = NULL
- * cdef CacheTree* g_tree = NULL
- * cdef Queue* g_queue = NULL             # <<<<<<<<<<<<<<
- * cdef double g_init = 0.0
- * cdef set[string] g_verbosity
+ * cdef PermutationMap* pmap = NULL
+ * cdef CacheTree* tree = NULL
+ * cdef Queue* queue = NULL             # <<<<<<<<<<<<<<
+ * cdef double init = 0.0
+ * cdef set[string] run_verbosity
  */
-  __pyx_v_6corels_7_corels_g_queue = NULL;
+  __pyx_v_6corels_7_corels_queue = NULL;
 
   /* "corels/_corels.pyx":175
- * cdef CacheTree* g_tree = NULL
- * cdef Queue* g_queue = NULL
- * cdef double g_init = 0.0             # <<<<<<<<<<<<<<
- * cdef set[string] g_verbosity
+ * cdef CacheTree* tree = NULL
+ * cdef Queue* queue = NULL
+ * cdef double init = 0.0             # <<<<<<<<<<<<<<
+ * cdef set[string] run_verbosity
  * 
  */
-  __pyx_v_6corels_7_corels_g_init = 0.0;
+  __pyx_v_6corels_7_corels_init = 0.0;
 
   /* "corels/_corels.pyx":178
- * cdef set[string] g_verbosity
+ * cdef set[string] run_verbosity
  * 
  * def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples,             # <<<<<<<<<<<<<<
  *              np.ndarray[np.uint8_t, ndim=2] labels,
@@ -8880,7 +8880,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "corels/_corels.pyx":343
- *     return (run_corels_loop(max_num_nodes, g_pmap, g_tree, g_queue) != -1)
+ *     return (run_corels_loop(max_num_nodes, pmap, tree, queue) != -1)
  * 
  * def fit_wrap_end(int early):             # <<<<<<<<<<<<<<
  *     global rules
