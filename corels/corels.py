@@ -207,7 +207,7 @@ class CorelsClassifier:
         if "loud" in self.verbosity or "minor" in self.verbosity:
             minor_verbose = 1
         
-        verbose = ",".join([ v for v in self.verbosity if v != "rulelist" ])
+        verbose = ",".join([ v for v in self.verbosity if v != "rulelist" and v != "mine" ])
 
         map_types = ["none", "prefix", "captured"]
         policies = ["bfs", "curious", "lower_bound", "objective", "dfs"]
@@ -233,6 +233,9 @@ class CorelsClassifier:
                 rl.rules = fit_wrap_end(True)
                 
                 self.rl_ = rl
+                
+                if "rulelist" in self.verbosity:
+                    print(self.rl_)
 
                 raise
              
