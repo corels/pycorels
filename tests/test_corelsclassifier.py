@@ -5,6 +5,9 @@ import sys
 import time
 import numpy as np
 import os
+import warnings
+
+# TODO: Fix warnings test
 
 compas_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "compas.csv")
 compas_X, compas_y, compas_features, compas_prediction = load_from_csv(compas_path)
@@ -16,7 +19,8 @@ def test_fit_Xy():
 
     valid = [
         ([[1, 0]], [1]),
-        (np.array([[1, 0]]), np.array([1]))
+        (np.array([[1, 0]]), np.array([1])),
+        ([[1, 0, 1], [0, 1, 0]], np.array([1, 0]))
     ]
 
     invalid_type = [
@@ -107,8 +111,8 @@ def test_general_params():
         ("min_support", float, 0.01, [0.0, 0.25, 0.5], [-0.01, 0.6, 1.5], "str"),
         ("map_type", str, "prefix", ["none", "prefix", "captured"], ["yay", "asdf"], 4),
         ("policy", str, "lower_bound", ["bfs", "curious", "lower_bound", "objective", "dfs"], ["yay", "asdf"], 4),
-        ("max_card", int, 2, [1, 2, 10], [0, -1], 1.4),
-        ("verbosity", list, ["rulelist"], [["rule", "label"], ["label"], ["samples"], ["progress", "log", "loud"]], [["whoops"], ["rule", "label", "whoops"]], "str")
+        ("max_card", int, 2, [1, 2, 3], [0, -1], 1.4),
+        ("verbosity", list, ["rulelist"], [["rule", "label", "mine"], ["label"], ["samples", "mine", "minor"], ["progress", "loud"]], [["whoops"], ["rule", "label", "nope"]], "str")
     ]
 
     for param in params:
@@ -117,9 +121,9 @@ def test_general_params():
         assert getattr(c, param[0]) == param[2]
         assert type(getattr(c, param[0])) == param[1]
         
-        # Test constructor assignment
+        # Test constructor assignment and valid arguments
         for v in param[3]:
-            c = C(**{param[0]: v})
+            c = C(**{param[0]: v}).fit(toy_X, toy_y)
             assert getattr(c, param[0]) == v
             assert type(getattr(c, param[0])) == param[1]
 
@@ -231,6 +235,24 @@ def test_c():
     
     for i in range(1, len(rls)):
         assert len(rls[i].rules) > len(rls[i - 1].rules)
+
+    # Test warnings
+    with warnings.catch_warnings(record=True) as w:
+        warnings.simplefilter("always")
+
+        # Sanity check
+        cl.set_params(c=0.1)
+        cl.fit(compas_X, compas_y)
+
+        cl.set_params(c=(0.8 / compas_X.shape[0]))
+        cl.fit(compas_X, compas_y)
+        
+        cl.set_params(c=0.49)
+        cl.fit(compas_X, compas_y)
+
+        assert len(w) == 2
+        for i in range(len(w)):
+            assert w[i].category.__name__ == "RuntimeWarning"
 
 def test_maxcard():
     # Test cardinality cannot be greater than n_features

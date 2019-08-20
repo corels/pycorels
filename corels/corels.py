@@ -3,6 +3,7 @@ from ._corels import fit_wrap_begin, fit_wrap_end, fit_wrap_loop, predict_wrap
 from .utils import check_consistent_length, check_array, check_is_fitted, get_feature, check_in, check_features, check_rulelist, RuleList
 import numpy as np
 import pickle
+import warnings
 
 class CorelsClassifier:
     """Certifiably Optimal RulE ListS classifier.
@@ -43,6 +44,7 @@ class CorelsClassifier:
     verbosity : list, optional (default=["rulelist"])
         The verbosity levels required. A list of strings, it can contain any
         subset of ["rulelist", "rule", "label", "minor", "samples", "progress", "mine", "loud"].
+        An empty list ([]) indicates 'silent' mode.
 
         - "rulelist" prints the generated rulelist at the end.
         - "rule" prints a summary of each rule generated.
@@ -164,6 +166,16 @@ class CorelsClassifier:
         if self.max_card > n_features:
             raise ValueError("Max cardinality (" + str(self.max_card) + ") cannot be greater"
                              " than the number of features (" + str(n_features) + ")")
+
+        if self.c < 1.0 / n_samples:
+            warnings.warn("Regularization parameter should not be less than 1/nsamples = " +
+                           str(1.0 / n_samples), RuntimeWarning, stacklevel=2)
+        
+        l_ones = np.sum(label)
+        
+        if self.c > min(l_ones, n_samples - l_ones) / n_samples:
+            warnings.warn("Regularization parameter should not be greater than min(negative_examples, positive_examples) / n_samples = " +
+                           str(min(l_ones, n_samples - l_ones) / n_samples), RuntimeWarning, stacklevel=2)
 
         n_labels = labels.shape[0]
         

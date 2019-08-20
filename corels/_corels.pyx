@@ -367,16 +367,19 @@ def fit_wrap_end(int early):
         if rulelist != NULL:
             free(rulelist)
         free(classes)
-   
-    if labels_vecs != NULL: 
-        _free_vector(labels_vecs, 2)
-        labels_vecs = NULL
-    if minor != NULL: 
-        _free_vector(minor, 1)
-        minor = NULL
-    if rules != NULL: 
-        _free_vector(rules, n_rules)
-        rules = NULL
+
+    # Exiting early skips cleanup
+    if early == 0:   
+        if labels_vecs != NULL: 
+            _free_vector(labels_vecs, 2)
+        if minor != NULL: 
+            _free_vector(minor, 1)
+        if rules != NULL: 
+            _free_vector(rules, n_rules)
+    
+    minor = NULL
+    rules = NULL
+    labels_vecs = NULL
     n_rules = 0
 
     return r_out

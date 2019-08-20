@@ -5558,7 +5558,7 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
  *             free(rulelist)
  *         free(classes)             # <<<<<<<<<<<<<<
  * 
- *     if labels_vecs != NULL:
+ *     # Exiting early skips cleanup
  */
     free(__pyx_v_classes);
 
@@ -5571,133 +5571,152 @@ static PyObject *__pyx_pf_6corels_7_corels_6fit_wrap_end(CYTHON_UNUSED PyObject 
  */
   }
 
-  /* "corels/_corels.pyx":371
- *         free(classes)
+  /* "corels/_corels.pyx":372
  * 
- *     if labels_vecs != NULL:             # <<<<<<<<<<<<<<
- *         _free_vector(labels_vecs, 2)
- *         labels_vecs = NULL
+ *     # Exiting early skips cleanup
+ *     if early == 0:             # <<<<<<<<<<<<<<
+ *         if labels_vecs != NULL:
+ *             _free_vector(labels_vecs, 2)
  */
-  __pyx_t_2 = ((__pyx_v_6corels_7_corels_labels_vecs != NULL) != 0);
+  __pyx_t_2 = ((__pyx_v_early == 0) != 0);
   if (__pyx_t_2) {
+
+    /* "corels/_corels.pyx":373
+ *     # Exiting early skips cleanup
+ *     if early == 0:
+ *         if labels_vecs != NULL:             # <<<<<<<<<<<<<<
+ *             _free_vector(labels_vecs, 2)
+ *         if minor != NULL:
+ */
+    __pyx_t_2 = ((__pyx_v_6corels_7_corels_labels_vecs != NULL) != 0);
+    if (__pyx_t_2) {
+
+      /* "corels/_corels.pyx":374
+ *     if early == 0:
+ *         if labels_vecs != NULL:
+ *             _free_vector(labels_vecs, 2)             # <<<<<<<<<<<<<<
+ *         if minor != NULL:
+ *             _free_vector(minor, 1)
+ */
+      __pyx_t_1 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_labels_vecs, 2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 374, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+      /* "corels/_corels.pyx":373
+ *     # Exiting early skips cleanup
+ *     if early == 0:
+ *         if labels_vecs != NULL:             # <<<<<<<<<<<<<<
+ *             _free_vector(labels_vecs, 2)
+ *         if minor != NULL:
+ */
+    }
+
+    /* "corels/_corels.pyx":375
+ *         if labels_vecs != NULL:
+ *             _free_vector(labels_vecs, 2)
+ *         if minor != NULL:             # <<<<<<<<<<<<<<
+ *             _free_vector(minor, 1)
+ *         if rules != NULL:
+ */
+    __pyx_t_2 = ((__pyx_v_6corels_7_corels_minor != NULL) != 0);
+    if (__pyx_t_2) {
+
+      /* "corels/_corels.pyx":376
+ *             _free_vector(labels_vecs, 2)
+ *         if minor != NULL:
+ *             _free_vector(minor, 1)             # <<<<<<<<<<<<<<
+ *         if rules != NULL:
+ *             _free_vector(rules, n_rules)
+ */
+      __pyx_t_1 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_minor, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 376, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+      /* "corels/_corels.pyx":375
+ *         if labels_vecs != NULL:
+ *             _free_vector(labels_vecs, 2)
+ *         if minor != NULL:             # <<<<<<<<<<<<<<
+ *             _free_vector(minor, 1)
+ *         if rules != NULL:
+ */
+    }
+
+    /* "corels/_corels.pyx":377
+ *         if minor != NULL:
+ *             _free_vector(minor, 1)
+ *         if rules != NULL:             # <<<<<<<<<<<<<<
+ *             _free_vector(rules, n_rules)
+ * 
+ */
+    __pyx_t_2 = ((__pyx_v_6corels_7_corels_rules != NULL) != 0);
+    if (__pyx_t_2) {
+
+      /* "corels/_corels.pyx":378
+ *             _free_vector(minor, 1)
+ *         if rules != NULL:
+ *             _free_vector(rules, n_rules)             # <<<<<<<<<<<<<<
+ * 
+ *     minor = NULL
+ */
+      __pyx_t_1 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_rules, __pyx_v_6corels_7_corels_n_rules); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 378, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+      /* "corels/_corels.pyx":377
+ *         if minor != NULL:
+ *             _free_vector(minor, 1)
+ *         if rules != NULL:             # <<<<<<<<<<<<<<
+ *             _free_vector(rules, n_rules)
+ * 
+ */
+    }
 
     /* "corels/_corels.pyx":372
  * 
- *     if labels_vecs != NULL:
- *         _free_vector(labels_vecs, 2)             # <<<<<<<<<<<<<<
- *         labels_vecs = NULL
- *     if minor != NULL:
- */
-    __pyx_t_1 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_labels_vecs, 2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 372, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-    /* "corels/_corels.pyx":373
- *     if labels_vecs != NULL:
- *         _free_vector(labels_vecs, 2)
- *         labels_vecs = NULL             # <<<<<<<<<<<<<<
- *     if minor != NULL:
- *         _free_vector(minor, 1)
- */
-    __pyx_v_6corels_7_corels_labels_vecs = NULL;
-
-    /* "corels/_corels.pyx":371
- *         free(classes)
- * 
- *     if labels_vecs != NULL:             # <<<<<<<<<<<<<<
- *         _free_vector(labels_vecs, 2)
- *         labels_vecs = NULL
- */
-  }
-
-  /* "corels/_corels.pyx":374
- *         _free_vector(labels_vecs, 2)
- *         labels_vecs = NULL
- *     if minor != NULL:             # <<<<<<<<<<<<<<
- *         _free_vector(minor, 1)
- *         minor = NULL
- */
-  __pyx_t_2 = ((__pyx_v_6corels_7_corels_minor != NULL) != 0);
-  if (__pyx_t_2) {
-
-    /* "corels/_corels.pyx":375
- *         labels_vecs = NULL
- *     if minor != NULL:
- *         _free_vector(minor, 1)             # <<<<<<<<<<<<<<
- *         minor = NULL
- *     if rules != NULL:
- */
-    __pyx_t_1 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_minor, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 375, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-    /* "corels/_corels.pyx":376
- *     if minor != NULL:
- *         _free_vector(minor, 1)
- *         minor = NULL             # <<<<<<<<<<<<<<
- *     if rules != NULL:
- *         _free_vector(rules, n_rules)
- */
-    __pyx_v_6corels_7_corels_minor = NULL;
-
-    /* "corels/_corels.pyx":374
- *         _free_vector(labels_vecs, 2)
- *         labels_vecs = NULL
- *     if minor != NULL:             # <<<<<<<<<<<<<<
- *         _free_vector(minor, 1)
- *         minor = NULL
- */
-  }
-
-  /* "corels/_corels.pyx":377
- *         _free_vector(minor, 1)
- *         minor = NULL
- *     if rules != NULL:             # <<<<<<<<<<<<<<
- *         _free_vector(rules, n_rules)
- *         rules = NULL
- */
-  __pyx_t_2 = ((__pyx_v_6corels_7_corels_rules != NULL) != 0);
-  if (__pyx_t_2) {
-
-    /* "corels/_corels.pyx":378
- *         minor = NULL
- *     if rules != NULL:
- *         _free_vector(rules, n_rules)             # <<<<<<<<<<<<<<
- *         rules = NULL
- *     n_rules = 0
- */
-    __pyx_t_1 = __pyx_f_6corels_7_corels__free_vector(__pyx_v_6corels_7_corels_rules, __pyx_v_6corels_7_corels_n_rules); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 378, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-    /* "corels/_corels.pyx":379
- *     if rules != NULL:
- *         _free_vector(rules, n_rules)
- *         rules = NULL             # <<<<<<<<<<<<<<
- *     n_rules = 0
- * 
- */
-    __pyx_v_6corels_7_corels_rules = NULL;
-
-    /* "corels/_corels.pyx":377
- *         _free_vector(minor, 1)
- *         minor = NULL
- *     if rules != NULL:             # <<<<<<<<<<<<<<
- *         _free_vector(rules, n_rules)
- *         rules = NULL
+ *     # Exiting early skips cleanup
+ *     if early == 0:             # <<<<<<<<<<<<<<
+ *         if labels_vecs != NULL:
+ *             _free_vector(labels_vecs, 2)
  */
   }
 
   /* "corels/_corels.pyx":380
- *         _free_vector(rules, n_rules)
- *         rules = NULL
+ *             _free_vector(rules, n_rules)
+ * 
+ *     minor = NULL             # <<<<<<<<<<<<<<
+ *     rules = NULL
+ *     labels_vecs = NULL
+ */
+  __pyx_v_6corels_7_corels_minor = NULL;
+
+  /* "corels/_corels.pyx":381
+ * 
+ *     minor = NULL
+ *     rules = NULL             # <<<<<<<<<<<<<<
+ *     labels_vecs = NULL
+ *     n_rules = 0
+ */
+  __pyx_v_6corels_7_corels_rules = NULL;
+
+  /* "corels/_corels.pyx":382
+ *     minor = NULL
+ *     rules = NULL
+ *     labels_vecs = NULL             # <<<<<<<<<<<<<<
+ *     n_rules = 0
+ * 
+ */
+  __pyx_v_6corels_7_corels_labels_vecs = NULL;
+
+  /* "corels/_corels.pyx":383
+ *     rules = NULL
+ *     labels_vecs = NULL
  *     n_rules = 0             # <<<<<<<<<<<<<<
  * 
  *     return r_out
  */
   __pyx_v_6corels_7_corels_n_rules = 0;
 
-  /* "corels/_corels.pyx":382
+  /* "corels/_corels.pyx":385
  *     n_rules = 0
  * 
  *     return r_out             # <<<<<<<<<<<<<<
