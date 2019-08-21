@@ -7,12 +7,12 @@ import numpy as np
 import os
 import warnings
 
-# TODO: Fix warnings test
-
 compas_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "compas.csv")
 compas_X, compas_y, compas_features, compas_prediction = load_from_csv(compas_path)
 
 toy_X, toy_y = [[1, 0, 1], [0, 1, 1], [1, 1, 1]], [1, 0, 1]
+
+warnings.simplefilter("ignore")
 
 def test_fit_Xy():
     c = C(verbosity=[])
@@ -224,36 +224,6 @@ def test_store(tmp_path):
     assert c.get_params() == params
     assert c.rl().rules == rl.rules
 
-def test_c():
-    cl = C(verbosity=[], n_iter=100000)
-    cs = [0.3, 0.01, 0.0]
-    rls = []
-
-    for c in cs:
-        cl.set_params(c=c)
-        rls.append(cl.fit(compas_X, compas_y).rl())
-    
-    for i in range(1, len(rls)):
-        assert len(rls[i].rules) > len(rls[i - 1].rules)
-
-    # Test warnings
-    with warnings.catch_warnings(record=True) as w:
-        warnings.simplefilter("always")
-
-        # Sanity check
-        cl.set_params(c=0.1)
-        cl.fit(compas_X, compas_y)
-
-        cl.set_params(c=(0.8 / compas_X.shape[0]))
-        cl.fit(compas_X, compas_y)
-        
-        cl.set_params(c=0.49)
-        cl.fit(compas_X, compas_y)
-
-        assert len(w) == 2
-        for i in range(len(w)):
-            assert w[i].category.__name__ == "RuntimeWarning"
-
 def test_maxcard():
     # Test cardinality cannot be greater than n_features
     with pytest.raises(ValueError):
@@ -347,3 +317,30 @@ def test_general_other():
     rl = c.fit(data_X, data_y, data_features, data_prediction).rl()
 
     assert rl.__str__() == "RULELIST:\nlabel = False"
+
+def test_c():
+    cl = C(verbosity=[], n_iter=100000)
+    cs = [0.3, 0.01, 0.0]
+    rls = []
+
+    for c in cs:
+        cl.set_params(c=c)
+        rls.append(cl.fit(compas_X, compas_y).rl())
+    
+    for i in range(1, len(rls)):
+        assert len(rls[i].rules) > len(rls[i - 1].rules)
+
+    warnings.simplefilter("error", RuntimeWarning)
+
+    # Sanity check
+    cl.set_params(c=0.01)
+    cl.fit(compas_X, compas_y)
+
+    # Test warnings
+    with pytest.warns(RuntimeWarning):
+        cl.set_params(c=(0.8 / compas_X.shape[0]))
+        cl.fit(compas_X, compas_y)
+ 
+    with pytest.warns(RuntimeWarning):
+        cl.set_params(c=0.49)
+        cl.fit(compas_X, compas_y)
