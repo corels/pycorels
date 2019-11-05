@@ -72,7 +72,7 @@ After installing corels, run `pytest` (you may have to install it with `pip inst
 from corels import *
 
 # Load the dataset
-X, y = load_from_csv("data/compas.csv")
+X, y, _, _ = load_from_csv("data/compas.csv")
 
 # Create the model, with 10000 as the maximum number of iterations 
 c = CorelsClassifier(n_iter=10000)
