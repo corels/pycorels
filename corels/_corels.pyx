@@ -3,6 +3,7 @@
 
 from libc.string cimport strdup, strcpy
 from libc.stdlib cimport malloc, free
+from libcpp.vector cimport vector
 from libcpp.set cimport set
 from libcpp.string cimport string
 import numpy as np
@@ -37,7 +38,7 @@ cdef extern from "src/corels/src/run.hh":
 
     int run_corels_loop(size_t max_num_nodes, PermutationMap* pmap, CacheTree* tree, Queue* queue)
 
-    double run_corels_end(int** rulelist, int* rulelist_size, int** classes, int early, int latex_out, rule_t* rules,
+    double run_corels_end(vector[int]* rulelist, vector[int]* classes, int early, int latex_out, rule_t* rules,
                           rule_t* labels, char* opt_fname, PermutationMap*& pmap, CacheTree*& tree, Queue*& queue,
                           double init, set[string]& verbosity)
 
@@ -346,27 +347,23 @@ def fit_wrap_end(int early):
     global minor
     global n_rules
 
-    cdef int rulelist_size = 0
-    cdef int* rulelist = NULL
-    cdef int* classes = NULL
-    run_corels_end(&rulelist, &rulelist_size, &classes, early, 0, NULL, NULL, NULL, pmap, tree,
+    cdef vector[int] rulelist
+    cdef vector[int] classes
+    run_corels_end(&rulelist, &classes, early, 0, NULL, NULL, NULL, pmap, tree,
                     queue, init, run_verbosity)
 
     r_out = []
-    if classes != NULL and rules != NULL:
-        for i in range(rulelist_size):
-            if rulelist[i] < n_rules:
-                r_out.append({})
-                r_out[i]["antecedents"] = []
-                for j in range(rules[rulelist[i]].cardinality):
-                    r_out[i]["antecedents"].append(rules[rulelist[i]].ids[j])
+    print(rulelist.size())
+    for i in range(rulelist.size()):
+        if rulelist[i] < n_rules:
+            r_out.append({})
+            r_out[i]["antecedents"] = []
+            for j in range(rules[rulelist[i]].cardinality):
+                r_out[i]["antecedents"].append(rules[rulelist[i]].ids[j])
 
-                r_out[i]["prediction"] = bool(classes[i])
+            r_out[i]["prediction"] = bool(classes[i])
 
-        r_out.append({ "antecedents": [0], "prediction": bool(classes[rulelist_size]) })
-        if rulelist != NULL:
-            free(rulelist)
-        free(classes)
+    r_out.append({ "antecedents": [0], "prediction": bool(classes[rulelist.size()]) })
 
     # Exiting early skips cleanup
     if early == 0:   
