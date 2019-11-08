@@ -25,7 +25,7 @@ class CorelsClassifier:
     c : float, optional (default=0.01)
         Regularization parameter. Higher values penalize longer rulelists.
 
-    n_iter : int, optional (default=1000)
+    n_iter : int, optional (default=10000)
         Maximum number of nodes (rulelists) to search before exiting.
 
     map_type : str, optional (default="prefix")
