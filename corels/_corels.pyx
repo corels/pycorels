@@ -315,7 +315,7 @@ def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples,
             _free_vector(minor, 1)
             minor = NULL
     """
-
+    
     cdef int rb = run_corels_begin(c, verbosity, policy, map_type, ablation, calculate_size,
                    n_rules, 2, nsamples, rules, labels_vecs, minor, 0, NULL, pmap, tree,
                    queue, init, run_verbosity)
