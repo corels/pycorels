@@ -6,7 +6,7 @@ matrix:
     language: shell
     before_install:
     - choco install python make
-    env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
+    env: PATH=/c/Python38:/c/Python38/Scripts:$PATH
     install: pip3 install pytest .
     before_script:
     - cd corels/src/corels/src && make -B NGMP=1
