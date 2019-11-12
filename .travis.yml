@@ -5,7 +5,8 @@ matrix:
     os: windows
     language: shell
     before_install:
-    - choco install python make
+    - choco install python --version 3.8
+    - choco install make
     env: PATH=/c/Python38:/c/Python38/Scripts:$PATH
     install: pip3 install pytest .
     before_script:
