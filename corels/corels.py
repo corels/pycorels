@@ -92,7 +92,7 @@ class CorelsClassifier:
     _estimator_type = "classifier"
 
     def __init__(self, c=0.01, n_iter=10000, map_type="prefix", policy="lower_bound",
-                 verbosity=["rulelist"], ablation=0, max_card=2, min_support=0.01):
+                 verbosity=["rulelist"], ablation=0, max_card=2, min_support=0.01, pre_mine=1):
         self.c = c
         self.n_iter = n_iter
         self.map_type = map_type
@@ -101,6 +101,7 @@ class CorelsClassifier:
         self.ablation = ablation
         self.max_card = max_card
         self.min_support = min_support
+        self.pre_mine = pre_mine
 
     def fit(self, X, y, features=[], prediction_name="prediction"):
         """
@@ -155,6 +156,8 @@ class CorelsClassifier:
             raise ValueError("Max cardinality must be greater than or equal to 1, got: " + str(self.max_card))
         if not isinstance(prediction_name, str):
             raise TypeError("Prediction name must be a string, got: " + str(type(prediction_name)))
+        if not isinstance(self.pre_mine, int):
+            raise TypeError("Pre_mine must be an int, got: " + str(type(self.pre_mine)))
        
         label = check_array(y, ndim=1)
         labels = np.stack([ np.invert(label), label ])
@@ -233,7 +236,7 @@ class CorelsClassifier:
         fr = fit_wrap_begin(samples.astype(np.uint8, copy=False),
                              labels.astype(np.uint8, copy=False), rl.features,
                              self.max_card, self.min_support, verbose, mine_verbose, minor_verbose,
-                             self.c, policy_id, map_id, self.ablation, False)
+                             self.c, policy_id, map_id, self.ablation, False, self.pre_mine)
         
         if fr:
             early = False

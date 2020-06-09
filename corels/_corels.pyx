@@ -44,7 +44,7 @@ cdef extern from "src/corels/src/run.hh":
 
 cdef extern from "src/utils.hh":
     int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples, 
-                int max_card, double min_support, rule_t **rules_out, int verbose)
+                int max_card, double min_support, rule_t **rules_out, int verbose, int pre_mine)
 
     int minority(rule_t* rules, int nrules, rule_t* labels, int nsamples, rule_t* minority_out, int verbose)
 
@@ -180,7 +180,7 @@ def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples,
              np.ndarray[np.uint8_t, ndim=2] labels,
              features, int max_card, double min_support, verbosity_str, int mine_verbose,
              int minor_verbose, double c, int policy, int map_type, int ablation,
-             int calculate_size):
+             int calculate_size, int pre_mine):
     global rules
     global labels_vecs
     global minor
@@ -224,7 +224,7 @@ def fit_wrap_begin(np.ndarray[np.uint8_t, ndim=2] samples,
     n_rules = 0
 
     cdef int r = mine_rules(features_vec, samples_vecs, nfeatures, nsamples,
-                max_card, min_support, &rules, mine_verbose)
+                max_card, min_support, &rules, mine_verbose, pre_mine)
 
     if features_vec != NULL:
         for i in range(nfeatures):

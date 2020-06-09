@@ -153,7 +153,7 @@ int getnextperm(int n, int r, int *arr, int first)
 }
 
 int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples, 
-                int max_card, double min_support, rule_t **rules_out, int verbose)
+                int max_card, double min_support, rule_t **rules_out, int verbose, int pre_mine)
 {
   if(!samples || !features) {
     return -1;
@@ -162,7 +162,7 @@ int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples,
   int *rule_ids = NULL, *rule_names_mine_lengths = NULL;
   rule_t *rules_vec = NULL, *rules_vec_mine = NULL;
   
-  nrules = nfeatures * 2;
+  (pre_mine) ? nrules = nfeatures * 2 : nrules = nfeatures;
   rule_alloc = nrules + 1;
   rules_vec = (rule_t*)malloc(sizeof(rule_t) * rule_alloc);
   if(!rules_vec) {
@@ -194,18 +194,23 @@ int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples,
   {
     for(int j = 0; j < nsamples; j++)
     {
+      // if feature is set, set the accoring truth table value
+      // also set the opposite if pre_mine is selected
       if(rule_isset(samples[j].truthtable, nfeatures - i - 1, nfeatures)) {
         rule_set(rules_vec[i + 1].truthtable, nsamples - j - 1, 1, nsamples);
-        rule_set(rules_vec[nrules / 2 + i + 1].truthtable, nsamples - j - 1, 0, nsamples);
+        if (pre_mine)
+            rule_set(rules_vec[nrules / 2 + i + 1].truthtable, nsamples - j - 1, 0, nsamples);
       }
       else {
         rule_set(rules_vec[i + 1].truthtable, nsamples - j - 1, 0, nsamples);
-        rule_set(rules_vec[nrules / 2 + i + 1].truthtable, nsamples - j - 1, 1, nsamples);
+        if (pre_mine)
+            rule_set(rules_vec[nrules / 2 + i + 1].truthtable, nsamples - j - 1, 1, nsamples);
       }
     }
   }
   
   // File rules_vec, the mpz_t version of the rules array
+  // if pre_mine is false we don't want to create the not rules
   for(int i = 0; i < nrules; i++) {
     int ones = count_ones_vector(rules_vec[i + 1].truthtable, nsamples);
     
@@ -223,7 +228,7 @@ int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples,
     }
     rule_copy(rules_vec_mine[nrules_mine].truthtable, rules_vec[i + 1].truthtable, nsamples);
     
-    if(i < (nrules / 2)) {
+    if(i < (nrules / 2) || !pre_mine) {
       rules_vec_mine[nrules_mine].features = strdup(features[i]);
       rules_vec_mine[nrules_mine].cardinality = i + 1;
     }
@@ -245,7 +250,7 @@ int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples,
       rules_vec[ntotal_rules + 1].cardinality = 1;
       rules_vec[ntotal_rules + 1].support = ones;
 
-      if(i < (nrules / 2))
+      if(i < (nrules / 2) || !pre_mine)
         rules_vec[ntotal_rules + 1].features = strdup(features[i]);
       else {
         rules_vec[ntotal_rules + 1].features = (char*)malloc(strlen(features[i - (nrules / 2)]) + 5);
@@ -269,82 +274,84 @@ int mine_rules(char **features, rule_t *samples, int nfeatures, int nsamples,
 
   rule_ids = (int*)malloc(sizeof(int) * max_card);
 
-  // Generate higher-cardinality rules
-  for(int card = 2; card <= max_card; card++) {
-    // getnextperm works sort of like strtok
-    int r = getnextperm(nrules_mine, card, rule_ids, 1);
+  // Generate higher-cardinality rules if pre_mine selected
+  if (pre_mine) {
+      for(int card = 2; card <= max_card; card++) {
+        // getnextperm works sort of like strtok
+        int r = getnextperm(nrules_mine, card, rule_ids, 1);
 
-    while(r != -1) {
-      int valid = 1;
-      
-      rule_copy(gen_rule.truthtable, rules_vec_mine[rule_ids[0]].truthtable, nsamples);
-      int ones = count_ones_vector(gen_rule.truthtable, nsamples);
+        while(r != -1) {
+          int valid = 1;
 
-      // Generate the new rule by successive and operations, and check if it has a valid support
-      if((double)ones / (double)nsamples >= min_support) {
-        for(int i = 1; i < card; i++) {
-          rule_vand(gen_rule.truthtable, rules_vec_mine[rule_ids[i]].truthtable, gen_rule.truthtable, nsamples, &ones);
-          if((double)ones / (double)nsamples < min_support) {
+          rule_copy(gen_rule.truthtable, rules_vec_mine[rule_ids[0]].truthtable, nsamples);
+          int ones = count_ones_vector(gen_rule.truthtable, nsamples);
+
+          // Generate the new rule by successive and operations, and check if it has a valid support
+          if((double)ones / (double)nsamples >= min_support) {
+            for(int i = 1; i < card; i++) {
+              rule_vand(gen_rule.truthtable, rules_vec_mine[rule_ids[i]].truthtable, gen_rule.truthtable, nsamples, &ones);
+              if((double)ones / (double)nsamples < min_support) {
+                valid = 0;
+                break;
+              }
+            }
+
+            if(valid && (double)ones / (double)nsamples > 1.0 - min_support)
+              valid = 0;
+          }
+          else
             valid = 0;
-            break;
+
+          if(valid) {
+            ntotal_rules++;
+
+            if(ntotal_rules + 1 > rule_alloc) {
+              rule_alloc += rule_alloc_block;
+              rules_vec = (rule_t*)realloc(rules_vec, sizeof(rule_t) * rule_alloc);
+            }
+
+            rule_vinit(nsamples, &rules_vec[ntotal_rules].truthtable);
+            rule_copy(rules_vec[ntotal_rules].truthtable, gen_rule.truthtable, nsamples);
+
+            int name_len = 0;
+            for(int i = 0; i < card; i++)
+              name_len += rule_names_mine_lengths[rule_ids[i]] + 1;
+
+            rules_vec[ntotal_rules].features = (char*)malloc(name_len);
+
+            int ch_id = 0;
+            for(int i = 0; i < card; i++) {
+              for(int j = 0; j < rule_names_mine_lengths[rule_ids[i]]; j++)
+                rules_vec[ntotal_rules].features[ch_id + j] = rules_vec_mine[rule_ids[i]].features[j];
+
+              ch_id += rule_names_mine_lengths[rule_ids[i]] + 1;
+
+              rules_vec[ntotal_rules].features[ch_id - 1] = ',';
+            }
+
+            rules_vec[ntotal_rules].features[ch_id - 1] = '\0';
+
+            rules_vec[ntotal_rules].cardinality = card;
+            rules_vec[ntotal_rules].ids = (int*)malloc(sizeof(int) * card);
+            for(int k = 0; k < card; k++)
+              rules_vec[ntotal_rules].ids[k] = rules_vec_mine[rule_ids[k]].cardinality;
+
+            rules_vec[ntotal_rules].support = ones;
+
+            if(verbose) {
+              printf("(%d) {", ntotal_rules);
+              fputs(rules_vec_mine[rule_ids[0]].features, stdout);
+              for(int i = 1; i < card; i++) {
+                putchar(',');
+                fputs(rules_vec_mine[rule_ids[i]].features, stdout);
+              }
+              printf("} generated with support %f\n", (double)ones / (double)nsamples);
+            }
           }
-        }
 
-        if(valid && (double)ones / (double)nsamples > 1.0 - min_support)
-          valid = 0;
-      }
-      else
-        valid = 0;
-
-      if(valid) {
-        ntotal_rules++;
-
-        if(ntotal_rules + 1 > rule_alloc) {
-          rule_alloc += rule_alloc_block;
-          rules_vec = (rule_t*)realloc(rules_vec, sizeof(rule_t) * rule_alloc);
-        }
-
-        rule_vinit(nsamples, &rules_vec[ntotal_rules].truthtable);
-        rule_copy(rules_vec[ntotal_rules].truthtable, gen_rule.truthtable, nsamples);
-
-        int name_len = 0;
-        for(int i = 0; i < card; i++)
-          name_len += rule_names_mine_lengths[rule_ids[i]] + 1;
-        
-        rules_vec[ntotal_rules].features = (char*)malloc(name_len);
-
-        int ch_id = 0;
-        for(int i = 0; i < card; i++) {
-          for(int j = 0; j < rule_names_mine_lengths[rule_ids[i]]; j++)
-            rules_vec[ntotal_rules].features[ch_id + j] = rules_vec_mine[rule_ids[i]].features[j];
-          
-          ch_id += rule_names_mine_lengths[rule_ids[i]] + 1;
-
-          rules_vec[ntotal_rules].features[ch_id - 1] = ',';
-        }
-
-        rules_vec[ntotal_rules].features[ch_id - 1] = '\0';
-      
-        rules_vec[ntotal_rules].cardinality = card;
-        rules_vec[ntotal_rules].ids = (int*)malloc(sizeof(int) * card);
-        for(int k = 0; k < card; k++)
-          rules_vec[ntotal_rules].ids[k] = rules_vec_mine[rule_ids[k]].cardinality;
-
-        rules_vec[ntotal_rules].support = ones;
-
-        if(verbose) {
-          printf("(%d) {", ntotal_rules);
-          fputs(rules_vec_mine[rule_ids[0]].features, stdout);
-          for(int i = 1; i < card; i++) {
-            putchar(',');
-            fputs(rules_vec_mine[rule_ids[i]].features, stdout);
-          }
-          printf("} generated with support %f\n", (double)ones / (double)nsamples);
+          r = getnextperm(nrules_mine, card, rule_ids, 0);
         }
       }
-
-      r = getnextperm(nrules_mine, card, rule_ids, 0);
-    }
   }
   
   rules_vec[0].cardinality = 1;
