@@ -10,7 +10,7 @@ import numpy as np
 cimport numpy as np
 cimport cython
 
-cdef extern from "src/corels/src/rule.hh":
+cdef extern from "src/corels/src/rule.h":
     ctypedef unsigned long* VECTOR
     cdef struct rule:
         VECTOR truthtable
@@ -29,7 +29,7 @@ cdef extern from "src/corels/src/rule.hh":
     int rule_isset(VECTOR, int)
     int count_ones_vector(VECTOR, int)
 
-cdef extern from "src/corels/src/run.hh":
+cdef extern from "src/corels/src/run.h":
     int run_corels_begin(double c, char* vstring, int curiosity_policy,
                       int map_type, int ablation, int calculate_size, int nrules, int nlabels,
                       int nsamples, rule_t* rules, rule_t* labels, rule_t* meta, int freq, char* log_fname,
@@ -48,15 +48,15 @@ cdef extern from "src/utils.hh":
 
     int minority(rule_t* rules, int nrules, rule_t* labels, int nsamples, rule_t* minority_out, int verbose)
 
-cdef extern from "src/corels/src/pmap.hh":
+cdef extern from "src/corels/src/pmap.h":
     cdef cppclass PermutationMap:
         pass
 
-cdef extern from "src/corels/src/cache.hh":
+cdef extern from "src/corels/src/cache.h":
     cdef cppclass CacheTree:
         pass
 
-cdef extern from "src/corels/src/queue.hh":
+cdef extern from "src/corels/src/queue.h":
     cdef cppclass Queue:
         pass
 
