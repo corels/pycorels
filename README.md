@@ -1,8 +1,9 @@
 # Pycorels
+
 [![Build Status](https://travis-ci.org/fingoldin/pycorels.svg?branch=master)](https://travis-ci.org/fingoldin/pycorels)
 [![Documentation Status](https://readthedocs.org/projects/pycorels/badge/?version=latest)](https://pycorels.readthedocs.io/en/latest/?badge=latest)
 
-Welcome to the python binding of the Certifiably Optimal RulE ListS (CORELS) algorithm!
+Welcome to the Python binding of the Certifiably Optimal RulE ListS (CORELS) algorithm!
 
 ## Overview
 
@@ -25,7 +26,7 @@ GMP (GNU Multiple Precision library) is not required, but it is *highly recommen
 CORELS exists on PyPI, and can be downloaded with
 `pip install corels`
 
-To install from this repo, simply run `pip install .` or `python setup.py install` from the `corels/` directory.
+To install from this repo, simply run `pip install .` from the `corels/` directory.
 
 Here are some detailed examples of how to install all the dependencies needed, followed by corels itself:
 
@@ -47,12 +48,15 @@ pip install corels
 ```
 
 #### Windows
+
 Note: Python 2 is currently NOT supported on Windows.
+
 ```
 pip install corels
 ```
 
 #### Troubleshooting
+
 - If you come across an error saying Python version >=3.5 is required, try running `pip install numpy` before again running `pip install corels`. 
 - If `pip` does not successfully install corels, try using `pip3`
 
@@ -109,7 +113,6 @@ print(C.predict(X))
 ```
 
 More examples are in the `examples/` directory
-
 
 ### Questions?
 Email the maintainer at: vassilioskaxiras@gmail.com
